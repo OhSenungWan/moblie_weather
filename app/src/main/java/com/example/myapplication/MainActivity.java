@@ -31,8 +31,9 @@ public class MainActivity extends AppCompatActivity {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-
+        setStart();
+    }
+    public void setStart(){
         location=(TextView)findViewById(R.id.location);
         temp=(TextView)findViewById(R.id.temp);
         comment=(TextView)findViewById(R.id.comment);
@@ -48,64 +49,64 @@ public class MainActivity extends AppCompatActivity {
         main_img=(ImageView)findViewById(R.id.main_img);
 
 
-            main_img.setOnClickListener(new View.OnClickListener() {
-                public void onClick(View v) {
+        main_img.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
 
-                    getWindow().getDecorView().setBackgroundColor(Color.rgb(135,140,150));
-
-
-                }
-            });
-        
-            we_element1.setOnClickListener(new View.OnClickListener() {
-                public void onClick(View v) {
-
-                            // TextView가 클릭될 시 할 코드작성
-                            we_element1.setTypeface(we_element1.getTypeface(), Typeface.BOLD);
+                getWindow().getDecorView().setBackgroundColor(Color.rgb(135,140,150));
 
 
-                            // TextView가 클릭될 시 할 코드작성
-                            we_element2.setTypeface(we_element2.getTypeface(), Typeface.ITALIC);
+            }
+        });
+
+        we_element1.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+
+                // TextView가 클릭될 시 할 코드작성
+                we_element1.setTypeface(we_element1.getTypeface(), Typeface.BOLD);
 
 
-                            // TextView가 클릭될 시 할 코드작성
-                            we_element3.setTypeface(we_element3.getTypeface(), Typeface.ITALIC);
+                // TextView가 클릭될 시 할 코드작성
+                we_element2.setTypeface(we_element2.getTypeface(), Typeface.ITALIC);
 
 
-                            // TextView가 클릭될 시 할 코드작성
-                            we_element4.setTypeface(we_element4.getTypeface(), Typeface.ITALIC);
+                // TextView가 클릭될 시 할 코드작성
+                we_element3.setTypeface(we_element3.getTypeface(), Typeface.ITALIC);
 
 
-                            // TextView가 클릭될 시 할 코드작성
-                            we_element5.setTypeface(we_element5.getTypeface(), Typeface.ITALIC);
-
-                }
-            });
-            we_element2.setOnClickListener(new View.OnClickListener() {
-                public void onClick(View v) {
+                // TextView가 클릭될 시 할 코드작성
+                we_element4.setTypeface(we_element4.getTypeface(), Typeface.ITALIC);
 
 
-                            // TextView가 클릭될 시 할 코드작성
-                            we_element1.setTypeface(we_element1.getTypeface(), Typeface.ITALIC);
+                // TextView가 클릭될 시 할 코드작성
+                we_element5.setTypeface(we_element5.getTypeface(), Typeface.ITALIC);
+
+            }
+        });
+        we_element2.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
 
 
-                            // TextView가 클릭될 시 할 코드작성
-                            we_element2.setTypeface(we_element2.getTypeface(), Typeface.BOLD);
+                // TextView가 클릭될 시 할 코드작성
+                we_element1.setTypeface(we_element1.getTypeface(), Typeface.ITALIC);
 
 
-                            // TextView가 클릭될 시 할 코드작성
-                            we_element3.setTypeface(we_element3.getTypeface(), Typeface.ITALIC);
+                // TextView가 클릭될 시 할 코드작성
+                we_element2.setTypeface(we_element2.getTypeface(), Typeface.BOLD);
 
 
-                            // TextView가 클릭될 시 할 코드작성
-                            we_element4.setTypeface(we_element4.getTypeface(), Typeface.ITALIC);
+                // TextView가 클릭될 시 할 코드작성
+                we_element3.setTypeface(we_element3.getTypeface(), Typeface.ITALIC);
 
 
-                            // TextView가 클릭될 시 할 코드작성
-                            we_element5.setTypeface(we_element5.getTypeface(), Typeface.ITALIC);
+                // TextView가 클릭될 시 할 코드작성
+                we_element4.setTypeface(we_element4.getTypeface(), Typeface.ITALIC);
 
-                }
-            });
+
+                // TextView가 클릭될 시 할 코드작성
+                we_element5.setTypeface(we_element5.getTypeface(), Typeface.ITALIC);
+
+            }
+        });
 
         we_element3.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
@@ -162,22 +163,22 @@ public class MainActivity extends AppCompatActivity {
                 we_element1.setTypeface(we_element1.getTypeface(), Typeface.ITALIC);
 
 
-                        // TextView가 클릭될 시 할 코드작성
+                // TextView가 클릭될 시 할 코드작성
                 we_element2.setTypeface(we_element2.getTypeface(), Typeface.ITALIC);
 
 
-                        // TextView가 클릭될 시 할 코드작성
+                // TextView가 클릭될 시 할 코드작성
                 we_element3.setTypeface(we_element3.getTypeface(), Typeface.ITALIC);
 
 
-                        // TextView가 클릭될 시 할 코드작성
+                // TextView가 클릭될 시 할 코드작성
                 we_element4.setTypeface(we_element4.getTypeface(), Typeface.ITALIC);
 
 
-                        // TextView가 클릭될 시 할 코드작성
+                // TextView가 클릭될 시 할 코드작성
                 we_element5.setTypeface(we_element5.getTypeface(), Typeface.BOLD);
             }
         });
-
     }
+
 }
