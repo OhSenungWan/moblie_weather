@@ -12,10 +12,19 @@ import android.os.Bundle;
 import android.text.Html;
 import android.text.SpannableString;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Element;
+import org.jsoup.select.Elements;
+
+import java.io.IOException;
+import java.util.Calendar;
 
 import static android.graphics.Color.DKGRAY;
 
@@ -25,7 +34,6 @@ public class MainActivity extends AppCompatActivity {
     TextView time_color1,time_color2,time_color3,time_color4,time_color5;
     TextView we_element1,we_element2,we_element3,we_element4,we_element5;
     ImageView main_img;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -37,8 +45,6 @@ public class MainActivity extends AppCompatActivity {
         location=(TextView)findViewById(R.id.location);
         temp=(TextView)findViewById(R.id.temp);
         comment=(TextView)findViewById(R.id.comment);
-
-
 
         we_element1=(TextView)findViewById(R.id.we_element1);
         we_element2=(TextView)findViewById(R.id.we_element2);
@@ -179,6 +185,7 @@ public class MainActivity extends AppCompatActivity {
                 we_element5.setTypeface(we_element5.getTypeface(), Typeface.BOLD);
             }
         });
+        
     }
 
 }
