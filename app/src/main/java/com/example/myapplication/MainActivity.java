@@ -38,6 +38,22 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void setStart() {
+        data wd = new data();
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                setdata cd = new setdata();
+                cd.setdata();
+                wd.savedata = cd.setdata();
+                MainActivity.this.runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+
+                    }
+                });
+
+            }
+        }).start();
     }
 }
 
