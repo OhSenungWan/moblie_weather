@@ -17,6 +17,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import static android.graphics.Color.DKGRAY;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
@@ -24,7 +25,6 @@ import org.jsoup.select.Elements;
 import java.io.IOException;
 import java.util.Calendar;
 import static android.graphics.Color.DKGRAY;
-
 
 public class MainActivity extends AppCompatActivity {
 
@@ -38,9 +38,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void setStart() {
-
-
-
     }
 }
 
