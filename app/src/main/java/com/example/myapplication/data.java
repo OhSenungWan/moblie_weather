@@ -1,7 +1,7 @@
 package com.example.myapplication;
 
 public class data {
-    String[][][] savedata = new String[3][8][14];   // 1¹øÂ°´Â ³¯Â¥ ¿À´Ã ´ÙÀ½ ³¯ ´Ù´ÙÀ½ ³¯ 2¹øÂ°´Â ½Ã°£º° 0 3 6 .... 3¹øÂ°´Â category
+    String[][][] savedata = new String[3][8][14];
     public void start()
     {
         for(int i = 0; i<3; i++)
@@ -101,46 +101,46 @@ public class data {
     }
     public void Wdata(String category, String fcstValue, int i, int j){
         switch (category) {
-            case "POP": //°­¼öÈ®·ü
+            case "POP": //ï¿½ï¿½ï¿½ï¿½È®ï¿½ï¿½
                 savedata[i][j][0] = fcstValue;
                 break;
-            case "PTY": //°­¼öÇüÅÂ 1¾øÀ½ 1ºñ 2ºñ/´« 3´« 4¼Ò³ª±â 5ºø¹æ¿ï 6ºø¹æ¿ï/´«³¯¸² 7´«³¯¸²
+            case "PTY": //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 1ï¿½ï¿½ï¿½ï¿½ 1ï¿½ï¿½ 2ï¿½ï¿½/ï¿½ï¿½ 3ï¿½ï¿½ 4ï¿½Ò³ï¿½ï¿½ï¿½ 5ï¿½ï¿½ï¿½ï¿½ï¿½ 6ï¿½ï¿½ï¿½ï¿½ï¿½/ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 7ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
                 savedata[i][j][1] = fcstValue;
                 break;
-            case "R06": //6½Ã°£ °­¼ö·®
+            case "R06": //6ï¿½Ã°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
                 savedata[i][j][2] = fcstValue;
                 break;
-            case "REH": //½Àµµ
+            case "REH": //ï¿½ï¿½ï¿½ï¿½
                 savedata[i][j][3] = fcstValue;
                 break;
-            case "S06": //6½Ã°£ ½ÅÀû¼³
+            case "S06": //6ï¿½Ã°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
                 savedata[i][j][4] = fcstValue;
                 break;
-            case "SKY": //ÇÏ´Ã»óÅÂ 1¸¼À½ 3±¸¸§¸¹À½ 4Èå¸²
+            case "SKY": //ï¿½Ï´Ã»ï¿½ï¿½ï¿½ 1ï¿½ï¿½ï¿½ï¿½ 3ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 4ï¿½å¸²
                 savedata[i][j][5] = fcstValue;
                 break;
-            case "T3H": //3½Ã°£ ±â¿Â
+            case "T3H": //3ï¿½Ã°ï¿½ ï¿½ï¿½ï¿½
                 savedata[i][j][6] = fcstValue;
                 break;
-            case "TMN": //¾ÆÄ§ ÃÖÀú±â¿Â
+            case "TMN": //ï¿½ï¿½Ä§ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
                 savedata[i][j][7] = fcstValue;
                 break;
-            case "TMX": //³· ÃÖ°í±â¿Â
+            case "TMX": //ï¿½ï¿½ ï¿½Ö°ï¿½ï¿½ï¿½
                 savedata[i][j][8] = fcstValue;
                 break;
-            case "UUU": //Ç³¼Ó(µ¿¼­¼ººÐ) µ¿(+) ¼­(-)
+            case "UUU": //Ç³ï¿½ï¿½(ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½) ï¿½ï¿½(+) ï¿½ï¿½(-)
                 savedata[i][j][9] = fcstValue;
                 break;
-            case "VVV": //Ç³¼Ó(³²ºÏ¼ººÐ) ºÏ(+) ³²(-)
+            case "VVV": //Ç³ï¿½ï¿½(ï¿½ï¿½ï¿½Ï¼ï¿½ï¿½ï¿½) ï¿½ï¿½(+) ï¿½ï¿½(-)
                 savedata[i][j][10] = fcstValue;
                 break;
-            case "WAV": //ÆÄ°í
+            case "WAV": //ï¿½Ä°ï¿½
                 savedata[i][j][11] = fcstValue;
                 break;
-            case "VEC": //Ç³Çâ
+            case "VEC": //Ç³ï¿½ï¿½
                 savedata[i][j][12] = fcstValue;
                 break;
-            case "WSD": //Ç³¼Ó
+            case "WSD": //Ç³ï¿½ï¿½
                 savedata[i][j][13] = fcstValue;
                 break;
         }
