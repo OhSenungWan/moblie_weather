@@ -12,11 +12,13 @@ import android.os.Bundle;
 import android.text.Html;
 import android.text.SpannableString;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+<<<<<<< HEAD
 import static android.graphics.Color.DKGRAY;
 
 public class MainActivity extends AppCompatActivity {
@@ -27,8 +29,17 @@ public class MainActivity extends AppCompatActivity {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+=======
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Element;
+import org.jsoup.select.Elements;
+>>>>>>> 87929b25dd42915b8332a1077747d239d928fd32
 
+import java.io.IOException;
+import java.util.Calendar;
 
+<<<<<<< HEAD
 
         setStart();
     }
@@ -39,3 +50,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
 }
+=======
+import static android.graphics.Color.DKGRAY;
+
+>>>>>>> 87929b25dd42915b8332a1077747d239d928fd32
