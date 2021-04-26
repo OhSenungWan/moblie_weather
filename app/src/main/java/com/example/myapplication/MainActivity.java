@@ -6,7 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
 
-
+    String DOW;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -23,6 +23,8 @@ public class MainActivity extends AppCompatActivity {
                 setdata cd = new setdata();
                 cd.setdata();
                 wd.savedata = cd.setdata();
+                DOW = cd.DOW;
+                System.out.println(DOW);
                 MainActivity.this.runOnUiThread(new Runnable() {
                     @Override
                     public void run() {

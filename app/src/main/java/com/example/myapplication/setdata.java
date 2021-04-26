@@ -10,7 +10,9 @@ import java.util.Calendar;
 
 public class setdata {
     int AMPM;
+    int day_of_week;
     data wd = new data();
+    String DOW= "null";
     public String[][][] setdata() {
 
         String[] category = new String[225];
@@ -25,6 +27,7 @@ public class setdata {
             int date = cal.get(cal.DATE);
             int hour = cal.get(cal.HOUR);
             int minute = cal.get(cal.MINUTE);
+            day_of_week = cal.get(Calendar.DAY_OF_WEEK);
             AMPM = cal.get(Calendar.AM_PM);
             Calendar yesterday = Calendar.getInstance();
             yesterday.add(Calendar.DATE, -1);
@@ -34,7 +37,6 @@ public class setdata {
             Dday = Integer.toString(bdate);
             Pday = Integer.toString(bdate + 1);
             PPday = Integer.toString(bdate + 2);
-            System.out.println(Dday);
 
             String apiUrl = "http://apis.data.go.kr/1360000/VilageFcstInfoService/getVilageFcst";
             // 홈페이지에서 받은 키
@@ -52,7 +54,6 @@ public class setdata {
                     + "&" + "base_time=" + base_time + "&" + "nx=" + nx
                     + "&" + "ny=" + ny;
             int NOR = Integer.parseInt(numOfRows);
-            System.out.println(url);
             wd.start();
             Document document = Jsoup.connect(url).get();
             Elements links = document.select("body items item fcstDate");
@@ -77,9 +78,15 @@ public class setdata {
             for (i = 0; i < NOR; i++) {
                 wd.data(fcstDate[i], fcstTime[i], category[i], fcstValue[i], Dday, Pday, PPday);
             }
+            DOW = setdata(day_of_week);
         } catch (IOException e) {
             e.printStackTrace();
         }
         return wd.savedata;
+    }
+    public String setdata(int day_of_week){
+        String DOW = "null";
+        DOW = wd.data(day_of_week);
+        return DOW;
     }
 }
