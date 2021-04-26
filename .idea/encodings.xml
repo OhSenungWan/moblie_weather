@@ -4,6 +4,10 @@
     <file url="file://$PROJECT_DIR$/app/libs/jsoup-1.13.1.jar" charset="x-windows-949" />
     <file url="file://$PROJECT_DIR$/app/src/main/java/com/example/myapplication/Local_information.java" charset="x-windows-949" />
     <file url="file://$PROJECT_DIR$/app/src/main/java/com/example/myapplication/data.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/com/example/myapplication/db/AppDatabase.java" charset="x-windows-949" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/com/example/myapplication/db/NationalWeatherInterface.java" charset="x-windows-949" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/com/example/myapplication/db/NationalWeatherTable.java" charset="x-windows-949" />
+    <file url="file://$PROJECT_DIR$/app/src/main/res/layout/acitivity_listview.xml" charset="x-windows-949" />
     <file url="file://$PROJECT_DIR$/app/src/main/res/layout/activity_local_info.xml" charset="x-windows-949" />
     <file url="file://$PROJECT_DIR$/app/src/main/res/xml/network_config.xml" charset="x-windows-949" />
   </component>
