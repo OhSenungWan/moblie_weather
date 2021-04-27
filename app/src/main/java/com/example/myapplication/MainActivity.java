@@ -8,6 +8,8 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.myapplication.db.DBInit;
+import com.example.myapplication.setdata.data;
+import com.example.myapplication.setdata.setdata;
 
 public class MainActivity extends AppCompatActivity {
 

@@ -1,7 +1,7 @@
-package com.example.myapplication;
+package com.example.myapplication.setdata;
 
 public class data {
-    String[][][] savedata = new String[3][8][14];
+    public String[][][] savedata = new String[3][8][14];
     public void start()
     {
         for(int i = 0; i<3; i++)

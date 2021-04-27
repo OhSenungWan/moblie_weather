@@ -1,4 +1,4 @@
-package com.example.myapplication;
+package com.example.myapplication.setdata;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
@@ -12,7 +12,7 @@ public class setdata {
     int AMPM;
     int day_of_week;
     data wd = new data();
-    String DOW= "null";
+    public String DOW= "null";
     public String[][][] setdata() {
 
         String[] category = new String[225];
