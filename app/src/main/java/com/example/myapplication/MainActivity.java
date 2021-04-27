@@ -53,10 +53,11 @@ public class MainActivity extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == 1) {
             if(resultCode == RESULT_OK){
-                /* city = 도시이름
-                String cityName = data.getStringExtra("city");
-                int X = data.getIntExtra("x", 0);
-                int Y = data.getIntExtra("x", 0);*/
+                /* temp = data.getStringExtra("cityName")+ " ";
+                temp += Integer.toString(data.getIntExtra("x", 0)) + " ";
+                temp += Integer.toString(data.getIntExtra("y", 0)) + "\n";
+                temp += data.getStringExtra("code1")+ " ";
+                temp += data.getStringExtra("code2");*/
             }
         }
     }

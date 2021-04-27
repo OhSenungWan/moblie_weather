@@ -10,6 +10,7 @@ import android.widget.ListView;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+
 import com.example.myapplication.R;
 
 import java.util.ArrayList;
@@ -24,7 +25,13 @@ public class ShowListView extends AppCompatActivity {
 
     private List<String> city;
     private int order = 1;
-    private String cityName = "";
+
+    /** 0 : city1 (ex 서울특별시)
+     *  1 : city2 (ex 종로구)
+     *  2 : city3 (ex 청운효자동)
+     *  3 : 중기 기온 예보 코드
+     *  4 : 중기 육상 예보 코드 **/
+    private String data[] = new String[5];
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -38,7 +45,6 @@ public class ShowListView extends AppCompatActivity {
         //처음 city 보여주기
         city = getFirstCity();
 
-
         //리스트뷰 보이기
         listViewUpdate();
 
@@ -46,23 +52,14 @@ public class ShowListView extends AppCompatActivity {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                data[order - 1] = city.get(position);
                 if (order == 3) {
                     // 세번째 도시까지 클릭시 intent를 통해 값 이동
-                    cityName += city.get(position);
-                    int X = db.nationalWeatherInterface().getX(city.get(position));
-                    int Y = db.nationalWeatherInterface().getY(city.get(position));
 
-                    Intent intent = new Intent();
-                    intent.putExtra("cityName", cityName);
-                    intent.putExtra("x", X);
-                    intent.putExtra("y", Y);
-
-                    setResult(RESULT_OK, intent);
+                    putExtra();
                     finish();
                     return;
                 }
-
-                cityName += city.get(position) + " ";
 
                 city = getOtherCity(order++, city.get(position));
 
@@ -70,6 +67,38 @@ public class ShowListView extends AppCompatActivity {
             }
         });
 
+    }
+
+    private void putExtra() {
+        Intent intent = new Intent();
+        String tempCity = "";
+
+        int X = db.nationalWeatherInterface().getX(data[2]);
+        int Y = db.nationalWeatherInterface().getY(data[2]);
+
+        intent.putExtra("cityName", data[0]+ " "+ data[1]+ " "+ data[2]);
+        intent.putExtra("x", X);
+        intent.putExtra("y", Y);
+
+        //중기 기온, 예보 코드
+
+        if(!data[0].contains("도")){
+            tempCity= data[0].substring(0, 2);
+        }else{
+            tempCity= data[1].substring(0, 2);
+        }
+
+        data[3] = db.midWeatherInterface().getCode1(tempCity + "%");
+        data[4] = db.midWeatherInterface().getCode2(tempCity + "%");
+        if(data[0].equals("광주광역시")){
+            data[3] = "11F20501";
+            data[4] = "11F20000";
+        }
+
+        intent.putExtra("code1", data[3]);
+        intent.putExtra("code2", data[4]);
+
+        setResult(RESULT_OK, intent);
     }
 
     public List<String> getFirstCity() {

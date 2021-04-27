@@ -31,6 +31,7 @@ public class DBInit extends AppCompatActivity {
         assetManager = getResources().getAssets();
         db = AppDatabase.getDbInstance(this.getApplicationContext());
         db.nationalWeatherInterface().deleteAll();
+        db.midWeatherInterface().deleteAll();
 
         String line = "";
 
@@ -43,6 +44,16 @@ public class DBInit extends AppCompatActivity {
                 db.nationalWeatherInterface().insert(new NationalWeatherTable(
                         Long.parseLong(stSplit[0]), stSplit[1], stSplit[2], stSplit[3], Integer.parseInt(stSplit[4]), Integer.parseInt(stSplit[5])));
             }
+
+            inputStream = assetManager.open("MidWeatherDB.txt");
+            reader = new BufferedReader(new InputStreamReader(inputStream));
+
+            while ((line = reader.readLine()) != null) {
+                String[] stSplit = line.split("\t");
+                db.midWeatherInterface().insert(new MidWeatherTable(stSplit[0], stSplit[1], stSplit[2], stSplit[3]));
+            }
+
+
 
         } catch (IOException e) {
             e.printStackTrace();
