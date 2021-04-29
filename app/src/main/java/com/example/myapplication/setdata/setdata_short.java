@@ -8,10 +8,10 @@ import org.jsoup.select.Elements;
 import java.io.IOException;
 import java.util.Calendar;
 
-public class setdata {
+public class setdata_short {
     int AMPM;
     int day_of_week;
-    data wd = new data();
+    data_short wd = new data_short();
     public String DOW= "null";
     public String[][][] setdata() {
 

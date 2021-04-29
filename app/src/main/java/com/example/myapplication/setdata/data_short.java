@@ -1,6 +1,6 @@
 package com.example.myapplication.setdata;
 
-public class data {
+public class data_short {
     public String[][][] savedata = new String[3][8][14];
     public void start()
     {

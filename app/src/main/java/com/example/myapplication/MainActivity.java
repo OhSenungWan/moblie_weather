@@ -8,8 +8,8 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.myapplication.db.DBInit;
-import com.example.myapplication.setdata.data;
-import com.example.myapplication.setdata.setdata;
+import com.example.myapplication.setdata.data_short;
+import com.example.myapplication.setdata.setdata_short;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -27,11 +27,11 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void setStart() {
-        data wd = new data();
+        data_short wd = new data_short();
         new Thread(new Runnable() {
             @Override
             public void run() {
-                setdata cd = new setdata();
+                setdata_short cd = new setdata_short();
                 cd.setdata();
                 wd.savedata = cd.setdata();
                 DOW = cd.DOW;
