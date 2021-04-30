@@ -55,6 +55,7 @@ public class setdata_short {
                     + "&" + "ny=" + ny;
             int NOR = Integer.parseInt(numOfRows);
             wd.start();
+            System.out.println(url);
             Document document = Jsoup.connect(url).get();
             Elements links = document.select("body items item fcstDate");
             for (Element element : links) {

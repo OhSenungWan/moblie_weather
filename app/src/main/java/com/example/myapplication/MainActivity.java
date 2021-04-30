@@ -10,6 +10,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.myapplication.db.DBInit;
 import com.example.myapplication.setdata.data_short;
 import com.example.myapplication.setdata.setdata_short;
+import com.example.myapplication.setdata.setdata_air;
+import com.example.myapplication.setdata.setdata_long_Temp;
+import com.example.myapplication.setdata.setdata_long_weather;
+
 
 public class MainActivity extends AppCompatActivity {
 
@@ -32,14 +36,15 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void run() {
                 setdata_short cd = new setdata_short();
-                cd.setdata();
                 wd.savedata = cd.setdata();
                 DOW = cd.DOW;
                 System.out.println(DOW);
+                new setdata_air().setdata_air();
+                new setdata_long_Temp().setdata_longtemp();
+                new setdata_long_weather().setdata_longweather();
                 MainActivity.this.runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
-
                     }
                 });
 
