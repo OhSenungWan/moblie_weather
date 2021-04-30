@@ -33,7 +33,6 @@ public class setdata_long_weather {
                     + "&" + "pageNo=" + pageNo + "&" + "numOfRows=" + numOfRows
                     + "&" + "dataType=" + dataType + "&" + "regId=" + regId
                     + "&" + "tmFc=" + tmFc;
-            System.out.println(url);
             Document document = Jsoup.connect(url).get();
             Elements links = document.select("body items item rnSt3Am");
             for (Element element : links) {

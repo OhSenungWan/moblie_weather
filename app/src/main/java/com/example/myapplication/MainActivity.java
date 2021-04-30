@@ -23,6 +23,13 @@ public class MainActivity extends AppCompatActivity {
     String Long_Temp[][] = new String[8][2];
     String Long_Weather[][] = new String[8][4];
     String Data_Air[][] = new String[17][3];
+    String city_data;
+    String[] city;
+    String x_point;
+    String y_point;
+    String point_temp;
+    String point_weather;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,7 +37,6 @@ public class MainActivity extends AppCompatActivity {
         prefs = getSharedPreferences("Pref", MODE_PRIVATE);
 
         checkFirstRun();
-
         setStart();
     }
 
@@ -43,7 +49,6 @@ public class MainActivity extends AppCompatActivity {
                 setdata_air sa = new setdata_air();
                 setdata_long_Temp slt = new setdata_long_Temp();
                 setdata_long_weather slw = new setdata_long_weather();
-                System.out.println(DOW);
                 Short_Data = cd.setdata();
                 Data_Air = sa.setdata_air();
                 Long_Temp = slt.setdata_longtemp();
@@ -57,21 +62,45 @@ public class MainActivity extends AppCompatActivity {
             }
         }).start();
     }
-
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         String temp= "";
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == 1) {
             if(resultCode == RESULT_OK){
-                /* temp = data.getStringExtra("cityName")+ " ";
-                temp += Integer.toString(data.getIntExtra("x", 0)) + " ";
-                temp += Integer.toString(data.getIntExtra("y", 0)) + "\n";
-                temp += data.getStringExtra("code1")+ " ";
-                temp += data.getStringExtra("code2");*/
+                city_data = data.getStringExtra("cityName");
+                city = city_data.split(" ");
+                /*
+                if(city[0].equals())
+                ("서울특별시");        0
+                ("부산광역시");        1
+                ("대구광역시");        2
+                ("인천광역시");        3
+                ("광주광역시");        4
+                ("대전광역시");        5
+                ("울산광역시");        6
+                ("경기도");            7
+                ("강원도");            8
+                ("충청북도");          9
+                ("충청남도");          10
+                ("전라북도");          11
+                ("전라남도");          12
+                ("경상북도");          13
+                ("경상남도");          14
+                ("제주특별자치도");    15
+                ("세종특별자치시");    16
+
+                 */
+
+                x_point = Integer.toString(data.getIntExtra("x", 0));
+                y_point = Integer.toString(data.getIntExtra("y", 0));
+                point_temp = data.getStringExtra("code1");
+                point_weather = data.getStringExtra("code2");
+
             }
         }
     }
+
 
     /** 첫 실행시 DB 설계 **/
     public void checkFirstRun() {

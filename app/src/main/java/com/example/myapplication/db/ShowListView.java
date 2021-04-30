@@ -11,6 +11,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 
+import com.example.myapplication.MainActivity;
 import com.example.myapplication.R;
 
 import java.util.ArrayList;
@@ -70,7 +71,7 @@ public class ShowListView extends AppCompatActivity {
     }
 
     private void putExtra() {
-        Intent intent = new Intent();
+        Intent intent = new Intent(this, MainActivity.class);
         String tempCity = "";
 
         int X = db.nationalWeatherInterface().getX(data[2]);
