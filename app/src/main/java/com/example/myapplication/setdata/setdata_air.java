@@ -7,7 +7,7 @@ import java.io.IOException;
 
 public class setdata_air {
     String reg[][] = new String[17][3];
-    public void setdata_air(){
+    public String[][] setdata_air(){
         try {
             String url = this.Link_URL("PM10");                 //미세먼지
             Document document = Jsoup.connect(url).get();
@@ -17,11 +17,11 @@ public class setdata_air {
             setdata(document, 1);
             url = this.Link_URL("O3");
             document = Jsoup.connect(url).get();
-            setdata(document, 1);
+            setdata(document, 2);
         }catch (IOException e) {
             e.printStackTrace();
         }
-
+        return reg;
     }
     public String Link_URL(String itemCode){
         String apiUrl = "http://apis.data.go.kr/B552584/ArpltnStatsSvc/getCtprvnMesureLIst";

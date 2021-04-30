@@ -19,6 +19,10 @@ public class MainActivity extends AppCompatActivity {
 
     public SharedPreferences prefs;
     String DOW;
+    String Short_Data[][][] = new String[3][8][14];
+    String Long_Temp[][] = new String[8][2];
+    String Long_Weather[][] = new String[8][4];
+    String Data_Air[][] = new String[17][3];
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,17 +35,21 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void setStart() {
-        data_short wd = new data_short();
         new Thread(new Runnable() {
             @Override
             public void run() {
                 setdata_short cd = new setdata_short();
-                wd.savedata = cd.setdata();
                 DOW = cd.DOW;
+                setdata_air sa = new setdata_air();
+                setdata_long_Temp slt = new setdata_long_Temp();
+                setdata_long_weather slw = new setdata_long_weather();
                 System.out.println(DOW);
-                new setdata_air().setdata_air();
-                new setdata_long_Temp().setdata_longtemp();
-                new setdata_long_weather().setdata_longweather();
+                Short_Data = cd.setdata();
+                Data_Air = sa.setdata_air();
+                Long_Temp = slt.setdata_longtemp();
+                Long_Weather = slw.setdata_longweather();
+
+
                 MainActivity.this.runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
