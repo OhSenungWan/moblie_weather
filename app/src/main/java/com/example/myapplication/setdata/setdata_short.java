@@ -1,4 +1,4 @@
-package com.example.myapplication;
+package com.example.myapplication.setdata;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
@@ -8,9 +8,11 @@ import org.jsoup.select.Elements;
 import java.io.IOException;
 import java.util.Calendar;
 
-public class setdata {
+public class setdata_short {
     int AMPM;
-    data wd = new data();
+    int day_of_week;
+    data_short wd = new data_short();
+    public String DOW= "null";
     public String[][][] setdata() {
 
         String[] category = new String[225];
@@ -25,16 +27,21 @@ public class setdata {
             int date = cal.get(cal.DATE);
             int hour = cal.get(cal.HOUR);
             int minute = cal.get(cal.MINUTE);
+            day_of_week = cal.get(Calendar.DAY_OF_WEEK);
             AMPM = cal.get(Calendar.AM_PM);
             Calendar yesterday = Calendar.getInstance();
+            Calendar pday = Calendar.getInstance();
+            Calendar ppday = Calendar.getInstance();
+            pday.add(pday.DATE,+1);
+            ppday.add(ppday.DATE,+2);
             yesterday.add(Calendar.DATE, -1);
             int bdate = (year * 10000) + (month * 100) + date;
+            int pdate = (pday.get(cal.YEAR)*10000)+((pday.get(cal.MONTH)+1)*100)+(pday.get(cal.DATE));
+            int ppdate = (ppday.get(cal.YEAR)*10000)+((ppday.get(cal.MONTH)+1)*100)+(ppday.get(cal.DATE));
             String Dday, Pday, PPday;
-
             Dday = Integer.toString(bdate);
-            Pday = Integer.toString(bdate + 1);
-            PPday = Integer.toString(bdate + 2);
-            System.out.println(Dday);
+            Pday = Integer.toString(pdate);
+            PPday = Integer.toString(ppdate);
 
             String apiUrl = "http://apis.data.go.kr/1360000/VilageFcstInfoService/getVilageFcst";
             // 홈페이지에서 받은 키
@@ -52,8 +59,8 @@ public class setdata {
                     + "&" + "base_time=" + base_time + "&" + "nx=" + nx
                     + "&" + "ny=" + ny;
             int NOR = Integer.parseInt(numOfRows);
-            System.out.println(url);
             wd.start();
+            System.out.println(url);
             Document document = Jsoup.connect(url).get();
             Elements links = document.select("body items item fcstDate");
             for (Element element : links) {
@@ -77,9 +84,15 @@ public class setdata {
             for (i = 0; i < NOR; i++) {
                 wd.data(fcstDate[i], fcstTime[i], category[i], fcstValue[i], Dday, Pday, PPday);
             }
+            DOW = setdata(day_of_week);
         } catch (IOException e) {
             e.printStackTrace();
         }
         return wd.savedata;
+    }
+    public String setdata(int day_of_week){
+        String DOW = "null";
+        DOW = wd.data(day_of_week);
+        return DOW;
     }
 }
