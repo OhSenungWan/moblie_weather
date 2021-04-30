@@ -48,8 +48,6 @@ public class MainActivity extends AppCompatActivity {
                 Data_Air = sa.setdata_air();
                 Long_Temp = slt.setdata_longtemp();
                 Long_Weather = slw.setdata_longweather();
-
-
                 MainActivity.this.runOnUiThread(new Runnable() {
                     @Override
                     public void run() {

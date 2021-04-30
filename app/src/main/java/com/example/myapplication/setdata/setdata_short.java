@@ -30,13 +30,18 @@ public class setdata_short {
             day_of_week = cal.get(Calendar.DAY_OF_WEEK);
             AMPM = cal.get(Calendar.AM_PM);
             Calendar yesterday = Calendar.getInstance();
+            Calendar pday = Calendar.getInstance();
+            Calendar ppday = Calendar.getInstance();
+            pday.add(pday.DATE,+1);
+            ppday.add(ppday.DATE,+2);
             yesterday.add(Calendar.DATE, -1);
             int bdate = (year * 10000) + (month * 100) + date;
+            int pdate = (pday.get(cal.YEAR)*10000)+((pday.get(cal.MONTH)+1)*100)+(pday.get(cal.DATE));
+            int ppdate = (ppday.get(cal.YEAR)*10000)+((ppday.get(cal.MONTH)+1)*100)+(ppday.get(cal.DATE));
             String Dday, Pday, PPday;
-
             Dday = Integer.toString(bdate);
-            Pday = Integer.toString(bdate + 1);
-            PPday = Integer.toString(bdate + 2);
+            Pday = Integer.toString(pdate);
+            PPday = Integer.toString(ppdate);
 
             String apiUrl = "http://apis.data.go.kr/1360000/VilageFcstInfoService/getVilageFcst";
             // 홈페이지에서 받은 키
