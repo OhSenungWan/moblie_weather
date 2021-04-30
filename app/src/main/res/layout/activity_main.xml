@@ -4,7 +4,7 @@
     android:id="@+id/back"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/bg2"
+    android:background="@drawable/bg3"
     android:orientation="vertical">
 
     <LinearLayout
@@ -46,7 +46,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginTop="150dp"
-            android:layout_marginBottom="10dp"
+
             android:layout_weight="1"
             android:gravity="center"
             android:orientation="vertical">
@@ -92,10 +92,10 @@
                         android:textSize="18dp" />
                 </LinearLayout>
 
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"></LinearLayout>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
                 <TextView
                     android:id="@+id/temp"
                     android:layout_width="wrap_content"
@@ -106,30 +106,30 @@
                     android:text="19℃"
                     android:textColor="#FFFFFF"
                     android:textSize="60dp" />
+
+
+            </LinearLayout>
                 <TextView
-                    android:id="@+id/dust"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:paddingRight="5dp"
-                    android:text="미세먼지 좋음"
+                    android:text="WendsDay"
                     android:textColor="#FFFFFF"
-                    android:textSize="17dp" />
-
+                    android:textSize="18dp" />
             </LinearLayout>
 
         </LinearLayout>
 
         <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:orientation="vertical"/>
 
         <LinearLayout
-            android:layout_width="350dp"
+            android:layout_width="match_parent"
             android:layout_height="50dp"
             android:background="@drawable/roundconer"
             android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
             android:layout_marginTop="75dp"
             android:orientation="horizontal">
 
@@ -145,21 +145,21 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:gravity="center"
-                    android:text="09 시"
+                    android:text="강수확률"
                     android:textColor="#FFFFFF"
                     android:textSize="10dp" />
 
                 <ImageView
                     android:layout_width="40dp"
-                    android:layout_height="20dp"
-                    android:src="@drawable/snow" />
+                    android:layout_height="18dp"
+                    android:src="@drawable/ros_mainunder" />
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:gravity="center"
-                    android:text="19℃"
+                    android:text="10%"
                     android:textColor="#FFFFFF"
                     android:textSize="10dp" />
             </LinearLayout>
@@ -176,21 +176,21 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:gravity="center"
-                    android:text="12 시"
+                    android:text="풍속"
                     android:textColor="#FFFFFF"
                     android:textSize="10dp" />
 
                 <ImageView
                     android:layout_width="40dp"
-                    android:layout_height="20dp"
-                    android:src="@drawable/cloud1" />
+                    android:layout_height="18dp"
+                    android:src="@drawable/windspeed_mainunder" />
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:gravity="center"
-                    android:text="19℃"
+                    android:text="25m/s"
                     android:textColor="#FFFFFF"
                     android:textSize="10dp" />
             </LinearLayout>
@@ -207,21 +207,21 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:gravity="center"
-                    android:text="15 시"
+                    android:text="풍향"
                     android:textColor="#FFFFFF"
                     android:textSize="10dp" />
 
                 <ImageView
                     android:layout_width="40dp"
-                    android:layout_height="20dp"
-                    android:src="@drawable/rain" />
+                    android:layout_height="18dp"
+                    android:src="@drawable/windderection_mainunder" />
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:gravity="center"
-                    android:text="19℃"
+                    android:text="남동"
                     android:textColor="#FFFFFF"
                     android:textSize="10dp" />
             </LinearLayout>
@@ -238,21 +238,25 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:gravity="center"
-                    android:text="18 시"
+                    android:text="미세먼지"
                     android:textColor="#FFFFFF"
                     android:textSize="10dp" />
-
-                <ImageView
-                    android:layout_width="40dp"
-                    android:layout_height="20dp"
-                    android:src="@drawable/sun" />
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:gravity="center"
-                    android:text="19℃"
+                    android:text="보통"
+                    android:textColor="#FFFFFF"
+                    android:textSize="10dp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="25ug/㎣"
                     android:textColor="#FFFFFF"
                     android:textSize="10dp" />
             </LinearLayout>
@@ -269,27 +273,28 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:gravity="center"
-                    android:text="21 시"
+                    android:text="초미세먼지"
                     android:textColor="#FFFFFF"
                     android:textSize="10dp" />
-
-                <ImageView
-                    android:layout_width="40dp"
-                    android:layout_height="20dp"
-                    android:src="@drawable/cloud2" />
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:gravity="center"
-                    android:text="19℃"
+                    android:text="좋음"
+                    android:textColor="#FFFFFF"
+                    android:textSize="10dp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="10ug/㎣"
                     android:textColor="#FFFFFF"
                     android:textSize="10dp" />
             </LinearLayout>
-
-
-
         </LinearLayout>
         <LinearLayout
             android:layout_width="wrap_content"
