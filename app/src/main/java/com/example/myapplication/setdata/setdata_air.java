@@ -35,7 +35,6 @@ public class setdata_air {
                 + "&" + "numOfRows=" + numOfRows + "&" + "pageNo=" + pageNo
                 + "&" + "itemCode=" + itemCode + "&" + "dataGubun=" + dataGubun
                 + "&" + "searchCondition=" + searchCondition;
-        System.out.println(url);
         return url;
     }
     public String[][] setdata(Document document, int i){
