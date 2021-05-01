@@ -13,7 +13,7 @@ public class setdata_short {
     int day_of_week;
     data_short wd = new data_short();
     public String DOW= "null";
-    public String[][][] setdata() {
+    public String[][][] setdata(String x, String y) {
 
         String[] category = new String[225];
         String[] fcstDate = new String[225];
@@ -51,8 +51,8 @@ public class setdata_short {
             String dataType = "xml";    //타입 xml, json 등등 .
             String base_date = Dday;    //조회하고싶은 날짜 이 예제는 어제 날짜 입력해 주면 됨// .
             String base_time = "0500";    //API 제공 시간을 입력하면 됨
-            String nx = "60";    //위도
-            String ny = "127";    //경도
+            String nx = x;    //위도
+            String ny = y;    //경도
             String url = apiUrl + "?" + "servicekey=" + serviceKey
                     + "&" + "pageNo=" + pageNo + "&" + "numOfRows=" + numOfRows
                     + "&" + "dataType=" + dataType + "&" + "base_date=" + base_date

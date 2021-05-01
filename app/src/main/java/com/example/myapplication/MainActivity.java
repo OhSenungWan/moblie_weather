@@ -3,11 +3,14 @@ package com.example.myapplication;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.ImageButton;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.myapplication.db.DBInit;
+import com.example.myapplication.db.ShowListView;
 import com.example.myapplication.setdata.data_short;
 import com.example.myapplication.setdata.setdata_short;
 import com.example.myapplication.setdata.setdata_air;
@@ -23,19 +26,26 @@ public class MainActivity extends AppCompatActivity {
     String Long_Temp[][] = new String[8][2];
     String Long_Weather[][] = new String[8][4];
     String Data_Air[][] = new String[17][3];
+    String[] set_air = new String[3];
     String city_data;
     String[] city;
-    String x_point;
-    String y_point;
-    String point_temp;
-    String point_weather;
+    String x_point = "60";
+    String y_point = "120";
+    String point_temp = "11B10101";
+    String point_weather = "11B00000";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         prefs = getSharedPreferences("Pref", MODE_PRIVATE);
-
+        ImageButton Location_img = (ImageButton)findViewById(R.id.location_img);
+        Location_img.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View v){
+                Intent intent = new Intent(getApplicationContext(), ShowListView.class);
+                startActivityForResult(intent,1);
+            }
+        });
         checkFirstRun();
         setStart();
     }
@@ -49,10 +59,10 @@ public class MainActivity extends AppCompatActivity {
                 setdata_air sa = new setdata_air();
                 setdata_long_Temp slt = new setdata_long_Temp();
                 setdata_long_weather slw = new setdata_long_weather();
-                Short_Data = cd.setdata();
+                Short_Data = cd.setdata(x_point,y_point);
                 Data_Air = sa.setdata_air();
-                Long_Temp = slt.setdata_longtemp();
-                Long_Weather = slw.setdata_longweather();
+                Long_Temp = slt.setdata_longtemp(point_temp);
+                Long_Weather = slw.setdata_longweather(point_weather);
                 MainActivity.this.runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
@@ -70,40 +80,39 @@ public class MainActivity extends AppCompatActivity {
             if(resultCode == RESULT_OK){
                 city_data = data.getStringExtra("cityName");
                 city = city_data.split(" ");
-                /*
-                String[] set_air = new String[3];
-                if(city[0].equals())
-                ("서울특별시");        0
-                ("부산광역시");        1
-                ("대구광역시");        2
-                ("인천광역시");        3
-                ("광주광역시");        4
-                ("대전광역시");        5
-                ("울산광역시");        6
-                ("경기도");            7
-                ("강원도");            8
-                ("충청북도");          9
-                ("충청남도");          10
-                ("전라북도");          11
-                ("전라남도");          12
-                ("경상북도");          13
-                ("경상남도");          14
-                ("제주특별자치도");    15
-                ("세종특별자치시");    16
-                {
-                    for(int i =0; i<3; i++)
-                    {
-                    set_air[i] = Data_Air[0][i] // city[0]이 서울이라면
-                    }
-                }
-                 */
-
+                System.out.println(city[0]);
+                set_area(city[0]);
                 x_point = Integer.toString(data.getIntExtra("x", 0));
                 y_point = Integer.toString(data.getIntExtra("y", 0));
                 point_temp = data.getStringExtra("code1");
                 point_weather = data.getStringExtra("code2");
 
             }
+        }
+    }
+    public void set_area(String city){
+
+        int k=0;
+        if(city.equals("서울특별시")) k = 0;
+        else if(city.equals("부산광역시")) k = 1;
+        else if(city.equals("대구광역시")) k = 2;
+        else if(city.equals("인천광역시")) k = 3;
+        else if(city.equals("광주광역시")) k = 4;
+        else if(city.equals("대전광역시")) k = 5;
+        else if(city.equals("울산광역시")) k = 6;
+        else if(city.equals("경기도")) k = 7;
+        else if(city.equals("강원도")) k = 8;
+        else if(city.equals("충청북도")) k = 9;
+        else if(city.equals("충청남도")) k = 10;
+        else if(city.equals("전라북도")) k = 11;
+        else if(city.equals("전라남도")) k = 12;
+        else if(city.equals("경상북도")) k = 13;
+        else if(city.equals("경상남도")) k = 14;
+        else if(city.equals("제주특별자치도")) k = 15;
+        else if(city.equals("세종특별자치시")) k = 16;
+
+            for(int i =0; i<3; i++) {
+                set_air[i] = Data_Air[k][i];
         }
     }
 

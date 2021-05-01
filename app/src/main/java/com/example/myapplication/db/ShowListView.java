@@ -71,7 +71,7 @@ public class ShowListView extends AppCompatActivity {
     }
 
     private void putExtra() {
-        Intent intent = new Intent(this, MainActivity.class);
+        Intent intent = new Intent();
         String tempCity = "";
 
         int X = db.nationalWeatherInterface().getX(data[2]);

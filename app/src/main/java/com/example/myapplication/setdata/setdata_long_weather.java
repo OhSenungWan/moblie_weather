@@ -9,7 +9,7 @@ import java.util.Calendar;
 
 public class setdata_long_weather {
     String[][] fcstDate = new String[8][4];
-    public String[][] setdata_longweather(){
+    public String[][] setdata_longweather(String point_weather){
         try {
             Calendar cal = Calendar.getInstance();
             int year = cal.get(cal.YEAR);
