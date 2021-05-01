@@ -71,6 +71,7 @@ public class MainActivity extends AppCompatActivity {
                 city_data = data.getStringExtra("cityName");
                 city = city_data.split(" ");
                 /*
+                String[] set_air = new String[3];
                 if(city[0].equals())
                 ("서울특별시");        0
                 ("부산광역시");        1
@@ -89,7 +90,12 @@ public class MainActivity extends AppCompatActivity {
                 ("경상남도");          14
                 ("제주특별자치도");    15
                 ("세종특별자치시");    16
-
+                {
+                    for(int i =0; i<3; i++)
+                    {
+                    set_air[i] = Data_Air[0][i] // city[0]이 서울이라면
+                    }
+                }
                  */
 
                 x_point = Integer.toString(data.getIntExtra("x", 0));
