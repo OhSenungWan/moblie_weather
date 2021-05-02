@@ -10,7 +10,6 @@ public class setdata_air {
     String city;
     public String[] setdata_air(String city){
         this.city = city;
-        System.out.println(city);
         try {
             String url = this.Link_URL("PM10");                 //미세먼지
             Document document = Jsoup.connect(url).get();
@@ -25,6 +24,24 @@ public class setdata_air {
             e.printStackTrace();
         }
         return reg;
+    }
+    public String set_pm10(){
+        String grade = "";
+        int pm10 = Integer.parseInt(reg[0]);
+        if(pm10>=0 && pm10<=30) grade = "좋음";
+        else if(pm10>=31 && pm10<=80) grade = "보통";
+        else if(pm10>=81 && pm10<=150) grade = "나쁨";
+        else if(pm10>=151) grade = "매우 나쁨";
+        return grade;
+    }
+    public String set_pm25(){
+        String grade = "";
+        int pm10 = Integer.parseInt(reg[1]);
+        if(pm10>=0 && pm10<=15) grade = "좋음";
+        else if(pm10>=16 && pm10<=35) grade = "보통";
+        else if(pm10>=36 && pm10<=75) grade = "나쁨";
+        else if(pm10>=76) grade = "매우 나쁨";
+        return grade;
     }
     public String Link_URL(String itemCode){
         String apiUrl = "http://apis.data.go.kr/B552584/ArpltnStatsSvc/getCtprvnMesureLIst";
@@ -145,7 +162,6 @@ public class setdata_air {
                 reg[i] = element.text();
             }
         }
-        System.out.println(reg[i]+"\n");
         return reg;
     }
 }

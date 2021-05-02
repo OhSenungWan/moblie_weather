@@ -154,6 +154,7 @@
                     android:src="@drawable/ros_mainunder" />
 
                 <TextView
+                    android:id="@+id/pop"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
@@ -171,6 +172,7 @@
                 android:orientation="vertical">
 
                 <TextView
+
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
@@ -186,6 +188,7 @@
                     android:src="@drawable/windspeed_mainunder" />
 
                 <TextView
+                    android:id="@+id/wsd"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
@@ -218,6 +221,7 @@
                     android:src="@drawable/windderection_mainunder" />
 
                 <TextView
+                    android:id="@+id/vec"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
@@ -239,12 +243,17 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:gravity="center"
+<<<<<<< HEAD
                     android:text="미세먼지"
                     android:textStyle="bold"
+=======
+                    android:text="초미세먼지"
+>>>>>>> d762345620e7669f2c66cf2fa547d5000e1ebc3c
                     android:textColor="#FFFFFF"
                     android:textSize="10dp" />
 
                 <TextView
+                    android:id="@+id/pm25grade"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
@@ -254,11 +263,12 @@
                     android:textSize="10dp" />
 
                 <TextView
+                    android:id="@+id/pm25"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:gravity="center"
-                    android:text="25ug/㎣"
+                    android:text="2.5ug/㎣"
                     android:textColor="#FFFFFF"
                     android:textSize="10dp" />
             </LinearLayout>
@@ -275,12 +285,17 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:gravity="center"
+<<<<<<< HEAD
                     android:text="초미세먼지"
                     android:textStyle="bold"
+=======
+                    android:text="미세먼지"
+>>>>>>> d762345620e7669f2c66cf2fa547d5000e1ebc3c
                     android:textColor="#FFFFFF"
                     android:textSize="10dp" />
 
                 <TextView
+                    android:id="@+id/pm10grade"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
@@ -290,6 +305,7 @@
                     android:textSize="10dp" />
 
                 <TextView
+                    android:id="@+id/pm10"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
@@ -414,7 +430,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:gravity="center"
-                        android:text="03시"
+                        android:text="09시"
                         android:textColor="#FFFFFF"
                         android:textSize="12dp" />
 
@@ -465,7 +481,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:gravity="center"
-                        android:text="06시"
+                        android:text="12시"
                         android:textColor="#FFFFFF"
                         android:textSize="12dp" />
 
@@ -516,7 +532,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:gravity="center"
-                        android:text="09시"
+                        android:text="15시"
                         android:textColor="#FFFFFF"
                         android:textSize="12dp" />
 
@@ -567,7 +583,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:gravity="center"
-                        android:text="12시"
+                        android:text="18시"
                         android:textColor="#FFFFFF"
                         android:textSize="12dp" />
 
@@ -618,7 +634,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:gravity="center"
-                        android:text="15시"
+                        android:text="21시"
                         android:textColor="#FFFFFF"
                         android:textSize="12dp" />
                     <ImageView
@@ -667,7 +683,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:gravity="center"
-                        android:text="18시"
+                        android:text="00시"
                         android:textColor="#FFFFFF"
                         android:textSize="12dp" />
                     <ImageView
@@ -716,7 +732,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:gravity="center"
-                        android:text="21시"
+                        android:text="03시"
                         android:textColor="#FFFFFF"
                         android:textSize="12dp" />
                     <ImageView
@@ -765,7 +781,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:gravity="center"
-                        android:text="24시"
+                        android:text="06시"
                         android:textColor="#FFFFFF"
                         android:textSize="12dp" />
                     <ImageView
@@ -919,7 +935,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:gravity="center"
-                            android:text="오늘"
+                            android:text=""
                             android:textColor="#FFFFFF"
                             android:textSize="12dp" />
 
@@ -969,7 +985,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:gravity="center"
-                            android:text="내일"
+                            android:text=""
                             android:textColor="#FFFFFF"
                             android:textSize="12dp" />
                         <ImageView
@@ -1020,7 +1036,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:gravity="center"
-                            android:text="5/1"
+                            android:text=""
                             android:textColor="#FFFFFF"
                             android:textSize="12dp"
                             android:id="@+id/dayplus3"/>
@@ -1072,7 +1088,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:gravity="center"
-                            android:text="5/2"
+                            android:text=""
                             android:textColor="#FFFFFF"
                             android:textSize="12dp"
                             android:id="@+id/dayplus4"/>
@@ -1124,7 +1140,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:gravity="center"
-                            android:text="5/3"
+                            android:text=""
                             android:textColor="#FFFFFF"
                             android:textSize="12dp"
                             android:id="@+id/dayplus5"/>
@@ -1173,7 +1189,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:gravity="center"
-                            android:text="5/4"
+                            android:text=""
                             android:textColor="#FFFFFF"
                             android:textSize="12dp"
                             android:id="@+id/dayplus6"/>
@@ -1222,7 +1238,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:gravity="center"
-                            android:text="5/5"
+                            android:text=""
                             android:textColor="#FFFFFF"
                             android:textSize="12dp"
                             android:id="@+id/dayplus7"/>
@@ -1271,7 +1287,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:gravity="center"
-                            android:text="5/6"
+                            android:text=""
                             android:textColor="#FFFFFF"
                             android:textSize="12dp"
                             android:id="@+id/dayplus8"/>

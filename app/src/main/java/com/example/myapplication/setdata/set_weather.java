@@ -59,4 +59,36 @@ public class set_weather {
         temp = Short_Data[0][Hour][6];
         return temp;
     }
+    public String set_pop(String[][][] Short_Data){
+        String pop="";
+        pop = Short_Data[0][Hour][0];
+        return pop;
+    }
+    public String set_vec(String[][][] Short_Data){
+        String vec="";
+        double uuu = Double.parseDouble(Short_Data[0][Hour][9]);
+        double vvv = Double.parseDouble(Short_Data[0][Hour][10]);
+        if(vvv > 0){
+            vec += "북";
+        }
+        else if(vvv <0){
+            vec += "남";
+        }
+        if(uuu > 0){
+            vec += "동";
+        }
+        else if(uuu <0){
+            vec += "서";
+        }
+        if(uuu ==0 && vvv == 0)
+        {
+            vec = "바람 없음";
+        }
+        return vec;
+    }
+    public String set_wsd(String[][][] Short_Data){
+        String wsd="";
+        wsd = Short_Data[0][Hour][13];
+        return wsd;
+    }
 }
