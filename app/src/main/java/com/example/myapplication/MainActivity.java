@@ -1,5 +1,6 @@
 package com.example.myapplication;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -19,21 +20,22 @@ import com.example.myapplication.setdata.setdata_air;
 import com.example.myapplication.setdata.setdata_long_Temp;
 import com.example.myapplication.setdata.setdata_long_weather;
 import com.example.myapplication.setdata.set_weather;
+import com.example.myapplication.savedata.PreferenceManager;
 
 public class MainActivity extends AppCompatActivity {
-
+    private Context mContext;
     public SharedPreferences prefs;
     String DOW;
     String Short_Data[][][] = new String[3][8][14];  //날짜(0오늘 1내일 2모래 시간(0이 0시부터 3시단위 데이터
     String Long_Temp[][] = new String[8][2];         //날짜(3일부터) 기온(최소0 최대가 1)
     String Long_Weather[][] = new String[8][4];      //날짜(3일부터) 날씨정보(0오전 최소 1최대 2오후 최소 3최대)
     String Data_Air[] = new String[3];               //
-    String city_data = "서울특별시 구로구 구로제1동";
+    String city_data;
     String[] city;
-    String x_point = "58";
-    String y_point = "125";
-    String point_temp = "11B10101";
-    String point_weather = "11B00000";
+    String x_point;
+    String y_point;
+    String point_temp;
+    String point_weather;
     String weather;
     String temp;
     String pop;
@@ -95,8 +97,6 @@ public class MainActivity extends AppCompatActivity {
                 Pm10_grade = (TextView)findViewById(R.id.pm10grade);
                 Pm25_grade = (TextView)findViewById(R.id.pm25grade);
                 Time_comment = (TextView)findViewById(R.id.time_comment);
-                System.out.println(x_point);
-                System.out.println(y_point);
                 MainActivity.this.runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
@@ -159,6 +159,7 @@ public class MainActivity extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == 1) {
             if(resultCode == RESULT_OK){
+                String Data;
                 city_data = data.getStringExtra("cityName");
                 city = city_data.split(" ");
                 x_point = Integer.toString(data.getIntExtra("x", 0));
@@ -166,12 +167,28 @@ public class MainActivity extends AppCompatActivity {
                 point_temp = data.getStringExtra("code1");
                 point_weather = data.getStringExtra("code2");
                 setStart();
+                Data = x_point + " " + y_point + " " + point_temp + " " + point_weather + " " + city_data;
+                PreferenceManager.setString(mContext, "rebuild", Data);
             }
         }
     }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
+        mContext = this;
+        String text = PreferenceManager.getString(mContext,"rebuild");
+        if(text.equals("")) {
+            text = "58 125 11B10101 11B00000 서울특별시 구로구 구로제1동";
+            PreferenceManager.setString(mContext, "rebuild", text);
+        }
+        String[] data = text.split(" ");
+        for(int i=0; i<7; i++){
+            System.out.println(data[i]);
+        }
+        x_point = data[0];
+        y_point = data[1];
+        point_temp = data[2];
+        point_weather = data[3];
+        city_data = data[4] + " " + data[5] + " " +data[6];
         city = city_data.split(" ");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
