@@ -9,7 +9,6 @@ import java.io.IOException;
 import java.util.Calendar;
 
 public class setdata_short {
-    int AMPM;
     int day_of_week;
     data_short wd = new data_short();
     public String DOW= "null";
@@ -28,7 +27,7 @@ public class setdata_short {
             int hour = cal.get(cal.HOUR);
             int minute = cal.get(cal.MINUTE);
             day_of_week = cal.get(Calendar.DAY_OF_WEEK);
-            AMPM = cal.get(Calendar.AM_PM);
+
             Calendar yesterday = Calendar.getInstance();
             Calendar pday = Calendar.getInstance();
             Calendar ppday = Calendar.getInstance();

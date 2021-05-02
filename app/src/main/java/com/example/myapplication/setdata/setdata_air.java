@@ -6,8 +6,11 @@ import org.jsoup.select.Elements;
 import java.io.IOException;
 
 public class setdata_air {
-    String reg[][] = new String[17][3];
-    public String[][] setdata_air(){
+    String reg[] = new String[3];
+    String city;
+    public String[] setdata_air(String city){
+        this.city = city;
+        System.out.println(city);
         try {
             String url = this.Link_URL("PM10");                 //미세먼지
             Document document = Jsoup.connect(url).get();
@@ -37,74 +40,112 @@ public class setdata_air {
                 + "&" + "searchCondition=" + searchCondition;
         return url;
     }
-    public String[][] setdata(Document document, int i){
-        Elements links = document.select("body items item daegu");
-        for (Element element : links) {
-            reg[0][i] = element.text();
-        }
-        links = document.select("body items item chungnam");
-        for (Element element : links) {
-            reg[1][i] = element.text();
-        }
-        links = document.select("body items item incheon");
-        for (Element element : links) {
-            reg[2][i] = element.text();
-        }
-        links = document.select("body items item daejeon");
-        for (Element element : links) {
-            reg[3][i] = element.text();
-        }
-        links = document.select("body items item gyeongbuk");
-        for (Element element : links) {
-            reg[4][i] = element.text();
-        }
-        links = document.select("body items item sejong");
-        for (Element element : links) {
-            reg[5][i] = element.text();
-        }
-        links = document.select("body items item gwangju");
-        for (Element element : links) {
-            reg[6][i] = element.text();
-        }
-        links = document.select("body items item jeonbuk");
-        for (Element element : links) {
-            reg[7][i] = element.text();
-        }links = document.select("body items item gangwon");
-        for (Element element : links) {
-            reg[8][i] = element.text();
-        }
-        links = document.select("body items item ulsan");
-        for (Element element : links) {
-            reg[9][i] = element.text();
-        }
-        links = document.select("body items item jeonnam");
-        for (Element element : links) {
-            reg[10][i] = element.text();
-        }links = document.select("body items item seoul");
-        for (Element element : links) {
-            reg[11][i] = element.text();
-        }
-        links = document.select("body items item busan");
-        for (Element element : links) {
-            reg[12][i] = element.text();
-        }
-        links = document.select("body items item jeju");
-        for (Element element : links) {
-            reg[13][i] = element.text();
-        }
-        links = document.select("body items item chungbuk");
-        for (Element element : links) {
-            reg[14][i] = element.text();
-        }
-        links = document.select("body items item gyeongnam");
-        for (Element element : links) {
-            reg[15][i] = element.text();
-        }
-        links = document.select("body items item gyeonggi");
-        for (Element element : links) {
-            reg[16][i] = element.text();
+    public String[] setdata(Document document, int i){
+        Elements links;
+        if(city.equals("서울특별시")) {
+            links = document.select("body items item daegu");
+            for (Element element : links) {
+                reg[i] = element.text();
+            }
         }
 
+        else if(city.equals("부산광역시")) {
+            links = document.select("body items item chungnam");
+            for (Element element : links) {
+                reg[i] = element.text();
+            }
+        }
+        else if(city.equals("대구광역시")) {
+            links = document.select("body items item incheon");
+            for (Element element : links) {
+                reg[i] = element.text();
+            }
+        }
+        else if(city.equals("인천광역시")) {
+            links = document.select("body items item daejeon");
+            for (Element element : links) {
+                reg[i] = element.text();
+            }
+        }
+        else if(city.equals("광주광역시")) {
+            links = document.select("body items item gyeongbuk");
+            for (Element element : links) {
+                reg[i] = element.text();
+            }
+        }
+        else if(city.equals("대전광역시")) {
+            links = document.select("body items item sejong");
+            for (Element element : links) {
+                reg[i] = element.text();
+            }
+        }
+        else if(city.equals("울산광역시")) {
+            links = document.select("body items item gwangju");
+            for (Element element : links) {
+                reg[i] = element.text();
+            }
+        }
+        else if(city.equals("경기도")) {
+            links = document.select("body items item jeonbuk");
+            for (Element element : links) {
+                reg[i] = element.text();
+            }
+        }
+        else if(city.equals("강원도")) {
+            links = document.select("body items item gangwon");
+            for (Element element : links) {
+                reg[i] = element.text();
+            }
+        }
+        else if(city.equals("충청북도")) {
+            links = document.select("body items item ulsan");
+            for (Element element : links) {
+                reg[i] = element.text();
+            }
+        }
+        else if(city.equals("충청남도")) {
+            links = document.select("body items item jeonnam");
+            for (Element element : links) {
+                reg[i] = element.text();
+            }
+        }
+        else if(city.equals("전라북도")) {
+            links = document.select("body items item seoul");
+            for (Element element : links) {
+                reg[i] = element.text();
+            }
+        }
+        else if(city.equals("전라남도")) {
+            links = document.select("body items item busan");
+            for (Element element : links) {
+                reg[i] = element.text();
+            }
+        }
+        else if(city.equals("경상북도")) {
+            links = document.select("body items item jeju");
+            for (Element element : links) {
+                reg[i] = element.text();
+            }
+        }
+        else if(city.equals("경상남도")) {
+            links = document.select("body items item chungbuk");
+            for (Element element : links) {
+                reg[i] = element.text();
+            }
+        }
+        else if(city.equals("제주특별자치도")) {
+            links = document.select("body items item gyeongnam");
+            for (Element element : links) {
+                reg[i] = element.text();
+            }
+        }
+        else if(city.equals("세종특별자치시")) {
+            links = document.select("body items item gyeonggi");
+            for (Element element : links) {
+                reg[i] = element.text();
+            }
+        }
+        System.out.println(reg[i]+"\n");
         return reg;
     }
 }
