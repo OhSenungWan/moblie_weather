@@ -92,6 +92,7 @@ public class MainActivity extends AppCompatActivity {
                 Time_comment = (TextView)findViewById(R.id.time_comment);
                 System.out.println(x_point);
                 System.out.println(y_point);
+
                 MainActivity.this.runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
