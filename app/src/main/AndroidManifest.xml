@@ -21,6 +21,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".ClothingActivity" android:label="ClothingPage"/>
         <activity android:name=".db.DBInit"/>
         <activity android:name=".db.ShowListView"/>
     </application>

@@ -1,4 +1,6 @@
 package com.example.myapplication;
 
-public class ClothingActivity {
+import android.app.Activity;
+
+public class ClothingActivity extends Activity {
 }
