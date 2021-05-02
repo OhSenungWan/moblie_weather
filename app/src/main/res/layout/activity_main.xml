@@ -42,6 +42,7 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
+        <!--메인-->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -120,11 +121,7 @@
 
         </LinearLayout>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical"/>
-
+        <!--요약-->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="50dp"
@@ -305,6 +302,8 @@
                     android:textSize="10dp" />
             </LinearLayout>
         </LinearLayout>
+
+        <!--시간 예보-->
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -314,6 +313,7 @@
             android:layout_marginLeft="5dp"
             android:layout_marginRight="5dp">
 
+        <!--설명-->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -340,10 +340,12 @@
                 android:textColor="#FFFFFF"/>
         </LinearLayout>
 
+        <!--데이터-->
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
+
             <LinearLayout
                 android:layout_width="50dp"
                 android:layout_height="match_parent"
@@ -807,8 +809,10 @@
             </LinearLayout>
         </HorizontalScrollView>
         </LinearLayout>
+
         </LinearLayout>
 
+        <!--주간 예보-->
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
