@@ -1,5 +1,6 @@
 package com.example.myapplication;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -21,17 +22,17 @@ import com.example.myapplication.setdata.setdata_air;
 import com.example.myapplication.setdata.setdata_long_Temp;
 import com.example.myapplication.setdata.setdata_long_weather;
 import com.example.myapplication.setdata.set_weather;
+import com.example.myapplication.savedata.PreferenceManager;
 import com.github.mikephil.charting.charts.LineChart;
 import com.github.mikephil.charting.components.Legend;
 import com.github.mikephil.charting.data.Entry;
 import com.github.mikephil.charting.data.LineData;
 import com.github.mikephil.charting.data.LineDataSet;
-
 import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
-
+    private Context mContext;
     public static final int timeSet = 16;
     public SharedPreferences prefs;
     String DOW;
@@ -39,12 +40,12 @@ public class MainActivity extends AppCompatActivity {
     String Long_Temp[][] = new String[8][2];         //날짜(3일부터) 기온(최소0 최대가 1)
     String Long_Weather[][] = new String[8][4];      //날짜(3일부터) 날씨정보(0오전 최소 1최대 2오후 최소 3최대)
     String Data_Air[] = new String[3];               //
-    String city_data = "서울특별시 구로구 구로제1동";
+    String city_data;
     String[] city;
-    String x_point = "58";
-    String y_point = "125";
-    String point_temp = "11B10101";
-    String point_weather = "11B00000";
+    String x_point;
+    String y_point;
+    String point_temp;
+    String point_weather;
     String weather;
     String temp;
     String pop;
@@ -68,41 +69,6 @@ public class MainActivity extends AppCompatActivity {
     TextView Pm25_grade;
     TextView Time_comment;
     LinearLayout Back;
-
-    ImageView timeweimg[]=new ImageView[16];//시간 날씨 이미지
-    Integer[] time_img={R.id.timeweimg1,R.id.timeweimg2,R.id.timeweimg3,R.id.timeweimg4,R.id.timeweimg5,R.id.timeweimg6,R.id.timeweimg7,R.id.timeweimg8,R.id.timeweimg9,R.id.timeweimg10,R.id.timeweimg11,
-            R.id.timeweimg12,R.id.timeweimg13,R.id.timeweimg14,R.id.timeweimg15,R.id.timeweimg16};
-
-    TextView timetemp[]=new TextView[16];//시간 온도 텍스트
-    Integer[] time_temp={R.id.timetemp1,R.id.timetemp2,R.id.timetemp3,R.id.timetemp4,R.id.timetemp5,R.id.timetemp6,R.id.timetemp7,R.id.timetemp8,R.id.timetemp9,R.id.timetemp10,
-            R.id.timetemp11,R.id.timetemp12,R.id.timetemp13,R.id.timetemp14,R.id.timetemp15,R.id.timetemp16};
-
-    TextView aor[]=new TextView[16];//시간 강수량 텍스트
-    Integer[] time_aor={R.id.aor1,R.id.aor2,R.id.aor3,R.id.aor4,R.id.aor5,R.id.aor6,R.id.aor7,R.id.aor8,R.id.aor9,R.id.aor10,R.id.aor11,R.id.aor12,R.id.aor13,R.id.aor14,R.id.aor15,R.id.aor16};
-
-    TextView por[]=new TextView[16];//시간 강수량 텍스트
-    Integer[] time_por={R.id.por1,R.id.por2,R.id.por3,R.id.por4,R.id.por5,R.id.por6,R.id.por7,R.id.por8,R.id.por9,R.id.por10,R.id.por11,R.id.por12,R.id.por13,R.id.por14,R.id.por15,R.id.por16};
-
-
-
-    TextView day[]=new TextView[16];//주간 날짜 텍스트
-    Integer[] day_count={R.id.day1,R.id.day2,R.id.day3,R.id.day4,R.id.day5,R.id.day6,R.id.day7,R.id.day8,R.id.day9,R.id.day10,R.id.day11,R.id.day12,R.id.day13,R.id.day14,R.id.day15,R.id.day16};
-
-    ImageView dayweimg[]=new ImageView[16];//주간 날씨 이미지
-    Integer[] day_img={R.id.dayweimg1,R.id.dayweimg2,R.id.dayweimg3,R.id.dayweimg4,R.id.dayweimg5,R.id.dayweimg6,R.id.dayweimg7,R.id.dayweimg8,R.id.dayweimg9,R.id.dayweimg10,R.id.dayweimg11,R.id.dayweimg12
-            ,R.id.dayweimg13,R.id.dayweimg14,R.id.dayweimg15};
-
-    TextView dayhightemp[]=new TextView[16];//주간 최고온도 텍스트
-    Integer[] day_hightemp={R.id.dayhightemp1,R.id.dayhightemp2,R.id.dayhightemp3,R.id.dayhightemp4,R.id.dayhightemp5,R.id.dayhightemp6,R.id.dayhightemp7,R.id.dayhightemp8,R.id.dayhightemp9,R.id.dayhightemp10
-            ,R.id.dayhightemp11,R.id.dayhightemp12,R.id.dayhightemp13,R.id.dayhightemp14,R.id.dayhightemp15,R.id.dayhightemp16};
-
-    TextView daylowtemp[]=new TextView[16];//주간 최저온도 텍스트
-    Integer[] day_lowtemp={R.id.daylowtemp1,R.id.daylowtemp2,R.id.daylowtemp3,R.id.daylowtemp4,R.id.daylowtemp5,R.id.daylowtemp6,R.id.daylowtemp7,R.id.daylowtemp8,R.id.daylowtemp9,R.id.daylowtemp10,R.id.daylowtemp11
-            ,R.id.daylowtemp12,R.id.daylowtemp13,R.id.daylowtemp14,R.id.daylowtemp15,R.id.daylowtemp16};
-
-    TextView dayaor[]=new TextView[16];//주간 강수량
-    Integer[] day_aor={R.id.dayaor1,R.id.dayaor2,R.id.dayaor3,R.id.dayaor4,R.id.dayaor5,R.id.dayaor6,R.id.dayaor7,R.id.dayaor8,R.id.dayaor9,R.id.dayaor10,R.id.dayaor11,R.id.dayaor12,
-            R.id.dayaor13,R.id.dayaor14,R.id.dayaor15,R.id.dayaor16};
 
 
     int back;
@@ -144,53 +110,14 @@ public class MainActivity extends AppCompatActivity {
                 Pm25_grade = (TextView)findViewById(R.id.pm25grade);
                 Time_comment = (TextView)findViewById(R.id.time_comment);
 
+
                 //시간 날씨 이미지 배열 매칭
-                for(int i=0;i<=15; i++){
-                   timeweimg[i] = (ImageView) findViewById(time_img[i]);}
-                 /*for(int i=0; i<timeweimg.length; i++){
-                    final int INDEX;
-                    INDEX = i;
-                    timeweimg[INDEX].setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                        }
-                    });
-                }
-            }*/
-                //시간 온도 텍스트뷰 배열 매칭
-                for(int i=0;i<=15; i++){
-                    timetemp[i] = (TextView) findViewById(time_temp[i]);}
-                //시간 강수량 텍스트뷰 배열 매칭
-                for(int i=0;i<=15; i++){
-                    aor[i] = (TextView) findViewById(time_aor[i]);}
-                //시간 강수확률 텍스트뷰 배열 매칭
-                for(int i=0;i<=15; i++){
-                    por[i] = (TextView) findViewById(time_por[i]);}
 
-
-                //주간 날짜 텍스트뷰 배열 매칭
-                for(int i=0;i<=15; i++){
-                    day[i] = (TextView) findViewById(day_count[i]);}
-                //주간 날씨 이미지 배열 매칭
-                for(int i=0;i<=15; i++){
-                    dayweimg[i] = (ImageView) findViewById(day_img[i]);}
-                //주간 최고온도 텍스트뷰 배열 매칭
-                for(int i=0;i<=15; i++){
-                    dayhightemp[i] = (TextView) findViewById(day_hightemp[i]);}
-                //주간 최저온도 텍스트뷰 배열 매칭
-                for(int i=0;i<=15; i++){
-                    daylowtemp[i] = (TextView) findViewById(day_lowtemp[i]);}
-                //주간 강수량 텍스트뷰 배열 매칭
-                for(int i=0;i<=15; i++){
-                    dayaor[i] = (TextView) findViewById(day_aor[i]);}
 
 
                 System.out.println(x_point);
                 System.out.println(y_point);
 
-                for (int i = 0; i < 8; i++) {
-                    Log.i("setStart", Short_Data[0][i][6]);
-                }
 
 
                 MainActivity.this.runOnUiThread(new Runnable() {
@@ -255,6 +182,7 @@ public class MainActivity extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == 1) {
             if(resultCode == RESULT_OK){
+                String Data;
                 city_data = data.getStringExtra("cityName");
                 city = city_data.split(" ");
                 x_point = Integer.toString(data.getIntExtra("x", 0));
@@ -262,12 +190,28 @@ public class MainActivity extends AppCompatActivity {
                 point_temp = data.getStringExtra("code1");
                 point_weather = data.getStringExtra("code2");
                 setStart();
+                Data = x_point + " " + y_point + " " + point_temp + " " + point_weather + " " + city_data;
+                PreferenceManager.setString(mContext, "rebuild", Data);
             }
         }
     }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
+        mContext = this;
+        String text = PreferenceManager.getString(mContext,"rebuild");
+        if(text.equals("")) {
+            text = "58 125 11B10101 11B00000 서울특별시 구로구 구로제1동";
+            PreferenceManager.setString(mContext, "rebuild", text);
+        }
+        String[] data = text.split(" ");
+        for(int i=0; i<7; i++){
+            System.out.println(data[i]);
+        }
+        x_point = data[0];
+        y_point = data[1];
+        point_temp = data[2];
+        point_weather = data[3];
+        city_data = data[4] + " " + data[5] + " " +data[6];
         city = city_data.split(" ");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
@@ -296,8 +240,6 @@ public class MainActivity extends AppCompatActivity {
         TextView[] timeTextView = new TextView[timeSet];
         ImageView[] weatherImageView = new ImageView[timeSet];
 
-
-
         for (int i = 0; i < timeSet; i++) {
             linearLayoutTopV[i] = new LinearLayout(this);
             timeTextView[i] = new TextView(this);
@@ -312,16 +254,13 @@ public class MainActivity extends AppCompatActivity {
             linearLayoutTopV[i].addView(weatherImageView[i], 100, 100);
 
             LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-            lp.leftMargin = 50;
+            lp.leftMargin = 95;
             linearLayoutTopV[i].setLayoutParams(lp);
 
             linearLayoutTop.addView(linearLayoutTopV[i]);
         }
 
-
-
         //그래프 생성
-
         makeGraph();
     }
 
@@ -330,14 +269,9 @@ public class MainActivity extends AppCompatActivity {
         LineChart lineChart = (LineChart)findViewById(R.id.lineChart);
 
         List<Entry> entries = new ArrayList<>();
-        entries.add(new Entry(1, 1));
-        entries.add(new Entry(2, 2));
-        entries.add(new Entry(3, 0));
-        entries.add(new Entry(4, 4));
-        entries.add(new Entry(5, 3));
-
-        
-
+        for (int i = 0; i < timeSet; i++) {
+            entries.add(new Entry(i, i+1));
+        }
 
         LineDataSet lineDataSet = new LineDataSet(entries, "온도");
 
@@ -345,6 +279,7 @@ public class MainActivity extends AppCompatActivity {
         lineDataSet.setLineWidth(1.75f); //선 두께
         lineDataSet.setCircleRadius(5f); //점 크기
         lineDataSet.setCircleHoleRadius(2.5f); // 점 구멍(빈 공간) 크기
+        lineDataSet.disableDashedHighlightLine();
 
         //그래프 선, 점 색상들
         //lineDataSet.setColor(Color.WHITE);
@@ -365,9 +300,6 @@ public class MainActivity extends AppCompatActivity {
         lineChart.getAxisLeft().setEnabled(false); //Y축 왼쪽 숫자 제거
         lineChart.getAxisRight().setEnabled(false); //Y축 오른쪽 숫자 제거
         lineChart.getXAxis().setEnabled(false); //위쪽 숫자 제거
-
-
-
         lineChart.invalidate();
     }
 

@@ -46,7 +46,7 @@ public class ShowListView extends AppCompatActivity {
         //처음 city 보여주기
         city = getFirstCity();
 
-        //리스트뷰 보이기
+        //리스트뷰 보이기new
         listViewUpdate();
 
         /** 클릭 리스너 **/
