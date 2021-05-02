@@ -442,8 +442,6 @@
                                 android:orientation="horizontal" />
 
                         </LinearLayout>
-
-<<<<<<< HEAD
                 <LinearLayout
                     android:layout_width="50dp"
                     android:layout_height="wrap_content"
@@ -1032,8 +1030,7 @@
                         android:textSize="12dp"
                         android:id="@+id/por16"/>
                 </LinearLayout>
-=======
->>>>>>> c806fe759f03aeaac22bfae25437586d0b2fdb7f
+
 
                     </LinearLayout>
 
