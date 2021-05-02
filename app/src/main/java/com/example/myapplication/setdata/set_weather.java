@@ -112,4 +112,8 @@ public class set_weather {
         }
         return background;
     }
+
+    public int getTime() {
+        return Time;
+    }
 }
