@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.Nullable;
@@ -23,10 +24,10 @@ public class MainActivity extends AppCompatActivity {
 
     public SharedPreferences prefs;
     String DOW;
-    String Short_Data[][][] = new String[3][8][14];
-    String Long_Temp[][] = new String[8][2];
-    String Long_Weather[][] = new String[8][4];
-    String Data_Air[] = new String[3];
+    String Short_Data[][][] = new String[3][8][14];  //날짜(0오늘 1내일 2모래 시간(0이 0시부터 3시단위 데이터
+    String Long_Temp[][] = new String[8][2];         //날짜(3일부터) 기온(최소0 최대가 1)
+    String Long_Weather[][] = new String[8][4];      //날짜(3일부터) 날씨정보(0오전 최소 1최대 2오후 최소 3최대)
+    String Data_Air[] = new String[3];               //
     String city_data = "서울특별시 구로구 구로제1동";
     String[] city;
     String x_point = "58";
@@ -55,11 +56,14 @@ public class MainActivity extends AppCompatActivity {
     TextView Pm10_grade;
     TextView Pm25_grade;
     TextView Time_comment;
+    LinearLayout Back;
+    int back;
 
     public void setStart() {
         new Thread(new Runnable() {
             @Override
             public void run() {
+                Back = (LinearLayout)findViewById(R.id.back);
                 setdata_short cd = new setdata_short();
                 sa = new setdata_air();
                 sw = new set_weather();
@@ -77,6 +81,7 @@ public class MainActivity extends AppCompatActivity {
                 pop = sw.set_pop(Short_Data);
                 vec = sw.set_vec(Short_Data);
                 wsd = sw.set_wsd(Short_Data);
+                back = sw.set_background();
                 Location = (TextView)findViewById(R.id.location);
                 Comment = (TextView)findViewById(R.id.comment);
                 Temp = (TextView)findViewById(R.id.temp);
@@ -128,6 +133,20 @@ public class MainActivity extends AppCompatActivity {
                         Pm25.setText(Data_Air[1]+"㎍/m3");
                         Pm10_grade.setText(pm10);
                         Pm25_grade.setText(pm25);
+                        switch (back){
+                            case 1:
+                                Back.setBackgroundResource(R.drawable.bg_1dawn);
+                                break;
+                            case 2:
+                                Back.setBackgroundResource(R.drawable.bg_2afternoon);
+                                break;
+                            case 3:
+                                Back.setBackgroundResource(R.drawable.bg_3sunset);
+                                break;
+                            case 4:
+                                Back.setBackgroundResource(R.drawable.bg_4night);
+                                break;
+                        }
 
                     }
                 });
