@@ -638,7 +638,7 @@
                         android:src="@drawable/rain"
                         android:layout_marginTop="20dp"
                         android:layout_marginBottom="10dp"
-                        android:id="@+id/timewe5"/>
+                        android:id="@+id/timeweimg5"/>
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -687,7 +687,7 @@
                         android:src="@drawable/rain"
                         android:layout_marginTop="20dp"
                         android:layout_marginBottom="10dp"
-                        android:id="@+id/timewe6"/>
+                        android:id="@+id/timeweimg6"/>
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -736,7 +736,7 @@
                         android:src="@drawable/rain"
                         android:layout_marginTop="20dp"
                         android:layout_marginBottom="10dp"
-                        android:id="@+id/timewe7"/>
+                        android:id="@+id/timeweimg7"/>
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -785,7 +785,7 @@
                         android:src="@drawable/rain"
                         android:layout_marginTop="20dp"
                         android:layout_marginBottom="10dp"
-                        android:id="@+id/timewe8"/>
+                        android:id="@+id/timeweimg8"/>
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -834,7 +834,7 @@
                         android:src="@drawable/rain"
                         android:layout_marginTop="20dp"
                         android:layout_marginBottom="10dp"
-                        android:id="@+id/timewe9"/>
+                        android:id="@+id/timeweimg9"/>
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -883,7 +883,7 @@
                         android:src="@drawable/rain"
                         android:layout_marginTop="20dp"
                         android:layout_marginBottom="10dp"
-                        android:id="@+id/timewe10"/>
+                        android:id="@+id/timeweimg10"/>
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -932,7 +932,7 @@
                         android:src="@drawable/rain"
                         android:layout_marginTop="20dp"
                         android:layout_marginBottom="10dp"
-                        android:id="@+id/timewe11"/>
+                        android:id="@+id/timeweimg11"/>
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -981,7 +981,7 @@
                         android:src="@drawable/rain"
                         android:layout_marginTop="20dp"
                         android:layout_marginBottom="10dp"
-                        android:id="@+id/timewe12"/>
+                        android:id="@+id/timeweimg12"/>
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -1030,7 +1030,7 @@
                         android:src="@drawable/rain"
                         android:layout_marginTop="20dp"
                         android:layout_marginBottom="10dp"
-                        android:id="@+id/timewe13"/>
+                        android:id="@+id/timeweimg13"/>
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -1079,7 +1079,7 @@
                         android:src="@drawable/rain"
                         android:layout_marginTop="20dp"
                         android:layout_marginBottom="10dp"
-                        android:id="@+id/timewe14"/>
+                        android:id="@+id/timeweimg14"/>
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -1128,7 +1128,7 @@
                         android:src="@drawable/rain"
                         android:layout_marginTop="20dp"
                         android:layout_marginBottom="10dp"
-                        android:id="@+id/timewe15"/>
+                        android:id="@+id/timeweimg15"/>
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -1177,7 +1177,7 @@
                         android:src="@drawable/rain"
                         android:layout_marginTop="20dp"
                         android:layout_marginBottom="10dp"
-                        android:id="@+id/timewe16"/>
+                        android:id="@+id/timeweimg16"/>
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -2059,6 +2059,55 @@
                             android:textColor="#FFFFFF"
                             android:textSize="12dp"
                             android:id="@+id/dayaor15"/>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="50dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:layout_marginLeft="20dp"
+                        android:orientation="vertical">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:text=""
+                            android:textColor="#FFFFFF"
+                            android:textSize="12dp"
+                            android:id="@+id/day16"/>
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="25dp"
+                            android:src="@drawable/rain"
+                            android:layout_marginTop="20dp"
+                            android:layout_marginBottom="10dp"
+                            android:id="@+id/dayweimg16"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:text="19℃"
+                            android:textColor="#FFFFFF"
+                            android:textSize="12dp"
+                            android:id="@+id/dayhightemp16"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:text="19℃"
+                            android:layout_marginTop="150dp"
+                            android:textColor="#FFFFFF"
+                            android:textSize="12dp"
+                            android:id="@+id/daylowtemp16"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:text="10mm"
+                            android:layout_marginTop="20dp"
+                            android:textColor="#FFFFFF"
+                            android:textSize="12dp"
+                            android:id="@+id/dayaor16"/>
                     </LinearLayout>
 
 
