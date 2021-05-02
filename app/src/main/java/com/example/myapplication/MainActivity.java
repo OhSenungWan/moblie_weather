@@ -3,7 +3,9 @@ package com.example.myapplication;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -19,9 +21,18 @@ import com.example.myapplication.setdata.setdata_air;
 import com.example.myapplication.setdata.setdata_long_Temp;
 import com.example.myapplication.setdata.setdata_long_weather;
 import com.example.myapplication.setdata.set_weather;
+import com.github.mikephil.charting.charts.LineChart;
+import com.github.mikephil.charting.components.Legend;
+import com.github.mikephil.charting.data.Entry;
+import com.github.mikephil.charting.data.LineData;
+import com.github.mikephil.charting.data.LineDataSet;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
+    public static final int timeSet = 16;
     public SharedPreferences prefs;
     String DOW;
     String Short_Data[][][] = new String[3][8][14];  //날짜(0오늘 1내일 2모래 시간(0이 0시부터 3시단위 데이터
@@ -97,6 +108,11 @@ public class MainActivity extends AppCompatActivity {
                 Time_comment = (TextView)findViewById(R.id.time_comment);
                 System.out.println(x_point);
                 System.out.println(y_point);
+
+                for (int i = 0; i < 8; i++) {
+                    Log.i("setStart", Short_Data[0][i][6]);
+                }
+
 
                 MainActivity.this.runOnUiThread(new Runnable() {
                     @Override
@@ -186,9 +202,95 @@ public class MainActivity extends AppCompatActivity {
             }
         });
         setStart();
+        dynamicTimeWeather();
 
     }
 
+    public void dynamicTimeWeather(){
+        //탑 ,바텀 텍스트뷰 생성
+        LinearLayout linearLayoutTop = findViewById(R.id.layout_timeWeatherTop);
+        LinearLayout linearLayoutBottom = findViewById(R.id.layout_timeWeatherBottom);
+
+        LinearLayout[] linearLayoutTopV = new LinearLayout[timeSet];
+        LinearLayout[] linearLayoutBottomV = new LinearLayout[timeSet];
+
+        TextView[] timeTextView = new TextView[timeSet];
+        ImageView[] weatherImageView = new ImageView[timeSet];
+
+
+
+        for (int i = 0; i < timeSet; i++) {
+            linearLayoutTopV[i] = new LinearLayout(this);
+            timeTextView[i] = new TextView(this);
+            weatherImageView[i] = new ImageView(this);
+
+            linearLayoutTopV[i].setOrientation(LinearLayout.VERTICAL);
+            timeTextView[i].setText("09");
+            timeTextView[i].setTextSize(18);
+            weatherImageView[i].setImageResource(R.drawable.rain);
+
+            linearLayoutTopV[i].addView(timeTextView[i]);
+            linearLayoutTopV[i].addView(weatherImageView[i], 100, 100);
+
+            LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+            lp.leftMargin = 50;
+            linearLayoutTopV[i].setLayoutParams(lp);
+
+            linearLayoutTop.addView(linearLayoutTopV[i]);
+        }
+
+
+
+        //그래프 생성
+
+        makeGraph();
+    }
+
+    public void makeGraph(){
+
+        LineChart lineChart = (LineChart)findViewById(R.id.lineChart);
+
+        List<Entry> entries = new ArrayList<>();
+        entries.add(new Entry(1, 1));
+        entries.add(new Entry(2, 2));
+        entries.add(new Entry(3, 0));
+        entries.add(new Entry(4, 4));
+        entries.add(new Entry(5, 3));
+
+        Log.i("12", Short_Data[0][1][6]);
+
+
+        LineDataSet lineDataSet = new LineDataSet(entries, "온도");
+
+        //lineDataSet.setDrawValues(false); //점에 데이터 출력
+        lineDataSet.setLineWidth(1.75f); //선 두께
+        lineDataSet.setCircleRadius(5f); //점 크기
+        lineDataSet.setCircleHoleRadius(2.5f); // 점 구멍(빈 공간) 크기
+
+        //그래프 선, 점 색상들
+        //lineDataSet.setColor(Color.WHITE);
+        //lineDataSet.setCircleColor(Color.WHITE);
+        //lineDataSet.setHighLightColor(Color.WHITE);
+
+        //범례 사용 X
+        Legend legend = lineChart.getLegend();
+        legend.setEnabled(false);
+
+        LineData lineData = new LineData(lineDataSet);
+        lineChart.setData(lineData);
+
+        lineChart.getDescription().setEnabled(false); //오른쪽 설명 제거
+        lineChart.setPinchZoom(false);
+
+        lineChart.setDoubleTapToZoomEnabled(false);
+        lineChart.getAxisLeft().setEnabled(false); //Y축 왼쪽 숫자 제거
+        lineChart.getAxisRight().setEnabled(false); //Y축 오른쪽 숫자 제거
+        lineChart.getXAxis().setEnabled(false); //위쪽 숫자 제거
+
+
+
+        lineChart.invalidate();
+    }
 
     /** 첫 실행시 DB 설계 **/
     public void checkFirstRun() {
