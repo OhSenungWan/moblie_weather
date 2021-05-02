@@ -4,7 +4,7 @@
     android:id="@+id/back"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/bg3"
+    android:background="@drawable/bg_afternoon"
     android:orientation="vertical">
 
     <LinearLayout
@@ -243,11 +243,11 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:gravity="center"
-<<<<<<< HEAD
+
                     android:text="미세먼지"
-=======
-                    android:text="초미세먼지"
->>>>>>> 59ca7f29ed859da9c1a06ceed96caac158e8f099
+
+
+
                     android:textStyle="bold"
                     android:textColor="#FFFFFF"
                     android:textSize="10dp" />
@@ -285,11 +285,7 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:gravity="center"
-<<<<<<< HEAD
                     android:text="초미세먼지"
-=======
-                    android:text="미세먼지"
->>>>>>> 59ca7f29ed859da9c1a06ceed96caac158e8f099
                     android:textStyle="bold"
                     android:textColor="#FFFFFF"
                     android:textSize="10dp" />
