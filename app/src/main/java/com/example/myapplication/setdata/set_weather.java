@@ -38,10 +38,10 @@ public class set_weather {
                 case "1":
                     weather = "sunny";
                     break;
-                case "2":
+                case "3":
                     weather = "cloud";
                     break;
-                case "3":
+                case "4":
                     weather = "blur";
                     break;
             }

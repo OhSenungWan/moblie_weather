@@ -83,6 +83,7 @@ public class setdata_short {
                 wd.data(fcstDate[i], fcstTime[i], category[i], fcstValue[i], Dday, Pday, PPday);
             }
             DOW = setdata(day_of_week);
+            System.out.println(url);
         } catch (IOException e) {
             e.printStackTrace();
         }

@@ -90,6 +90,8 @@ public class MainActivity extends AppCompatActivity {
                 Pm10_grade = (TextView)findViewById(R.id.pm10grade);
                 Pm25_grade = (TextView)findViewById(R.id.pm25grade);
                 Time_comment = (TextView)findViewById(R.id.time_comment);
+                System.out.println(x_point);
+                System.out.println(y_point);
                 MainActivity.this.runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
