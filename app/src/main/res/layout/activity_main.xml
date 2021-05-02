@@ -431,8 +431,9 @@
 
                             <com.github.mikephil.charting.charts.LineChart
                                 android:id="@+id/lineChart"
-                                android:layout_width="600dp"
-                                android:layout_height="150dp" />
+                                android:layout_width="1000dp"
+                                android:layout_height="150dp"
+                                android:layout_marginLeft="40dp"/>
 
                             <LinearLayout
                                 android:id="@+id/layout_timeWeatherBottom"

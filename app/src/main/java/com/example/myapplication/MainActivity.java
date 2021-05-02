@@ -109,9 +109,6 @@ public class MainActivity extends AppCompatActivity {
                 System.out.println(x_point);
                 System.out.println(y_point);
 
-                for (int i = 0; i < 8; i++) {
-                    Log.i("setStart", Short_Data[0][i][6]);
-                }
 
 
                 MainActivity.this.runOnUiThread(new Runnable() {
@@ -217,8 +214,6 @@ public class MainActivity extends AppCompatActivity {
         TextView[] timeTextView = new TextView[timeSet];
         ImageView[] weatherImageView = new ImageView[timeSet];
 
-
-
         for (int i = 0; i < timeSet; i++) {
             linearLayoutTopV[i] = new LinearLayout(this);
             timeTextView[i] = new TextView(this);
@@ -233,16 +228,13 @@ public class MainActivity extends AppCompatActivity {
             linearLayoutTopV[i].addView(weatherImageView[i], 100, 100);
 
             LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-            lp.leftMargin = 50;
+            lp.leftMargin = 95;
             linearLayoutTopV[i].setLayoutParams(lp);
 
             linearLayoutTop.addView(linearLayoutTopV[i]);
         }
 
-
-
         //그래프 생성
-
         makeGraph();
     }
 
@@ -251,14 +243,9 @@ public class MainActivity extends AppCompatActivity {
         LineChart lineChart = (LineChart)findViewById(R.id.lineChart);
 
         List<Entry> entries = new ArrayList<>();
-        entries.add(new Entry(1, 1));
-        entries.add(new Entry(2, 2));
-        entries.add(new Entry(3, 0));
-        entries.add(new Entry(4, 4));
-        entries.add(new Entry(5, 3));
-
-        
-
+        for (int i = 0; i < timeSet; i++) {
+            entries.add(new Entry(i, i+1));
+        }
 
         LineDataSet lineDataSet = new LineDataSet(entries, "온도");
 
@@ -266,6 +253,7 @@ public class MainActivity extends AppCompatActivity {
         lineDataSet.setLineWidth(1.75f); //선 두께
         lineDataSet.setCircleRadius(5f); //점 크기
         lineDataSet.setCircleHoleRadius(2.5f); // 점 구멍(빈 공간) 크기
+        lineDataSet.disableDashedHighlightLine();
 
         //그래프 선, 점 색상들
         //lineDataSet.setColor(Color.WHITE);
