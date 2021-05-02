@@ -257,7 +257,7 @@ public class MainActivity extends AppCompatActivity {
         entries.add(new Entry(4, 4));
         entries.add(new Entry(5, 3));
 
-        Log.i("12", Short_Data[0][1][6]);
+        
 
 
         LineDataSet lineDataSet = new LineDataSet(entries, "온도");
