@@ -201,23 +201,23 @@ public class MainActivity extends AppCompatActivity {
                         Temp.setText(temp+"℃");
                         Days_of_week.setText(DOW);
                         switch (weather){
-                            case "rain":
+                            case "Rain":
                                 Main_img.setImageResource(R.drawable.rain);
                                 Time_comment.setText("지금은 비가 오는 날씨에요.");
                                 break;
-                            case "snow":
+                            case "Snow":
                                 Main_img.setImageResource(R.drawable.snow);
                                 Time_comment.setText("지금은 눈이 내려요.");
                                 break;
-                            case "sunny":
+                            case "Sunny":
                                 Main_img.setImageResource(R.drawable.sun);
                                 Time_comment.setText("지금은 해가 뜨는 화창한 날씨에요.");
                                 break;
-                            case "cloud":
+                            case "Cloud":
                                 Main_img.setImageResource(R.drawable.cloud1);
                                 Time_comment.setText("지금은 구름이 많은 날씨에요.");
                                 break;
-                            case "blur":
+                            case "Blur":
                                 Main_img.setImageResource(R.drawable.cloud2);
                                 Time_comment.setText("지금은 매우 흐린 날씨에요.");
                                 break;

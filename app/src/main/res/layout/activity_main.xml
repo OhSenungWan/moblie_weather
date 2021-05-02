@@ -4,7 +4,7 @@
     android:id="@+id/back"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/bg_1dawn"
+    android:background="@drawable/bg_2afternoon"
     android:orientation="vertical">
 
     <LinearLayout

@@ -6,7 +6,7 @@
         android:angle="90"
         android:startColor="#E8AE3A"
         android:endColor="#1E1E1E"
-        android:centerColor="#575E81" />
+        android:centerColor="#1A2D8F" />
 
     <!--    android:angle="0"-->
     <!-- angle 0 으로 맞추면 가로 90 은 세로-->
