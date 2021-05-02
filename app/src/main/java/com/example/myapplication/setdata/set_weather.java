@@ -4,11 +4,12 @@ import java.util.Calendar;
 
 public class set_weather {
     int Hour;
+    int Time;
     public String set_weather(String[][][] Short_Data){
         String weather;
         Hour= 0;
         Calendar cal = Calendar.getInstance();
-        int Time = cal.get(cal.HOUR);
+        Time = cal.get(cal.HOUR);
         int AMPM = cal.get(Calendar.AM_PM);
         if (AMPM == 1) {
             Time += 12;
@@ -90,5 +91,25 @@ public class set_weather {
         String wsd="";
         wsd = Short_Data[0][Hour][13];
         return wsd;
+    }
+    public int set_background(){
+        int background = 0;
+        if(Time>=5 && Time<7)
+        {
+            background = 1;
+        }
+        else if(Time>=7 && Time<17)
+        {
+            background = 2;
+        }
+        else if(Time>=17 && Time<19)
+        {
+            background = 3;
+        }
+        else
+        {
+            background = 4;
+        }
+        return background;
     }
 }
