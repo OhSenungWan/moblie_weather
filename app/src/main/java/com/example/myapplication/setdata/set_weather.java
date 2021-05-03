@@ -47,13 +47,14 @@ public class set_weather {
             Hour = 0;
             Date = 1;
         }
+        System.out.println(Date);
+        System.out.println(Hour);
         weather = set_wether(Short_Data);
         return weather;
     }
     public String set_wether(String[][][] Short_Data){
         String weather = "null";
         if(Short_Data[Date][Hour][1].equals("0")){
-            System.out.println("Short_Data[Date][Hour][5]");
             switch (Short_Data[Date][Hour][5]){
 
                 case "1":

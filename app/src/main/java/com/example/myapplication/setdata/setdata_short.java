@@ -42,6 +42,10 @@ public class setdata_short {
             int bdate = (year * 10000) + (month * 100) + date;
             int pdate = (pday.get(cal.YEAR)*10000)+((pday.get(cal.MONTH)+1)*100)+(pday.get(cal.DATE));
             int ppdate = (ppday.get(cal.YEAR)*10000)+((ppday.get(cal.MONTH)+1)*100)+(ppday.get(cal.DATE));
+            if (hour < 05 && AMPM == 0){
+                pdate = (cal.get(cal.YEAR)*10000)+((cal.get(cal.MONTH)+1)*100)+(cal.get(cal.DATE));
+                ppdate = (pday.get(cal.YEAR)*10000)+((pday.get(cal.MONTH)+1)*100)+(pday.get(cal.DATE));
+            }
             String Dday, Pday, PPday;
             Dday = Integer.toString(bdate);
             Pday = Integer.toString(pdate);

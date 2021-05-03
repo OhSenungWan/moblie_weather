@@ -111,21 +111,6 @@ public class MainActivity extends AppCompatActivity {
                 Pm10_grade = (TextView)findViewById(R.id.pm10grade);
                 Pm25_grade = (TextView)findViewById(R.id.pm25grade);
                 Time_comment = (TextView)findViewById(R.id.time_comment);
-                for(int i = 0; i<3; i++)
-                {
-                    for (int j=0;j<8;j++)
-                    {
-                        System.out.println("\n");
-                        for(int k = 0;k<14;k++)
-                        {
-                            System.out.print("i=" + i + " ");
-                            System.out.print("j=" + j + " ");
-                            System.out.print("k=" + k + " ");
-                            System.out.println(Short_Data[i][j][k]);
-                            System.out.println("\n");
-                        }
-                    }
-                }
                 //시간 날씨 이미지 배열 매칭
                 MainActivity.this.runOnUiThread(new Runnable() {
                     @Override
