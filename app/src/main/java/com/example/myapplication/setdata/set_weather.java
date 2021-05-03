@@ -15,11 +15,19 @@ public class set_weather {
         if (AMPM == 1) {
             Time += 12;
         }
-        if(Time <=9 && Time >=0){
+        if(Time <=3 && Time >=0){
+            Hour = 1;
+            Date = 1;
+        }
+        if(Time <=6 && Time >=3){
+            Hour = 2;
+            Date = 1;
+        }
+        else if(Time <=9 && Time >=6){
             Hour = 3;
             Date = 0;
         }
-        else if(Time <=12 && Time >=15){
+        else if(Time <=12 && Time >=9){
             Hour = 4;
             Date = 0;
         }
@@ -39,14 +47,15 @@ public class set_weather {
             Hour = 0;
             Date = 1;
         }
-
         weather = set_wether(Short_Data);
         return weather;
     }
     public String set_wether(String[][][] Short_Data){
         String weather = "null";
         if(Short_Data[Date][Hour][1].equals("0")){
+            System.out.println("Short_Data[Date][Hour][5]");
             switch (Short_Data[Date][Hour][5]){
+
                 case "1":
                     weather = "Sunny";
                     break;

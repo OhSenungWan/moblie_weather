@@ -43,6 +43,15 @@ public class data_short {
         if(fcstDate.equals(Dday))
         {
             switch (fcstTime){
+                case "0000":
+                    Wdata(category,fcstValue, 0, 0);
+                    break;
+                case "0300":
+                    Wdata(category,fcstValue, 0, 1);
+                    break;
+                case "0600":
+                    Wdata(category,fcstValue, 0, 2);
+                    break;
                 case "0900":
                     Wdata(category,fcstValue, 0, 3);
                     break;
