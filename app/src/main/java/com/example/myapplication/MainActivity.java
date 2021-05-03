@@ -3,9 +3,7 @@ package com.example.myapplication;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.graphics.Color;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
@@ -37,6 +35,7 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity {
     private Context mContext;
     public static final int timeSet = 16;
+    public static final int daySet = 8;
     public SharedPreferences prefs;
     String DOW;
     String Short_Data[][][] = new String[3][8][14];  //날짜(0오늘 1내일 2모래 시간(0이 0시부터 3시단위 데이터
@@ -229,7 +228,7 @@ public class MainActivity extends AppCompatActivity {
         });
         setStart();
         dynamicTimeWeather();
-
+        dynamicDayWeather();
     }
 
     public void dynamicTimeWeather(){
@@ -252,22 +251,23 @@ public class MainActivity extends AppCompatActivity {
             linearLayoutTopV[i].setOrientation(LinearLayout.VERTICAL);
             timeTextView[i].setText("09");
             timeTextView[i].setTextSize(18);
-            timeTextView[i].setGravity(Gravity.CENTER);
-            timeTextView[i].setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
 
             weatherImageView[i].setImageResource(R.drawable.rain);
+            weatherImageView[i].setForegroundGravity(Gravity.CENTER_HORIZONTAL);
 
             LinearLayout.LayoutParams lp1 = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-            lp1.bottomMargin=30;
+            lp1.bottomMargin = 40;
+            lp1.gravity = Gravity.CENTER_HORIZONTAL;
             timeTextView[i].setLayoutParams(lp1);
 
             linearLayoutTopV[i].addView(timeTextView[i]);
             linearLayoutTopV[i].addView(weatherImageView[i], 100, 100);
+            linearLayoutTopV[i].setMinimumWidth(120);
 
             LinearLayout.LayoutParams lp2 = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-            lp2.rightMargin = 95;
+            lp2.rightMargin = 70;
             linearLayoutTopV[i].setLayoutParams(lp2);
-            
+
 
             linearLayoutTop.addView(linearLayoutTopV[i]);
         }
@@ -281,7 +281,6 @@ public class MainActivity extends AppCompatActivity {
             rainfallTextView[i] = new TextView(this);
 
             linearLayoutBottomV[i].setOrientation(LinearLayout.VERTICAL);
-            rainfallProbTextView[i].setGravity(Gravity.CENTER);
             rainfallProbTextView[i].setText("10%");
             rainfallProbTextView[i].setTextSize(14);
 
@@ -291,14 +290,15 @@ public class MainActivity extends AppCompatActivity {
 
             LinearLayout.LayoutParams lp1 = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
             lp1.bottomMargin = 40;
+            lp1.gravity = Gravity.CENTER_HORIZONTAL;
             rainfallProbTextView[i].setLayoutParams(lp1);
-
 
             linearLayoutBottomV[i].addView(rainfallProbTextView[i]);
             linearLayoutBottomV[i].addView(rainfallTextView[i]);
+            linearLayoutBottomV[i].setMinimumWidth(120);
 
             LinearLayout.LayoutParams lp2 = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-            lp2.rightMargin = 115;
+            lp2.rightMargin = 70;
             lp2.topMargin=20;
 
             linearLayoutBottomV[i].setLayoutParams(lp2);
@@ -307,10 +307,10 @@ public class MainActivity extends AppCompatActivity {
         }
 
         //그래프 생성
-        makeGraph();
+        makeTimeGraph();
     }
 
-    public void makeGraph(){
+    public void makeTimeGraph(){
 
         LineChart lineChart = (LineChart)findViewById(R.id.lineChart);
 
@@ -325,14 +325,13 @@ public class MainActivity extends AppCompatActivity {
         lineDataSet.setLineWidth(1.75f); //선 두께
         lineDataSet.setCircleRadius(5f); //점 크기
         lineDataSet.setCircleHoleRadius(2.5f); // 점 구멍(빈 공간) 크기
-        lineDataSet.disableDashedHighlightLine();
 
         lineDataSet.setValueTextSize(18); //온도 글씨 크기
         lineDataSet.setValueFormatter(new MyValueFormatter());
+
         //그래프 선, 점 색상들
         //lineDataSet.setColor(Color.WHITE);
         //lineDataSet.setCircleColor(Color.WHITE);
-        //lineDataSet.setHighLightColor(Color.WHITE);
 
         //범례 사용 X
         Legend legend = lineChart.getLegend();
@@ -341,9 +340,122 @@ public class MainActivity extends AppCompatActivity {
         LineData lineData = new LineData(lineDataSet);
         lineChart.setData(lineData);
 
+        lineChart.setHighlightPerTapEnabled(false); // 클릭시 표시 제외
+        lineChart.setHighlightPerDragEnabled(false);
         lineChart.getDescription().setEnabled(false); //오른쪽 설명 제거
         lineChart.setPinchZoom(false);
+        lineChart.setDoubleTapToZoomEnabled(false);
+        lineChart.getAxisLeft().setEnabled(false); //Y축 왼쪽 숫자 제거
+        lineChart.getAxisRight().setEnabled(false); //Y축 오른쪽 숫자 제거
+        lineChart.getXAxis().setEnabled(false); //위쪽 숫자 제거
+        lineChart.invalidate();
+    }
 
+    public void dynamicDayWeather(){
+        //탑 ,바텀 텍스트뷰 생성
+        LinearLayout linearLayoutTop = findViewById(R.id.layout_dayWeatherTop);
+        LinearLayout linearLayoutBottom = findViewById(R.id.layout_dayWeatherBottom);
+
+        LinearLayout[] linearLayoutTopV = new LinearLayout[daySet];
+        LinearLayout[] linearLayoutBottomV = new LinearLayout[daySet];
+
+        TextView[] dayTextView = new TextView[daySet];
+        ImageView[] weatherImageView = new ImageView[daySet];
+
+        //그래프 위 텍스트뷰 생성
+        for (int i = 0; i < daySet; i++) {
+            linearLayoutTopV[i] = new LinearLayout(this);
+            dayTextView[i] = new TextView(this);
+            weatherImageView[i] = new ImageView(this);
+
+            linearLayoutTopV[i].setOrientation(LinearLayout.VERTICAL);
+            dayTextView[i].setText("1");
+            dayTextView[i].setTextSize(18);
+
+            weatherImageView[i].setImageResource(R.drawable.rain);
+            weatherImageView[i].setForegroundGravity(Gravity.CENTER_HORIZONTAL);
+
+            LinearLayout.LayoutParams lp1 = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+            lp1.bottomMargin = 40;
+            lp1.gravity = Gravity.CENTER_HORIZONTAL;
+            dayTextView[i].setLayoutParams(lp1);
+
+            linearLayoutTopV[i].addView(dayTextView[i]);
+            linearLayoutTopV[i].addView(weatherImageView[i], 100, 100);
+            linearLayoutTopV[i].setMinimumWidth(120);
+
+            LinearLayout.LayoutParams lp2 = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+            lp2.rightMargin = 70;
+            linearLayoutTopV[i].setLayoutParams(lp2);
+
+
+            linearLayoutTop.addView(linearLayoutTopV[i]);
+        }
+
+        TextView[] rainfallProbTextView = new TextView[daySet];
+        //그래프 아래 텍스트뷰 생성
+        for (int i = 0; i < daySet; i++){
+            linearLayoutBottomV[i] = new LinearLayout(this);
+            rainfallProbTextView[i] = new TextView(this);
+
+            linearLayoutBottomV[i].setOrientation(LinearLayout.VERTICAL);
+            rainfallProbTextView[i].setText("10%");
+            rainfallProbTextView[i].setTextSize(14);
+
+            LinearLayout.LayoutParams lp1 = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+            lp1.gravity = Gravity.CENTER_HORIZONTAL;
+            rainfallProbTextView[i].setLayoutParams(lp1);
+
+            linearLayoutBottomV[i].addView(rainfallProbTextView[i]);
+            linearLayoutBottomV[i].setMinimumWidth(120);
+
+            LinearLayout.LayoutParams lp2 = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+            lp2.rightMargin = 70;
+            lp2.topMargin=20;
+
+            linearLayoutBottomV[i].setLayoutParams(lp2);
+
+            linearLayoutBottom.addView(linearLayoutBottomV[i]);
+        }
+
+        //그래프 생성
+        makeDayGraph();
+    }
+
+    public void makeDayGraph(){
+
+        LineChart lineChart = (LineChart)findViewById(R.id.dayLineChart);
+
+        List<Entry> entries = new ArrayList<>();
+        for (int i = 0; i < daySet; i++) {
+            entries.add(new Entry(i, i));
+        }
+
+        LineDataSet lineDataSet = new LineDataSet(entries, "온도");
+
+        //lineDataSet.setDrawValues(false); //점에 데이터 출력
+        lineDataSet.setLineWidth(1.75f); //선 두께
+        lineDataSet.setCircleRadius(5f); //점 크기
+        lineDataSet.setCircleHoleRadius(2.5f); // 점 구멍(빈 공간) 크기
+
+        lineDataSet.setValueTextSize(18); //온도 글씨 크기
+        lineDataSet.setValueFormatter(new MyValueFormatter());
+
+        //그래프 선, 점 색상들
+        //lineDataSet.setColor(Color.WHITE);
+        //lineDataSet.setCircleColor(Color.WHITE);
+
+        //범례 사용 X
+        Legend legend = lineChart.getLegend();
+        legend.setEnabled(false);
+
+        LineData lineData = new LineData(lineDataSet);
+        lineChart.setData(lineData);
+
+        lineChart.setHighlightPerTapEnabled(false); // 클릭시 표시 제외
+        lineChart.setHighlightPerDragEnabled(false);
+        lineChart.getDescription().setEnabled(false); //오른쪽 설명 제거
+        lineChart.setPinchZoom(false);
         lineChart.setDoubleTapToZoomEnabled(false);
         lineChart.getAxisLeft().setEnabled(false); //Y축 왼쪽 숫자 제거
         lineChart.getAxisRight().setEnabled(false); //Y축 오른쪽 숫자 제거
