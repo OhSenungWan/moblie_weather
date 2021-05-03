@@ -3,8 +3,10 @@ package com.example.myapplication;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
@@ -17,6 +19,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.myapplication.db.DBInit;
 import com.example.myapplication.db.ShowListView;
+import com.example.myapplication.graph.MyValueFormatter;
 import com.example.myapplication.setdata.setdata_short;
 import com.example.myapplication.setdata.setdata_air;
 import com.example.myapplication.setdata.setdata_long_Temp;
@@ -240,6 +243,7 @@ public class MainActivity extends AppCompatActivity {
         TextView[] timeTextView = new TextView[timeSet];
         ImageView[] weatherImageView = new ImageView[timeSet];
 
+        //그래프 위 텍스트뷰 생성
         for (int i = 0; i < timeSet; i++) {
             linearLayoutTopV[i] = new LinearLayout(this);
             timeTextView[i] = new TextView(this);
@@ -248,16 +252,58 @@ public class MainActivity extends AppCompatActivity {
             linearLayoutTopV[i].setOrientation(LinearLayout.VERTICAL);
             timeTextView[i].setText("09");
             timeTextView[i].setTextSize(18);
+            timeTextView[i].setGravity(Gravity.CENTER);
+            timeTextView[i].setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
+
             weatherImageView[i].setImageResource(R.drawable.rain);
+
+            LinearLayout.LayoutParams lp1 = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+            lp1.bottomMargin=30;
+            timeTextView[i].setLayoutParams(lp1);
 
             linearLayoutTopV[i].addView(timeTextView[i]);
             linearLayoutTopV[i].addView(weatherImageView[i], 100, 100);
 
-            LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-            lp.leftMargin = 95;
-            linearLayoutTopV[i].setLayoutParams(lp);
+            LinearLayout.LayoutParams lp2 = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+            lp2.rightMargin = 95;
+            linearLayoutTopV[i].setLayoutParams(lp2);
+            
 
             linearLayoutTop.addView(linearLayoutTopV[i]);
+        }
+
+        TextView[] rainfallProbTextView = new TextView[timeSet];
+        TextView[] rainfallTextView = new TextView[timeSet];
+        //그래프 아래 텍스트뷰 생성
+        for (int i = 0; i < timeSet; i++){
+            linearLayoutBottomV[i] = new LinearLayout(this);
+            rainfallProbTextView[i] = new TextView(this);
+            rainfallTextView[i] = new TextView(this);
+
+            linearLayoutBottomV[i].setOrientation(LinearLayout.VERTICAL);
+            rainfallProbTextView[i].setGravity(Gravity.CENTER);
+            rainfallProbTextView[i].setText("10%");
+            rainfallProbTextView[i].setTextSize(14);
+
+            rainfallTextView[i].setGravity(Gravity.CENTER);
+            rainfallTextView[i].setText("10mm");
+            rainfallTextView[i].setTextSize(14);
+
+            LinearLayout.LayoutParams lp1 = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+            lp1.bottomMargin = 40;
+            rainfallProbTextView[i].setLayoutParams(lp1);
+
+
+            linearLayoutBottomV[i].addView(rainfallProbTextView[i]);
+            linearLayoutBottomV[i].addView(rainfallTextView[i]);
+
+            LinearLayout.LayoutParams lp2 = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+            lp2.rightMargin = 115;
+            lp2.topMargin=20;
+
+            linearLayoutBottomV[i].setLayoutParams(lp2);
+
+            linearLayoutBottom.addView(linearLayoutBottomV[i]);
         }
 
         //그래프 생성
@@ -270,7 +316,7 @@ public class MainActivity extends AppCompatActivity {
 
         List<Entry> entries = new ArrayList<>();
         for (int i = 0; i < timeSet; i++) {
-            entries.add(new Entry(i, i+1));
+            entries.add(new Entry(i, i));
         }
 
         LineDataSet lineDataSet = new LineDataSet(entries, "온도");
@@ -281,6 +327,8 @@ public class MainActivity extends AppCompatActivity {
         lineDataSet.setCircleHoleRadius(2.5f); // 점 구멍(빈 공간) 크기
         lineDataSet.disableDashedHighlightLine();
 
+        lineDataSet.setValueTextSize(18); //온도 글씨 크기
+        lineDataSet.setValueFormatter(new MyValueFormatter());
         //그래프 선, 점 색상들
         //lineDataSet.setColor(Color.WHITE);
         //lineDataSet.setCircleColor(Color.WHITE);
