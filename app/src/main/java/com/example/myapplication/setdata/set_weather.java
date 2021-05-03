@@ -37,21 +37,21 @@ public class set_weather {
         if(Short_Data[0][Hour][1].equals("0")){
             switch (Short_Data[0][Hour][5]){
                 case "1":
-                    weather = "sunny";
+                    weather = "Sunny";
                     break;
                 case "3":
-                    weather = "cloud";
+                    weather = "Cloud";
                     break;
                 case "4":
-                    weather = "blur";
+                    weather = "Blur";
                     break;
             }
         }
         else if(Short_Data[0][Hour][1].equals("3") || Short_Data[0][Hour][1].equals("7")){
-            weather = "snow";
+            weather = "Snow";
         }
         else{
-            weather = "rain";
+            weather = "Rain";
         }
         return weather;
     }
