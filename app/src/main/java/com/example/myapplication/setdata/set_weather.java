@@ -5,6 +5,7 @@ import java.util.Calendar;
 public class set_weather {
     int Hour;
     int Time;
+    int Date;
     public String set_weather(String[][][] Short_Data){
         String weather;
         Hour= 0;
@@ -14,28 +15,38 @@ public class set_weather {
         if (AMPM == 1) {
             Time += 12;
         }
-        if(Time <=12 && Time >=0){
+        if(Time <=9 && Time >=0){
             Hour = 3;
+            Date = 0;
+        }
+        else if(Time <=12 && Time >=15){
+            Hour = 4;
+            Date = 0;
         }
         else if(Time <=15 && Time >=12){
-            Hour = 4;
+            Hour = 5;
+            Date = 0;
         }
         else if(Time <=18 && Time >=15){
-            Hour = 5;
+            Hour = 6;
+            Date = 0;
         }
         else if(Time <=21 && Time >=18){
-            Hour = 6;
+            Hour = 7;
+            Date = 0;
         }
         else if(Time <=24 && Time >=21){
-            Hour = 7;
+            Hour = 0;
+            Date = 1;
         }
-        weather = set_wether(Short_Data,Hour);
+
+        weather = set_wether(Short_Data);
         return weather;
     }
-    public String set_wether(String[][][] Short_Data, int Hour){
+    public String set_wether(String[][][] Short_Data){
         String weather = "null";
-        if(Short_Data[0][Hour][1].equals("0")){
-            switch (Short_Data[0][Hour][5]){
+        if(Short_Data[Date][Hour][1].equals("0")){
+            switch (Short_Data[Date][Hour][5]){
                 case "1":
                     weather = "Sunny";
                     break;
@@ -47,7 +58,7 @@ public class set_weather {
                     break;
             }
         }
-        else if(Short_Data[0][Hour][1].equals("3") || Short_Data[0][Hour][1].equals("7")){
+        else if(Short_Data[Date][Hour][1].equals("3") || Short_Data[Date][Hour][1].equals("7")){
             weather = "Snow";
         }
         else{
@@ -57,18 +68,18 @@ public class set_weather {
     }
     public String set_temp(String[][][] Short_Data){
         String temp= "";
-        temp = Short_Data[0][Hour][6];
+        temp = Short_Data[Date][Hour][6];
         return temp;
     }
     public String set_pop(String[][][] Short_Data){
         String pop="";
-        pop = Short_Data[0][Hour][0];
+        pop = Short_Data[Date][Hour][0];
         return pop;
     }
     public String set_vec(String[][][] Short_Data){
         String vec="";
-        double uuu = Double.parseDouble(Short_Data[0][Hour][9]);
-        double vvv = Double.parseDouble(Short_Data[0][Hour][10]);
+        double uuu = Double.parseDouble(Short_Data[Date][Hour][9]);
+        double vvv = Double.parseDouble(Short_Data[Date][Hour][10]);
         if(vvv > 0){
             vec += "북";
         }
@@ -89,7 +100,7 @@ public class set_weather {
     }
     public String set_wsd(String[][][] Short_Data){
         String wsd="";
-        wsd = Short_Data[0][Hour][13];
+        wsd = Short_Data[Date][Hour][13];
         return wsd;
     }
     public int set_background(){
