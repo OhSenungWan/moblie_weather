@@ -71,7 +71,7 @@ public class MainActivity extends AppCompatActivity {
     TextView Pm25_grade;
     TextView Time_comment;
     LinearLayout Back;
-
+    ImageButton btncloth;
 
     int back;
 
@@ -111,6 +111,7 @@ public class MainActivity extends AppCompatActivity {
                 Pm10_grade = (TextView)findViewById(R.id.pm10grade);
                 Pm25_grade = (TextView)findViewById(R.id.pm25grade);
                 Time_comment = (TextView)findViewById(R.id.time_comment);
+
                 //시간 날씨 이미지 배열 매칭
                 MainActivity.this.runOnUiThread(new Runnable() {
                     @Override
@@ -216,6 +217,19 @@ public class MainActivity extends AppCompatActivity {
                 startActivityForResult(intent,1);
             }
         });
+
+
+
+        ImageButton btncloth=(ImageButton)findViewById(R.id.btncloth);
+        btncloth.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this,ClothingActivity.class);
+                startActivity(intent);
+            }
+        });
+
+
         setStart();
         dynamicTimeWeather();
         dynamicDayWeather();
