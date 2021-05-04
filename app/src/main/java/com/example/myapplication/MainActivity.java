@@ -197,9 +197,6 @@ public class MainActivity extends AppCompatActivity {
             PreferenceManager.setString(mContext, "rebuild", text);
         }
         String[] data = text.split(" ");
-        for(int i=0; i<7; i++){
-            System.out.println(data[i]);
-        }
         x_point = data[0];
         y_point = data[1];
         point_temp = data[2];

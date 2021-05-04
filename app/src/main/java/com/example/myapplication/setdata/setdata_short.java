@@ -26,17 +26,26 @@ public class setdata_short {
             int date = cal.get(cal.DATE);
             int hour = cal.get(cal.HOUR);
             int minute = cal.get(cal.MINUTE);
+            int AMPM = cal.get(Calendar.AM_PM);
             day_of_week = cal.get(Calendar.DAY_OF_WEEK);
-
             Calendar yesterday = Calendar.getInstance();
             Calendar pday = Calendar.getInstance();
             Calendar ppday = Calendar.getInstance();
             pday.add(pday.DATE,+1);
             ppday.add(ppday.DATE,+2);
             yesterday.add(Calendar.DATE, -1);
+            if (hour < 05 && AMPM == 0){
+                year = yesterday.get(yesterday.YEAR);
+                month = yesterday.get(yesterday.MONTH) + 1;
+                date = yesterday.get(yesterday.DATE);
+            }
             int bdate = (year * 10000) + (month * 100) + date;
             int pdate = (pday.get(cal.YEAR)*10000)+((pday.get(cal.MONTH)+1)*100)+(pday.get(cal.DATE));
             int ppdate = (ppday.get(cal.YEAR)*10000)+((ppday.get(cal.MONTH)+1)*100)+(ppday.get(cal.DATE));
+            if (hour < 05 && AMPM == 0){
+                pdate = (cal.get(cal.YEAR)*10000)+((cal.get(cal.MONTH)+1)*100)+(cal.get(cal.DATE));
+                ppdate = (pday.get(cal.YEAR)*10000)+((pday.get(cal.MONTH)+1)*100)+(pday.get(cal.DATE));
+            }
             String Dday, Pday, PPday;
             Dday = Integer.toString(bdate);
             Pday = Integer.toString(pdate);
@@ -57,6 +66,7 @@ public class setdata_short {
                     + "&" + "dataType=" + dataType + "&" + "base_date=" + base_date
                     + "&" + "base_time=" + base_time + "&" + "nx=" + nx
                     + "&" + "ny=" + ny;
+            System.out.println(url);
             int NOR = Integer.parseInt(numOfRows);
             wd.start();
             Document document = Jsoup.connect(url).get();

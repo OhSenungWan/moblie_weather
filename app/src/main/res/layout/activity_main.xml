@@ -262,7 +262,7 @@
                     android:layout_weight="1"
                     android:gravity="center"
 
-                    android:text="미세먼지"
+                    android:text="초미세먼지"
 
 
 
@@ -303,7 +303,7 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:gravity="center"
-                    android:text="초미세먼지"
+                    android:text="미세먼지"
                     android:textStyle="bold"
                     android:textColor="#FFFFFF"
                     android:textSize="10dp" />
