@@ -24,6 +24,15 @@
         <activity android:name=".ClothingActivity" android:label="ClothingPage"/>
         <activity android:name=".db.DBInit"/>
         <activity android:name=".db.ShowListView"/>
+        <receiver
+            android:name=".WeatherAppWidgetProvider"
+            android:label="Creative Weather">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+            </intent-filter>
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/widget_configue"/>
+        </receiver>
     </application>
-
 </manifest>
