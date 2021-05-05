@@ -13,12 +13,5 @@ public class ClothingActivity extends Activity {
         setContentView(R.layout.activity_clothing);
         setTitle("CLOTHING");
 
-        ImageButton btn_return=(ImageButton)findViewById(R.id.btn_return);
-        btn_return.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                    finish();
-            }
-        });
     }
 }

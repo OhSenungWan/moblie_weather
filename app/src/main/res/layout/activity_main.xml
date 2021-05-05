@@ -41,30 +41,7 @@
             android:src="@drawable/location_img" />
     </LinearLayout>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:gravity="right"
-        android:layout_marginTop="15dp"
-        android:layout_marginRight="15dp">
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:text="Location"
-        android:textStyle="bold"
-        android:textColor="#FFFFFF"
-        android:textSize="15dp" />
-    <TextView
-        android:id="@+id/location"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:text="서울특별시 구로구 구로동"
-        android:textColor="#FFFFFF"
-        android:textSize="12dp" />
-    </LinearLayout>
+
 
     <ScrollView
         android:layout_width="match_parent"
@@ -73,17 +50,35 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
-
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Location"
+            android:textStyle="bold"
+            android:layout_marginTop="12dp"
+            android:layout_marginRight="12dp"
+            android:textColor="#FFFFFF"
+            android:textSize="15dp"
+            android:layout_gravity="right"/>
+        <TextView
+            android:id="@+id/location"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="서울특별시 구로구 구로동"
+            android:layout_marginRight="12dp"
+            android:layout_gravity="right"
+            android:textColor="#FFFFFF"
+            android:textSize="12dp" />
         <!--메인-->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginTop="120dp"
-
             android:layout_weight="1"
             android:gravity="center"
             android:orientation="vertical">
-
 
             <TextView
                 android:id="@+id/comment"
@@ -99,7 +94,7 @@
                 android:id="@+id/main_img"
                 android:layout_width="120dp"
                 android:layout_height="120dp"
-                android:src="@drawable/cloud1" />
+                android:src="@drawable/sunn" />
 
             <LinearLayout
                 android:layout_width="wrap_content"
