@@ -130,7 +130,7 @@ public class MainActivity extends AppCompatActivity {
                                 Time_comment.setText("지금은 눈이 내려요.");
                                 break;
                             case "Sunny":
-                                Main_img.setImageResource(R.drawable.sun);
+                                Main_img.setImageResource(R.drawable.sunn);
                                 Time_comment.setText("지금은 해가 뜨는 화창한 날씨에요.");
                                 break;
                             case "Cloud":
