@@ -66,7 +66,6 @@ public class setdata_short {
                     + "&" + "dataType=" + dataType + "&" + "base_date=" + base_date
                     + "&" + "base_time=" + base_time + "&" + "nx=" + nx
                     + "&" + "ny=" + ny;
-            System.out.println(url);
             int NOR = Integer.parseInt(numOfRows);
             wd.start();
             Document document = Jsoup.connect(url).get();

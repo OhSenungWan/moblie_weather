@@ -47,8 +47,6 @@ public class set_weather {
             Hour = 0;
             Date = 1;
         }
-        System.out.println(Date);
-        System.out.println(Hour);
         weather = set_wether(Short_Data);
         return weather;
     }

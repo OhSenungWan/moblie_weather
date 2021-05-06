@@ -171,7 +171,6 @@ public class MainActivity extends AppCompatActivity {
     }
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-        String temp= "";
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == 1) {
             if(resultCode == RESULT_OK){
@@ -185,6 +184,8 @@ public class MainActivity extends AppCompatActivity {
                 setStart();
                 Data = x_point + " " + y_point + " " + point_temp + " " + point_weather + " " + city_data;
                 PreferenceManager.setString(mContext, "rebuild", Data);
+                String intentdata = temp+"℃ " + pm10 + " "+weather;
+                PreferenceManager.setString(mContext, "data", intentdata);
             }
         }
     }
@@ -196,6 +197,7 @@ public class MainActivity extends AppCompatActivity {
             text = "58 125 11B10101 11B00000 서울특별시 구로구 구로제1동";
             PreferenceManager.setString(mContext, "rebuild", text);
         }
+
         String[] data = text.split(" ");
         x_point = data[0];
         y_point = data[1];
@@ -228,6 +230,11 @@ public class MainActivity extends AppCompatActivity {
 
 
         setStart();
+        String intentdata = PreferenceManager.getString(mContext,"data");
+        if(intentdata.equals("")) {
+            intentdata = temp+"℃ " + pm10 + " "+weather;
+            PreferenceManager.setString(mContext, "data", intentdata);
+        }
         dynamicTimeWeather();
         dynamicDayWeather();
     }

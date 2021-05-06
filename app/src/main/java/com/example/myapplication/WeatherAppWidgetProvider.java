@@ -52,16 +52,39 @@ public class WeatherAppWidgetProvider extends AppWidgetProvider{
             text = "58 125 11B10101 11B00000 서울특별시 구로구 구로제1동";
             PreferenceManager.setString(context, "rebuild", text);
         }
-
+        String intentdata = PreferenceManager.getString(context,"data");
+        String[] idata = intentdata.split(" ");
         String[] data = text.split(" ");
         String point_temp = data[2];
         String point_weather = data[3];
         String city_data = data[4] + " " + data[5] + " " +data[6];
+        String weather = idata[2];
+        switch (weather){
+            case "Rain":
+                updateViews.setImageViewResource(R.id.Weather, R.drawable.rain);
+                break;
+            case "Snow":
+                updateViews.setImageViewResource(R.id.Weather, R.drawable.snow);
+                break;
+            case "Sunny":
+                updateViews.setImageViewResource(R.id.Weather, R.drawable.sunn);
+                break;
+            case "Cloud":
+                updateViews.setImageViewResource(R.id.Weather, R.drawable.cloud1);
+                break;
+            case "Blur":
+                updateViews.setImageViewResource(R.id.Weather, R.drawable.cloud2);
+                break;
+        }
+
         Calendar mCalendar = Calendar.getInstance();
         SimpleDateFormat mFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm", Locale.KOREA);
 
         updateViews.setTextViewText(R.id.location, city_data);
         updateViews.setTextViewText(R.id.realtime,mFormat.format(mCalendar.getTime()));
+        updateViews.setTextViewText(R.id.Temp, idata[0]);
+        updateViews.setTextViewText(R.id.pm10, "미세먼지 : " + idata[1] + " | ");
+
         appWidgetManager.updateAppWidget(appWidgetId,updateViews);
     }
 }
