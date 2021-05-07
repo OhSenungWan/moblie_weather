@@ -77,6 +77,7 @@ public class MainActivity extends AppCompatActivity {
     TextView Pm10_grade;
     TextView Pm25_grade;
     TextView Time_comment;
+    TextView day_comment;
     LinearLayout Back;
     int PoP = 0;
     ImageButton btncloth;
@@ -142,6 +143,7 @@ public class MainActivity extends AppCompatActivity {
                 Pm10_grade = (TextView)findViewById(R.id.pm10grade);
                 Pm25_grade = (TextView)findViewById(R.id.pm25grade);
                 Time_comment = (TextView)findViewById(R.id.time_comment);
+                day_comment = (TextView)findViewById(R.id.daycomment);
                 //시간 날씨 이미지 배열 매칭
                 MainActivity.this.runOnUiThread(new Runnable() {
                     @Override
@@ -157,22 +159,27 @@ public class MainActivity extends AppCompatActivity {
                             case "Rain":
                                 Main_img.setImageResource(R.drawable.rain);
                                 Time_comment.setText("지금은 비가 오는 날씨에요.");
+                                day_comment.setText("오늘은 전체적으로 비가 오는 날씨에요.");
                                 break;
                             case "Snow":
                                 Main_img.setImageResource(R.drawable.snow);
                                 Time_comment.setText("지금은 눈이 내려요.");
+                                day_comment.setText("오늘은 전체적으로 눈이 내려요.");
                                 break;
                             case "Sunny":
                                 Main_img.setImageResource(R.drawable.sunn);
                                 Time_comment.setText("지금은 해가 뜨는 화창한 날씨에요.");
+                                day_comment.setText("오늘은 전체적으로 해가 뜨는 화창한 날씨에요.");
                                 break;
                             case "Cloud":
                                 Main_img.setImageResource(R.drawable.cloud1);
                                 Time_comment.setText("지금은 구름이 많은 날씨에요.");
+                                day_comment.setText("오늘은 전체적으로 구름이 많은 날씨에요.");
                                 break;
                             case "Blur":
                                 Main_img.setImageResource(R.drawable.cloud2);
                                 Time_comment.setText("지금은 매우 흐린 날씨에요.");
+                                day_comment.setText("오늘은 전체적으로 매우 흐린 날씨에요.");
                                 break;
                         }
                         Pop.setText(pop+"%");
@@ -468,7 +475,7 @@ public class MainActivity extends AppCompatActivity {
         //탑 ,바텀 텍스트뷰 생성
         LinearLayout linearLayoutTop = findViewById(R.id.layout_dayWeatherTop);
         LinearLayout linearLayoutBottom = findViewById(R.id.layout_dayWeatherBottom);
-        
+
         linearLayoutTop.removeAllViews();
         linearLayoutBottom.removeAllViews();
 
