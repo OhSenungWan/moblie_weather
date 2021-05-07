@@ -21,7 +21,7 @@ public class set_weather {
         }
         if(Time <=6 && Time >=3){
             Hour = 2;
-            Date = 1;
+            Date = 0;
         }
         else if(Time <=9 && Time >=6){
             Hour = 3;

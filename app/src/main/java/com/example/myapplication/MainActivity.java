@@ -71,6 +71,8 @@ public class MainActivity extends AppCompatActivity {
     TextView Pm25_grade;
     TextView Time_comment;
     LinearLayout Back;
+    int PoP = 0;
+    String fType = null;
     ImageButton btncloth;
 
     int back;
@@ -79,6 +81,29 @@ public class MainActivity extends AppCompatActivity {
         new Thread(new Runnable() {
             @Override
             public void run() {
+                for(int i = 0; i<3;i++)
+                {
+                    for(int j = 0; j<8; j++)
+                    {
+                        for(int k = 0; k<14; k++)
+                        {
+                            Short_Data[i][j][k] = "null";
+                        }
+                    }
+                }
+                for(int i = 0; i<8; i++){
+                    for(int j = 0; j<2; j++){
+                        Long_Temp[i][j] = "null";
+                    }
+                }
+                for(int i = 0; i<8; i++){
+                    for(int j = 0; j<4; j++){
+                        Long_Weather[i][j] = "null";
+                    }
+                }
+                for(int i = 0; i<3; i++){
+                    Data_Air[i] = "null";
+                }
                 Back = (LinearLayout)findViewById(R.id.back);
                 setdata_short cd = new setdata_short();
                 sa = new setdata_air();
@@ -111,7 +136,6 @@ public class MainActivity extends AppCompatActivity {
                 Pm10_grade = (TextView)findViewById(R.id.pm10grade);
                 Pm25_grade = (TextView)findViewById(R.id.pm25grade);
                 Time_comment = (TextView)findViewById(R.id.time_comment);
-
                 //시간 날씨 이미지 배열 매칭
                 MainActivity.this.runOnUiThread(new Runnable() {
                     @Override
@@ -224,7 +248,32 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(MainActivity.this,ClothingActivity.class);
+                intent.putExtra("Temp", temp);
+                intent.putExtra("Wsd", wsd);
+
+
+                if(fType.equals("3") || fType.equals("7"))
+                {
+                    fType = "snow";
+                }
+                else
+                {
+                    fType = "rain";
+                }
+                if(PoP > 30)
+                {
+                    intent.putExtra("Weather", "1");
+                    intent.putExtra("Wtype" , fType);
+                }
+                else
+                {
+                    intent.putExtra("Weather", "0");
+                    intent.putExtra("Wtype", "sunny");
+                } // 내리는 것이 없을 때
+
+
                 startActivity(intent);
+
             }
         });
 

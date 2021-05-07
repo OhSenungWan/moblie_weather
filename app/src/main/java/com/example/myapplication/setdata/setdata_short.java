@@ -14,11 +14,19 @@ public class setdata_short {
     public String DOW= "null";
     public String[][][] setdata(String x, String y) {
 
-        String[] category = new String[225];
-        String[] fcstDate = new String[225];
-        String[] fcstTime = new String[225];
-        String[] fcstValue = new String[225];
+        String[] category = new String[250];
+        String[] fcstDate = new String[250];
+        String[] fcstTime = new String[250];
+        String[] fcstValue = new String[250];
         int i = 0;
+        for(i=0;i<250;i++)
+        {
+            category[i] = "null";
+            fcstDate[i] = "null";
+            fcstTime[i] = "null";
+            fcstValue[i] = "null";
+        }
+        i = 0;
         try {
             Calendar cal = Calendar.getInstance();
             int year = cal.get(cal.YEAR);
@@ -27,6 +35,7 @@ public class setdata_short {
             int hour = cal.get(cal.HOUR);
             int minute = cal.get(cal.MINUTE);
             int AMPM = cal.get(Calendar.AM_PM);
+
             day_of_week = cal.get(Calendar.DAY_OF_WEEK);
             Calendar yesterday = Calendar.getInstance();
             Calendar pday = Calendar.getInstance();
@@ -34,7 +43,7 @@ public class setdata_short {
             pday.add(pday.DATE,+1);
             ppday.add(ppday.DATE,+2);
             yesterday.add(Calendar.DATE, -1);
-            if (hour < 05 && AMPM == 0){
+            if (hour < 04 && AMPM == 0){
                 year = yesterday.get(yesterday.YEAR);
                 month = yesterday.get(yesterday.MONTH) + 1;
                 date = yesterday.get(yesterday.DATE);
@@ -42,9 +51,49 @@ public class setdata_short {
             int bdate = (year * 10000) + (month * 100) + date;
             int pdate = (pday.get(cal.YEAR)*10000)+((pday.get(cal.MONTH)+1)*100)+(pday.get(cal.DATE));
             int ppdate = (ppday.get(cal.YEAR)*10000)+((ppday.get(cal.MONTH)+1)*100)+(ppday.get(cal.DATE));
-            if (hour < 05 && AMPM == 0){
+            if (hour < 04 && AMPM == 0){
                 pdate = (cal.get(cal.YEAR)*10000)+((cal.get(cal.MONTH)+1)*100)+(cal.get(cal.DATE));
                 ppdate = (pday.get(cal.YEAR)*10000)+((pday.get(cal.MONTH)+1)*100)+(pday.get(cal.DATE));
+            }
+            if(AMPM == 1)
+            {
+                hour += 12;
+            }
+            int time = ((hour+2)/3)*3 - 4;
+            if(time <0)
+                time += 24;
+            String Time= "0200";
+            if(time == 20)
+            {
+                Time = "2000";
+            }
+            else if(time == 23)
+            {
+                Time = "2300";
+            }
+            else if(time == 2)
+            {
+                Time = "0200";
+            }
+            else if(time == 5)
+            {
+                Time = "0500";
+            }
+            else if(time == 8)
+            {
+                Time = "0800";
+            }
+            else if(time == 11)
+            {
+                Time = "1100";
+            }
+            else if(time == 14)
+            {
+                Time = "1400";
+            }
+            else if(time == 17)
+            {
+                Time = "1700";
             }
             String Dday, Pday, PPday;
             Dday = Integer.toString(bdate);
@@ -55,10 +104,10 @@ public class setdata_short {
             // 홈페이지에서 받은 키
             String serviceKey = "iBjzgZZ3CoomVMGYL8eQNbd7JCaJXC5qhWtN3hV4s3ZMcUMVbskatC7x2ADNcsPP7aZ4bXWd5BKd0ukxLuL25Q%3D%3D";
             String pageNo = "1";
-            String numOfRows = "225";    //한 페이지 결과 수
+            String numOfRows = "250";    //한 페이지 결과 수
             String dataType = "xml";    //타입 xml, json 등등 .
             String base_date = Dday;    //조회하고싶은 날짜 이 예제는 어제 날짜 입력해 주면 됨// .
-            String base_time = "0500";    //API 제공 시간을 입력하면 됨
+            String base_time = Time;    //API 제공 시간을 입력하면 됨
             String nx = x;    //위도
             String ny = y;    //경도
             String url = apiUrl + "?" + "servicekey=" + serviceKey
