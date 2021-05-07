@@ -36,7 +36,7 @@ public class setdata_long_weather {
             String pageNo = "1";
             String numOfRows = "1";       //한 페이지 결과 수
             String dataType = "xml";      //타입 xml, json 등등 .
-            String regId = "11B00000";    //지역코드
+            String regId = point_weather;    //지역코드
             String tmFc = Dday;           //오늘날짜
             String url = apiUrl + "?" + "servicekey=" + serviceKey
                     + "&" + "pageNo=" + pageNo + "&" + "numOfRows=" + numOfRows
