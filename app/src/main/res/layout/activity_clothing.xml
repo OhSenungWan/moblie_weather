@@ -194,14 +194,11 @@
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:layout_marginRight="10dp">
-<<<<<<< HEAD
         <ImageView
             android:layout_width="65dp"
             android:layout_height="65dp"
             android:layout_weight="1"
             android:src="@drawable/cloth_manblazer"/>
-=======
->>>>>>> 6a0a71a8007fc3aff94b46607ce73fcf4d678359
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
