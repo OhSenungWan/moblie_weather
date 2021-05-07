@@ -40,7 +40,7 @@ import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity {
     private Context mContext;
-    public static final int timeSet = 16;
+    public static final int timeSet = 15;
     public static final int daySet = 5;
     public SharedPreferences prefs;
     String DOW;
@@ -256,7 +256,6 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(MainActivity.this,ClothingActivity.class);
-                System.out.println(temp);
                 intent.putExtra("Temp", temp);
                 intent.putExtra("Wsd", wsd);
 
@@ -315,10 +314,11 @@ public class MainActivity extends AppCompatActivity {
 
             int time = (sw.getHour() + i)%8;
             int day = (sw.getHour() + i)/8;
-
+            if(sw.getHour() < 3){
+                day = (sw.getHour() + i)/8 + 1;
+            }
             String pty = Short_Data[day][time][1];
             String sky = Short_Data[day][time][5];
-
             if(pty.equals("0")){
                 if(sky.equals("1")){
                     weatherImageView[i].setImageResource(R.drawable.sunn);
@@ -365,6 +365,9 @@ public class MainActivity extends AppCompatActivity {
 
             int time = (sw.getHour() + i)%8;
             int day = (sw.getHour() + i)/8;
+            if(sw.getHour() < 3){
+                day = (sw.getHour() + i)/8 + 1;
+            }
 
             String pop = Short_Data[day][time][0];
             String r06 = Short_Data[day][time][2]+"mm";
@@ -411,8 +414,11 @@ public class MainActivity extends AppCompatActivity {
         List<Entry> entries = new ArrayList<>();
         for (int i = 0; i < timeSet; i++) {
             int time = (sw.getHour() + i)%8;
-            int day = (sw.getHour() + i)/8;
 
+            int day = (sw.getHour() + i)/8;
+            if(sw.getHour() < 3){
+                day = (sw.getHour() + i)/8 + 1;
+            }
             String t3h = Short_Data[day][time][6];
 
             entries.add(new Entry(i, Integer.parseInt(t3h)));
