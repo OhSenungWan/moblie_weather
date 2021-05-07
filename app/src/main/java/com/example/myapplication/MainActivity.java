@@ -35,6 +35,7 @@ import com.github.mikephil.charting.data.LineDataSet;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Collections;
 import java.util.List;
 import java.util.Locale;
 
@@ -288,9 +289,12 @@ public class MainActivity extends AppCompatActivity {
 
     public void dynamicTimeWeather(){
         //탑 ,바텀 텍스트뷰 생성
+
         LinearLayout linearLayoutTop = findViewById(R.id.layout_timeWeatherTop);
         LinearLayout linearLayoutBottom = findViewById(R.id.layout_timeWeatherBottom);
 
+        linearLayoutTop.removeAllViews();
+        linearLayoutBottom.removeAllViews();
         LinearLayout[] linearLayoutTopV = new LinearLayout[timeSet];
         LinearLayout[] linearLayoutBottomV = new LinearLayout[timeSet];
 
@@ -351,6 +355,7 @@ public class MainActivity extends AppCompatActivity {
 
 
             linearLayoutTop.addView(linearLayoutTopV[i]);
+
         }
 
         TextView[] rainfallProbTextView = new TextView[timeSet];
@@ -422,6 +427,7 @@ public class MainActivity extends AppCompatActivity {
             String t3h = Short_Data[day][time][6];
 
             entries.add(new Entry(i, Integer.parseInt(t3h)));
+
         }
 
         LineDataSet lineDataSet = new LineDataSet(entries, "온도");
@@ -462,6 +468,9 @@ public class MainActivity extends AppCompatActivity {
         //탑 ,바텀 텍스트뷰 생성
         LinearLayout linearLayoutTop = findViewById(R.id.layout_dayWeatherTop);
         LinearLayout linearLayoutBottom = findViewById(R.id.layout_dayWeatherBottom);
+        
+        linearLayoutTop.removeAllViews();
+        linearLayoutBottom.removeAllViews();
 
         LinearLayout[] linearLayoutTopV = new LinearLayout[daySet];
         LinearLayout[] linearLayoutBottomV = new LinearLayout[daySet];
@@ -561,9 +570,11 @@ public class MainActivity extends AppCompatActivity {
         for (int i = 0; i < daySet; i++) {
             String tempMin = Long_Temp[i][0];
             String tempMax = Long_Temp[i][1];
-
+            System.out.println(i);
             entries.add(new Entry(i, Integer.parseInt(tempMin)));
+            System.out.println(i);
             entries2.add(new Entry(i, Integer.parseInt(tempMax)));
+            System.out.println(i);
         }
 
         LineDataSet lineDataSet = new LineDataSet(entries, "온도");
