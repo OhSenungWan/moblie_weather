@@ -1,5 +1,7 @@
 package com.example.myapplication.setdata;
 
+import android.util.Log;
+
 import java.util.Calendar;
 
 public class set_weather {
@@ -134,5 +136,9 @@ public class set_weather {
 
     public int getTime() {
         return Time;
+    }
+
+    public int getHour() {
+        return Hour;
     }
 }

@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,17 +19,18 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.myapplication.db.DBInit;
 import com.example.myapplication.db.ShowListView;
 import com.example.myapplication.graph.MyValueFormatter;
-import com.example.myapplication.setdata.setdata_short;
+import com.example.myapplication.savedata.PreferenceManager;
+import com.example.myapplication.setdata.set_weather;
 import com.example.myapplication.setdata.setdata_air;
 import com.example.myapplication.setdata.setdata_long_Temp;
 import com.example.myapplication.setdata.setdata_long_weather;
-import com.example.myapplication.setdata.set_weather;
-import com.example.myapplication.savedata.PreferenceManager;
+import com.example.myapplication.setdata.setdata_short;
 import com.github.mikephil.charting.charts.LineChart;
 import com.github.mikephil.charting.components.Legend;
 import com.github.mikephil.charting.data.Entry;
 import com.github.mikephil.charting.data.LineData;
 import com.github.mikephil.charting.data.LineDataSet;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -140,6 +142,9 @@ public class MainActivity extends AppCompatActivity {
                 MainActivity.this.runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
+                        dynamicTimeWeather();
+                        dynamicDayWeather();
+
                         Location.setText(city_data);
                         Comment.setText(weather);
                         Temp.setText(temp+"℃");
@@ -285,8 +290,6 @@ public class MainActivity extends AppCompatActivity {
             intentdata = temp+"℃ " + pm10 + " "+weather;
             PreferenceManager.setString(mContext, "data", intentdata);
         }
-        dynamicTimeWeather();
-        dynamicDayWeather();
     }
 
     public void dynamicTimeWeather(){
@@ -307,10 +310,35 @@ public class MainActivity extends AppCompatActivity {
             weatherImageView[i] = new ImageView(this);
 
             linearLayoutTopV[i].setOrientation(LinearLayout.VERTICAL);
-            timeTextView[i].setText("09");
+            int hour3 = sw.getHour()*3+i*3;
+            if(hour3 >= 24){
+                hour3 %=24;
+            }
+            timeTextView[i].setText(String.valueOf(hour3));
             timeTextView[i].setTextSize(18);
 
-            weatherImageView[i].setImageResource(R.drawable.rain);
+
+            int time = sw.getHour()%8;
+            int day = sw.getHour()/8;
+
+            String pty = Short_Data[day][time][1];
+            String sky = Short_Data[day][time][5];
+
+            if(pty.equals("0")){
+                if(sky.equals("1")){
+                    weatherImageView[i].setImageResource(R.drawable.sunn);
+                }else if(sky.equals("3")){
+                    weatherImageView[i].setImageResource(R.drawable.cloud1);
+                }else {
+                    weatherImageView[i].setImageResource(R.drawable.cloud2);
+                }
+            }else if(pty.equals("3") || pty.equals("7")){
+                weatherImageView[i].setImageResource(R.drawable.snow);
+            }else{
+                weatherImageView[i].setImageResource(R.drawable.rain);
+            }
+
+
             weatherImageView[i].setForegroundGravity(Gravity.CENTER_HORIZONTAL);
 
             LinearLayout.LayoutParams lp1 = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
