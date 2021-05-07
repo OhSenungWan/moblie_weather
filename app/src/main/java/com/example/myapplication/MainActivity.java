@@ -435,19 +435,27 @@ public class MainActivity extends AppCompatActivity {
         LineChart lineChart = (LineChart)findViewById(R.id.dayLineChart);
 
         List<Entry> entries = new ArrayList<>();
+        List<Entry> entries2 = new ArrayList<>();
         for (int i = 0; i < daySet; i++) {
             entries.add(new Entry(i, i));
+            entries2.add(new Entry(i, daySet-i));
         }
 
         LineDataSet lineDataSet = new LineDataSet(entries, "온도");
+        LineDataSet lineDataSet2 = new LineDataSet(entries2, "온도");
 
         //lineDataSet.setDrawValues(false); //점에 데이터 출력
         lineDataSet.setLineWidth(1.75f); //선 두께
         lineDataSet.setCircleRadius(5f); //점 크기
         lineDataSet.setCircleHoleRadius(2.5f); // 점 구멍(빈 공간) 크기
-
         lineDataSet.setValueTextSize(18); //온도 글씨 크기
         lineDataSet.setValueFormatter(new MyValueFormatter());
+
+        lineDataSet2.setLineWidth(1.75f); //선 두께
+        lineDataSet2.setCircleRadius(5f); //점 크기
+        lineDataSet2.setCircleHoleRadius(2.5f); // 점 구멍(빈 공간) 크기
+        lineDataSet2.setValueTextSize(18); //온도 글씨 크기
+        lineDataSet2.setValueFormatter(new MyValueFormatter());
 
         //그래프 선, 점 색상들
         //lineDataSet.setColor(Color.WHITE);
@@ -458,6 +466,7 @@ public class MainActivity extends AppCompatActivity {
         legend.setEnabled(false);
 
         LineData lineData = new LineData(lineDataSet);
+        lineData.addDataSet(lineDataSet2);
         lineChart.setData(lineData);
 
         lineChart.setHighlightPerTapEnabled(false); // 클릭시 표시 제외
