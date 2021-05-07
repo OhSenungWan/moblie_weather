@@ -31,13 +31,16 @@ import com.github.mikephil.charting.data.Entry;
 import com.github.mikephil.charting.data.LineData;
 import com.github.mikephil.charting.data.LineDataSet;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
+import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity {
     private Context mContext;
     public static final int timeSet = 16;
-    public static final int daySet = 8;
+    public static final int daySet = 5;
     public SharedPreferences prefs;
     String DOW;
     String Short_Data[][][] = new String[3][8][14];  //날짜(0오늘 1내일 2모래 시간(0이 0시부터 3시단위 데이터
@@ -89,22 +92,22 @@ public class MainActivity extends AppCompatActivity {
                     {
                         for(int k = 0; k<14; k++)
                         {
-                            Short_Data[i][j][k] = "null";
+                            Short_Data[i][j][k] = "";
                         }
                     }
                 }
                 for(int i = 0; i<8; i++){
                     for(int j = 0; j<2; j++){
-                        Long_Temp[i][j] = "null";
+                        Long_Temp[i][j] = "";
                     }
                 }
                 for(int i = 0; i<8; i++){
                     for(int j = 0; j<4; j++){
-                        Long_Weather[i][j] = "null";
+                        Long_Weather[i][j] = "";
                     }
                 }
                 for(int i = 0; i<3; i++){
-                    Data_Air[i] = "null";
+                    Data_Air[i] = "";
                 }
                 Back = (LinearLayout)findViewById(R.id.back);
                 setdata_short cd = new setdata_short();
@@ -316,9 +319,8 @@ public class MainActivity extends AppCompatActivity {
             timeTextView[i].setText(String.valueOf(hour3));
             timeTextView[i].setTextSize(18);
 
-
-            int time = sw.getHour()%8;
-            int day = sw.getHour()/8;
+            int time = (sw.getHour() + i)%8;
+            int day = (sw.getHour() + i)/8;
 
             String pty = Short_Data[day][time][1];
             String sky = Short_Data[day][time][5];
@@ -366,11 +368,22 @@ public class MainActivity extends AppCompatActivity {
             rainfallTextView[i] = new TextView(this);
 
             linearLayoutBottomV[i].setOrientation(LinearLayout.VERTICAL);
-            rainfallProbTextView[i].setText("10%");
+
+            int time = (sw.getHour() + i)%8;
+            int day = (sw.getHour() + i)/8;
+
+            String pop = Short_Data[day][time][0];
+            String r06 = Short_Data[day][time][2]+"mm";
+
+            rainfallProbTextView[i].setText(pop + "%");
             rainfallProbTextView[i].setTextSize(14);
 
+            if(r06.equals("nullmm")){
+                r06= "";
+            }
+
+            rainfallTextView[i].setText(r06);
             rainfallTextView[i].setGravity(Gravity.CENTER);
-            rainfallTextView[i].setText("10mm");
             rainfallTextView[i].setTextSize(14);
 
             LinearLayout.LayoutParams lp1 = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
@@ -401,7 +414,12 @@ public class MainActivity extends AppCompatActivity {
 
         List<Entry> entries = new ArrayList<>();
         for (int i = 0; i < timeSet; i++) {
-            entries.add(new Entry(i, i));
+            int time = (sw.getHour() + i)%8;
+            int day = (sw.getHour() + i)/8;
+
+            String t3h = Short_Data[day][time][6];
+
+            entries.add(new Entry(i, Integer.parseInt(t3h)));
         }
 
         LineDataSet lineDataSet = new LineDataSet(entries, "온도");
@@ -454,10 +472,28 @@ public class MainActivity extends AppCompatActivity {
             weatherImageView[i] = new ImageView(this);
 
             linearLayoutTopV[i].setOrientation(LinearLayout.VERTICAL);
-            dayTextView[i].setText("1");
+
+            Calendar cal = Calendar.getInstance();
+            SimpleDateFormat mFormat = new SimpleDateFormat("MM-dd", Locale.KOREA);
+
+            cal.add(cal.DATE, +i+3);
+
+            dayTextView[i].setText(mFormat.format(cal.getTime()));
             dayTextView[i].setTextSize(18);
 
-            weatherImageView[i].setImageResource(R.drawable.rain);
+            String longWeather = Long_Weather[i][2];
+            if(longWeather.equals("맑음")){
+                weatherImageView[i].setImageResource(R.drawable.sunn);
+            }else if(longWeather.equals("구름많음")){
+                weatherImageView[i].setImageResource(R.drawable.cloud1);
+            }else if(longWeather.equals("흐림")){
+                weatherImageView[i].setImageResource(R.drawable.cloud2);
+            }else if(longWeather.equals("흐리고 비") || longWeather.equals("구름많고 비")){
+                weatherImageView[i].setImageResource(R.drawable.rain);
+            }else{
+                weatherImageView[i].setImageResource(R.drawable.snow);
+            }
+
             weatherImageView[i].setForegroundGravity(Gravity.CENTER_HORIZONTAL);
 
             LinearLayout.LayoutParams lp1 = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
@@ -484,7 +520,10 @@ public class MainActivity extends AppCompatActivity {
             rainfallProbTextView[i] = new TextView(this);
 
             linearLayoutBottomV[i].setOrientation(LinearLayout.VERTICAL);
-            rainfallProbTextView[i].setText("10%");
+
+            String rainfallProbText = Long_Weather[i][0];
+
+            rainfallProbTextView[i].setText(rainfallProbText + "%");
             rainfallProbTextView[i].setTextSize(14);
 
             LinearLayout.LayoutParams lp1 = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
@@ -514,8 +553,11 @@ public class MainActivity extends AppCompatActivity {
         List<Entry> entries = new ArrayList<>();
         List<Entry> entries2 = new ArrayList<>();
         for (int i = 0; i < daySet; i++) {
-            entries.add(new Entry(i, i));
-            entries2.add(new Entry(i, daySet-i));
+            String tempMin = Long_Temp[i][0];
+            String tempMax = Long_Temp[i][1];
+
+            entries.add(new Entry(i, Integer.parseInt(tempMin)));
+            entries2.add(new Entry(i, Integer.parseInt(tempMax)));
         }
 
         LineDataSet lineDataSet = new LineDataSet(entries, "온도");
