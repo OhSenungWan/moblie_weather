@@ -327,7 +327,7 @@ public class MainActivity extends AppCompatActivity {
 
             int time = (sw.getHour() + i)%8;
             int day = (sw.getHour() + i)/8;
-            if(sw.getHour() < 3){
+            if(sw.getHour() < 2){
                 day = (sw.getHour() + i)/8 + 1;
             }
             String pty = Short_Data[day][time][1];
@@ -379,7 +379,7 @@ public class MainActivity extends AppCompatActivity {
 
             int time = (sw.getHour() + i)%8;
             int day = (sw.getHour() + i)/8;
-            if(sw.getHour() < 3){
+            if(sw.getHour() < 2){
                 day = (sw.getHour() + i)/8 + 1;
             }
 
@@ -430,7 +430,7 @@ public class MainActivity extends AppCompatActivity {
             int time = (sw.getHour() + i)%8;
 
             int day = (sw.getHour() + i)/8;
-            if(sw.getHour() < 3){
+            if(sw.getHour() < 2){
                 day = (sw.getHour() + i)/8 + 1;
             }
             String t3h = Short_Data[day][time][6];
@@ -577,11 +577,8 @@ public class MainActivity extends AppCompatActivity {
         for (int i = 0; i < daySet; i++) {
             String tempMin = Long_Temp[i][0];
             String tempMax = Long_Temp[i][1];
-            System.out.println(i);
             entries.add(new Entry(i, Integer.parseInt(tempMin)));
-            System.out.println(i);
             entries2.add(new Entry(i, Integer.parseInt(tempMax)));
-            System.out.println(i);
         }
 
         LineDataSet lineDataSet = new LineDataSet(entries, "온도");
