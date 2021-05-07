@@ -287,6 +287,7 @@ public class MainActivity extends AppCompatActivity {
 
 
         setStart();
+
         String intentdata = PreferenceManager.getString(mContext,"data");
         if(intentdata.equals("")) {
             intentdata = temp+"℃ " + pm10 + " "+weather;
