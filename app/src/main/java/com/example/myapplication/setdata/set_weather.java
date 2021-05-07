@@ -89,8 +89,8 @@ public class set_weather {
     public String set_vec(String[][][] Short_Data){
         String vec="";
         System.out.println(Short_Data[1][1][9]);
-        System.out.println(Date);
-        System.out.println(Hour);
+        System.out.println("date = " + Date);
+        System.out.println("time = " + Hour);
         double uuu = Double.parseDouble(Short_Data[Date][Hour][9]);
         double vvv = Double.parseDouble(Short_Data[Date][Hour][10]);
         if(vvv > 0){
