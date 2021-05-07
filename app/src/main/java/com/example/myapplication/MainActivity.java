@@ -3,6 +3,7 @@ package com.example.myapplication;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Gravity;
@@ -310,6 +311,7 @@ public class MainActivity extends AppCompatActivity {
             }
             timeTextView[i].setText(String.valueOf(hour3));
             timeTextView[i].setTextSize(18);
+            timeTextView[i].setTextColor(Color.WHITE);
 
             int time = (sw.getHour() + i)%8;
             int day = (sw.getHour() + i)/8;
@@ -369,6 +371,7 @@ public class MainActivity extends AppCompatActivity {
 
             rainfallProbTextView[i].setText(pop + "%");
             rainfallProbTextView[i].setTextSize(14);
+            rainfallProbTextView[i].setTextColor(Color.WHITE);
 
             if(r06.equals("nullmm")){
                 r06= "";
@@ -377,6 +380,7 @@ public class MainActivity extends AppCompatActivity {
             rainfallTextView[i].setText(r06);
             rainfallTextView[i].setGravity(Gravity.CENTER);
             rainfallTextView[i].setTextSize(14);
+            rainfallTextView[i].setTextColor(Color.WHITE);
 
             LinearLayout.LayoutParams lp1 = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
             lp1.bottomMargin = 40;
@@ -415,6 +419,7 @@ public class MainActivity extends AppCompatActivity {
         }
 
         LineDataSet lineDataSet = new LineDataSet(entries, "온도");
+        lineDataSet.setColor(Color.WHITE);
 
         //lineDataSet.setDrawValues(false); //점에 데이터 출력
         lineDataSet.setLineWidth(1.75f); //선 두께
@@ -422,6 +427,7 @@ public class MainActivity extends AppCompatActivity {
         lineDataSet.setCircleHoleRadius(2.5f); // 점 구멍(빈 공간) 크기
 
         lineDataSet.setValueTextSize(18); //온도 글씨 크기
+        lineDataSet.setValueTextColor(Color.WHITE);
         lineDataSet.setValueFormatter(new MyValueFormatter());
 
         //그래프 선, 점 색상들
@@ -472,6 +478,7 @@ public class MainActivity extends AppCompatActivity {
 
             dayTextView[i].setText(mFormat.format(cal.getTime()));
             dayTextView[i].setTextSize(18);
+            dayTextView[i].setTextColor(Color.WHITE);
 
             String longWeather = Long_Weather[i][2];
             if(longWeather.equals("맑음")){
@@ -517,6 +524,7 @@ public class MainActivity extends AppCompatActivity {
 
             rainfallProbTextView[i].setText(rainfallProbText + "%");
             rainfallProbTextView[i].setTextSize(14);
+            rainfallProbTextView[i].setTextColor(Color.WHITE);
 
             LinearLayout.LayoutParams lp1 = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
             lp1.gravity = Gravity.CENTER_HORIZONTAL;
@@ -553,19 +561,22 @@ public class MainActivity extends AppCompatActivity {
         }
 
         LineDataSet lineDataSet = new LineDataSet(entries, "온도");
+        lineDataSet.setColor(Color.WHITE);
         LineDataSet lineDataSet2 = new LineDataSet(entries2, "온도");
-
+        lineDataSet2.setColor(Color.WHITE);
         //lineDataSet.setDrawValues(false); //점에 데이터 출력
         lineDataSet.setLineWidth(1.75f); //선 두께
         lineDataSet.setCircleRadius(5f); //점 크기
         lineDataSet.setCircleHoleRadius(2.5f); // 점 구멍(빈 공간) 크기
         lineDataSet.setValueTextSize(18); //온도 글씨 크기
+        lineDataSet.setValueTextColor(Color.WHITE);
         lineDataSet.setValueFormatter(new MyValueFormatter());
 
         lineDataSet2.setLineWidth(1.75f); //선 두께
         lineDataSet2.setCircleRadius(5f); //점 크기
         lineDataSet2.setCircleHoleRadius(2.5f); // 점 구멍(빈 공간) 크기
         lineDataSet2.setValueTextSize(18); //온도 글씨 크기
+        lineDataSet2.setValueTextColor(Color.WHITE);
         lineDataSet2.setValueFormatter(new MyValueFormatter());
 
         //그래프 선, 점 색상들

@@ -194,13 +194,19 @@
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:layout_marginRight="10dp">
+<<<<<<< HEAD
 
+=======
+>>>>>>> 2247c43c4b3f3f891ba2ffcb1ffdccf618fab72d
         <ImageView
             android:layout_width="65dp"
             android:layout_height="65dp"
             android:layout_weight="1"
             android:src="@drawable/cloth_manblazer"/>
+<<<<<<< HEAD
 
+=======
+>>>>>>> 2247c43c4b3f3f891ba2ffcb1ffdccf618fab72d
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
