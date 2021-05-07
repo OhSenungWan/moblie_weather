@@ -77,7 +77,6 @@ public class MainActivity extends AppCompatActivity {
     TextView Time_comment;
     LinearLayout Back;
     int PoP = 0;
-    String fType = null;
     ImageButton btncloth;
 
     int back;
@@ -256,22 +255,14 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(MainActivity.this,ClothingActivity.class);
+                System.out.println(temp);
                 intent.putExtra("Temp", temp);
                 intent.putExtra("Wsd", wsd);
 
-
-                if(fType.equals("3") || fType.equals("7"))
-                {
-                    fType = "snow";
-                }
-                else
-                {
-                    fType = "rain";
-                }
                 if(PoP > 30)
                 {
                     intent.putExtra("Weather", "1");
-                    intent.putExtra("Wtype" , fType);
+                    intent.putExtra("Wtype" , weather);
                 }
                 else
                 {
