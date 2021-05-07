@@ -3,12 +3,11 @@
     android:shape="rectangle">
 
     <gradient
-        android:angle="90"
-        android:startColor="#99DFFF"
-        android:endColor="#F000316C"
-        android:centerColor="#1B5BFF" />
+        android:angle="0"
+        android:startColor="#070013"
+        android:endColor="#180833" />
 
-    <!--    android:angle="0"-->
+
     <!-- angle 0 으로 맞추면 가로 90 은 세로-->
 
 </shape>

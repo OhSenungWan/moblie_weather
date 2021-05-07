@@ -72,6 +72,8 @@
             android:textColor="#FFFFFF"
             android:textSize="12dp" />
         <!--메인-->
+
+        <!--요약-->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -110,21 +112,23 @@
 
                 </LinearLayout>
 
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-                <TextView
-                    android:id="@+id/temp"
+                <LinearLayout
                     android:layout_width="wrap_content"
-                    android:layout_height="71dp"
-                    android:fontFamily="@font/seoulnamsan_long"
-                    android:gravity="center"
-                    android:paddingRight="5dp"
-                    android:text="19℃"
-                    android:textColor="#FFFFFF"
-                    android:textSize="60dp" />
-            </LinearLayout>
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/temp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="71dp"
+                        android:fontFamily="@font/seoulnamsan_long"
+                        android:gravity="center"
+                        android:paddingRight="5dp"
+                        android:text="19℃"
+                        android:textColor="#FFFFFF"
+                        android:textSize="60dp" />
+                </LinearLayout>
+
                 <TextView
                     android:id="@+id/days_of_week"
                     android:layout_width="wrap_content"
@@ -136,7 +140,6 @@
 
         </LinearLayout>
 
-        <!--요약-->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="50dp"
@@ -544,8 +547,16 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="50dp"
-                        android:layout_marginBottom="30dp"
-                        android:text="온도"
+                        android:text="최고온도"
+                        android:textColor="#FFFFFF"
+                        android:textSize="12dp"
+                        android:textStyle="bold" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:text="최저온도"
+                        android:layout_marginBottom="20dp"
                         android:textColor="#FFFFFF"
                         android:textSize="12dp"
                         android:textStyle="bold" />

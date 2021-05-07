@@ -16,6 +16,7 @@ import android.widget.TextView;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 
 import com.example.myapplication.db.DBInit;
 import com.example.myapplication.db.ShowListView;
@@ -28,6 +29,7 @@ import com.example.myapplication.setdata.setdata_long_weather;
 import com.example.myapplication.setdata.setdata_short;
 import com.github.mikephil.charting.charts.LineChart;
 import com.github.mikephil.charting.components.Legend;
+import com.github.mikephil.charting.components.XAxis;
 import com.github.mikephil.charting.data.Entry;
 import com.github.mikephil.charting.data.LineData;
 import com.github.mikephil.charting.data.LineDataSet;
@@ -310,7 +312,7 @@ public class MainActivity extends AppCompatActivity {
                 hour3 %=24;
             }
             timeTextView[i].setText(String.valueOf(hour3));
-            timeTextView[i].setTextSize(18);
+            timeTextView[i].setTextSize(14);
             timeTextView[i].setTextColor(Color.WHITE);
 
             int time = (sw.getHour() + i)%8;
@@ -321,16 +323,16 @@ public class MainActivity extends AppCompatActivity {
 
             if(pty.equals("0")){
                 if(sky.equals("1")){
-                    weatherImageView[i].setImageResource(R.drawable.sunn);
+                    weatherImageView[i].setImageResource(R.drawable.list_sun);
                 }else if(sky.equals("3")){
-                    weatherImageView[i].setImageResource(R.drawable.cloud1);
+                    weatherImageView[i].setImageResource(R.drawable.list_cloud);
                 }else {
-                    weatherImageView[i].setImageResource(R.drawable.cloud2);
+                    weatherImageView[i].setImageResource(R.drawable.list_cloud1);
                 }
             }else if(pty.equals("3") || pty.equals("7")){
-                weatherImageView[i].setImageResource(R.drawable.snow);
+                weatherImageView[i].setImageResource(R.drawable.list_snow);
             }else{
-                weatherImageView[i].setImageResource(R.drawable.rain);
+                weatherImageView[i].setImageResource(R.drawable.list_rain);
             }
 
 
@@ -419,20 +421,18 @@ public class MainActivity extends AppCompatActivity {
         }
 
         LineDataSet lineDataSet = new LineDataSet(entries, "온도");
-        lineDataSet.setColor(Color.WHITE);
 
+        lineDataSet.setColor(Color.WHITE);
         //lineDataSet.setDrawValues(false); //점에 데이터 출력
         lineDataSet.setLineWidth(1.75f); //선 두께
-        lineDataSet.setCircleRadius(5f); //점 크기
-        lineDataSet.setCircleHoleRadius(2.5f); // 점 구멍(빈 공간) 크기
-
-        lineDataSet.setValueTextSize(18); //온도 글씨 크기
+        lineDataSet.setCircleRadius(3f); //점 크기
+        lineDataSet.setCircleHoleRadius(0f); // 점 구멍(빈 공간) 크기
+        lineDataSet.setValueTextSize(13); //온도 글씨 크기
         lineDataSet.setValueTextColor(Color.WHITE);
         lineDataSet.setValueFormatter(new MyValueFormatter());
-
         //그래프 선, 점 색상들
-        //lineDataSet.setColor(Color.WHITE);
-        //lineDataSet.setCircleColor(Color.WHITE);
+        //lineDataSet.setColor(Color.GRAY);
+        lineDataSet.setCircleColor(Color.YELLOW);
 
         //범례 사용 X
         Legend legend = lineChart.getLegend();
@@ -472,31 +472,31 @@ public class MainActivity extends AppCompatActivity {
             linearLayoutTopV[i].setOrientation(LinearLayout.VERTICAL);
 
             Calendar cal = Calendar.getInstance();
-            SimpleDateFormat mFormat = new SimpleDateFormat("MM-dd", Locale.KOREA);
+            SimpleDateFormat mFormat = new SimpleDateFormat("MM/dd", Locale.KOREA);
 
             cal.add(cal.DATE, +i+3);
 
             dayTextView[i].setText(mFormat.format(cal.getTime()));
-            dayTextView[i].setTextSize(18);
+            dayTextView[i].setTextSize(13);
             dayTextView[i].setTextColor(Color.WHITE);
 
             String longWeather = Long_Weather[i][2];
             if(longWeather.equals("맑음")){
-                weatherImageView[i].setImageResource(R.drawable.sunn);
+                weatherImageView[i].setImageResource(R.drawable.list_sun);
             }else if(longWeather.equals("구름많음")){
-                weatherImageView[i].setImageResource(R.drawable.cloud1);
+                weatherImageView[i].setImageResource(R.drawable.list_cloud);
             }else if(longWeather.equals("흐림")){
-                weatherImageView[i].setImageResource(R.drawable.cloud2);
+                weatherImageView[i].setImageResource(R.drawable.list_cloud1);
             }else if(longWeather.equals("흐리고 비") || longWeather.equals("구름많고 비")){
-                weatherImageView[i].setImageResource(R.drawable.rain);
+                weatherImageView[i].setImageResource(R.drawable.list_rain);
             }else{
-                weatherImageView[i].setImageResource(R.drawable.snow);
+                weatherImageView[i].setImageResource(R.drawable.list_snow);
             }
 
             weatherImageView[i].setForegroundGravity(Gravity.CENTER_HORIZONTAL);
 
             LinearLayout.LayoutParams lp1 = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-            lp1.bottomMargin = 40;
+            lp1.bottomMargin = 60;
             lp1.gravity = Gravity.CENTER_HORIZONTAL;
             dayTextView[i].setLayoutParams(lp1);
 
@@ -535,7 +535,7 @@ public class MainActivity extends AppCompatActivity {
 
             LinearLayout.LayoutParams lp2 = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
             lp2.rightMargin = 70;
-            lp2.topMargin=20;
+            lp2.topMargin=60;
 
             linearLayoutBottomV[i].setLayoutParams(lp2);
 
@@ -561,27 +561,33 @@ public class MainActivity extends AppCompatActivity {
         }
 
         LineDataSet lineDataSet = new LineDataSet(entries, "온도");
-        lineDataSet.setColor(Color.WHITE);
         LineDataSet lineDataSet2 = new LineDataSet(entries2, "온도");
-        lineDataSet2.setColor(Color.WHITE);
+
+        lineDataSet.setColor(Color.WHITE);
         //lineDataSet.setDrawValues(false); //점에 데이터 출력
         lineDataSet.setLineWidth(1.75f); //선 두께
-        lineDataSet.setCircleRadius(5f); //점 크기
-        lineDataSet.setCircleHoleRadius(2.5f); // 점 구멍(빈 공간) 크기
-        lineDataSet.setValueTextSize(18); //온도 글씨 크기
+        lineDataSet.setCircleRadius(3f); //점 크기
+        lineDataSet.setCircleHoleRadius(0f); // 점 구멍(빈 공간) 크기
+        lineDataSet.setValueTextSize(13); //온도 글씨 크기
         lineDataSet.setValueTextColor(Color.WHITE);
         lineDataSet.setValueFormatter(new MyValueFormatter());
+        //그래프 선, 점 색상들
+        //lineDataSet.setColor(Color.GRAY);
+        lineDataSet.setCircleColor(Color.DKGRAY);
 
+
+        lineDataSet2.setColor(Color.WHITE);
+        //lineDataSet.setDrawValues(false); //점에 데이터 출력
         lineDataSet2.setLineWidth(1.75f); //선 두께
-        lineDataSet2.setCircleRadius(5f); //점 크기
-        lineDataSet2.setCircleHoleRadius(2.5f); // 점 구멍(빈 공간) 크기
-        lineDataSet2.setValueTextSize(18); //온도 글씨 크기
+        lineDataSet2.setCircleRadius(3f); //점 크기
+        lineDataSet2.setCircleHoleRadius(0f); // 점 구멍(빈 공간) 크기
+        lineDataSet2.setValueTextSize(13); //온도 글씨 크기
         lineDataSet2.setValueTextColor(Color.WHITE);
         lineDataSet2.setValueFormatter(new MyValueFormatter());
-
         //그래프 선, 점 색상들
-        //lineDataSet.setColor(Color.WHITE);
-        //lineDataSet.setCircleColor(Color.WHITE);
+        //lineDataSet.setColor(Color.GRAY);
+        lineDataSet2.setCircleColor(Color.LTGRAY);
+
 
         //범례 사용 X
         Legend legend = lineChart.getLegend();
