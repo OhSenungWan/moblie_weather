@@ -17,35 +17,35 @@ public class set_weather {
         if (AMPM == 1) {
             Time += 12;
         }
-        if(Time <=3 && Time >=0){
+        if(Time <=3 && Time >0){
             Hour = 1;
             Date = 1;
         }
-        if(Time <=6 && Time >=3){
+        if(Time <=6 && Time >3){
             Hour = 2;
             Date = 0;
         }
-        else if(Time <=9 && Time >=6){
+        else if(Time <=9 && Time >6){
             Hour = 3;
             Date = 0;
         }
-        else if(Time <=12 && Time >=9){
+        else if(Time <=12 && Time >9){
             Hour = 4;
             Date = 0;
         }
-        else if(Time <=15 && Time >=12){
+        else if(Time <=15 && Time >12){
             Hour = 5;
             Date = 0;
         }
-        else if(Time <=18 && Time >=15){
+        else if(Time <=18 && Time >15){
             Hour = 6;
             Date = 0;
         }
-        else if(Time <=21 && Time >=18){
+        else if(Time <=21 && Time >18){
             Hour = 7;
             Date = 0;
         }
-        else if(Time <=24 && Time >=21){
+        else if(Time <=24 && Time >21){
             Hour = 0;
             Date = 1;
         }
@@ -88,6 +88,9 @@ public class set_weather {
     }
     public String set_vec(String[][][] Short_Data){
         String vec="";
+        System.out.println(Short_Data[1][1][9]);
+        System.out.println("date = " + Date);
+        System.out.println("time = " + Hour);
         double uuu = Double.parseDouble(Short_Data[Date][Hour][9]);
         double vvv = Double.parseDouble(Short_Data[Date][Hour][10]);
         if(vvv > 0){

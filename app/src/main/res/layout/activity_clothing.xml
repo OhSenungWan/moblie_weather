@@ -195,7 +195,10 @@
             android:orientation="vertical"
             android:layout_marginRight="10dp">
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> cc55a0321e741c0578bba37355185e4cfc74e143
         <ImageView
             android:layout_width="65dp"
             android:layout_height="65dp"

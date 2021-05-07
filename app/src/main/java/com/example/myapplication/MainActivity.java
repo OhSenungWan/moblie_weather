@@ -37,12 +37,13 @@ import com.github.mikephil.charting.data.LineDataSet;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Collections;
 import java.util.List;
 import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity {
     private Context mContext;
-    public static final int timeSet = 16;
+    public static final int timeSet = 15;
     public static final int daySet = 5;
     public SharedPreferences prefs;
     String DOW;
@@ -78,6 +79,7 @@ public class MainActivity extends AppCompatActivity {
     TextView Pm10_grade;
     TextView Pm25_grade;
     TextView Time_comment;
+    TextView day_comment;
     LinearLayout Back;
     int PoP = 0;
     ImageButton btncloth;
@@ -143,6 +145,7 @@ public class MainActivity extends AppCompatActivity {
                 Pm10_grade = (TextView)findViewById(R.id.pm10grade);
                 Pm25_grade = (TextView)findViewById(R.id.pm25grade);
                 Time_comment = (TextView)findViewById(R.id.time_comment);
+                day_comment = (TextView)findViewById(R.id.daycomment);
                 //시간 날씨 이미지 배열 매칭
                 MainActivity.this.runOnUiThread(new Runnable() {
                     @Override
@@ -158,22 +161,27 @@ public class MainActivity extends AppCompatActivity {
                             case "Rain":
                                 Main_img.setImageResource(R.drawable.rain);
                                 Time_comment.setText("지금은 비가 오는 날씨에요.");
+                                day_comment.setText("오늘은 전체적으로 비가 오는 날씨에요.");
                                 break;
                             case "Snow":
                                 Main_img.setImageResource(R.drawable.snow);
                                 Time_comment.setText("지금은 눈이 내려요.");
+                                day_comment.setText("오늘은 전체적으로 눈이 내려요.");
                                 break;
                             case "Sunny":
                                 Main_img.setImageResource(R.drawable.sunn);
                                 Time_comment.setText("지금은 해가 뜨는 화창한 날씨에요.");
+                                day_comment.setText("오늘은 전체적으로 해가 뜨는 화창한 날씨에요.");
                                 break;
                             case "Cloud":
                                 Main_img.setImageResource(R.drawable.cloud1);
                                 Time_comment.setText("지금은 구름이 많은 날씨에요.");
+                                day_comment.setText("오늘은 전체적으로 구름이 많은 날씨에요.");
                                 break;
                             case "Blur":
                                 Main_img.setImageResource(R.drawable.cloud2);
                                 Time_comment.setText("지금은 매우 흐린 날씨에요.");
+                                day_comment.setText("오늘은 전체적으로 매우 흐린 날씨에요.");
                                 break;
                         }
                         Pop.setText(pop+"%");
@@ -258,7 +266,6 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(MainActivity.this,ClothingActivity.class);
-                System.out.println(temp);
                 intent.putExtra("Temp", temp);
                 intent.putExtra("Wsd", wsd);
 
@@ -291,9 +298,12 @@ public class MainActivity extends AppCompatActivity {
 
     public void dynamicTimeWeather(){
         //탑 ,바텀 텍스트뷰 생성
+
         LinearLayout linearLayoutTop = findViewById(R.id.layout_timeWeatherTop);
         LinearLayout linearLayoutBottom = findViewById(R.id.layout_timeWeatherBottom);
 
+        linearLayoutTop.removeAllViews();
+        linearLayoutBottom.removeAllViews();
         LinearLayout[] linearLayoutTopV = new LinearLayout[timeSet];
         LinearLayout[] linearLayoutBottomV = new LinearLayout[timeSet];
 
@@ -317,10 +327,11 @@ public class MainActivity extends AppCompatActivity {
 
             int time = (sw.getHour() + i)%8;
             int day = (sw.getHour() + i)/8;
-
+            if(sw.getHour() < 3){
+                day = (sw.getHour() + i)/8 + 1;
+            }
             String pty = Short_Data[day][time][1];
             String sky = Short_Data[day][time][5];
-
             if(pty.equals("0")){
                 if(sky.equals("1")){
                     weatherImageView[i].setImageResource(R.drawable.list_sun);
@@ -353,6 +364,7 @@ public class MainActivity extends AppCompatActivity {
 
 
             linearLayoutTop.addView(linearLayoutTopV[i]);
+
         }
 
         TextView[] rainfallProbTextView = new TextView[timeSet];
@@ -367,6 +379,9 @@ public class MainActivity extends AppCompatActivity {
 
             int time = (sw.getHour() + i)%8;
             int day = (sw.getHour() + i)/8;
+            if(sw.getHour() < 3){
+                day = (sw.getHour() + i)/8 + 1;
+            }
 
             String pop = Short_Data[day][time][0];
             String r06 = Short_Data[day][time][2]+"mm";
@@ -413,11 +428,15 @@ public class MainActivity extends AppCompatActivity {
         List<Entry> entries = new ArrayList<>();
         for (int i = 0; i < timeSet; i++) {
             int time = (sw.getHour() + i)%8;
-            int day = (sw.getHour() + i)/8;
 
+            int day = (sw.getHour() + i)/8;
+            if(sw.getHour() < 3){
+                day = (sw.getHour() + i)/8 + 1;
+            }
             String t3h = Short_Data[day][time][6];
 
             entries.add(new Entry(i, Integer.parseInt(t3h)));
+
         }
 
         LineDataSet lineDataSet = new LineDataSet(entries, "온도");
@@ -456,6 +475,9 @@ public class MainActivity extends AppCompatActivity {
         //탑 ,바텀 텍스트뷰 생성
         LinearLayout linearLayoutTop = findViewById(R.id.layout_dayWeatherTop);
         LinearLayout linearLayoutBottom = findViewById(R.id.layout_dayWeatherBottom);
+
+        linearLayoutTop.removeAllViews();
+        linearLayoutBottom.removeAllViews();
 
         LinearLayout[] linearLayoutTopV = new LinearLayout[daySet];
         LinearLayout[] linearLayoutBottomV = new LinearLayout[daySet];
@@ -555,9 +577,11 @@ public class MainActivity extends AppCompatActivity {
         for (int i = 0; i < daySet; i++) {
             String tempMin = Long_Temp[i][0];
             String tempMax = Long_Temp[i][1];
-
+            System.out.println(i);
             entries.add(new Entry(i, Integer.parseInt(tempMin)));
+            System.out.println(i);
             entries2.add(new Entry(i, Integer.parseInt(tempMax)));
+            System.out.println(i);
         }
 
         LineDataSet lineDataSet = new LineDataSet(entries, "온도");
