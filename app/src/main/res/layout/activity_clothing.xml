@@ -193,11 +193,6 @@
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:layout_marginRight="10dp">
-        <ImageView
-            android:layout_width="65dp"
-            android:layout_height="65dp"
-            android:layout_weight="1"
-            android:src="@drawable/cloth_blazer"/>
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
