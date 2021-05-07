@@ -30,7 +30,7 @@
             android:layout_weight="1"
             android:background="@android:color/transparent"
             android:scaleType="fitCenter"
-            android:src="@drawable/list_img" />
+            android:src="@drawable/todaycloth"/>
         <ImageButton
             android:id="@+id/location_img"
             android:layout_width="match_parent"
@@ -464,7 +464,6 @@
                                 android:orientation="horizontal" />
 
                         </LinearLayout>
-
 
                     </LinearLayout>
 
