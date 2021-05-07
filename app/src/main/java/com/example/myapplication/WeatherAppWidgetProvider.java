@@ -59,6 +59,7 @@ public class WeatherAppWidgetProvider extends AppWidgetProvider{
         String point_weather = data[3];
         String city_data = data[4] + " " + data[5] + " " +data[6];
         String weather = idata[2];
+
         switch (weather){
             case "Rain":
                 updateViews.setImageViewResource(R.id.Weather, R.drawable.rain);
