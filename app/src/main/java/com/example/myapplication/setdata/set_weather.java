@@ -1,5 +1,7 @@
 package com.example.myapplication.setdata;
 
+import android.util.Log;
+
 import java.util.Calendar;
 
 public class set_weather {
@@ -21,7 +23,7 @@ public class set_weather {
         }
         if(Time <=6 && Time >=3){
             Hour = 2;
-            Date = 1;
+            Date = 0;
         }
         else if(Time <=9 && Time >=6){
             Hour = 3;
@@ -47,8 +49,6 @@ public class set_weather {
             Hour = 0;
             Date = 1;
         }
-        System.out.println(Date);
-        System.out.println(Hour);
         weather = set_wether(Short_Data);
         return weather;
     }
@@ -136,5 +136,9 @@ public class set_weather {
 
     public int getTime() {
         return Time;
+    }
+
+    public int getHour() {
+        return Hour;
     }
 }

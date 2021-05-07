@@ -39,7 +39,6 @@ public class data_short {
         return week_data;
     }
     public void data(String fcstDate, String fcstTime, String category, String fcstValue, String Dday, String Pday, String PPday){
-
         if(fcstDate.equals(Dday))
         {
             switch (fcstTime){
