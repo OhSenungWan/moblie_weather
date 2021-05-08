@@ -337,11 +337,11 @@ public class ClothingActivity extends Activity {
                                             setCloth_image_top(6,4,"두꺼운 티셔츠", "cloth_tshirts");
                                             setCloth_image_top(6,5,"셔츠", "cloth_longshirts");
 
-                                            setCloth_image_bot(5,0,"", "cloth_jean");
-                                            setCloth_image_bot(5,1,"", "cloth_stocking");
-                                            setCloth_image_bot(5,2,"", "cloth_slacks");
-                                            setCloth_image_bot(5,3,"", "cloth_womancotton");
-                                            setCloth_image_bot(5,4,"", "cloth_longskirt");
+                                            setCloth_image_bot(5,0,"청바지", "cloth_jean");
+                                            setCloth_image_bot(5,1,"스타킹", "cloth_stocking");
+                                            setCloth_image_bot(5,2,"슬렉스", "cloth_slacks");
+                                            setCloth_image_bot(5,3,"면바지", "cloth_womancotton");
+                                            setCloth_image_bot(5,4,"긴 치마", "cloth_longskirt");
                                             break;
                                     }
 

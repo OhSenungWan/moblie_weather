@@ -335,7 +335,7 @@ public class MainActivity extends AppCompatActivity {
             if(hour3 >= 24){
                 hour3 %=24;
             }
-            timeTextView[i].setText(String.valueOf(hour3));
+            timeTextView[i].setText(String.valueOf(hour3) + "시");
             timeTextView[i].setTextSize(14);
             timeTextView[i].setTextColor(Color.WHITE);
 
@@ -594,10 +594,8 @@ public class MainActivity extends AppCompatActivity {
             entries.add(new Entry(i, Integer.parseInt(tempMin)));
             entries2.add(new Entry(i, Integer.parseInt(tempMax)));
         }
-
         LineDataSet lineDataSet = new LineDataSet(entries, "온도");
         LineDataSet lineDataSet2 = new LineDataSet(entries2, "온도");
-
         lineDataSet.setColor(Color.WHITE);
         //lineDataSet.setDrawValues(false); //점에 데이터 출력
         lineDataSet.setLineWidth(1.75f); //선 두께
@@ -609,8 +607,6 @@ public class MainActivity extends AppCompatActivity {
         //그래프 선, 점 색상들
         //lineDataSet.setColor(Color.GRAY);
         lineDataSet.setCircleColor(Color.DKGRAY);
-
-
         lineDataSet2.setColor(Color.WHITE);
         //lineDataSet.setDrawValues(false); //점에 데이터 출력
         lineDataSet2.setLineWidth(1.75f); //선 두께
