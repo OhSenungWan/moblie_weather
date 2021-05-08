@@ -16,7 +16,7 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 import com.example.myapplication.setdata.set_data_cloth;
 import com.example.myapplication.setdata.data_short;
-
+import com.example.myapplication.setdata.set_weather;
 public class ClothingActivity extends Activity {
 
     final int man04top = 7;
@@ -54,6 +54,8 @@ public class ClothingActivity extends Activity {
     final int woman23top = 4;
     final int woman23bot = 5;
 
+    LinearLayout BackGround;
+    int back;
     RadioGroup RG;
     RadioButton Rman, Rwoman;
     Button btn;
@@ -71,7 +73,9 @@ public class ClothingActivity extends Activity {
                 temp[0] = "null";
                 temp[1] = "null";
                 Intent intent = getIntent();
+                set_weather sw = new set_weather();
                 set_data_cloth sdc = new set_data_cloth();
+                BackGround = (LinearLayout)findViewById(R.id.background);
                 pmch = (TextView)findViewById(R.id.daycheckpm10);
                 winch = (TextView)findViewById(R.id.daycheckwind);
                 tempch = (TextView)findViewById(R.id.daychecktemp);
@@ -80,6 +84,7 @@ public class ClothingActivity extends Activity {
                 Rman = (RadioButton)findViewById(R.id.RBman);
                 Rwoman = (RadioButton)findViewById(R.id.RBwoman);
                 btn = (Button)findViewById(R.id.cchbtn);
+                back = sw.set_background();
                 double Ta = Double.parseDouble(intent.getStringExtra("Temp"));
                 double wsd = Double.parseDouble(intent.getStringExtra("Wsd"));
                 String weather = intent.getStringExtra("Weather");
@@ -116,7 +121,20 @@ public class ClothingActivity extends Activity {
                 ClothingActivity.this.runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
-
+                        switch (back) {
+                            case 1:
+                                BackGround.setBackgroundResource(R.drawable.bg_1dawn);
+                                break;
+                            case 2:
+                                BackGround.setBackgroundResource(R.drawable.bg_2afternoon);
+                                break;
+                            case 3:
+                                BackGround.setBackgroundResource(R.drawable.bg_3sunset);
+                                break;
+                            case 4:
+                                BackGround.setBackgroundResource(R.drawable.bg_4night);
+                                break;
+                        }
                         if (rp.equals("0")) {
                             switch (weather) {
                                 case "Sunny":

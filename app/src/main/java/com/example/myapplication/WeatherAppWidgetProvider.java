@@ -6,7 +6,6 @@ import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.widget.RemoteViews;
-
 import com.example.myapplication.savedata.PreferenceManager;
 
 import java.text.SimpleDateFormat;
