@@ -36,12 +36,13 @@ public class setdata_long_Temp {
             String pageNo = "1";
             String numOfRows = "1";       //한 페이지 결과 수
             String dataType = "xml";      //타입 xml, json 등등 .
-            String regId = "11B10101";    //지역코드
+            String regId = point_temp;    //지역코드
             String tmFc = Dday;           //오늘날짜
             String url = apiUrl + "?" + "servicekey=" + serviceKey
                     + "&" + "pageNo=" + pageNo + "&" + "numOfRows=" + numOfRows
                     + "&" + "dataType=" + dataType + "&" + "regId=" + regId
                     + "&" + "tmFc=" + tmFc;
+            System.out.println(url);
             Document document = Jsoup.connect(url).get();
             Elements links = document.select("body items item taMin3");
             for (Element element : links) {

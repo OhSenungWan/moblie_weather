@@ -31,7 +31,7 @@ public class setdata_air {
         if(pm10>=0 && pm10<=30) grade = "좋음";
         else if(pm10>=31 && pm10<=80) grade = "보통";
         else if(pm10>=81 && pm10<=150) grade = "나쁨";
-        else if(pm10>=151) grade = "매우 나쁨";
+        else if(pm10>=151) grade = "매우나쁨";
         return grade;
     }
     public String set_pm25(){
@@ -40,7 +40,7 @@ public class setdata_air {
         if(pm10>=0 && pm10<=15) grade = "좋음";
         else if(pm10>=16 && pm10<=35) grade = "보통";
         else if(pm10>=36 && pm10<=75) grade = "나쁨";
-        else if(pm10>=76) grade = "매우 나쁨";
+        else if(pm10>=76) grade = "매우나쁨";
         return grade;
     }
     public String Link_URL(String itemCode){

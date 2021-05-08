@@ -81,7 +81,8 @@ public class MainActivity extends AppCompatActivity {
     TextView Time_comment;
     TextView day_comment;
     LinearLayout Back;
-    int PoP = 0;
+    String Wtype;
+    String PTY;
     ImageButton btncloth;
 
     int back;
@@ -263,23 +264,29 @@ public class MainActivity extends AppCompatActivity {
 
         ImageButton btncloth=(ImageButton)findViewById(R.id.btncloth);
         btncloth.setOnClickListener(new View.OnClickListener() {
+
             @Override
             public void onClick(View view) {
+                PTY = Short_Data[sw.getDate()][sw.getHour()][1];
+                Wtype = weather;
+                for(int i =sw.getHour(); i<8; i++){
+                    if(!Short_Data[sw.getDate()][i][1].equals("0")){
+                        PTY = Short_Data[sw.getDate()][i][1];
+                        Wtype = Short_Data[sw.getDate()][i][1];
+                    }
+                }
+                if(!Short_Data[sw.getDate()+1][0][1].equals("0")){
+                    PTY = Short_Data[sw.getDate()+1][0][1];
+                    Wtype = Short_Data[sw.getDate()+1][0][1];
+                }
                 Intent intent = new Intent(MainActivity.this,ClothingActivity.class);
                 intent.putExtra("Temp", temp);
                 intent.putExtra("Wsd", wsd);
-
-                if(PoP > 30)
-                {
-                    intent.putExtra("Weather", "1");
-                    intent.putExtra("Wtype" , weather);
-                }
-                else
-                {
-                    intent.putExtra("Weather", "0");
-                    intent.putExtra("Wtype", "sunny");
-                } // 내리는 것이 없을 때
-
+                intent.putExtra("wtype", PTY);
+                intent.putExtra("Weather", Wtype);
+                intent.putExtra("pm10grade", pm10);
+                intent.putExtra("nx", x_point);
+                intent.putExtra("ny", y_point);
 
                 startActivity(intent);
 
@@ -327,7 +334,7 @@ public class MainActivity extends AppCompatActivity {
 
             int time = (sw.getHour() + i)%8;
             int day = (sw.getHour() + i)/8;
-            if(sw.getHour() < 3){
+            if(sw.getHour() < 2){
                 day = (sw.getHour() + i)/8 + 1;
             }
             String pty = Short_Data[day][time][1];
@@ -379,7 +386,7 @@ public class MainActivity extends AppCompatActivity {
 
             int time = (sw.getHour() + i)%8;
             int day = (sw.getHour() + i)/8;
-            if(sw.getHour() < 3){
+            if(sw.getHour() < 2){
                 day = (sw.getHour() + i)/8 + 1;
             }
 
@@ -430,7 +437,7 @@ public class MainActivity extends AppCompatActivity {
             int time = (sw.getHour() + i)%8;
 
             int day = (sw.getHour() + i)/8;
-            if(sw.getHour() < 3){
+            if(sw.getHour() < 2){
                 day = (sw.getHour() + i)/8 + 1;
             }
             String t3h = Short_Data[day][time][6];
@@ -577,11 +584,8 @@ public class MainActivity extends AppCompatActivity {
         for (int i = 0; i < daySet; i++) {
             String tempMin = Long_Temp[i][0];
             String tempMax = Long_Temp[i][1];
-            System.out.println(i);
             entries.add(new Entry(i, Integer.parseInt(tempMin)));
-            System.out.println(i);
             entries2.add(new Entry(i, Integer.parseInt(tempMax)));
-            System.out.println(i);
         }
 
         LineDataSet lineDataSet = new LineDataSet(entries, "온도");
