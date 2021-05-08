@@ -231,7 +231,7 @@ public class MainActivity extends AppCompatActivity {
                 setStart();
                 Data = x_point + " " + y_point + " " + point_temp + " " + point_weather + " " + city_data;
                 PreferenceManager.setString(mContext, "rebuild", Data);
-                String intentdata = temp+"℃ " + pm10 + " "+weather + " " + pm25 + " " + pm10m + "ug/m3 " + pm25m + "ug/m3 " + pop;
+                String intentdata = temp+"℃ " + pm10 + " "+weather + " " + pm25 + " " + pm10m + "ug/m3 " + pm25m + "ug/m3 " + pop + "%";
                 PreferenceManager.setString(mContext, "data", intentdata);
                 System.out.println(intentdata);
             }

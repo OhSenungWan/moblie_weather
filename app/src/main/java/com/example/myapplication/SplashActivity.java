@@ -14,6 +14,7 @@ public class SplashActivity  extends Activity{
 
         Handler handler = new Handler();
         handler.postDelayed(new Runnable() {
+
             @Override
             public void run() {
                 Intent intent = new Intent(getApplicationContext(),MainActivity.class);
