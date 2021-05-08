@@ -6,7 +6,6 @@ import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.widget.RemoteViews;
-
 import com.example.myapplication.savedata.PreferenceManager;
 
 import java.text.SimpleDateFormat;
@@ -83,7 +82,11 @@ public class WeatherAppWidgetProvider extends AppWidgetProvider{
         updateViews.setTextViewText(R.id.location, city_data);
         updateViews.setTextViewText(R.id.realtime,"Update : " + mFormat.format(mCalendar.getTime()));
         updateViews.setTextViewText(R.id.Temp, idata[0]);
-        updateViews.setTextViewText(R.id.pm10, "미세먼지 : " + idata[1] + " | ");
+        updateViews.setTextViewText(R.id.pm10grade, idata[1]);
+        updateViews.setTextViewText(R.id.pm25grade, idata[3]);
+        updateViews.setTextViewText(R.id.pm10, idata[4]);
+        updateViews.setTextViewText(R.id.pm25, idata[5]);
+        updateViews.setTextViewText(R.id.pop, idata[6]);
         updateViews.setTextViewText(R.id.weatherText, weather);
 
         appWidgetManager.updateAppWidget(appWidgetId,updateViews);

@@ -109,6 +109,7 @@
                     android:src="@drawable/ros_mainunder" />
 
                 <TextView
+                    android:id="@+id/pop"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
@@ -133,6 +134,7 @@
                     android:textSize="10dp" />
 
                 <TextView
+                    android:id="@+id/pm10grade"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
@@ -142,6 +144,7 @@
                     android:textSize="10dp" />
 
                 <TextView
+                    android:id="@+id/pm10"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
@@ -166,6 +169,7 @@
                     android:textSize="10dp" />
 
                 <TextView
+                    android:id="@+id/pm25grade"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
@@ -175,6 +179,7 @@
                     android:textSize="10dp" />
 
                 <TextView
+                    android:id="@+id/pm25"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1"

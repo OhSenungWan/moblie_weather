@@ -76,6 +76,8 @@ public class MainActivity extends AppCompatActivity {
     TextView Pm10;
     String pm10;
     String pm25;
+    String pm10m;
+    String pm25m;
     TextView Pm10_grade;
     TextView Pm25_grade;
     TextView Time_comment;
@@ -188,6 +190,8 @@ public class MainActivity extends AppCompatActivity {
                         Pop.setText(pop+"%");
                         Wsd.setText(wsd+"m/s");
                         Vec.setText(vec);
+                        pm10m = Data_Air[0];
+                        pm25m = Data_Air[1];
                         Pm10.setText(Data_Air[0]+"㎍/m3");
                         Pm25.setText(Data_Air[1]+"㎍/m3");
                         Pm10_grade.setText(pm10);
@@ -227,8 +231,9 @@ public class MainActivity extends AppCompatActivity {
                 setStart();
                 Data = x_point + " " + y_point + " " + point_temp + " " + point_weather + " " + city_data;
                 PreferenceManager.setString(mContext, "rebuild", Data);
-                String intentdata = temp+"℃ " + pm10 + " "+weather;
+                String intentdata = temp+"℃ " + pm10 + " "+weather + " " + pm25 + " " + pm10m + "ug/m3 " + pm25m + "ug/m3 " + pop;
                 PreferenceManager.setString(mContext, "data", intentdata);
+                System.out.println(intentdata);
             }
         }
     }
@@ -298,7 +303,7 @@ public class MainActivity extends AppCompatActivity {
 
         String intentdata = PreferenceManager.getString(mContext,"data");
         if(intentdata.equals("")) {
-            intentdata = temp+"℃ " + pm10 + " "+weather;
+            intentdata = temp+"℃ " + pm10 + " "+weather + " " + pm25 + " " + Data_Air[0] + " " + Data_Air[1] + " " + pop;
             PreferenceManager.setString(mContext, "data", intentdata);
         }
     }
