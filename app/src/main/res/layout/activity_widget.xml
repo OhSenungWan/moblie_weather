@@ -9,8 +9,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
     <LinearLayout
-        android:layout_width="300dp"
-        android:layout_height="200dp"
+        android:layout_width="320dp"
+        android:layout_height="250dp"
         android:background="@drawable/widget_background"
         android:orientation="vertical">
         <TextView
@@ -78,8 +78,8 @@
         </LinearLayout>
     </LinearLayout>
     <LinearLayout
-        android:layout_width="300dp"
-        android:layout_height="60dp"
+        android:layout_width="320dp"
+        android:layout_height="50dp"
         android:background="@drawable/widget_background2">
         <LinearLayout
             android:layout_width="match_parent"
