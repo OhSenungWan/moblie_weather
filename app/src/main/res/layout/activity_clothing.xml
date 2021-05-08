@@ -149,6 +149,7 @@
             android:layout_height="match_parent"
             android:orientation="horizontal">
         <LinearLayout
+            android:id="@+id/man"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
@@ -170,6 +171,7 @@
                 android:textColor="#FFFFFF"/>
         </LinearLayout>
             <LinearLayout
+                android:id="@+id/woman"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"

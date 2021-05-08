@@ -1,5 +1,7 @@
 package com.example.myapplication;
 
+import android.appwidget.AppWidgetManager;
+import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -305,6 +307,11 @@ public class MainActivity extends AppCompatActivity {
         if(intentdata.equals("")) {
             intentdata = temp+"℃ " + pm10 + " "+weather + " " + pm25 + " " + Data_Air[0] + " " + Data_Air[1] + " " + pop;
             PreferenceManager.setString(mContext, "data", intentdata);
+            AppWidgetManager appWidgetManager = AppWidgetManager.getInstance(this);
+            int appWidgetIds[] = appWidgetManager.getAppWidgetIds(
+                    new ComponentName(this, WeatherAppWidgetProvider.class));
+            appWidgetManager.notifyAppWidgetViewDataChanged(appWidgetIds, R.id.location);
+            //막힘
         }
     }
 

@@ -22,7 +22,12 @@ public class WeatherAppWidgetProvider extends AppWidgetProvider{
     }
     @Override
     public void onUpdate(Context context, AppWidgetManager appWidgetManager, int[] appWidgetIds){
-        super.onUpdate(context, appWidgetManager, appWidgetIds);
+
+        RemoteViews updateViews = new RemoteViews(context.getPackageName(), R.layout.activity_widget);
+
+        Intent intent1 = new Intent();
+        PendingIntent pendingIntent1 = PendingIntent.getBroadcast(context,0,intent1,PendingIntent.FLAG_UPDATE_CURRENT);
+        updateViews.setOnClickPendingIntent(R.id.update,pendingIntent1);
         appWidgetIds = appWidgetManager.getAppWidgetIds(new ComponentName(context, getClass()));
         for(int i = 0; i<appWidgetIds.length; i++){
             updateAppWidget(context,appWidgetManager, appWidgetIds[i]);
@@ -45,6 +50,7 @@ public class WeatherAppWidgetProvider extends AppWidgetProvider{
         Intent intent = new Intent(context, MainActivity.class).setAction("ButtonClick");
         PendingIntent pendingIntent = PendingIntent.getActivity(context,0,intent,0);
         updateViews.setOnClickPendingIntent(R.id.Weather,pendingIntent);
+
 
         String text = PreferenceManager.getString(context,"rebuild");
         if(text.equals("")) {
