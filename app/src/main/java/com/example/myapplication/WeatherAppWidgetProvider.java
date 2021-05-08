@@ -62,29 +62,29 @@ public class WeatherAppWidgetProvider extends AppWidgetProvider{
 
         switch (weather){
             case "Rain":
-                updateViews.setImageViewResource(R.id.Weather, R.drawable.rain);
+                updateViews.setImageViewResource(R.id.Weather, R.drawable.list_rain);
                 break;
             case "Snow":
-                updateViews.setImageViewResource(R.id.Weather, R.drawable.snow);
+                updateViews.setImageViewResource(R.id.Weather, R.drawable.list_snow);
                 break;
             case "Sunny":
-                updateViews.setImageViewResource(R.id.Weather, R.drawable.sunn);
+                updateViews.setImageViewResource(R.id.Weather, R.drawable.list_sun);
                 break;
             case "Cloud":
-                updateViews.setImageViewResource(R.id.Weather, R.drawable.cloud1);
+                updateViews.setImageViewResource(R.id.Weather, R.drawable.list_cloud1);
                 break;
             case "Blur":
-                updateViews.setImageViewResource(R.id.Weather, R.drawable.cloud2);
+                updateViews.setImageViewResource(R.id.Weather, R.drawable.list_cloud2);
                 break;
         }
-
         Calendar mCalendar = Calendar.getInstance();
-        SimpleDateFormat mFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm", Locale.KOREA);
+        SimpleDateFormat mFormat = new SimpleDateFormat("MM/dd HH:mm", Locale.KOREA);
 
         updateViews.setTextViewText(R.id.location, city_data);
-        updateViews.setTextViewText(R.id.realtime,mFormat.format(mCalendar.getTime()));
+        updateViews.setTextViewText(R.id.realtime,"Update : " + mFormat.format(mCalendar.getTime()));
         updateViews.setTextViewText(R.id.Temp, idata[0]);
         updateViews.setTextViewText(R.id.pm10, "미세먼지 : " + idata[1] + " | ");
+        updateViews.setTextViewText(R.id.weatherText, weather);
 
         appWidgetManager.updateAppWidget(appWidgetId,updateViews);
     }
