@@ -25,9 +25,7 @@ public class WeatherAppWidgetProvider extends AppWidgetProvider{
 
         RemoteViews updateViews = new RemoteViews(context.getPackageName(), R.layout.activity_widget);
 
-        Intent intent1 = new Intent();
-        PendingIntent pendingIntent1 = PendingIntent.getBroadcast(context,0,intent1,PendingIntent.FLAG_UPDATE_CURRENT);
-        updateViews.setOnClickPendingIntent(R.id.update,pendingIntent1);
+
         appWidgetIds = appWidgetManager.getAppWidgetIds(new ComponentName(context, getClass()));
         for(int i = 0; i<appWidgetIds.length; i++){
             updateAppWidget(context,appWidgetManager, appWidgetIds[i]);
@@ -94,6 +92,9 @@ public class WeatherAppWidgetProvider extends AppWidgetProvider{
         updateViews.setTextViewText(R.id.pm25, idata[5]);
         updateViews.setTextViewText(R.id.pop, idata[6]);
         updateViews.setTextViewText(R.id.weatherText, weather);
+        Intent intent1 = new Intent(context, WeatherAppWidgetProvider.class).setAction("Button2");
+        PendingIntent pendingIntent1 = PendingIntent.getService(context,0,intent1,PendingIntent.FLAG_UPDATE_CURRENT);
+        updateViews.setOnClickPendingIntent(R.id.update,pendingIntent1);
 
         appWidgetManager.updateAppWidget(appWidgetId,updateViews);
     }
