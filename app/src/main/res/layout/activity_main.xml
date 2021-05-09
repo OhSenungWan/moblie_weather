@@ -454,16 +454,16 @@
 
                             <com.github.mikephil.charting.charts.LineChart
                                 android:id="@+id/lineChart"
-                                android:layout_width="980dp"
+                                android:layout_width="6.00in"
                                 android:layout_height="100dp"
-                                android:layout_marginLeft="6dp"
+                                android:layout_marginLeft="0.05in"
                                 android:layout_marginTop="10dp" />
 
                             <LinearLayout
                                 android:id="@+id/layout_timeWeatherBottom"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_marginLeft="5dp"
+                                android:layout_marginLeft="0.05in"
                                 android:orientation="horizontal" />
 
                         </LinearLayout>
