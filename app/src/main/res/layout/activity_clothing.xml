@@ -134,49 +134,8 @@
             android:textColor="#F1F1F1"/>
     </LinearLayout>
 
-<<<<<<< HEAD
             <LinearLayout
                 android:layout_width="match_parent"
-=======
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:padding="5dp"
-        android:layout_marginBottom="5dp"
-        android:orientation="vertical"
-        android:background="@drawable/roundconer2">
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal">
-        <LinearLayout
-            android:id="@+id/man"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_gravity="center"
-            android:layout_weight="1">
-            <ImageView
-                android:layout_width="13dp"
-                android:layout_height="13dp"
-                android:layout_gravity="center"
-                android:layout_marginLeft="15dp"
-                android:src="@drawable/man"/>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="남자 의상"
-                android:layout_marginLeft="5dp"
-                android:textStyle="bold"
-                android:textSize="13dp"
-                android:textColor="#FFFFFF"/>
-        </LinearLayout>
-            <LinearLayout
-                android:id="@+id/woman"
-                android:layout_width="wrap_content"
->>>>>>> eecd8694215eb72e93591c09cabb5a4c9963aa4b
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
