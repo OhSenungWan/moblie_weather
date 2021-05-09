@@ -249,9 +249,6 @@ public class ClothingActivity extends Activity {
                                     setCloth_image_bot(4,3,"면바지", "cloth_mancotton");
 
                                 }else if(finalT<=16 && finalT > 11){
-
-                                    switch (RG.getCheckedRadioButtonId()){
-                                        case R.id.RBman:
                                             setCloth_image_top(7,0,"점퍼", "cloth_ma1");
                                             setCloth_image_top(7,1,"후드", "cloth_hood");
                                             setCloth_image_top(7,2,"맨투맨", "cloth_mtm3");
@@ -279,7 +276,16 @@ public class ClothingActivity extends Activity {
                                             setCloth_image_bot(4,3,"면바지", "cloth_womancotton");
                                             break;
                                     }
+<<<<<<< HEAD
+<<<<<<< HEAD
 
+
+=======
+=======
+>>>>>>> parent of 718b562 (추가xml)
+=======
+=======
+>>>>>>> parent of 718b562 (추가xml)
                                     setCloth_image_top(7,0,"점퍼", "cloth_ma1");
                                     setCloth_image_top(7,1,"후드", "cloth_hood");
                                     setCloth_image_top(7,2,"맨투맨", "cloth_mtm3");
@@ -292,6 +298,11 @@ public class ClothingActivity extends Activity {
                                     setCloth_image_bot(3,1,"슬렉스", "cloth_slacks");
                                     setCloth_image_bot(3,2,"면바지", "cloth_mancotton");
 
+>>>>>>> eecd8694215eb72e93591c09cabb5a4c9963aa4b
+<<<<<<< HEAD
+
+=======
+>>>>>>> parent of 718b562 (추가xml)
 
                                 }else if(finalT<=19 && finalT > 16){
                                     setCloth_image_top(7,0,"점퍼", "cloth_ma1");
