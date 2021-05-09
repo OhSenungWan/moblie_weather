@@ -65,7 +65,7 @@
             android:text="이 시간 이후로 비가 올 예정이군요. 우산챙기셔야 해요."
             android:layout_marginLeft="20dp"
             android:textSize="12dp"
-            android:textColor="#FFFFFF"/>
+            android:textColor="#F1F1F1"/>
         <TextView
             android:id="@+id/daycheckpm10"
             android:layout_width="wrap_content"
@@ -73,7 +73,7 @@
             android:text="미세먼지 지수가 높아요. 외출에 유의하셔야 해요"
             android:layout_marginLeft="20dp"
             android:textSize="12dp"
-            android:textColor="#FFFFFF"/>
+            android:textColor="#F1F1F1"/>
     </LinearLayout>
 
     <LinearLayout
@@ -82,7 +82,6 @@
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
         android:padding="5dp"
-
         android:layout_marginBottom="5dp"
         android:orientation="vertical"
         android:background="@drawable/roundconer2">
@@ -99,7 +98,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="이런 옷은 어떠세요?"
+                android:text="오늘의 옷가지"
                 android:textStyle="bold"
                 android:textSize="13dp"
                 android:layout_marginLeft="5dp"
@@ -124,7 +123,7 @@
             android:text="일교차가 큰 날씨에요."
             android:layout_marginLeft="20dp"
             android:textSize="12dp"
-            android:textColor="#FFFFFF"/>
+            android:textColor="#F1F1F1"/>
         <TextView
             android:id="@+id/daycheckwind"
             android:layout_width="wrap_content"
@@ -132,65 +131,79 @@
             android:text="얇은 옷을 여려 겹 입으시면 좋을 것 같아요."
             android:layout_marginLeft="20dp"
             android:textSize="12dp"
-            android:textColor="#FFFFFF"/>
+            android:textColor="#F1F1F1"/>
     </LinearLayout>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:padding="5dp"
-        android:layout_marginBottom="5dp"
-        android:orientation="vertical"
-        android:background="@drawable/roundconer2">
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal">
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_gravity="center"
-            android:layout_weight="1">
-            <ImageView
-                android:layout_width="13dp"
-                android:layout_height="13dp"
-                android:layout_gravity="center"
-                android:layout_marginLeft="15dp"
-                android:src="@drawable/man"/>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="남자 의상"
-                android:layout_marginLeft="5dp"
-                android:textStyle="bold"
-                android:textSize="13dp"
-                android:textColor="#FFFFFF"/>
-        </LinearLayout>
             <LinearLayout
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_weight="1">
-                <ImageView
-                    android:layout_width="13dp"
-                    android:layout_height="13dp"
-                    android:layout_gravity="center"
-                    android:layout_marginLeft="15dp"
-                    android:src="@drawable/woman"/>
-                <TextView
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginBottom="5dp"
+                android:orientation="horizontal">
+                <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="여자 의상"
+                    android:orientation="horizontal"
+                    android:layout_weight="1"
+                    android:padding="5dp"
+                    android:background="@drawable/roundconer2">
+                    <ImageView
+                        android:layout_width="15dp"
+                        android:layout_height="20dp"
+                        android:layout_marginLeft="15dp"
+                        android:src="@drawable/sexual"
+                        android:layout_gravity="center"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="성별에 맞게 옷을 추천해 드려요"
+                        android:textStyle="bold"
+                        android:textSize="13dp"
+                        android:layout_marginLeft="5dp"
+                        android:textColor="#FFFFFF"/>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:background="@drawable/roundconer2"
+                    android:padding="5dp"
+                    android:layout_weight="1"
                     android:layout_marginLeft="5dp"
-                    android:textStyle="bold"
-                    android:textSize="13dp"
-                    android:textColor="#FFFFFF"/>
+                    android:gravity="center">
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@drawable/change_background"
+                        android:orientation="horizontal"
+                        android:gravity="center">
+                    <TextView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:textSize="12dp"
+                        android:gravity="center"
+                        android:text="M" />
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="horizontal"
+                        android:gravity="center">
+                        <TextView
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:textSize="12dp"
+                            android:gravity="center"
+                            android:text="W"
+                            android:textColor="#FFFFFF"/>
+                    </LinearLayout>
+                </LinearLayout>
             </LinearLayout>
-        </LinearLayout>
-    </LinearLayout>
+
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="180dp"
@@ -198,7 +211,7 @@
         android:layout_marginRight="10dp"
         android:layout_marginBottom="5dp"
         android:orientation="vertical"
-        android:background="@drawable/roundconer">
+        android:background="@drawable/roundconer2">
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -212,7 +225,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="오늘의 날씨에는 이런 옷들이 괜찮을 것 같아요!"
-            android:textColor="#FFFFFF"
+            android:textColor="#F1F1F1"
             android:textSize="12dp"
             android:layout_marginLeft="20dp" />
 
@@ -243,7 +256,7 @@
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
                 android:orientation="vertical"
-                android:background="@drawable/roundconer">
+                android:background="@drawable/roundconer2">
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -257,7 +270,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="오늘의 날씨에는 이런 옷들이 괜찮을 것 같아요!"
-                    android:textColor="#FFFFFF"
+                    android:textColor="#F1F1F1"
                     android:textSize="12dp"
                     android:layout_marginLeft="20dp" />
 

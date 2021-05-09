@@ -289,7 +289,7 @@ public class ClothingActivity extends Activity {
                                             setCloth_image_top(7,0,"점퍼", "cloth_ma1");
                                             setCloth_image_top(7,1,"후드", "cloth_hood");
                                             setCloth_image_top(7,2,"맨투맨", "cloth_mtm3");
-                                            setCloth_image_top(7,3,"패딩", "cloth_paddingvest");
+                                            setCloth_image_top(7,3,"패딩조끼", "cloth_paddingvest");
                                             setCloth_image_top(7,4,"청자켓", "cloth_jeanjacket");
                                             setCloth_image_top(7,5,"가죽자켓", "cloth_leatherjacket");
                                             setCloth_image_top(7,6,"가디건", "cloth_cardigun");
