@@ -249,6 +249,7 @@ public class ClothingActivity extends Activity {
                                     setCloth_image_bot(4,3,"면바지", "cloth_mancotton");
 
                                 }else if(finalT<=16 && finalT > 11){
+
                                             setCloth_image_top(7,0,"점퍼", "cloth_ma1");
                                             setCloth_image_top(7,1,"후드", "cloth_hood");
                                             setCloth_image_top(7,2,"맨투맨", "cloth_mtm3");
@@ -276,6 +277,20 @@ public class ClothingActivity extends Activity {
                                             setCloth_image_bot(4,3,"면바지", "cloth_womancotton");
                                             break;
                                     }
+
+
+                                    setCloth_image_top(7,0,"점퍼", "cloth_ma1");
+                                    setCloth_image_top(7,1,"후드", "cloth_hood");
+                                    setCloth_image_top(7,2,"맨투맨", "cloth_mtm3");
+                                    setCloth_image_top(7,3,"패딩", "cloth_paddingvest");
+                                    setCloth_image_top(7,4,"청자켓", "cloth_jeanjacket");
+                                    setCloth_image_top(7,5,"가죽자켓", "cloth_leatherjacket");
+                                    setCloth_image_top(7,6,"가디건", "cloth_cardigun");
+
+                                    setCloth_image_bot(3,0,"청바지", "cloth_jean");
+                                    setCloth_image_bot(3,1,"슬렉스", "cloth_slacks");
+                                    setCloth_image_bot(3,2,"면바지", "cloth_mancotton");
+
 
 
                                 }else if(finalT<=19 && finalT > 16){
