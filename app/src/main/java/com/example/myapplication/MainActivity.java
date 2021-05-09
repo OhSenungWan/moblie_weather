@@ -90,6 +90,7 @@ public class MainActivity extends AppCompatActivity {
     ImageButton btncloth;
 
     int back;
+    private View view;
 
     public void setStart() {
         new Thread(new Runnable() {
@@ -323,6 +324,7 @@ public class MainActivity extends AppCompatActivity {
         LinearLayout linearLayoutTop = findViewById(R.id.layout_timeWeatherTop);
         LinearLayout linearLayoutBottom = findViewById(R.id.layout_timeWeatherBottom);
 
+
         linearLayoutTop.removeAllViews();
         linearLayoutBottom.removeAllViews();
         LinearLayout[] linearLayoutTopV = new LinearLayout[timeSet];
@@ -374,10 +376,9 @@ public class MainActivity extends AppCompatActivity {
             lp1.bottomMargin = 40;
             lp1.gravity = Gravity.CENTER_HORIZONTAL;
             timeTextView[i].setLayoutParams(lp1);
-
             linearLayoutTopV[i].addView(timeTextView[i]);
-            linearLayoutTopV[i].addView(weatherImageView[i], 100, 100);
-            linearLayoutTopV[i].setMinimumWidth(120);
+            linearLayoutTopV[i].addView(weatherImageView[i],100,100);
+            linearLayoutTopV[i].setMinimumWidth(100);
 
             LinearLayout.LayoutParams lp2 = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
             lp2.rightMargin = 70;
@@ -427,7 +428,7 @@ public class MainActivity extends AppCompatActivity {
 
             linearLayoutBottomV[i].addView(rainfallProbTextView[i]);
             linearLayoutBottomV[i].addView(rainfallTextView[i]);
-            linearLayoutBottomV[i].setMinimumWidth(120);
+            linearLayoutBottomV[i].setMinimumWidth(100);
 
             LinearLayout.LayoutParams lp2 = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
             lp2.rightMargin = 70;
@@ -445,7 +446,9 @@ public class MainActivity extends AppCompatActivity {
     public void makeTimeGraph(){
 
         LineChart lineChart = (LineChart)findViewById(R.id.lineChart);
-
+        ViewGroup.LayoutParams params = lineChart.getLayoutParams();
+        params.width = 2455;
+        lineChart.setLayoutParams(params);
         List<Entry> entries = new ArrayList<>();
         for (int i = 0; i < timeSet; i++) {
             int time = (sw.getHour() + i)%8;
