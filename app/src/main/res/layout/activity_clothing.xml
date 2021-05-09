@@ -81,10 +81,6 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
-<<<<<<< HEAD
-=======
-
->>>>>>> 3090f80d11cc14ca27283fae7663dc53ddf1656b
                 android:padding="5dp"
                 android:layout_marginBottom="5dp"
                 android:orientation="vertical"

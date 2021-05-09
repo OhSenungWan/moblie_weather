@@ -613,25 +613,31 @@ public class MainActivity extends AppCompatActivity {
         lineDataSet.setColor(Color.WHITE);
         //lineDataSet.setDrawValues(false); //점에 데이터 출력
         lineDataSet.setLineWidth(1.75f); //선 두께
-        lineDataSet.setCircleRadius(3f); //점 크기
+        lineDataSet.setCircleRadius(0f); //점 크기
         lineDataSet.setCircleHoleRadius(0f); // 점 구멍(빈 공간) 크기
         lineDataSet.setValueTextSize(13); //온도 글씨 크기
         lineDataSet.setValueTextColor(Color.WHITE);
         lineDataSet.setValueFormatter(new MyValueFormatter());
         //그래프 선, 점 색상들
         //lineDataSet.setColor(Color.GRAY);
-        lineDataSet.setCircleColor(Color.DKGRAY);
+
+        lineDataSet.setCircleColor(Color.parseColor("#5572CE"));
+        lineDataSet.setCircleHoleColor(Color.parseColor("#5572CE"));
+
         lineDataSet2.setColor(Color.WHITE);
         //lineDataSet.setDrawValues(false); //점에 데이터 출력
         lineDataSet2.setLineWidth(1.75f); //선 두께
-        lineDataSet2.setCircleRadius(3f); //점 크기
+        lineDataSet2.setCircleRadius(0f); //점 크기
         lineDataSet2.setCircleHoleRadius(0f); // 점 구멍(빈 공간) 크기
         lineDataSet2.setValueTextSize(13); //온도 글씨 크기
         lineDataSet2.setValueTextColor(Color.WHITE);
         lineDataSet2.setValueFormatter(new MyValueFormatter());
         //그래프 선, 점 색상들
         //lineDataSet.setColor(Color.GRAY);
-        lineDataSet2.setCircleColor(Color.LTGRAY);
+        lineDataSet2.setCircleColor(Color.parseColor("#C60E0E"));
+        lineDataSet2.setCircleHoleColor(Color.parseColor("#C60E0E"));
+
+
 
 
         //범례 사용 X
