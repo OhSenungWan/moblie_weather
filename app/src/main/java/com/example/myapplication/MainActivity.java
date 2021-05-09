@@ -500,6 +500,8 @@ public class MainActivity extends AppCompatActivity {
         LinearLayout linearLayoutTop = findViewById(R.id.layout_dayWeatherTop);
         LinearLayout linearLayoutBottom = findViewById(R.id.layout_dayWeatherBottom);
 
+
+
         linearLayoutTop.removeAllViews();
         linearLayoutBottom.removeAllViews();
 
@@ -595,7 +597,9 @@ public class MainActivity extends AppCompatActivity {
     public void makeDayGraph(){
 
         LineChart lineChart = (LineChart)findViewById(R.id.dayLineChart);
-
+        ViewGroup.LayoutParams params = lineChart.getLayoutParams();
+        params.width = 830;
+        lineChart.setLayoutParams(params);
         List<Entry> entries = new ArrayList<>();
         List<Entry> entries2 = new ArrayList<>();
         for (int i = 0; i < daySet; i++) {
