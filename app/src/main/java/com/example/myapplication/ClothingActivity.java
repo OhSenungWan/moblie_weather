@@ -17,6 +17,9 @@ import android.widget.TextView;
 import com.example.myapplication.setdata.set_data_cloth;
 import com.example.myapplication.setdata.data_short;
 import com.example.myapplication.setdata.set_weather;
+
+import java.util.Calendar;
+
 public class ClothingActivity extends Activity {
 
     final int man04top = 7;
@@ -55,10 +58,10 @@ public class ClothingActivity extends Activity {
     final int woman23bot = 5;
 
     LinearLayout BackGround;
-    int back;
-    RadioGroup RG;
-    RadioButton Rman, Rwoman;
-    Button btn;
+    int background;
+    int Time;
+    LinearLayout man;
+    LinearLayout woman;
     TextView pmch, winch, tempch, rainch;
     String[] temp = new String[2];
 
@@ -73,18 +76,36 @@ public class ClothingActivity extends Activity {
                 temp[0] = "null";
                 temp[1] = "null";
                 Intent intent = getIntent();
-                set_weather sw = new set_weather();
+                Calendar cal = Calendar.getInstance();
+                Time = cal.get(cal.HOUR);
+                int AMPM = cal.get(Calendar.AM_PM);
+                if (AMPM == 1) {
+                    Time += 12;
+                }
+                if(Time>=5 && Time<7)
+                {
+                    background = 1;
+                }
+                else if(Time>=7 && Time<17)
+                {
+                    background = 2;
+                }
+                else if(Time>=17 && Time<19)
+                {
+                    background = 3;
+                }
+                else
+                {
+                    background = 4;
+                }
                 set_data_cloth sdc = new set_data_cloth();
                 BackGround = (LinearLayout)findViewById(R.id.background);
                 pmch = (TextView)findViewById(R.id.daycheckpm10);
                 winch = (TextView)findViewById(R.id.daycheckwind);
                 tempch = (TextView)findViewById(R.id.daychecktemp);
                 rainch = (TextView)findViewById(R.id.daycheckrain);
-                RG = (RadioGroup)findViewById(R.id.RG);
-                Rman = (RadioButton)findViewById(R.id.RBman);
-                Rwoman = (RadioButton)findViewById(R.id.RBwoman);
-                btn = (Button)findViewById(R.id.cchbtn);
-                back = sw.set_background();
+                man = (LinearLayout)findViewById(R.id.man);
+                woman = (LinearLayout)findViewById(R.id.woman);
                 double Ta = Double.parseDouble(intent.getStringExtra("Temp"));
                 double wsd = Double.parseDouble(intent.getStringExtra("Wsd"));
                 String weather = intent.getStringExtra("Weather");
@@ -121,7 +142,7 @@ public class ClothingActivity extends Activity {
                 ClothingActivity.this.runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
-                        switch (back) {
+                        switch (background) {
                             case 1:
                                 BackGround.setBackgroundResource(R.drawable.bg_1dawn);
                                 break;
@@ -180,110 +201,55 @@ public class ClothingActivity extends Activity {
                         }else {
                             tempch.setText("오늘은 일교차가 별로 없어요!!");
                         }
-                        btn.setOnClickListener(new View.OnClickListener(){
-                            public void onClick(View v){
+                        man.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
                                 LinearLayout linearLayoutTop = findViewById(R.id.layout_timeWeatherTop);
                                 LinearLayout linearLayoutBottom = findViewById(R.id.layout_timeWeatherBottom);
                                 linearLayoutTop.removeAllViews();
                                 linearLayoutBottom.removeAllViews();
                                 if(finalT <= 4){
-                                    switch (RG.getCheckedRadioButtonId()){
-                                        case R.id.RBman:
-                                            setCloth_image_top(7,0,"히트텍", "cloth_hitec");
-                                            setCloth_image_top(7,1,"기모 후드", "cloth_hood");
-                                            setCloth_image_top(7,2,"롱패딩", "cloth_longpadding");
-                                            setCloth_image_top(7,3,"기모 코트", "cloth_manlongcoat1");
-                                            setCloth_image_top(7,4,"기모 맨투맨", "cloth_kimomtm1");
-                                            setCloth_image_top(7,5,"오리털 패딩", "cloth_padding2");
-                                            setCloth_image_top(7,6,"스웨터", "cloth_sweater");
+                                    setCloth_image_top(7,0,"히트텍", "cloth_hitec");
+                                    setCloth_image_top(7,1,"기모 후드", "cloth_hood");
+                                    setCloth_image_top(7,2,"롱패딩", "cloth_longpadding");
+                                    setCloth_image_top(7,3,"기모 코트", "cloth_manlongcoat1");
+                                    setCloth_image_top(7,4,"기모 맨투맨", "cloth_kimomtm1");
+                                    setCloth_image_top(7,5,"오리털 패딩", "cloth_padding2");
+                                    setCloth_image_top(7,6,"스웨터", "cloth_sweater");
 
-                                            setCloth_image_bot(2,0,"기모 조거팬츠", "cloth_joggerpants");
-                                            setCloth_image_bot(2,1,"기모청바지", "cloth_kimojean");
-                                            break;
-                                        case R.id.RBwoman:
-                                            setCloth_image_top(7,0,"히트텍", "cloth_hitec");
-                                            setCloth_image_top(7,1,"기모 후드", "cloth_hood");
-                                            setCloth_image_top(7,2,"기모 코트", "cloth_longcoat1");
-                                            setCloth_image_top(7,3,"롱패딩", "cloth_longpadding");
-                                            setCloth_image_top(7,4,"기모 맨투맨", "cloth_kimomtm1");
-                                            setCloth_image_top(7,5,"오리털 패딩", "cloth_padding1");
-                                            setCloth_image_top(7,6,"스웨터", "cloth_sweater");
+                                    setCloth_image_bot(2,0,"기모 조거팬츠", "cloth_joggerpants");
+                                    setCloth_image_bot(2,1,"기모청바지", "cloth_kimojean");
 
-                                            setCloth_image_bot(3,0,"기모 조거팬츠", "cloth_joggerpants");
-                                            setCloth_image_bot(3,1,"기모청바지", "cloth_kimojean");
-                                            setCloth_image_bot(3,2,"기모스타킹", "cloth_kimostocking");
-
-
-                                            break;
-                                    }
                                 }else if(finalT<=8 && finalT > 4){
-                                    switch (RG.getCheckedRadioButtonId()){
-                                        case R.id.RBman:
-                                            setCloth_image_top(7,0,"히트텍", "cloth_hitec");
-                                            setCloth_image_top(7,1,"기모 후드", "cloth_hood");
-                                            setCloth_image_top(7,2,"모직 코트", "cloth_manlongcoat1");
-                                            setCloth_image_top(7,3,"기모 맨투맨", "cloth_kimomtm1");
-                                            setCloth_image_top(7,4,"숏패딩", "cloth_padding2");
-                                            setCloth_image_top(7,5,"두꺼운 니트", "cloth_neat");
-                                            setCloth_image_top(7,6,"가죽자켓", "cloth_leatherjacket");
+                                    setCloth_image_top(7,0,"히트텍", "cloth_hitec");
+                                    setCloth_image_top(7,1,"기모 후드", "cloth_hood");
+                                    setCloth_image_top(7,2,"모직 코트", "cloth_manlongcoat1");
+                                    setCloth_image_top(7,3,"기모 맨투맨", "cloth_kimomtm1");
+                                    setCloth_image_top(7,4,"숏패딩", "cloth_padding2");
+                                    setCloth_image_top(7,5,"두꺼운 니트", "cloth_neat");
+                                    setCloth_image_top(7,6,"가죽자켓", "cloth_leatherjacket");
 
-                                            setCloth_image_bot(3,0,"기모 조거팬츠", "cloth_joggerpants");
-                                            setCloth_image_bot(3,1,"기모 청바지", "cloth_kimojean");
-                                            setCloth_image_bot(3,2,"기모 슬렉스", "cloth_slacks");
-                                            break;
-                                        case R.id.RBwoman:
-                                            setCloth_image_top(7,0,"히트텍", "cloth_hitec");
-                                            setCloth_image_top(7,1,"기모 후드", "cloth_hood");
-                                            setCloth_image_top(7,2,"모직 코트", "cloth_womanlongcoat2");
-                                            setCloth_image_top(7,3,"기모 맨투맨", "cloth_kimomtm1");
-                                            setCloth_image_top(7,4,"숏패딩", "cloth_padding1");
-                                            setCloth_image_top(7,5,"두꺼운 니트", "cloth_neat");
-                                            setCloth_image_top(7,6,"가죽 자켓", "cloth_leatherjacket");
+                                    setCloth_image_bot(3,0,"기모 조거팬츠", "cloth_joggerpants");
+                                    setCloth_image_bot(3,1,"기모 청바지", "cloth_kimojean");
+                                    setCloth_image_bot(3,2,"기모 슬렉스", "cloth_slacks");
 
-                                            setCloth_image_bot(5,0,"기모 조거팬츠", "cloth_joggerpants");
-                                            setCloth_image_bot(5,1,"기모 청바지", "cloth_kimojean");
-                                            setCloth_image_bot(5,2,"두꺼운 스타킹", "cloth_kimostocking");
-                                            setCloth_image_bot(5,3,"레깅스", "cloth_leggings");
-                                            setCloth_image_bot(5,4,"기모 슬렉스", "cloth_slacks");
-                                            break;
-                                    }
 
                                 }else if(finalT<=11 && finalT > 8){
-                                    switch (RG.getCheckedRadioButtonId()){
-                                        case R.id.RBman:
-                                            setCloth_image_top(7,0,"점퍼", "cloth_ma1");
-                                            setCloth_image_top(7,1,"후드", "cloth_hood");
-                                            setCloth_image_top(7,2,"맨투맨", "cloth_mtm3");
-                                            setCloth_image_top(7,3,"니트", "cloth_neat");
-                                            setCloth_image_top(7,4,"가죽자켓", "cloth_leatherjacket");
-                                            setCloth_image_top(7,5,"패딩조끼", "cloth_paddingvest");
-                                            setCloth_image_top(7,6,"트렌치코트", "cloth_trenchcoat");
+                                    setCloth_image_top(7,0,"점퍼", "cloth_ma1");
+                                    setCloth_image_top(7,1,"후드", "cloth_hood");
+                                    setCloth_image_top(7,2,"맨투맨", "cloth_mtm3");
+                                    setCloth_image_top(7,3,"니트", "cloth_neat");
+                                    setCloth_image_top(7,4,"가죽자켓", "cloth_leatherjacket");
+                                    setCloth_image_top(7,5,"패딩조끼", "cloth_paddingvest");
+                                    setCloth_image_top(7,6,"트렌치코트", "cloth_trenchcoat");
 
-                                            setCloth_image_bot(4,0,"조거팬츠", "cloth_joggerpants");
-                                            setCloth_image_bot(4,1,"청바지", "cloth_jean");
-                                            setCloth_image_bot(4,2,"슬렉스", "cloth_slacks");
-                                            setCloth_image_bot(4,3,"면바지", "cloth_mancotton");
-                                            break;
-                                        case R.id.RBwoman:
-                                            setCloth_image_top(7,0,"점퍼", "cloth_ma1");
-                                            setCloth_image_top(7,1,"후드", "cloth_hood");
-                                            setCloth_image_top(7,2,"맨투맨", "cloth_mtm3");
-                                            setCloth_image_top(7,3,"니트", "cloth_neat");
-                                            setCloth_image_top(7,4,"가죽자켓", "cloth_leatherjacket");
-                                            setCloth_image_top(7,5,"패딩조끼", "cloth_paddingvest");
-                                            setCloth_image_top(7,6,"트렌치코트", "cloth_trenchcoat");
-
-                                            setCloth_image_bot(6,0,"조거팬츠", "cloth_joggerpants");
-                                            setCloth_image_bot(6,1,"청바지", "cloth_jean");
-                                            setCloth_image_bot(6,2,"스타킹", "cloth_stocking");
-                                            setCloth_image_bot(6,3,"레깅스", "cloth_leggings");
-                                            setCloth_image_bot(6,4,"슬렉스", "cloth_slacks");
-                                            setCloth_image_bot(6,5,"면바지", "cloth_womancotton");
-
-                                            break;
-                                    }
+                                    setCloth_image_bot(4,0,"조거팬츠", "cloth_joggerpants");
+                                    setCloth_image_bot(4,1,"청바지", "cloth_jean");
+                                    setCloth_image_bot(4,2,"슬렉스", "cloth_slacks");
+                                    setCloth_image_bot(4,3,"면바지", "cloth_mancotton");
 
                                 }else if(finalT<=16 && finalT > 11){
+<<<<<<< HEAD
                                     switch (RG.getCheckedRadioButtonId()){
                                         case R.id.RBman:
                                             setCloth_image_top(7,0,"점퍼", "cloth_ma1");
@@ -313,93 +279,175 @@ public class ClothingActivity extends Activity {
                                             setCloth_image_bot(4,3,"면바지", "cloth_womancotton");
                                             break;
                                     }
+=======
+                                    setCloth_image_top(7,0,"점퍼", "cloth_ma1");
+                                    setCloth_image_top(7,1,"후드", "cloth_hood");
+                                    setCloth_image_top(7,2,"맨투맨", "cloth_mtm3");
+                                    setCloth_image_top(7,3,"패딩", "cloth_paddingvest");
+                                    setCloth_image_top(7,4,"청자켓", "cloth_jeanjacket");
+                                    setCloth_image_top(7,5,"가죽자켓", "cloth_leatherjacket");
+                                    setCloth_image_top(7,6,"가디건", "cloth_cardigun");
+
+                                    setCloth_image_bot(3,0,"청바지", "cloth_jean");
+                                    setCloth_image_bot(3,1,"슬렉스", "cloth_slacks");
+                                    setCloth_image_bot(3,2,"면바지", "cloth_mancotton");
+
+>>>>>>> eecd8694215eb72e93591c09cabb5a4c9963aa4b
 
                                 }else if(finalT<=19 && finalT > 16){
-                                    switch (RG.getCheckedRadioButtonId()){
-                                        case R.id.RBman:
-                                            setCloth_image_top(7,0,"점퍼", "cloth_ma1");
-                                            setCloth_image_top(7,1,"후드", "cloth_hood");
-                                            setCloth_image_top(7,2,"얇은 맨투맨", "cloth_mtm4");
-                                            setCloth_image_top(7,3,"블레이저", "cloth_manblazer");
-                                            setCloth_image_top(7,4,"얇은 가디건", "cloth_cardigun");
-                                            setCloth_image_top(7,5,"두꺼운 티셔츠", "cloth_tshirts");
-                                            setCloth_image_top(7,6,"셔츠", "cloth_longshirts");
+                                    setCloth_image_top(7,0,"점퍼", "cloth_ma1");
+                                    setCloth_image_top(7,1,"후드", "cloth_hood");
+                                    setCloth_image_top(7,2,"얇은 맨투맨", "cloth_mtm4");
+                                    setCloth_image_top(7,3,"블레이저", "cloth_manblazer");
+                                    setCloth_image_top(7,4,"얇은 가디건", "cloth_cardigun");
+                                    setCloth_image_top(7,5,"두꺼운 티셔츠", "cloth_tshirts");
+                                    setCloth_image_top(7,6,"셔츠", "cloth_longshirts");
 
-                                            setCloth_image_bot(3,0,"청바지", "cloth_jean");
-                                            setCloth_image_bot(3,1,"슬렉스", "cloth_slacks");
-                                            setCloth_image_bot(3,2,"면바지", "cloth_mancotton");
-                                            break;
-                                        case R.id.RBwoman:
-                                            setCloth_image_top(6,0,"점퍼", "cloth_ma1");
-                                            setCloth_image_top(6,1,"후드", "cloth_hood");
-                                            setCloth_image_top(6,2,"얇은 맨투맨", "cloth_mtm4");
-                                            setCloth_image_top(6,3,"얇은 가디건", "cloth_cardigun");
-                                            setCloth_image_top(6,4,"두꺼운 티셔츠", "cloth_tshirts");
-                                            setCloth_image_top(6,5,"셔츠", "cloth_longshirts");
+                                    setCloth_image_bot(3,0,"청바지", "cloth_jean");
+                                    setCloth_image_bot(3,1,"슬렉스", "cloth_slacks");
+                                    setCloth_image_bot(3,2,"면바지", "cloth_mancotton");
 
-                                            setCloth_image_bot(5,0,"청바지", "cloth_jean");
-                                            setCloth_image_bot(5,1,"스타킹", "cloth_stocking");
-                                            setCloth_image_bot(5,2,"슬렉스", "cloth_slacks");
-                                            setCloth_image_bot(5,3,"면바지", "cloth_womancotton");
-                                            setCloth_image_bot(5,4,"긴 치마", "cloth_longskirt");
-                                            break;
-                                    }
 
                                 }else if(finalT<=22 && finalT > 19){
-                                    switch (RG.getCheckedRadioButtonId()){
-                                        case R.id.RBman:
-                                            setCloth_image_top(5,0,"얇은 맨투맨", "cloth_mtm4");
-                                            setCloth_image_top(5,1,"블레이저", "cloth_manblazer");
-                                            setCloth_image_top(5,2,"티셔츠", "cloth_tshirts");
-                                            setCloth_image_top(5,3,"칠부 티셔츠", "cloth_midlesleeve");
-                                            setCloth_image_top(5,4,"셔츠", "cloth_longshirts");
+                                    setCloth_image_top(5,0,"얇은 맨투맨", "cloth_mtm4");
+                                    setCloth_image_top(5,1,"블레이저", "cloth_manblazer");
+                                    setCloth_image_top(5,2,"티셔츠", "cloth_tshirts");
+                                    setCloth_image_top(5,3,"칠부 티셔츠", "cloth_midlesleeve");
+                                    setCloth_image_top(5,4,"셔츠", "cloth_longshirts");
 
-                                            setCloth_image_bot(3,0,"얇은 청바지", "cloth_thinjean");
-                                            setCloth_image_bot(3,1,"슬렉스", "cloth_slacks");
-                                            setCloth_image_bot(3,2,"면바지", "cloth_mancotton");
-                                            break;
-                                        case R.id.RBwoman:
-                                            setCloth_image_top(5,0,"얇은 맨투맨", "cloth_mtm4");
-                                            setCloth_image_top(5,1,"티셔츠", "cloth_tshirts");
-                                            setCloth_image_top(5,2,"셔츠", "cloth_longshirts");
-                                            setCloth_image_top(5,3,"칠부 티셔츠", "cloth_midlesleeve");
-                                            setCloth_image_top(5,4,"긴 원피스", "cloth_onepeicedress");
-
-                                            setCloth_image_bot(6,0,"청바지", "cloth_jean");
-                                            setCloth_image_bot(6,1,"스타킹", "cloth_stocking");
-                                            setCloth_image_bot(6,2,"슬렉스", "cloth_slacks");
-                                            setCloth_image_bot(6,3,"면바지", "cloth_womancotton");
-                                            setCloth_image_bot(6,4,"긴 치마", "cloth_longskirt");
-                                            setCloth_image_bot(6,5,"테니스 치마", "cloth_shortskirt");
-                                            break;
-
-                                    }
+                                    setCloth_image_bot(3,0,"얇은 청바지", "cloth_thinjean");
+                                    setCloth_image_bot(3,1,"슬렉스", "cloth_slacks");
+                                    setCloth_image_bot(3,2,"면바지", "cloth_mancotton");
 
                                 }else{
-                                    switch (RG.getCheckedRadioButtonId()){
-                                        case R.id.RBman:
-                                            setCloth_image_top(4,0,"칠부 티셔츠", "cloth_midlesleeve");
-                                            setCloth_image_top(4,1,"반팔티", "cloth_shortsleeve");
-                                            setCloth_image_top(4,2,"반팔셔츠", "cloth_shortshirts");
-                                            setCloth_image_top(4,3,"나시", "cloth_nasi");
+                                    setCloth_image_top(4,0,"칠부 티셔츠", "cloth_midlesleeve");
+                                    setCloth_image_top(4,1,"반팔티", "cloth_shortsleeve");
+                                    setCloth_image_top(4,2,"반팔셔츠", "cloth_shortshirts");
+                                    setCloth_image_top(4,3,"나시", "cloth_nasi");
 
-                                            setCloth_image_bot(3,0,"얇은 청바지", "cloth_thinjean");
-                                            setCloth_image_bot(3,1,"슬렉스", "cloth_slacks");
-                                            setCloth_image_bot(3,2,"칠부 청바지", "cloth_middlejean");
-                                            break;
-                                        case R.id.RBwoman:
-                                            setCloth_image_top(4,0,"칠부 티셔츠", "cloth_midlesleeve");
-                                            setCloth_image_top(4,1,"원피스", "cloth_onepeicedress");
-                                            setCloth_image_top(4,2,"반팔티", "cloth_shortsleeve");
-                                            setCloth_image_top(4,3,"반팔셔츠", "cloth_shortshirts");
+                                    setCloth_image_bot(3,0,"얇은 청바지", "cloth_thinjean");
+                                    setCloth_image_bot(3,1,"슬렉스", "cloth_slacks");
+                                    setCloth_image_bot(3,2,"칠부 청바지", "cloth_middlejean");
 
-                                            setCloth_image_bot(5,0,"얇은 청바지", "cloth_thinjean");
-                                            setCloth_image_bot(5,1,"슬렉스", "cloth_slacks");
-                                            setCloth_image_bot(5,2,"테니스 치마", "cloth_shortskirt");
-                                            setCloth_image_bot(5,3,"칠부 청바지", "cloth_middlejean");
-                                            setCloth_image_bot(5,4,"짧은 청바지", "cloth_shortjean");
-                                            break;
-                                    }
+
+                                }
+                            }
+                        });
+                        woman.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                LinearLayout linearLayoutTop = findViewById(R.id.layout_timeWeatherTop);
+                                LinearLayout linearLayoutBottom = findViewById(R.id.layout_timeWeatherBottom);
+                                linearLayoutTop.removeAllViews();
+                                linearLayoutBottom.removeAllViews();
+                                if(finalT <= 4){
+
+                                    setCloth_image_top(7,0,"히트텍", "cloth_hitec");
+                                    setCloth_image_top(7,1,"기모 후드", "cloth_hood");
+                                    setCloth_image_top(7,2,"기모 코트", "cloth_longcoat1");
+                                    setCloth_image_top(7,3,"롱패딩", "cloth_longpadding");
+                                    setCloth_image_top(7,4,"기모 맨투맨", "cloth_kimomtm1");
+                                    setCloth_image_top(7,5,"오리털 패딩", "cloth_padding1");
+                                    setCloth_image_top(7,6,"스웨터", "cloth_sweater");
+
+                                    setCloth_image_bot(3,0,"기모 조거팬츠", "cloth_joggerpants");
+                                    setCloth_image_bot(3,1,"기모청바지", "cloth_kimojean");
+                                    setCloth_image_bot(3,2,"기모스타킹", "cloth_kimostocking");
+
+                                }else if(finalT<=8 && finalT > 4){
+
+                                    setCloth_image_top(7,0,"히트텍", "cloth_hitec");
+                                    setCloth_image_top(7,1,"기모 후드", "cloth_hood");
+                                    setCloth_image_top(7,2,"모직 코트", "cloth_womanlongcoat2");
+                                    setCloth_image_top(7,3,"기모 맨투맨", "cloth_kimomtm1");
+                                    setCloth_image_top(7,4,"숏패딩", "cloth_padding1");
+                                    setCloth_image_top(7,5,"두꺼운 니트", "cloth_neat");
+                                    setCloth_image_top(7,6,"가죽 자켓", "cloth_leatherjacket");
+
+                                    setCloth_image_bot(5,0,"기모 조거팬츠", "cloth_joggerpants");
+                                    setCloth_image_bot(5,1,"기모 청바지", "cloth_kimojean");
+                                    setCloth_image_bot(5,2,"두꺼운 스타킹", "cloth_kimostocking");
+                                    setCloth_image_bot(5,3,"레깅스", "cloth_leggings");
+                                    setCloth_image_bot(5,4,"기모 슬렉스", "cloth_slacks");
+
+
+                                }else if(finalT<=11 && finalT > 8){
+
+                                    setCloth_image_top(7,0,"점퍼", "cloth_ma1");
+                                    setCloth_image_top(7,1,"후드", "cloth_hood");
+                                    setCloth_image_top(7,2,"맨투맨", "cloth_mtm3");
+                                    setCloth_image_top(7,3,"니트", "cloth_neat");
+                                    setCloth_image_top(7,4,"가죽자켓", "cloth_leatherjacket");
+                                    setCloth_image_top(7,5,"패딩조끼", "cloth_paddingvest");
+                                    setCloth_image_top(7,6,"트렌치코트", "cloth_trenchcoat");
+
+                                    setCloth_image_bot(6,0,"조거팬츠", "cloth_joggerpants");
+                                    setCloth_image_bot(6,1,"청바지", "cloth_jean");
+                                    setCloth_image_bot(6,2,"스타킹", "cloth_stocking");
+                                    setCloth_image_bot(6,3,"레깅스", "cloth_leggings");
+                                    setCloth_image_bot(6,4,"슬렉스", "cloth_slacks");
+                                    setCloth_image_bot(6,5,"면바지", "cloth_womancotton");
+
+
+
+                                }else if(finalT<=16 && finalT > 11){
+
+                                    setCloth_image_top(7,0,"점퍼", "cloth_ma1");
+                                    setCloth_image_top(7,1,"후드", "cloth_hood");
+                                    setCloth_image_top(7,2,"맨투맨", "cloth_mtm3");
+                                    setCloth_image_top(7,3,"패딩조끼", "cloth_paddingvest");
+                                    setCloth_image_top(7,4,"청자켓", "cloth_jeanjacket");
+                                    setCloth_image_top(7,5,"가죽자켓", "cloth_leatherjacket");
+                                    setCloth_image_top(7,6,"가디건", "cloth_cardigun");
+
+                                    setCloth_image_bot(4,0,"청바지", "cloth_jean");
+                                    setCloth_image_bot(4,1,"스타킹", "cloth_stocking");
+                                    setCloth_image_bot(4,2,"슬렉스", "cloth_slacks");
+                                    setCloth_image_bot(4,3,"면바지", "cloth_womancotton");
+
+
+                                }else if(finalT<=19 && finalT > 16){
+
+                                    setCloth_image_top(6,0,"점퍼", "cloth_ma1");
+                                    setCloth_image_top(6,1,"후드", "cloth_hood");
+                                    setCloth_image_top(6,2,"얇은 맨투맨", "cloth_mtm4");
+                                    setCloth_image_top(6,3,"얇은 가디건", "cloth_cardigun");
+                                    setCloth_image_top(6,4,"두꺼운 티셔츠", "cloth_tshirts");
+                                    setCloth_image_top(6,5,"셔츠", "cloth_longshirts");
+
+                                    setCloth_image_bot(5,0,"청바지", "cloth_jean");
+                                    setCloth_image_bot(5,1,"스타킹", "cloth_stocking");
+                                    setCloth_image_bot(5,2,"슬렉스", "cloth_slacks");
+                                    setCloth_image_bot(5,3,"면바지", "cloth_womancotton");
+                                    setCloth_image_bot(5,4,"긴 치마", "cloth_longskirt");
+
+
+                                }else if(finalT<=22 && finalT > 19){
+                                    setCloth_image_top(5,0,"얇은 맨투맨", "cloth_mtm4");
+                                    setCloth_image_top(5,1,"티셔츠", "cloth_tshirts");
+                                    setCloth_image_top(5,2,"셔츠", "cloth_longshirts");
+                                    setCloth_image_top(5,3,"칠부 티셔츠", "cloth_midlesleeve");
+                                    setCloth_image_top(5,4,"긴 원피스", "cloth_onepeicedress");
+
+                                    setCloth_image_bot(6,0,"청바지", "cloth_jean");
+                                    setCloth_image_bot(6,1,"스타킹", "cloth_stocking");
+                                    setCloth_image_bot(6,2,"슬렉스", "cloth_slacks");
+                                    setCloth_image_bot(6,3,"면바지", "cloth_womancotton");
+                                    setCloth_image_bot(6,4,"긴 치마", "cloth_longskirt");
+                                    setCloth_image_bot(6,5,"테니스 치마", "cloth_shortskirt");
+
+
+                                }else{
+                                    setCloth_image_top(4,0,"칠부 티셔츠", "cloth_midlesleeve");
+                                    setCloth_image_top(4,1,"원피스", "cloth_onepeicedress");
+                                    setCloth_image_top(4,2,"반팔티", "cloth_shortsleeve");
+                                    setCloth_image_top(4,3,"반팔셔츠", "cloth_shortshirts");
+
+                                    setCloth_image_bot(5,0,"얇은 청바지", "cloth_thinjean");
+                                    setCloth_image_bot(5,1,"슬렉스", "cloth_slacks");
+                                    setCloth_image_bot(5,2,"테니스 치마", "cloth_shortskirt");
+                                    setCloth_image_bot(5,3,"칠부 청바지", "cloth_middlejean");
+                                    setCloth_image_bot(5,4,"짧은 청바지", "cloth_shortjean");
                                 }
                             }
                         });

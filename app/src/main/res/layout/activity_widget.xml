@@ -26,10 +26,11 @@
             android:layout_marginRight="10dp"
             android:layout_marginTop="10dp"
             android:layout_marginLeft="200dp"/>
-            <ImageView
+            <ImageButton
+                android:id="@+id/update"
                 android:layout_width="11dp"
                 android:layout_height="11dp"
-                android:src="@drawable/update1"
+                android:background="@drawable/update1"
                 android:layout_marginTop="12dp"
                 android:layout_marginRight="7dp"/>
 
