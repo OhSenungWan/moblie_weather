@@ -161,47 +161,56 @@ public class ClothingActivity extends Activity {
                         if (rp.equals("0")) {
                             switch (weather) {
                                 case "Sunny":
-                                    rainch.setText("날씨가 아주 맑아요!");
+                                    rainch.setText("햇빛이 많이 드는 날이에요. 선크림 바르시는 걸 추천할게요.");
                                     break;
                                 case "Cloud":
-                                    rainch.setText("날씨가 조금 흐려요..");
+                                    rainch.setText("날씨가 조금 흐리군요. 습도에 유의하셔야 할 것 같아요.");
                                     break;
                                 case "Blur":
-                                    rainch.setText("날씨가 매우 흐려요. 어쩌면 비가 올 수도 있어요");
+                                    rainch.setText("조금있으면 비가 올 것 같아요. 강수확률을 확인해 보세요.");
                                     break;
                             }
                         } else if (rp.equals("3") || rp.equals("7")) {
-                            rainch.setText("오늘은 눈이올 예정이에요. 미끄러짐에 주의하세요!");
+                            rainch.setText("오늘은 눈이올 예정이에요. 미끄러짐에 주의하세요");
                         } else {
-                            rainch.setText("오늘은 비가 올 예정이에요. 우산을 챙겨가세요!");
+                            rainch.setText("오늘은 비가 올 예정이에요. 우산을 챙겨가세요");
                         }
                         switch (pm10) {
                             case "좋음":
-                                pmch.setText("미세먼지 걱정은 안하셔도 될 것 같아요!");
+                                pmch.setText("미세먼지가 며칠 간 좋을 것 같아요.");
                                 break;
                             case "보통":
-                                pmch.setText("미세먼지가 있는 편이에요");
+                                pmch.setText("미세먼지가 며칠 간 좋지 않을 것 같아요.");
                                 break;
                             case "나쁨":
-                                pmch.setText("미세먼지 지수가 높아요. 외출에 유의하셔야 해요!");
+                                pmch.setText("많은 미세먼지가 지속적으로 있을 것 같아요.");
                                 break;
                             case "매우나쁨":
-                                pmch.setText("미세먼지가 너무 많아요! 외출할 때 조심하세요!");
+                                pmch.setText("매우 많은 미세먼지가 며칠 간동안 지속적으로 있을 것 같아요.");
                                 break;
                         }
-                        if (wsd < 4) {
-                            winch.setText("바람이 아주 약해요.");
-                        } else if (wsd >= 4 && wsd < 9) {
-                            winch.setText("바람이 조금 센 편이에요.");
-                        } else if (wsd >= 9 && wsd < 14) {
-                            winch.setText("바람이 강해요. 옷을 온도보단 두껍게 입으시는게 좋아요.");
-                        } else {
-                            winch.setText("바람이 아주 강해요. 외출시 주의하세요!");
+                        if (finalT <= 4) {
+                            winch.setText("한파가 지속돼요. 기모제품과 내복입으시는 걸 추천드려요.");
+                        } else if (finalT >= 4 && finalT < 8) {
+                            winch.setText("추운 날씨군요. 두꺼운 아우터안에 여러 옷을 껴입으시는 걸 추천드려요.");
+                        } else if (finalT >= 8 && finalT < 12) {
+                            winch.setText("쌀쌀한 날씨군요. 두꺼운 아우터를 입으시는 걸 추천드려요. ");
+                        } else if (finalT >= 12 && finalT < 16) {
+                            winch.setText("서늘한 날씨군요. 아우터안에 옷을 한 두겹 껴입으시는 걸 추천드려요. ");
+                        }else if (finalT >= 16 && finalT < 19) {
+                            winch.setText("선선한 날씨군요. 얇은 아우터를 입으시는 걸 추천드려요.");
+                        }else if (finalT >= 19 && finalT < 21) {
+                            winch.setText("약간 더운날씨군요. 얇은 옷들을 위주로 입으셔야 할 것 같아요.");
+                        }else if (finalT >= 21 && finalT < 23) {
+                            winch.setText("더운 날씨군요. 칠부 반팔과 반바지 위주로 옷을 입으셔도 될 것 같아요.");
+                        }
+                        else {
+                            winch.setText("매우 더운 날씨군요. 반팔과 반바지 위주로 옷을 입으시는 걸 추천드려요.");
                         }
                         if(Daily_cross > 10){
-                            tempch.setText("일교차가 큰 날씨에요. 얇은 옷을 여러 겹 입는걸 추천해 드려요!");
+                            tempch.setText("일교차가 큰 날씨에요. 옷을 유동적으로 입으셔야 할 것 같아요.");
                         }else {
-                            tempch.setText("오늘은 일교차가 별로 없어요!!");
+                            tempch.setText("오늘은 일교차가 별로 없는 날이에요.");
                         }
                         LinearLayout linearLayoutTop = findViewById(R.id.layout_timeWeatherTop);
                         LinearLayout linearLayoutBottom = findViewById(R.id.layout_timeWeatherBottom);
@@ -233,7 +242,7 @@ public class ClothingActivity extends Activity {
                             setCloth_image_bot(3,2,"기모 슬렉스", "cloth_slacks");
 
 
-                        }else if(finalT<=11 && finalT > 8){
+                        }else if(finalT<=12 && finalT > 8){
                             setCloth_image_top(7,0,"점퍼", "cloth_ma1");
                             setCloth_image_top(7,1,"후드", "cloth_hood");
                             setCloth_image_top(7,2,"맨투맨", "cloth_mtm3");
@@ -247,7 +256,7 @@ public class ClothingActivity extends Activity {
                             setCloth_image_bot(4,2,"슬렉스", "cloth_slacks");
                             setCloth_image_bot(4,3,"면바지", "cloth_mancotton");
 
-                        }else if(finalT<=16 && finalT > 11){
+                        }else if(finalT<=16 && finalT > 12){
                             setCloth_image_top(7,0,"점퍼", "cloth_ma1");
                             setCloth_image_top(7,1,"후드", "cloth_hood");
                             setCloth_image_top(7,2,"맨투맨", "cloth_mtm3");
@@ -296,7 +305,6 @@ public class ClothingActivity extends Activity {
                             setCloth_image_bot(3,0,"얇은 청바지", "cloth_thinjean");
                             setCloth_image_bot(3,1,"슬렉스", "cloth_slacks");
                             setCloth_image_bot(3,2,"칠부 청바지", "cloth_middlejean");
-
 
                         }
                         man.setOnClickListener(new View.OnClickListener() {

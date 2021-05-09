@@ -621,8 +621,8 @@ public class MainActivity extends AppCompatActivity {
         //그래프 선, 점 색상들
         //lineDataSet.setColor(Color.GRAY);
 
-        lineDataSet.setCircleColor(Color.parseColor("#5572CE"));
-        lineDataSet.setCircleHoleColor(Color.parseColor("#5572CE"));
+        lineDataSet2.setCircleColor(Color.parseColor("#FF4545"));
+        lineDataSet2.setCircleHoleColor(Color.parseColor("#FF4545"));
 
         lineDataSet2.setColor(Color.WHITE);
         //lineDataSet.setDrawValues(false); //점에 데이터 출력
@@ -634,8 +634,8 @@ public class MainActivity extends AppCompatActivity {
         lineDataSet2.setValueFormatter(new MyValueFormatter());
         //그래프 선, 점 색상들
         //lineDataSet.setColor(Color.GRAY);
-        lineDataSet2.setCircleColor(Color.parseColor("#C60E0E"));
-        lineDataSet2.setCircleHoleColor(Color.parseColor("#C60E0E"));
+        lineDataSet.setCircleColor(Color.parseColor("#507AFF"));
+        lineDataSet.setCircleHoleColor(Color.parseColor("#507AFF"));
 
 
 
