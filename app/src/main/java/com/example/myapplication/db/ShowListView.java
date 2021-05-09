@@ -56,7 +56,6 @@ public class ShowListView extends AppCompatActivity {
                 data[order - 1] = city.get(position);
                 if (order == 3) {
                     // 세번째 도시까지 클릭시 intent를 통해 값 이동
-
                     putExtra();
                     finish();
                     return;
