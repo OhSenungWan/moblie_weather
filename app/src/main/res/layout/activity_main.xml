@@ -4,7 +4,7 @@
     android:id="@+id/back"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/bg_4night"
+    android:background="@drawable/bg_2afternoon"
     android:orientation="vertical">
 
     <LinearLayout
@@ -498,7 +498,7 @@
                     android:layout_marginTop="10dp"
                     android:layout_marginLeft="10dp"
                     android:textSize="15dp"
-                    android:text="주간 예보"
+                    android:text="일간 예보"
                     android:textStyle="bold"
                     android:textColor="#FFFFFF"/>
                 <TextView
