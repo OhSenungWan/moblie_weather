@@ -46,7 +46,7 @@ import java.util.Locale;
 public class MainActivity extends AppCompatActivity {
     private Context mContext;
     public static final int timeSet = 15;
-    public static final int daySet = 5;
+    public static final int daySet = 7;
     public SharedPreferences prefs;
     String DOW;
     String Short_Data[][][] = new String[3][8][14];  //날짜(0오늘 1내일 2모래 시간(0이 0시부터 3시단위 데이터
@@ -598,7 +598,7 @@ public class MainActivity extends AppCompatActivity {
 
         LineChart lineChart = (LineChart)findViewById(R.id.dayLineChart);
         ViewGroup.LayoutParams params = lineChart.getLayoutParams();
-        params.width = 830;
+        params.width = 1220;
         lineChart.setLayoutParams(params);
         List<Entry> entries = new ArrayList<>();
         List<Entry> entries2 = new ArrayList<>();
