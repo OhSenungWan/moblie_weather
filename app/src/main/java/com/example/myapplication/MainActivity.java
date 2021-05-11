@@ -157,12 +157,26 @@ public class MainActivity extends AppCompatActivity {
                 for(int i =sw.getHour(); i<8; i++){
                     if(!Short_Data[sw.getDate()][i][1].equals("0")){
                         PTY = Short_Data[sw.getDate()][i][1];
-                        Wtype = Short_Data[sw.getDate()][i][1];
+                        Wtype = Short_Data[sw.getDate()][i][5];
                     }
                 }
                 if(!Short_Data[sw.getDate()+1][0][1].equals("0")){
                     PTY = Short_Data[sw.getDate()+1][0][1];
-                    Wtype = Short_Data[sw.getDate()+1][0][1];
+                    Wtype = Short_Data[sw.getDate()+1][0][5];
+                }
+                switch (Wtype){
+                    case "1":
+                        Wtype = "Sunny";
+                        break;
+                    case "3":
+                        Wtype = "Cloud";
+                        break;
+                    case "4":
+                        Wtype = "Blur";
+                        break;
+                    default:
+                        Wtype = Wtype;
+                        break;
                 }
                 //시간 날씨 이미지 배열 매칭
                 MainActivity.this.runOnUiThread(new Runnable() {
