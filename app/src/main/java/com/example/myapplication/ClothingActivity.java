@@ -520,7 +520,7 @@ public class ClothingActivity extends Activity {
                                     setCloth_image_top(5,3,"칠부 티셔츠", "cloth_midlesleeve");
                                     setCloth_image_top(5,4,"긴 원피스", "cloth_onepeicedress");
 
-                                    setCloth_image_bot(5,0,"청바지", "cloth_jean");
+                                    setCloth_image_bot(5,0,"얇은 청바지", "cloth_thinjean");
                                     setCloth_image_bot(5,1,"스타킹", "cloth_stocking");
                                     setCloth_image_bot(5,2,"슬렉스", "cloth_slacks");
                                     setCloth_image_bot(5,3,"면바지", "cloth_womancotton");
@@ -534,7 +534,7 @@ public class ClothingActivity extends Activity {
                                     setCloth_image_top(5,3,"칠부 티셔츠", "cloth_midlesleeve");
                                     setCloth_image_top(5,4,"긴 원피스", "cloth_onepeicedress");
 
-                                    setCloth_image_bot(5,0,"청바지", "cloth_jean");
+                                    setCloth_image_bot(5,0,"얇은 청바지", "cloth_thinjean");
                                     setCloth_image_bot(5,1,"슬렉스", "cloth_slacks");
                                     setCloth_image_bot(5,2,"면바지", "cloth_womancotton");
                                     setCloth_image_bot(5,3,"긴 치마", "cloth_longskirt");
