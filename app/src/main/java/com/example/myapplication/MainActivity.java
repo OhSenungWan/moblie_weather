@@ -87,6 +87,7 @@ public class MainActivity extends AppCompatActivity {
     LinearLayout Back;
     String Wtype;
     String PTY;
+    String POP;
     ImageButton btncloth;
 
     int back;
@@ -154,16 +155,23 @@ public class MainActivity extends AppCompatActivity {
                 day_comment = (TextView)findViewById(R.id.daycomment);
                 PTY = Short_Data[sw.getDate()][sw.getHour()][1];
                 Wtype = weather;
+                POP = Short_Data[sw.getDate()][sw.getHour()][0];
                 for(int i =sw.getHour(); i<8; i++){
                     if(!Short_Data[sw.getDate()][i][1].equals("0")){
                         PTY = Short_Data[sw.getDate()][i][1];
+                    }
+
+                    else if(Integer.parseInt(POP) < Integer.parseInt(Short_Data[sw.getDate()][i][0]) ){
                         Wtype = Short_Data[sw.getDate()][i][5];
                     }
                 }
                 if(!Short_Data[sw.getDate()+1][0][1].equals("0")){
                     PTY = Short_Data[sw.getDate()+1][0][1];
+                }
+                else if(Integer.parseInt(POP) < Integer.parseInt(Short_Data[sw.getDate()+1][0][0]) ){
                     Wtype = Short_Data[sw.getDate()+1][0][5];
                 }
+
                 switch (Wtype){
                     case "1":
                         Wtype = "Sunny";
