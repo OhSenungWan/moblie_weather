@@ -166,8 +166,12 @@ public class ClothingActivity extends Activity {
                         }else if (finalT >= 16 && finalT < 19) {
                             winch.setText("서늘한 날씨군요. 일반 아우터안에  옷을 한 두겹 껴 입으시는 걸 추천드려요.");
                         }else if (finalT >= 19 && finalT < 21) {
+<<<<<<< HEAD
 
                             winch.setText("선선한 날씨군요. 얇은 아우터를 걸치시는 걸 추천드려요.");
+=======
+                            winch.setText("선선한 날씨군요. 그래도 날이 완전히 풀리진 않았으니, 얇은 아우터를 걸치시는 걸 추천드려요.");
+>>>>>>> 038124f36fb8285a936c780c6b46a6b2b682f565
                         }else if (finalT >= 21 && finalT < 23) {
                             winch.setText("따듯한 날씨지만, 가벼운 소재의 아우터나 얇은 옷들로 스타일을 구성하시는 것이 좋겠어요.");
                         }
