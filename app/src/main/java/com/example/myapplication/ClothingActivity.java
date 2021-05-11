@@ -133,13 +133,13 @@ public class ClothingActivity extends Activity {
                                     rainch.setText("날씨가 조금 흐리군요. 습도에 유의하셔야 할 것 같아요.");
                                     break;
                                 case "Blur":
-                                    rainch.setText("비가 올 수도 있을 것 같아요. 강수확률을 확인해 보세요.");
+                                    rainch.setText("날씨가 많이 흐리군요. 습도에 주의하셔야 할 것 같아요.");
                                     break;
                             }
                         } else if (rp.equals("3") || rp.equals("7")) {
                             rainch.setText("오늘은 눈이올 예정이에요. 미끄러짐에 주의하세요");
                         } else {
-                            rainch.setText("오늘은 비가 올 예정이에요. 우산을 챙겨가세요");
+                            rainch.setText("오늘은 비가 올 예정이에요. ");
                         }
                         switch (pm10) {
                             case "좋음":
@@ -174,7 +174,7 @@ public class ClothingActivity extends Activity {
                         else if (finalT >= 23 && finalT < 25) {
                             winch.setText("약간 더울 수 있는 날씨에요. 가벼운 소재와 얇은 옷들로 스타일을 구성하시는 것이 좋겠어요.");
                         }
-                        else if (finalT >= 25 && finalT < 27) {
+                        else if (finalT >= 25 && finalT < 29) {
                             winch.setText("더울 수 있는 날씨에요. 겉 옷은 입지 않고 얇은 상의&하의로 스타일을 구성하시는 것이 좋겠어요.");
                         }
                         else {
@@ -279,7 +279,7 @@ public class ClothingActivity extends Activity {
                             setCloth_image_bot(3,1,"슬렉스", "cloth_slacks");
                             setCloth_image_bot(3,2,"면바지", "cloth_mancotton");
 
-                        }else if(finalT<=26 && finalT > 24){
+                        }else if(finalT<=29 && finalT > 24){
                             setCloth_image_top(4,0,"반팔셔츠", "cloth_shortshirts");
                             setCloth_image_top(4,1,"티셔츠", "cloth_tshirts");
                             setCloth_image_top(4,2,"칠부 티셔츠", "cloth_midlesleeve");
@@ -401,7 +401,7 @@ public class ClothingActivity extends Activity {
                                     setCloth_image_bot(3,1,"슬렉스", "cloth_slacks");
                                     setCloth_image_bot(3,2,"면바지", "cloth_mancotton");
 
-                                }else if(finalT<=26 && finalT > 24){
+                                }else if(finalT<=29 && finalT > 24){
                                     setCloth_image_top(4,0,"반팔셔츠", "cloth_shortshirts");
                                     setCloth_image_top(4,1,"티셔츠", "cloth_tshirts");
                                     setCloth_image_top(4,2,"칠부 티셔츠", "cloth_midlesleeve");
@@ -545,7 +545,7 @@ public class ClothingActivity extends Activity {
                                     setCloth_image_bot(5,4,"테니스 치마", "cloth_shortskirt");
 
 
-                                }else if(finalT<=26 && finalT > 24){
+                                }else if(finalT<=29 && finalT > 24){
                                     setCloth_image_top(4,0,"티셔츠", "cloth_tshirts");
                                     setCloth_image_top(4,1,"셔츠", "cloth_longshirts");
                                     setCloth_image_top(4,2,"칠부 티셔츠", "cloth_midlesleeve");
