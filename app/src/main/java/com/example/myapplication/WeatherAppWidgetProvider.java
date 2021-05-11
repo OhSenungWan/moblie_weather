@@ -7,7 +7,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.widget.RemoteViews;
 import com.example.myapplication.savedata.PreferenceManager;
-
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Locale;
@@ -93,7 +92,7 @@ public class WeatherAppWidgetProvider extends AppWidgetProvider{
         updateViews.setTextViewText(R.id.pop, idata[6]);
         updateViews.setTextViewText(R.id.weatherText, weather);
         Intent intent1 = new Intent(context, WeatherAppWidgetProvider.class).setAction("Button2");
-        PendingIntent pendingIntent1 = PendingIntent.getService(context,0,intent1,PendingIntent.FLAG_UPDATE_CURRENT);
+        PendingIntent pendingIntent1 = PendingIntent.getActivity(context,0,intent1,PendingIntent.FLAG_UPDATE_CURRENT);
         updateViews.setOnClickPendingIntent(R.id.update,pendingIntent1);
 
         appWidgetManager.updateAppWidget(appWidgetId,updateViews);

@@ -93,6 +93,17 @@ public class MainActivity extends AppCompatActivity {
     int back;
     private View view;
 
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        String Data;
+        Data = x_point + " " + y_point + " " + point_temp + " " + point_weather + " " + city_data;
+        PreferenceManager.setString(mContext, "rebuild", Data);
+        String intentdata = temp+"℃ " + pm10 + " "+weather + " " + pm25 + " " + pm10m + "ug/m3 " + pm25m + "ug/m3 " + pop + "%";
+        PreferenceManager.setString(mContext, "data", intentdata);
+        System.out.println(intentdata);
+    }
+
     public void setStart() {
         new Thread(new Runnable() {
             @Override
@@ -271,7 +282,6 @@ public class MainActivity extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == 1) {
             if(resultCode == RESULT_OK){
-                String Data;
                 city_data = data.getStringExtra("cityName");
                 city = city_data.split(" ");
                 x_point = Integer.toString(data.getIntExtra("x", 0));
@@ -279,6 +289,7 @@ public class MainActivity extends AppCompatActivity {
                 point_temp = data.getStringExtra("code1");
                 point_weather = data.getStringExtra("code2");
                 setStart();
+                String Data;
                 Data = x_point + " " + y_point + " " + point_temp + " " + point_weather + " " + city_data;
                 PreferenceManager.setString(mContext, "rebuild", Data);
                 String intentdata = temp+"℃ " + pm10 + " "+weather + " " + pm25 + " " + pm10m + "ug/m3 " + pm25m + "ug/m3 " + pop + "%";

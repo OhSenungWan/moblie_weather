@@ -15,17 +15,22 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MyApplication"
         android:networkSecurityConfig="@xml/network_config">
-        <activity android:name=".SplashActivity">
+        <activity android:name=".SplashActivity"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity android:name=".MainActivity"
-            android:launchMode="singleTop"/>
-        <activity android:name=".ClothingActivity" android:label="ClothingPage"/>
-        <activity android:name=".db.DBInit"/>
-        <activity android:name=".db.ShowListView"/>
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".ClothingActivity" android:label="ClothingPage"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".db.DBInit"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".db.ShowListView"
+            android:screenOrientation="portrait"/>
         <receiver
             android:name=".WeatherAppWidgetProvider"
             android:label="Creative Weather">
