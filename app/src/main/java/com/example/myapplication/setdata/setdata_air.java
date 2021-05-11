@@ -308,7 +308,7 @@ public class setdata_air {
         }else{
             itemCode = "10003";
         }
-        h -= 2;
+        h -= 1;
         if(AMPM == 1){
             h += 12;
         }
@@ -345,6 +345,7 @@ public class setdata_air {
             set_air[i] = element.text();
             i += 1;
         }
+        h +=1;
         String[] sair = set_air[0].split(" ");
         if(h < 2)
             air = sair[h+24];
