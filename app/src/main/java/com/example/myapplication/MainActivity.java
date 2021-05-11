@@ -101,7 +101,6 @@ public class MainActivity extends AppCompatActivity {
         PreferenceManager.setString(mContext, "rebuild", Data);
         String intentdata = temp+"℃ " + pm10 + " "+weather + " " + pm25 + " " + pm10m + "ug/m3 " + pm25m + "ug/m3 " + pop + "%";
         PreferenceManager.setString(mContext, "data", intentdata);
-        System.out.println(intentdata);
     }
 
     public void setStart() {
@@ -294,7 +293,6 @@ public class MainActivity extends AppCompatActivity {
                 PreferenceManager.setString(mContext, "rebuild", Data);
                 String intentdata = temp+"℃ " + pm10 + " "+weather + " " + pm25 + " " + pm10m + "ug/m3 " + pm25m + "ug/m3 " + pop + "%";
                 PreferenceManager.setString(mContext, "data", intentdata);
-                System.out.println(intentdata);
             }
         }
     }
@@ -355,11 +353,7 @@ public class MainActivity extends AppCompatActivity {
         if(intentdata.equals("")) {
             intentdata = temp+"℃ " + pm10 + " "+weather + " " + pm25 + " " + Data_Air[0] + " " + Data_Air[1] + " " + pop;
             PreferenceManager.setString(mContext, "data", intentdata);
-            AppWidgetManager appWidgetManager = AppWidgetManager.getInstance(this);
-            int appWidgetIds[] = appWidgetManager.getAppWidgetIds(
-                    new ComponentName(this, WeatherAppWidgetProvider.class));
-            appWidgetManager.notifyAppWidgetViewDataChanged(appWidgetIds, R.id.location);
-            //막힘
+
         }
     }
 

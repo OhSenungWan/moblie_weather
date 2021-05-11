@@ -22,40 +22,6 @@ import java.util.Calendar;
 
 public class ClothingActivity extends Activity {
 
-    final int man04top = 7;
-    final int man04bot = 2;
-    final int woman04top = 7;
-    final int woman04bot = 3;
-
-    final int man58top = 7;
-    final int man58bot = 3;
-    final int woman58top = 7;
-    final int woman58bot = 5;
-
-    final int man911top = 7;
-    final int man911bot = 4;
-    final int woman911top = 7;
-    final int woman911bot = 6;
-
-    final int man1216top = 7;
-    final int man1216bot = 3;
-    final int woman1216top = 7;
-    final int woman1216bot = 4;
-
-    final int man1719top = 7;
-    final int man1719bot = 3;
-    final int woman1719top = 6;
-    final int woman1719bot = 5;
-
-    final int man2022top = 5;
-    final int man2022bot = 3;
-    final int woman2022top = 5;
-    final int woman2022bot = 6;
-
-    final int man23top = 4;
-    final int man23bot = 3;
-    final int woman23top = 4;
-    final int woman23bot = 5;
 
     LinearLayout BackGround;
     int background;
@@ -200,6 +166,7 @@ public class ClothingActivity extends Activity {
                         }else if (finalT >= 16 && finalT < 19) {
                             winch.setText("서늘한 날씨군요. 일반 아우터안에  옷을 한 두겹 껴 입으시는 걸 추천드려요.");
                         }else if (finalT >= 19 && finalT < 21) {
+<<<<<<< HEAD
                             winch.setText("선선한 날씨군요. 그래도 날이 완전히 풀리진 않았으니, 얇은 아우터를 걸치시는 걸 추천드려요.");
                         }else if (finalT >= 21 && finalT < 23) {
                             winch.setText("따듯한 날씨지만, 가벼운 소재의 아우터나 얇은 옷들로 스타일을 구성하시는 것이 좋겠어요.");
@@ -209,6 +176,13 @@ public class ClothingActivity extends Activity {
                         }
                         else if (finalT >= 25 && finalT < 27) {
                             winch.setText("더울 수 있는 날씨에요. 겉 옷은 입지 않고 얇은 상의&하의로 스타일을 구성하시는 것이 좋겠어요.");
+=======
+                            winch.setText("약간 더운날씨군요. 얇은 옷들을 위주로 입으셔야 할 것 같아요.");
+                        }else if (finalT >= 21 && finalT < 22) {
+                            winch.setText("더운 날씨군요. 칠부 반팔과 반바지 위주로 옷을 입으셔도 될 것 같아요.");
+                        }else if (finalT >= 22 && finalT < 24) {
+                            winch.setText("더운 날씨군요. 칠부 반팔과 반바지 위주로 옷을 입으셔도 될 것 같아요.");
+>>>>>>> f67238635968c610bad3ce93c333def9da3976f6
                         }
                         else {
                             winch.setText("매우 더울 수 있는 날씨에요. 반팔 의상 및 칠부 의상으로 스타일을 구성하시는 것이 좋겠어요.");
@@ -297,6 +271,26 @@ public class ClothingActivity extends Activity {
                             setCloth_image_top(5,2,"티셔츠", "cloth_tshirts");
                             setCloth_image_top(5,3,"칠부 티셔츠", "cloth_midlesleeve");
                             setCloth_image_top(5,4,"셔츠", "cloth_longshirts");
+
+                            setCloth_image_bot(3,0,"얇은 청바지", "cloth_thinjean");
+                            setCloth_image_bot(3,1,"슬렉스", "cloth_slacks");
+                            setCloth_image_bot(3,2,"면바지", "cloth_mancotton");
+
+                        }else if(finalT<=24 && finalT > 22){
+                            setCloth_image_top(4,0,"얇은 맨투맨", "cloth_mtm4");
+                            setCloth_image_top(4,1,"티셔츠", "cloth_tshirts");
+                            setCloth_image_top(4,2,"칠부 티셔츠", "cloth_midlesleeve");
+                            setCloth_image_top(4,3,"셔츠", "cloth_longshirts");
+
+                            setCloth_image_bot(3,0,"얇은 청바지", "cloth_thinjean");
+                            setCloth_image_bot(3,1,"슬렉스", "cloth_slacks");
+                            setCloth_image_bot(3,2,"면바지", "cloth_mancotton");
+
+                        }else if(finalT<=26 && finalT > 24){
+                            setCloth_image_top(4,0,"반팔셔츠", "cloth_shortshirts");
+                            setCloth_image_top(4,1,"티셔츠", "cloth_tshirts");
+                            setCloth_image_top(4,2,"칠부 티셔츠", "cloth_midlesleeve");
+                            setCloth_image_top(4,3,"셔츠", "cloth_longshirts");
 
                             setCloth_image_bot(3,0,"얇은 청바지", "cloth_thinjean");
                             setCloth_image_bot(3,1,"슬렉스", "cloth_slacks");
@@ -399,6 +393,26 @@ public class ClothingActivity extends Activity {
                                     setCloth_image_top(5,2,"티셔츠", "cloth_tshirts");
                                     setCloth_image_top(5,3,"칠부 티셔츠", "cloth_midlesleeve");
                                     setCloth_image_top(5,4,"셔츠", "cloth_longshirts");
+
+                                    setCloth_image_bot(3,0,"얇은 청바지", "cloth_thinjean");
+                                    setCloth_image_bot(3,1,"슬렉스", "cloth_slacks");
+                                    setCloth_image_bot(3,2,"면바지", "cloth_mancotton");
+
+                                }else if(finalT<=24 && finalT > 22){
+                                    setCloth_image_top(4,0,"얇은 맨투맨", "cloth_mtm4");
+                                    setCloth_image_top(4,1,"티셔츠", "cloth_tshirts");
+                                    setCloth_image_top(4,2,"칠부 티셔츠", "cloth_midlesleeve");
+                                    setCloth_image_top(4,3,"셔츠", "cloth_longshirts");
+
+                                    setCloth_image_bot(3,0,"얇은 청바지", "cloth_thinjean");
+                                    setCloth_image_bot(3,1,"슬렉스", "cloth_slacks");
+                                    setCloth_image_bot(3,2,"면바지", "cloth_mancotton");
+
+                                }else if(finalT<=26 && finalT > 24){
+                                    setCloth_image_top(4,0,"반팔셔츠", "cloth_shortshirts");
+                                    setCloth_image_top(4,1,"티셔츠", "cloth_tshirts");
+                                    setCloth_image_top(4,2,"칠부 티셔츠", "cloth_midlesleeve");
+                                    setCloth_image_top(4,3,"셔츠", "cloth_longshirts");
 
                                     setCloth_image_bot(3,0,"얇은 청바지", "cloth_thinjean");
                                     setCloth_image_bot(3,1,"슬렉스", "cloth_slacks");
@@ -517,12 +531,37 @@ public class ClothingActivity extends Activity {
                                     setCloth_image_top(5,3,"칠부 티셔츠", "cloth_midlesleeve");
                                     setCloth_image_top(5,4,"긴 원피스", "cloth_onepeicedress");
 
-                                    setCloth_image_bot(6,0,"청바지", "cloth_jean");
-                                    setCloth_image_bot(6,1,"스타킹", "cloth_stocking");
-                                    setCloth_image_bot(6,2,"슬렉스", "cloth_slacks");
-                                    setCloth_image_bot(6,3,"면바지", "cloth_womancotton");
-                                    setCloth_image_bot(6,4,"긴 치마", "cloth_longskirt");
-                                    setCloth_image_bot(6,5,"테니스 치마", "cloth_shortskirt");
+                                    setCloth_image_bot(5,0,"얇은 청바지", "cloth_thinjean");
+                                    setCloth_image_bot(5,1,"스타킹", "cloth_stocking");
+                                    setCloth_image_bot(5,2,"슬렉스", "cloth_slacks");
+                                    setCloth_image_bot(5,3,"면바지", "cloth_womancotton");
+                                    setCloth_image_bot(5,4,"긴 치마", "cloth_longskirt");
+
+
+                                }else if(finalT<=24 && finalT > 22){
+                                    setCloth_image_top(5,0,"얇은 맨투맨", "cloth_mtm4");
+                                    setCloth_image_top(5,1,"티셔츠", "cloth_tshirts");
+                                    setCloth_image_top(5,2,"셔츠", "cloth_longshirts");
+                                    setCloth_image_top(5,3,"칠부 티셔츠", "cloth_midlesleeve");
+                                    setCloth_image_top(5,4,"긴 원피스", "cloth_onepeicedress");
+
+                                    setCloth_image_bot(5,0,"얇은 청바지", "cloth_thinjean");
+                                    setCloth_image_bot(5,1,"슬렉스", "cloth_slacks");
+                                    setCloth_image_bot(5,2,"면바지", "cloth_womancotton");
+                                    setCloth_image_bot(5,3,"긴 치마", "cloth_longskirt");
+                                    setCloth_image_bot(5,4,"테니스 치마", "cloth_shortskirt");
+
+
+                                }else if(finalT<=26 && finalT > 24){
+                                    setCloth_image_top(4,0,"티셔츠", "cloth_tshirts");
+                                    setCloth_image_top(4,1,"셔츠", "cloth_longshirts");
+                                    setCloth_image_top(4,2,"칠부 티셔츠", "cloth_midlesleeve");
+                                    setCloth_image_top(4,3,"긴 원피스", "cloth_onepeicedress");
+
+                                    setCloth_image_bot(4,0,"얇은 청바지", "cloth_thinjean");
+                                    setCloth_image_bot(4,1,"슬렉스", "cloth_slacks");
+                                    setCloth_image_bot(4,2,"면바지", "cloth_womancotton");
+                                    setCloth_image_bot(4,3,"테니스 치마", "cloth_shortskirt");
 
 
                                 }else{
