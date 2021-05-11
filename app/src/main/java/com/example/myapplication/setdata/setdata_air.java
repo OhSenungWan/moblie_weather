@@ -10,6 +10,20 @@ public class setdata_air {
     String city;
     public String[] setdata_air(String city){
         this.city = city;
+        for(int i =0; i<3; i++)
+        {
+            switch (i){
+                case 0:
+                    reg[i] = "50";
+                    break;
+                case 1:
+                    reg[i] = "15";
+                    break;
+                case 2:
+                    reg[i] = "20";
+                    break;
+            }
+        }
         try {
             String url = this.Link_URL("PM10");                 //미세먼지
             Document document = Jsoup.connect(url).get();
@@ -37,6 +51,7 @@ public class setdata_air {
     public String set_pm25(){
         String grade = "";
         int pm10 = Integer.parseInt(reg[1]);
+
         if(pm10>=0 && pm10<=15) grade = "좋음";
         else if(pm10>=16 && pm10<=35) grade = "보통";
         else if(pm10>=36 && pm10<=75) grade = "나쁨";
@@ -55,6 +70,7 @@ public class setdata_air {
                 + "&" + "numOfRows=" + numOfRows + "&" + "pageNo=" + pageNo
                 + "&" + "itemCode=" + itemCode + "&" + "dataGubun=" + dataGubun
                 + "&" + "searchCondition=" + searchCondition;
+        System.out.println(url);
         return url;
     }
     public String[] setdata(Document document, int i){
