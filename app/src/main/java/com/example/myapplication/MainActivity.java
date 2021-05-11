@@ -305,7 +305,6 @@ public class MainActivity extends AppCompatActivity {
             text = "58 125 11B10101 11B00000 서울특별시 구로구 구로제1동";
             PreferenceManager.setString(mContext, "rebuild", text);
         }
-
         String[] data = text.split(" ");
         x_point = data[0];
         y_point = data[1];
@@ -324,9 +323,6 @@ public class MainActivity extends AppCompatActivity {
                 startActivityForResult(intent,1);
             }
         });
-
-
-
         ImageButton btncloth=(ImageButton)findViewById(R.id.btncloth);
         btncloth.setOnClickListener(new View.OnClickListener() {
 
@@ -357,8 +353,6 @@ public class MainActivity extends AppCompatActivity {
 
         }
     }
-
-
 
     public void dynamicTimeWeather(){
         //탑 ,바텀 텍스트뷰 생성
@@ -663,8 +657,8 @@ public class MainActivity extends AppCompatActivity {
         //그래프 선, 점 색상들
         //lineDataSet.setColor(Color.GRAY);
 
-        lineDataSet2.setCircleColor(Color.parseColor("#FF4545"));
-        lineDataSet2.setCircleHoleColor(Color.parseColor("#FF4545"));
+        lineDataSet2.setCircleColor(Color.parseColor("#B01E23"));
+        lineDataSet2.setCircleHoleColor(Color.parseColor("#B01E23"));
 
         lineDataSet2.setColor(Color.WHITE);
         //lineDataSet.setDrawValues(false); //점에 데이터 출력
@@ -678,9 +672,6 @@ public class MainActivity extends AppCompatActivity {
         //lineDataSet.setColor(Color.GRAY);
         lineDataSet.setCircleColor(Color.parseColor("#507AFF"));
         lineDataSet.setCircleHoleColor(Color.parseColor("#507AFF"));
-
-
-
 
         //범례 사용 X
         Legend legend = lineChart.getLegend();

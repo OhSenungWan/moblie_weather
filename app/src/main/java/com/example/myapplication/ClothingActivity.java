@@ -139,7 +139,7 @@ public class ClothingActivity extends Activity {
                         } else if (rp.equals("3") || rp.equals("7")) {
                             rainch.setText("오늘은 눈이올 예정이에요. 미끄러짐에 주의하세요");
                         } else {
-                            rainch.setText("오늘은 비가 올 예정이에요. ");
+                            rainch.setText("오늘은 비가 올 예정이에요. 바짓단이 긴 옷은 피해주세요.");
                         }
                         switch (pm10) {
                             case "좋음":
