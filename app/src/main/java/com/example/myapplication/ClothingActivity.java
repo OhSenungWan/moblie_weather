@@ -192,20 +192,26 @@ public class ClothingActivity extends Activity {
                         if (finalT <= 4) {
                             winch.setText("한파가 지속돼요. 기모제품과 내복입으시는 걸 추천드려요.");
                         } else if (finalT >= 4 && finalT < 8) {
-                            winch.setText("추운 날씨군요. 두꺼운 아우터안에 여러 옷을 껴입으시는 걸 추천드려요.");
+                            winch.setText("차가운 날씨에요. 두꺼운 아우터안에 여러 옷을 껴 입으시는 걸 추천드려요.");
                         } else if (finalT >= 8 && finalT < 12) {
-                            winch.setText("쌀쌀한 날씨군요. 두꺼운 아우터를 입으시는 걸 추천드려요. ");
+                            winch.setText("아직은 추운 날씨군요. 두꺼운 아우터에 옷을 한 두겹 껴 입으시는 걸 추천드려요.");
                         } else if (finalT >= 12 && finalT < 16) {
-                            winch.setText("서늘한 날씨군요. 아우터안에 옷을 한 두겹 껴입으시는 걸 추천드려요. ");
+                            winch.setText("쌀쌀한 날씨에요. 일반 아우터안에  여러겹 껴 입으시는 걸 추천드려요.");
                         }else if (finalT >= 16 && finalT < 19) {
-                            winch.setText("선선한 날씨군요. 얇은 아우터를 입으시는 걸 추천드려요.");
+                            winch.setText("서늘한 날씨군요. 일반 아우터안에  옷을 한 두겹 껴 입으시는 걸 추천드려요.");
                         }else if (finalT >= 19 && finalT < 21) {
-                            winch.setText("약간 더운날씨군요. 얇은 옷들을 위주로 입으셔야 할 것 같아요.");
+                            winch.setText("선선한 날씨군요. 그래도 날이 완전히 풀리진 않았으니, 얇은 아우터를 걸치시는 걸 추천드려요.");
                         }else if (finalT >= 21 && finalT < 23) {
-                            winch.setText("더운 날씨군요. 칠부 반팔과 반바지 위주로 옷을 입으셔도 될 것 같아요.");
+                            winch.setText("따듯한 날씨지만, 가벼운 소재의 아우터나 얇은 옷들로 스타일을 구성하시는 것이 좋겠어요.");
+                        }
+                        else if (finalT >= 23 && finalT < 25) {
+                            winch.setText("약간 더울 수 있는 날씨에요. 가벼운 소재와 얇은 옷들로 스타일을 구성하시는 것이 좋겠어요.");
+                        }
+                        else if (finalT >= 25 && finalT < 27) {
+                            winch.setText("더울 수 있는 날씨에요. 겉 옷은 입지 않고 얇은 상의&하의로 스타일을 구성하시는 것이 좋겠어요.");
                         }
                         else {
-                            winch.setText("매우 더운 날씨군요. 반팔과 반바지 위주로 옷을 입으시는 걸 추천드려요.");
+                            winch.setText("매우 더울 수 있는 날씨에요. 반팔 의상 및 칠부 의상으로 스타일을 구성하시는 것이 좋겠어요.");
                         }
                         if(Daily_cross > 10){
                             tempch.setText("일교차가 큰 날씨에요. 옷을 유동적으로 입으셔야 할 것 같아요.");
@@ -407,7 +413,6 @@ public class ClothingActivity extends Activity {
                                     setCloth_image_bot(3,0,"얇은 청바지", "cloth_thinjean");
                                     setCloth_image_bot(3,1,"슬렉스", "cloth_slacks");
                                     setCloth_image_bot(3,2,"칠부 청바지", "cloth_middlejean");
-
 
                                 }
                             }
