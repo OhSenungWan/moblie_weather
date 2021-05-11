@@ -167,7 +167,7 @@ public class ClothingActivity extends Activity {
                                     rainch.setText("날씨가 조금 흐리군요. 습도에 유의하셔야 할 것 같아요.");
                                     break;
                                 case "Blur":
-                                    rainch.setText("조금있으면 비가 올 것 같아요. 강수확률을 확인해 보세요.");
+                                    rainch.setText("비가 올 수도 있을 것 같아요. 강수확률을 확인해 보세요.");
                                     break;
                             }
                         } else if (rp.equals("3") || rp.equals("7")) {

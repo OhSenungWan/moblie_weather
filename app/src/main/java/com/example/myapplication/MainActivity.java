@@ -152,6 +152,18 @@ public class MainActivity extends AppCompatActivity {
                 Pm25_grade = (TextView)findViewById(R.id.pm25grade);
                 Time_comment = (TextView)findViewById(R.id.time_comment);
                 day_comment = (TextView)findViewById(R.id.daycomment);
+                PTY = Short_Data[sw.getDate()][sw.getHour()][1];
+                Wtype = weather;
+                for(int i =sw.getHour(); i<8; i++){
+                    if(!Short_Data[sw.getDate()][i][1].equals("0")){
+                        PTY = Short_Data[sw.getDate()][i][1];
+                        Wtype = Short_Data[sw.getDate()][i][1];
+                    }
+                }
+                if(!Short_Data[sw.getDate()+1][0][1].equals("0")){
+                    PTY = Short_Data[sw.getDate()+1][0][1];
+                    Wtype = Short_Data[sw.getDate()+1][0][1];
+                }
                 //시간 날씨 이미지 배열 매칭
                 MainActivity.this.runOnUiThread(new Runnable() {
                     @Override
@@ -167,28 +179,41 @@ public class MainActivity extends AppCompatActivity {
                             case "Rain":
                                 Main_img.setImageResource(R.drawable.rain);
                                 Time_comment.setText("지금은 비가 오는 날씨에요.");
-                                day_comment.setText("오늘은 전체적으로 비가 오는 날씨에요.");
                                 break;
                             case "Snow":
                                 Main_img.setImageResource(R.drawable.snow);
                                 Time_comment.setText("지금은 눈이 내려요.");
-                                day_comment.setText("오늘은 전체적으로 눈이 내려요.");
                                 break;
                             case "Sunny":
                                 Main_img.setImageResource(R.drawable.sunn);
                                 Time_comment.setText("지금은 해가 뜨는 화창한 날씨에요.");
-                                day_comment.setText("오늘은 전체적으로 해가 뜨는 화창한 날씨에요.");
                                 break;
                             case "Cloud":
                                 Main_img.setImageResource(R.drawable.cloud1);
                                 Time_comment.setText("지금은 구름이 많은 날씨에요.");
-                                day_comment.setText("오늘은 전체적으로 구름이 많은 날씨에요.");
                                 break;
                             case "Blur":
                                 Main_img.setImageResource(R.drawable.cloud2);
                                 Time_comment.setText("지금은 매우 흐린 날씨에요.");
-                                day_comment.setText("오늘은 전체적으로 매우 흐린 날씨에요.");
+
                                 break;
+                        }
+                        if (PTY.equals("0")) {
+                            switch (Wtype) {
+                                case "Sunny":
+                                    day_comment.setText("오늘은 전체적으로 해가 뜨는 화창한 날씨에요.");
+                                    break;
+                                case "Cloud":
+                                    day_comment.setText("오늘은 전체적으로 매우 흐린 날씨에요.");
+                                    break;
+                                case "Blur":
+                                    day_comment.setText("오늘은 전체적으로 구름이 많은 날씨에요.");
+                                    break;
+                            }
+                        } else if (PTY.equals("3") || PTY.equals("7")) {
+                            day_comment.setText("오늘은 전체적으로 눈이 내려요.");
+                        } else {
+                            day_comment.setText("오늘은 전체적으로 비가 오는 날씨에요.");
                         }
                         Pop.setText(pop+"%");
                         Wsd.setText(wsd+"m/s");
@@ -275,18 +300,7 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onClick(View view) {
-                PTY = Short_Data[sw.getDate()][sw.getHour()][1];
-                Wtype = weather;
-                for(int i =sw.getHour(); i<8; i++){
-                    if(!Short_Data[sw.getDate()][i][1].equals("0")){
-                        PTY = Short_Data[sw.getDate()][i][1];
-                        Wtype = Short_Data[sw.getDate()][i][1];
-                    }
-                }
-                if(!Short_Data[sw.getDate()+1][0][1].equals("0")){
-                    PTY = Short_Data[sw.getDate()+1][0][1];
-                    Wtype = Short_Data[sw.getDate()+1][0][1];
-                }
+
                 Intent intent = new Intent(MainActivity.this,ClothingActivity.class);
                 intent.putExtra("Temp", temp);
                 intent.putExtra("Wsd", wsd);
