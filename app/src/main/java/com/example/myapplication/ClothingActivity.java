@@ -550,6 +550,7 @@ public class ClothingActivity extends Activity {
                                     setCloth_image_top(4,1,"셔츠", "cloth_longshirts");
                                     setCloth_image_top(4,2,"칠부 티셔츠", "cloth_midlesleeve");
                                     setCloth_image_top(4,3,"긴 원피스", "cloth_onepeicedress");
+                                    
                                     setCloth_image_bot(4,0,"얇은 청바지", "cloth_thinjean");
                                     setCloth_image_bot(4,1,"슬렉스", "cloth_slacks");
                                     setCloth_image_bot(4,2,"면바지", "cloth_womancotton");
@@ -715,6 +716,8 @@ public class ClothingActivity extends Activity {
                 break;
             case "cloth_womanlongcoat2":
                 topImageView[i].setImageResource(R.drawable.cloth_womanlongcoat2);
+                break;
+            default:
                 break;
 
         }
