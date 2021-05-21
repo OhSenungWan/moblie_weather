@@ -722,6 +722,12 @@ public class ClothingActivity extends Activity {
         }
 
         topImageView[i].setForegroundGravity(Gravity.CENTER_HORIZONTAL);
+        topImageView[i].setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
         topTextView[i].setTextSize(10);
         topTextView[i].setTextColor(Color.WHITE);
         topTextView[i].setText(cloth);
@@ -807,6 +813,12 @@ public class ClothingActivity extends Activity {
         }
 
         botImageView[i].setForegroundGravity(Gravity.CENTER_HORIZONTAL);
+        botImageView[i].setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
         botTextView[i].setTextSize(10);
         botTextView[i].setTextColor(Color.WHITE);
         botTextView[i].setText(cloth);
