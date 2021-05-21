@@ -24,7 +24,7 @@ public class data_short {
                 week_data = "Tuesday";
                 break;
             case 4:
-                week_data = "wednesday";
+                week_data = "Wednesday";
                 break;
             case 5:
                 week_data = "Thursday";
