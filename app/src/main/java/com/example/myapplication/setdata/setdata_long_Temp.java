@@ -43,7 +43,8 @@ public class setdata_long_Temp {
                     + "&" + "dataType=" + dataType + "&" + "regId=" + regId
                     + "&" + "tmFc=" + tmFc;
             System.out.println(url);
-            Document document = Jsoup.connect(url).get();
+
+            Document document = Jsoup.connect(url).timeout(15000).get();
             Elements links = document.select("body items item taMin3");
             for (Element element : links) {
                 fcstDate[0][0] = element.text();

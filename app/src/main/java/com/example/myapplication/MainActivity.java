@@ -137,18 +137,24 @@ public class MainActivity extends AppCompatActivity {
                 setdata_long_Temp slt = new setdata_long_Temp();
                 setdata_long_weather slw = new setdata_long_weather();
                 Short_Data = cd.setdata(x_point,y_point);
+
                 DOW = cd.DOW;
                 System.out.println(city[0]);
                 Data_Air = sa.setdata_air(city[0]);
+
                 pm10 = sa.set_pm10();
                 pm25 = sa.set_pm25();
                 Long_Temp = slt.setdata_longtemp(point_temp);
+
                 Long_Weather = slw.setdata_longweather(point_weather);
+
+
                 weather = sw.set_weather(Short_Data);
                 temp = sw.set_temp(Short_Data);
                 pop = sw.set_pop(Short_Data);
                 vec = sw.set_vec(Short_Data);
                 wsd = sw.set_wsd(Short_Data);
+
                 back = sw.set_background();
                 Location = (TextView)findViewById(R.id.location);
                 Comment = (TextView)findViewById(R.id.comment);
