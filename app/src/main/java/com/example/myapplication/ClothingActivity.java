@@ -94,6 +94,7 @@ public class ClothingActivity extends Activity {
                     "  얇은청바지 슬렉스 칠부청바지";
             PreferenceManager.setString(mContext, "MBLIST", tlist2);
         }
+
         mblist = tlist2.split("  ");
         String tlist3 = PreferenceManager.getString(mContext,"WTLIST");
         if(tlist3.equals("")) {
@@ -280,6 +281,8 @@ public class ClothingActivity extends Activity {
                         linearLayoutTop.removeAllViews();
                         linearLayoutBottom.removeAllViews();
                         if(finalT <= 4){// 0~8 mantop 9~17 manbot 18~26 womantop 27 ~ 35 womanbot
+                            //mtlist[0] += topcloth[0] + " " + topcloth[1] + " " + topcloth[3]; 옷 빼기
+                            // 옷 더하기 mtlist[0] += " 추가할옷";
                             topcloth = mtlist[0].split(" ");
                             for(int i =0; i<tempset[0]; i++)
                             {

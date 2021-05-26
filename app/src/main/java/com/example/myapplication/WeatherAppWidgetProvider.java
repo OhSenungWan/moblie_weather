@@ -5,11 +5,15 @@ import android.appwidget.AppWidgetProvider;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.widget.RemoteViews;
 import com.example.myapplication.savedata.PreferenceManager;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Locale;
+
+import static com.example.myapplication.AppWidgetConfig.KEY_BUTTON_TEXT;
+import static com.example.myapplication.AppWidgetConfig.SHARED_PRES;
 
 public class WeatherAppWidgetProvider extends AppWidgetProvider{
     private Context mcontext;
@@ -43,11 +47,15 @@ public class WeatherAppWidgetProvider extends AppWidgetProvider{
         super.onDeleted(context, appWidgetIds);
     }
     public static void updateAppWidget(Context context, AppWidgetManager appWidgetManager, int appWidgetId){
+        SharedPreferences prefs = context.getSharedPreferences(SHARED_PRES, Context.MODE_PRIVATE);
+        String buttonText = prefs.getString(KEY_BUTTON_TEXT+appWidgetId,"Press me");
         RemoteViews updateViews = new RemoteViews(context.getPackageName(), R.layout.activity_widget);
         Intent intent = new Intent(context, MainActivity.class).setAction("ButtonClick");
         PendingIntent pendingIntent = PendingIntent.getActivity(context,0,intent,0);
         updateViews.setOnClickPendingIntent(R.id.Weather,pendingIntent);
-
+        RemoteViews update = new RemoteViews(context.getPackageName(), R.layout.activity_widget);
+        update.setOnClickPendingIntent(R.id.update,pendingIntent);
+        update.setCharSequence(R.id.update,"setText", buttonText);
 
         String text = PreferenceManager.getString(context,"rebuild");
         if(text.equals("")) {

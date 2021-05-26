@@ -96,7 +96,7 @@ public class set_data_cloth {
             System.out.println(url);
             int NOR = Integer.parseInt(numOfRows);
             wd.start();
-            Document document = Jsoup.connect(url).get();
+            Document document = Jsoup.connect(url).timeout(15000).get();
             Elements links = document.select("body items item fcstDate");
             for (Element element : links) {
                 fcstDate[i++] = element.text();

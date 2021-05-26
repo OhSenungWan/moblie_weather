@@ -331,7 +331,7 @@ public class setdata_air {
         Document document = null;
         System.out.println(url);
         try {
-            document = Jsoup.connect(url).get();
+            document = Jsoup.connect(url).timeout(15000).get();
         } catch (IOException e) {
             e.printStackTrace();
         }
