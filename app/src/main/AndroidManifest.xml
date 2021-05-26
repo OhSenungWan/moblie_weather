@@ -27,6 +27,8 @@
             android:screenOrientation="portrait"/>
         <activity android:name=".ClothingActivity" android:label="ClothingPage"
             android:screenOrientation="portrait"/>
+        <activity android:name=".PopupActivity" android:theme="@android:style/Theme.Dialog" />
+
         <activity android:name=".db.DBInit"
             android:screenOrientation="portrait"/>
         <activity android:name=".db.ShowListView"
@@ -41,5 +43,7 @@
                 android:name="android.appwidget.provider"
                 android:resource="@xml/widget_configue"/>
         </receiver>
+
+
     </application>
 </manifest>

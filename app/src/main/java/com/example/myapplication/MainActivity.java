@@ -355,6 +355,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
+
     public void dynamicTimeWeather(){
         //탑 ,바텀 텍스트뷰 생성
 

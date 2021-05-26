@@ -1,6 +1,7 @@
 package com.example.myapplication;
 
 import android.app.Activity;
+import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
@@ -8,6 +9,7 @@ import android.os.Bundle;
 import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -47,9 +49,12 @@ public class ClothingActivity extends Activity {
     TextView pmch, winch, tempch, rainch, tman, twoman;
     String[] temp = new String[2];
 
+
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_clothing);
+
+
         setTitle("CLOTHING");
         mContext = this;
         String text = PreferenceManager.getString(mContext,"CLOTHSET");
@@ -170,6 +175,9 @@ public class ClothingActivity extends Activity {
                 double V = Math.pow(wsd, 0.16); //풍속의 0.16제곱
                 double Twc= 13.12+(0.6215*Ta)-(11.37*V)+(0.3965*Ta*V);
                 final double finalT = (Math.round(Twc*100)/100.0); //결과 : x.xx
+
+
+
 
 /*
         조건
@@ -601,7 +609,21 @@ public class ClothingActivity extends Activity {
                 });
             }
         }).start();
-   }
+    }
+
+    public void cloth(View v){
+        //데이터 담아서 팝업(액티비티) 호출
+        Intent intent = new Intent(this, PopupActivity.class);
+        startActivityForResult(intent, 1);
+    }
+
+
+
+
+
+
+
+
     public void setCloth_image_top(int max, int i, String cloth){
         LinearLayout linearLayoutTop = findViewById(R.id.layout_timeWeatherTop);
         LinearLayout[] linearLayoutTopV = new LinearLayout[max];

@@ -70,6 +70,8 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:text="더웠어요"
+                android:textColor="#515151"
+                android:onClick="up"
                 android:textSize="12dp"/>
         </LinearLayout>
         <LinearLayout
@@ -85,6 +87,8 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:text="추웠어요"
+                android:textColor="#515151"
+                android:onClick="down"
                 android:textSize="12dp"/>
         </LinearLayout>
     </LinearLayout>
