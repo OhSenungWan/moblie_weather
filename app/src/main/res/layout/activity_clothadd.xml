@@ -10,7 +10,7 @@
     <LinearLayout
         android:layout_width="230dp"
         android:layout_height="wrap_content"
-        android:background="@drawable/roundconer"
+        android:background="@drawable/roundconer3"
         android:orientation="vertical">
         <LinearLayout
             android:layout_width="wrap_content"
@@ -71,7 +71,7 @@
         </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="20dp"
+            android:layout_height="25dp"
             android:background="@drawable/change_background"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
@@ -82,6 +82,8 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:text="확인"
+                android:onClick="ok"
+                android:textColor="#515151"
                 android:textSize="12dp"/>
         </LinearLayout>
     </LinearLayout>

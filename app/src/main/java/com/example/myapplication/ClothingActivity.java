@@ -1,10 +1,12 @@
 package com.example.myapplication;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.View;
@@ -17,6 +19,7 @@ import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.myapplication.savedata.PreferenceManager;
 import com.example.myapplication.setdata.set_data_cloth;
@@ -614,9 +617,40 @@ public class ClothingActivity extends Activity {
         }).start();
     }
 
-    public void cloth(View v){
-        //데이터 담아서 팝업(액티비티) 호출
+    public void cloth(View v) {
+        /*View dialogView = getLayoutInflater().inflate(R.layout.activity_clothcontrol, null);
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(v.getContext());
+        builder.setView(dialogView);
+
+        final AlertDialog alertDialog = builder.create();
+        getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        alertDialog.show();
+
+
+        TextView up = dialogView.findViewById(R.id.up);
+        up.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getApplicationContext(), "해당 의상의 체감온도를 올렸습니다.", Toast.LENGTH_LONG).show();
+                alertDialog.dismiss();
+            }
+        });
+
+        TextView down = dialogView.findViewById(R.id.down);
+        down.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getApplicationContext(), "해당 의상의 체감온도를 내렸습니다.", Toast.LENGTH_LONG).show();
+                alertDialog.dismiss();
+            }
+        });*/
         Intent intent = new Intent(this, PopupActivity.class);
+        startActivityForResult(intent, 1);
+    }
+    public void add(View v){
+        //데이터 담아서 팝업(액티비티) 호출
+        Intent intent = new Intent(this, PopActivity.class);
         startActivityForResult(intent, 1);
     }
 

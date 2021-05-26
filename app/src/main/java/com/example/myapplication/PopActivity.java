@@ -10,19 +10,17 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.TextView;
-import android.widget.Toast;
 
-public class PopupActivity extends Activity {
+public class PopActivity extends Activity {
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         requestWindowFeature(Window.FEATURE_NO_TITLE);
-        setContentView(R.layout.activity_clothcontrol);
+        setContentView(R.layout.activity_clothadd);
         getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
 
     }
-
 
     @Override
     public boolean onTouchEvent(MotionEvent event) {
@@ -32,8 +30,9 @@ public class PopupActivity extends Activity {
         }
         return true;
     }
-
-
+    public void ok(){
+        finish();
+    }
 
     /*@Override
     public void onBackPressed() {
