@@ -13,6 +13,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -26,6 +27,8 @@ import com.example.myapplication.setdata.set_data_cloth;
 import com.example.myapplication.setdata.data_short;
 import com.example.myapplication.setdata.set_weather;
 
+import org.w3c.dom.Text;
+
 import java.util.Calendar;
 
 public class ClothingActivity extends Activity {
@@ -37,6 +40,7 @@ public class ClothingActivity extends Activity {
     String wblist[];
     String topcloth[];  //split mantopclothlist[해당 온도의 정수번호]
     String botcloth[];
+    int sets = 1;
     /*
         1. 온도에 따른 추천 옷 개수 를 저장해서 정수형 변수에 집어넣는다
         2. 온도에 따른 추천 옷의 종류들을 스트링형에 집어 넣는다.
@@ -51,6 +55,7 @@ public class ClothingActivity extends Activity {
     LinearLayout woman;
     TextView pmch, winch, tempch, rainch, tman, twoman;
     String[] temp = new String[2];
+    double ShareT;
 
 
     protected void onCreate(Bundle savedInstanceState){
@@ -179,6 +184,7 @@ public class ClothingActivity extends Activity {
                 double V = Math.pow(wsd, 0.16); //풍속의 0.16제곱
                 double Twc= 13.12+(0.6215*Ta)-(11.37*V)+(0.3965*Ta*V);
                 final double finalT = (Math.round(Twc*100)/100.0); //결과 : x.xx
+                ShareT = finalT;
 
 
 
@@ -388,6 +394,7 @@ public class ClothingActivity extends Activity {
                         man.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View view) {
+                                sets = 1;
                                 LinearLayout linearLayoutTop = findViewById(R.id.layout_timeWeatherTop);
                                 LinearLayout linearLayoutBottom = findViewById(R.id.layout_timeWeatherBottom);
                                 linearLayoutTop.removeAllViews();
@@ -501,6 +508,7 @@ public class ClothingActivity extends Activity {
                         woman.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View view) {
+                                sets = 0;
                                 LinearLayout linearLayoutTop = findViewById(R.id.layout_timeWeatherTop);
                                 LinearLayout linearLayoutBottom = findViewById(R.id.layout_timeWeatherBottom);
                                 linearLayoutTop.removeAllViews();
@@ -627,8 +635,13 @@ public class ClothingActivity extends Activity {
         final AlertDialog alertDialog = builder.create();
         alertDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
         alertDialog.show();
-
-
+        ImageView cancel = dialogView.findViewById(R.id.cancle);
+        cancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                alertDialog.dismiss();
+            }
+        });
         TextView up = dialogView.findViewById(R.id.up);
         up.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -665,13 +678,101 @@ public class ClothingActivity extends Activity {
         final AlertDialog alertDialog = builder.create();
         alertDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
         alertDialog.show();
-
+        EditText edtAdd = dialogView.findViewById(R.id.edtadd);
+        ImageView cancel = dialogView.findViewById(R.id.addcancle);
+        cancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                alertDialog.dismiss();
+            }
+        });
         TextView ok = dialogView.findViewById(R.id.ok);
         ok.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getApplicationContext(), "저장되었습니다.", Toast.LENGTH_LONG).show();
-                alertDialog.dismiss();
+                if(edtAdd.getText().toString().length() <= 0){//빈값이 넘어올때의 처리
+
+                    Toast.makeText(getApplicationContext(), "값을 입력하세요.", Toast.LENGTH_SHORT).show();
+                }
+                else {
+                    if (ShareT <= 4) {// 0~8 mantop 9~17 manbot 18~26 womantop 27 ~ 35 womanbot
+                        //mtlist[0] += topcloth[0] + " " + topcloth[1] + " " + topcloth[3]; 옷 빼기
+                        // 옷 더하기 mtlist[0] += " 추가할옷";
+                        if (sets == 1) {
+                            tempset[0] += 1;
+                            mtlist[0] = mtlist[0] + " " + edtAdd.getText().toString();
+                        } else {
+                            tempset[18] += 1;
+                            wtlist[0] = wtlist[0] + " " + edtAdd.getText().toString();
+                        }
+                    } else if (ShareT <= 8 && ShareT > 4) {
+                        if (sets == 1) {
+                            tempset[1] += 1;
+                            mtlist[1] = mtlist[1] + " " + edtAdd.getText().toString();
+                        } else {
+                            tempset[19] += 1;
+                            wtlist[1] = wtlist[1] + " " + edtAdd.getText().toString();
+                        }
+                    } else if (ShareT <= 12 && ShareT > 8) {
+                        if (sets == 1) {
+                            tempset[2] += 1;
+                            mtlist[2] = mtlist[2] + " " + edtAdd.getText().toString();
+                        } else {
+                            tempset[20] += 1;
+                            wtlist[2] = wtlist[2] + " " + edtAdd.getText().toString();
+                        }
+                    } else if (ShareT <= 16 && ShareT > 12) {
+                        if (sets == 1) {
+                            tempset[3] += 1;
+                            mtlist[3] = mtlist[3] + " " + edtAdd.getText().toString();
+                        } else {
+                            tempset[21] += 1;
+                            wtlist[3] = wtlist[3] + " " + edtAdd.getText().toString();
+                        }
+                    } else if (ShareT <= 19 && ShareT > 16) {
+                        if (sets == 1) {
+                            tempset[4] += 1;
+                            mtlist[4] = mtlist[4] + " " + edtAdd.getText().toString();
+                        } else {
+                            tempset[22] += 1;
+                            wtlist[4] = wtlist[4] + " " + edtAdd.getText().toString();
+                        }
+                    } else if (ShareT <= 22 && ShareT > 19) {
+                        if (sets == 1) {
+                            tempset[5] += 1;
+                            mtlist[5] = mtlist[5] + " " + edtAdd.getText().toString();
+                        } else {
+                            tempset[23] += 1;
+                            wtlist[5] = wtlist[5] + " " + edtAdd.getText().toString();
+                        }
+                    } else if (ShareT <= 24 && ShareT > 22) {
+                        if (sets == 1) {
+                            tempset[6] += 1;
+                            mtlist[6] = mtlist[6] + " " + edtAdd.getText().toString();
+                        } else {
+                            tempset[24] += 1;
+                            wtlist[6] = wtlist[6] + " " + edtAdd.getText().toString();
+                        }
+                    } else if (ShareT <= 29 && ShareT > 24) {
+                        if (sets == 1) {
+                            tempset[7] += 1;
+                            mtlist[7] = mtlist[7] + " " + edtAdd.getText().toString();
+                        } else {
+                            tempset[25] += 1;
+                            wtlist[7] = wtlist[7] + " " + edtAdd.getText().toString();
+                        }
+                    } else {
+                        if (sets == 1) {
+                            tempset[8] += 1;
+                            mtlist[8] = mtlist[8] + " " + edtAdd.getText().toString();
+                        } else {
+                            tempset[26] += 1;
+                            wtlist[8] = wtlist[8] + " " + edtAdd.getText().toString();
+                        }
+                    }
+                    Toast.makeText(getApplicationContext(), "저장되었습니다.", Toast.LENGTH_LONG).show();
+                    alertDialog.dismiss();
+                }
 
             }
         });
@@ -695,14 +796,102 @@ public class ClothingActivity extends Activity {
         final AlertDialog alertDialog = builder.create();
         alertDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
         alertDialog.show();
-
+        EditText edtAdd = dialogView.findViewById(R.id.edtadd);
+        ImageView cancel = dialogView.findViewById(R.id.addcancle);
+        cancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                alertDialog.dismiss();
+            }
+        });
         TextView ok = dialogView.findViewById(R.id.ok);
         ok.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getApplicationContext(), "저장되었습니다.", Toast.LENGTH_LONG).show();
-                alertDialog.dismiss();
+                if(edtAdd.getText().toString().length() <= 0){//빈값이 넘어올때의 처리
 
+                    Toast.makeText(getApplicationContext(), "값을 입력하세요.", Toast.LENGTH_SHORT).show();
+                }
+
+                else{
+                    if(ShareT <= 4){// 0~8 mantop 9~17 manbot 18~26 womantop 27 ~ 35 womanbot
+                        //mtlist[0] += topcloth[0] + " " + topcloth[1] + " " + topcloth[3]; 옷 빼기
+                        // 옷 더하기 mtlist[0] += " 추가할옷";
+                        if(sets == 1) {
+                            tempset[9] += 1;
+                            mblist[0] = mblist[0] + " " + edtAdd.getText().toString();
+                        }else{
+                            tempset[27] += 1;
+                            wblist[0] = wblist[0] + " " + edtAdd.getText().toString();
+                        }
+                    }else if(ShareT<=8 && ShareT > 4){
+                        if(sets == 1) {
+                            tempset[10] += 1;
+                            mblist[1] = mblist[1] + " " + edtAdd.getText().toString();
+                        }else{
+                            tempset[28] += 1;
+                            wblist[1] = wblist[1] + " " + edtAdd.getText().toString();
+                        }
+                    }else if(ShareT<=12 && ShareT > 8){
+                        if(sets == 1) {
+                            tempset[11] += 1;
+                            mblist[2] = mblist[2] + " " + edtAdd.getText().toString();
+                        }else{
+                            tempset[29] += 1;
+                            wblist[2] = wblist[2] + " " + edtAdd.getText().toString();
+                        }
+                    }else if(ShareT<=16 && ShareT > 12){
+                        if(sets == 1) {
+                            tempset[12] += 1;
+                            mblist[3] = mblist[3] + " " + edtAdd.getText().toString();
+                        }else{
+                            tempset[30] += 1;
+                            wblist[3] = wblist[3] + " " + edtAdd.getText().toString();
+                        }
+                    }else if(ShareT<=19 && ShareT > 16){
+                        if(sets == 1) {
+                            tempset[13] += 1;
+                            mblist[4] = mblist[4] + " " + edtAdd.getText().toString();
+                        }else{
+                            tempset[31] += 1;
+                            wblist[4] = wblist[4] + " " + edtAdd.getText().toString();
+                        }
+                    }else if(ShareT<=22 && ShareT > 19){
+                        if(sets == 1) {
+                            tempset[14] += 1;
+                            mblist[5] = mblist[5] + " " + edtAdd.getText().toString();
+                        }else{
+                            tempset[32] += 1;
+                            wblist[5] = wblist[5] + " " + edtAdd.getText().toString();
+                        }
+                    }else if(ShareT<=24 && ShareT > 22){
+                        if(sets == 1) {
+                            tempset[15] += 1;
+                            mblist[6] = mblist[6] + " " + edtAdd.getText().toString();
+                        }else{
+                            tempset[33] += 1;
+                            wblist[6] = wblist[6] + " " + edtAdd.getText().toString();
+                        }
+                    }else if(ShareT<=29 && ShareT > 24){
+                        if(sets == 1) {
+                            tempset[16] += 1;
+                            mblist[7] = mblist[7] + " " + edtAdd.getText().toString();
+                        }else{
+                            tempset[34] += 1;
+                            wblist[7] = wblist[7] + " " + edtAdd.getText().toString();
+                        }
+                    }else{
+                        if(sets == 1) {
+                            tempset[17] += 1;
+                            mblist[8] = mblist[8] + " " + edtAdd.getText().toString();
+                        }else{
+                            tempset[35] += 1;
+                            wblist[8] = wblist[8] + " " + edtAdd.getText().toString();
+                        }
+                    }
+                    Toast.makeText(getApplicationContext(), "저장되었습니다.", Toast.LENGTH_LONG).show();
+                    alertDialog.dismiss();
+                }
             }
         });
 
@@ -838,6 +1027,7 @@ public class ClothingActivity extends Activity {
                 topImageView[i].setImageResource(R.drawable.cloth_womanlongcoat2);
                 break;
             default:
+                topImageView[i].setImageResource(R.drawable.cloth);
                 break;
 
         }
@@ -847,6 +1037,152 @@ public class ClothingActivity extends Activity {
             @Override
             public void onClick(View view) {
 
+                View dialogView = getLayoutInflater().inflate(R.layout.activity_clothcontrol, null);
+
+                AlertDialog.Builder builder = new AlertDialog.Builder(view.getContext());
+                builder.setView(dialogView);
+
+                final AlertDialog alertDialog = builder.create();
+                alertDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+                alertDialog.show();
+                ImageView cancel = dialogView.findViewById(R.id.cancle);
+                ImageView Weather = dialogView.findViewById(R.id.Weather);
+                TextView ctext = dialogView.findViewById(R.id.setctext);
+                ctext.setText(cloth);
+                switch (cloth) {
+                    case "옷":
+                        Weather.setImageResource(R.drawable.cloth);
+                        break;
+                    case "가디건":
+                        Weather.setImageResource(R.drawable.cloth_cardigun);
+                        break;
+                    case "얇은가디건":
+                        Weather.setImageResource(R.drawable.cloth_cardigun);
+                        break;
+                    case "히트텍":
+                        Weather.setImageResource(R.drawable.cloth_hitec);
+                        break;
+                    case "후드":
+                        Weather.setImageResource(R.drawable.cloth_hood);
+                        break;
+                    case "기모후드":
+                        Weather.setImageResource(R.drawable.cloth_hood);
+                        break;
+                    case "청자켓":
+                        Weather.setImageResource(R.drawable.cloth_jeanjacket);
+                        break;
+                    case "기모맨투맨":
+                        Weather.setImageResource(R.drawable.cloth_kimomtm1);
+                        break;
+                    case "가죽자켓":
+                        Weather.setImageResource(R.drawable.cloth_leatherjacket);
+                        break;
+                    case "롱패딩":
+                        Weather.setImageResource(R.drawable.cloth_longpadding);
+                        break;
+                    case "셔츠":
+                        Weather.setImageResource(R.drawable.cloth_longshirts);
+                        break;
+                    case "점퍼":
+                        Weather.setImageResource(R.drawable.cloth_ma1);
+                        break;
+                    case "블레이저":
+                        Weather.setImageResource(R.drawable.cloth_manblazer);
+                        break;
+                    case "롱코트(남)":
+                        Weather.setImageResource(R.drawable.cloth_manlongcoat1);
+                        break;
+                    case "칠부티셔츠":
+                        Weather.setImageResource(R.drawable.cloth_midlesleeve);
+                        break;
+                    case "맨투맨":
+                        Weather.setImageResource(R.drawable.cloth_mtm3);
+                        break;
+                    case "얇은맨투맨":
+                        Weather.setImageResource(R.drawable.cloth_mtm4);
+                        break;
+                    case "나시":
+                        Weather.setImageResource(R.drawable.cloth_nasi);
+                        break;
+                    case "니트":
+                        Weather.setImageResource(R.drawable.cloth_neat);
+                        break;
+                    case "두꺼운니트":
+                        Weather.setImageResource(R.drawable.cloth_neat);
+                        break;
+                    case "원피스":
+                        Weather.setImageResource(R.drawable.cloth_onepeicedress);
+                        break;
+                    case "긴원피스":
+                        Weather.setImageResource(R.drawable.cloth_onepeicedress);
+                        break;
+                    case "숏패딩":
+                        Weather.setImageResource(R.drawable.cloth_padding1);
+                        break;
+                    case "오리털패딩":
+                        Weather.setImageResource(R.drawable.cloth_padding2);
+                        break;
+                    case "패딩조끼":
+                        Weather.setImageResource(R.drawable.cloth_paddingvest);
+                        break;
+                    case "셔츠(중)":
+                        Weather.setImageResource(R.drawable.cloth_shirts);
+                        break;
+                    case "반팔셔츠":
+                        Weather.setImageResource(R.drawable.cloth_shortshirts);
+                        break;
+                    case "반팔티":
+                        Weather.setImageResource(R.drawable.cloth_shortsleeve);
+                        break;
+                    case "스웨터":
+                        Weather.setImageResource(R.drawable.cloth_sweater);
+                        break;
+                    case "트렌치코트":
+                        Weather.setImageResource(R.drawable.cloth_trenchcoat);
+                        break;
+                    case "티셔츠":
+                        Weather.setImageResource(R.drawable.cloth_tshirts);
+                        break;
+                    case "두꺼운티셔츠":
+                        Weather.setImageResource(R.drawable.cloth_tshirts);
+                        break;
+                    case "기모코트":
+                        Weather.setImageResource(R.drawable.cloth_womanlongcoat1);
+                        break;
+                    case "모직코트":
+                        Weather.setImageResource(R.drawable.cloth_womanlongcoat2);
+                        break;
+                    default:
+                        Weather.setImageResource(R.drawable.cloth);
+                        break;
+
+                }
+                cancel.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                    alertDialog.dismiss();
+                    }
+                });
+                TextView up = dialogView.findViewById(R.id.up);
+                up.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Toast.makeText(getApplicationContext(), "해당 의상의 체감온도를 올렸습니다.", Toast.LENGTH_LONG).show();
+                        alertDialog.dismiss();
+
+                    }
+                });
+
+                TextView down = dialogView.findViewById(R.id.down);
+                down.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Toast.makeText(getApplicationContext(), "해당 의상의 체감온도를 내렸습니다.", Toast.LENGTH_LONG).show();
+                        alertDialog.dismiss();
+                    }
+                });
+                /*Intent intent = new Intent(this, PopupActivity.class);
+                startActivityForResult(intent, 1);*/
             }
         });
         topTextView[i].setTextSize(10);
@@ -929,6 +1265,7 @@ public class ClothingActivity extends Activity {
                 botImageView[i].setImageResource(R.drawable.cloth_womancotton);
                 break;
             default:
+                botImageView[i].setImageResource(R.drawable.cloth);
                 break;
 
         }
@@ -937,7 +1274,100 @@ public class ClothingActivity extends Activity {
         botImageView[i].setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                View dialogView = getLayoutInflater().inflate(R.layout.activity_clothcontrol, null);
 
+                AlertDialog.Builder builder = new AlertDialog.Builder(view.getContext());
+                builder.setView(dialogView);
+
+                final AlertDialog alertDialog = builder.create();
+                alertDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+                alertDialog.show();
+                ImageView cancel = dialogView.findViewById(R.id.cancle);
+                ImageView Weather = dialogView.findViewById(R.id.Weather);
+                TextView ctext = dialogView.findViewById(R.id.setctext);
+                ctext.setText(cloth);
+                switch (cloth) {
+                    case "옷":
+                        Weather.setImageResource(R.drawable.cloth);
+                        break;
+                    case "청바지":
+                        Weather.setImageResource(R.drawable.cloth_jean);
+                        break;
+                    case "조거팬츠":
+                        Weather.setImageResource(R.drawable.cloth_joggerpants);
+                        break;
+                    case "기모조거팬츠":
+                        Weather.setImageResource(R.drawable.cloth_joggerpants);
+                        break;
+                    case "기모청바지":
+                        Weather.setImageResource(R.drawable.cloth_kimojean);
+                        break;
+                    case "두꺼운스타킹":
+                        Weather.setImageResource(R.drawable.cloth_kimostocking);
+                        break;
+                    case "레깅스":
+                        Weather.setImageResource(R.drawable.cloth_leggings);
+                        break;
+                    case "긴치마":
+                        Weather.setImageResource(R.drawable.cloth_longskirt);
+                        break;
+                    case "면바지(남)":
+                        Weather.setImageResource(R.drawable.cloth_mancotton);
+                        break;
+                    case "칠부청바지":
+                        Weather.setImageResource(R.drawable.cloth_middlejean);
+                        break;
+                    case "짧은청바지":
+                        Weather.setImageResource(R.drawable.cloth_shortjean);
+                        break;
+                    case "테니스치마":
+                        Weather.setImageResource(R.drawable.cloth_shortskirt);
+                        break;
+                    case "슬렉스":
+                        Weather.setImageResource(R.drawable.cloth_slacks);
+                        break;
+                    case "기모슬렉스":
+                        Weather.setImageResource(R.drawable.cloth_slacks);
+                        break;
+                    case "스타킹":
+                        Weather.setImageResource(R.drawable.cloth_stocking);
+                        break;
+                    case "얇은청바지":
+                        Weather.setImageResource(R.drawable.cloth_thinjean);
+                        break;
+                    case "면바지(여)":
+                        Weather.setImageResource(R.drawable.cloth_womancotton);
+                        break;
+                    default:
+                        Weather.setImageResource(R.drawable.cloth);
+                        break;
+                }
+                cancel.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        alertDialog.dismiss();
+                    }
+                });
+                TextView up = dialogView.findViewById(R.id.up);
+                up.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Toast.makeText(getApplicationContext(), "해당 의상의 체감온도를 올렸습니다.", Toast.LENGTH_LONG).show();
+                        alertDialog.dismiss();
+
+                    }
+                });
+
+                TextView down = dialogView.findViewById(R.id.down);
+                down.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Toast.makeText(getApplicationContext(), "해당 의상의 체감온도를 내렸습니다.", Toast.LENGTH_LONG).show();
+                        alertDialog.dismiss();
+                    }
+                });
+                /*Intent intent = new Intent(this, PopupActivity.class);
+                startActivityForResult(intent, 1);*/
             }
         });
         botTextView[i].setTextSize(10);
