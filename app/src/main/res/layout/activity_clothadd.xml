@@ -83,6 +83,7 @@
                 android:layout_gravity="center"
                 android:text="확인"
                 android:onClick="ok"
+                android:id="@+id/ok"
                 android:textColor="#515151"
                 android:textSize="12dp"/>
         </LinearLayout>

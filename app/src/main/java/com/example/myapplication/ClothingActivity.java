@@ -617,14 +617,15 @@ public class ClothingActivity extends Activity {
         }).start();
     }
 
+
     public void cloth(View v) {
-        /*View dialogView = getLayoutInflater().inflate(R.layout.activity_clothcontrol, null);
+        View dialogView = getLayoutInflater().inflate(R.layout.activity_clothcontrol, null);
 
         AlertDialog.Builder builder = new AlertDialog.Builder(v.getContext());
         builder.setView(dialogView);
 
         final AlertDialog alertDialog = builder.create();
-        getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        alertDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
         alertDialog.show();
 
 
@@ -634,6 +635,7 @@ public class ClothingActivity extends Activity {
             public void onClick(View v) {
                 Toast.makeText(getApplicationContext(), "해당 의상의 체감온도를 올렸습니다.", Toast.LENGTH_LONG).show();
                 alertDialog.dismiss();
+
             }
         });
 
@@ -644,14 +646,74 @@ public class ClothingActivity extends Activity {
                 Toast.makeText(getApplicationContext(), "해당 의상의 체감온도를 내렸습니다.", Toast.LENGTH_LONG).show();
                 alertDialog.dismiss();
             }
-        });*/
-        Intent intent = new Intent(this, PopupActivity.class);
-        startActivityForResult(intent, 1);
+        });
+        /*Intent intent = new Intent(this, PopupActivity.class);
+        startActivityForResult(intent, 1);*/
     }
-    public void add(View v){
-        //데이터 담아서 팝업(액티비티) 호출
+
+
+
+
+
+    public void addtop(View v){
+
+        View dialogView = getLayoutInflater().inflate(R.layout.activity_clothadd, null);
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(v.getContext());
+        builder.setView(dialogView);
+
+        final AlertDialog alertDialog = builder.create();
+        alertDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        alertDialog.show();
+
+        TextView ok = dialogView.findViewById(R.id.ok);
+        ok.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getApplicationContext(), "저장되었습니다.", Toast.LENGTH_LONG).show();
+                alertDialog.dismiss();
+
+            }
+        });
+
+        /*Intent intent = new Intent(this, PopupActivity.class);
+        startActivityForResult(intent, 1);*/
+
+
+
+        /*//데이터 담아서 팝업(액티비티) 호출
         Intent intent = new Intent(this, PopActivity.class);
-        startActivityForResult(intent, 1);
+        startActivityForResult(intent, 1);*/
+    }
+    public void addbottom(View v){
+
+        View dialogView = getLayoutInflater().inflate(R.layout.activity_clothadd, null);
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(v.getContext());
+        builder.setView(dialogView);
+
+        final AlertDialog alertDialog = builder.create();
+        alertDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        alertDialog.show();
+
+        TextView ok = dialogView.findViewById(R.id.ok);
+        ok.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getApplicationContext(), "저장되었습니다.", Toast.LENGTH_LONG).show();
+                alertDialog.dismiss();
+
+            }
+        });
+
+        /*Intent intent = new Intent(this, PopupActivity.class);
+        startActivityForResult(intent, 1);*/
+
+
+
+        /*//데이터 담아서 팝업(액티비티) 호출
+        Intent intent = new Intent(this, PopActivity.class);
+        startActivityForResult(intent, 1);*/
     }
 
 

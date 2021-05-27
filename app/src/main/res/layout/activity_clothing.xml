@@ -94,8 +94,7 @@
                         android:layout_height="15dp"
                         android:layout_marginLeft="15dp"
                         android:src="@drawable/cloth"
-                        android:layout_gravity="center"
-                        android:onClick="add"/>
+                        android:layout_gravity="center"/>
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -249,12 +248,17 @@
                             android:layout_height="wrap_content"
                             android:orientation="horizontal"
                             android:layout_marginRight="10dp">
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content">
                             <ImageView
                                 android:layout_width="40dp"
                                 android:layout_height="40dp"
                                 android:src="@drawable/add"
-                                android:id="@+id/customadd"
-                                android:layout_marginTop="15dp"/>
+
+                                android:layout_marginTop="15dp"
+                                android:onClick="addtop"/>
                         </LinearLayout>
                     </LinearLayout>
                 </HorizontalScrollView>
@@ -294,11 +298,23 @@
                         android:layout_height="wrap_content"
                         android:orientation="horizontal"
                         android:padding="20dp">
+
                         <LinearLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:orientation="horizontal"
                             android:layout_marginRight="10dp">
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content">
+                            <ImageView
+                                android:layout_width="40dp"
+                                android:layout_height="40dp"
+                                android:src="@drawable/add"
+
+                                android:layout_marginTop="15dp"
+                                android:onClick="addbottom"/>
                         </LinearLayout>
                     </LinearLayout>
                 </HorizontalScrollView>
