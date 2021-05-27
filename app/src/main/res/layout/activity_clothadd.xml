@@ -30,6 +30,12 @@
                 android:textSize="13dp"
                 android:layout_marginLeft="5dp"
                 android:textColor="#FFFFFF"/>
+            <ImageView
+                android:layout_width="13dp"
+                android:layout_height="13dp"
+                android:layout_gravity="center"
+                android:layout_marginLeft="86dp"
+                android:src="@drawable/cancle"/>
         </LinearLayout>
         <ImageView
             android:id="@+id/Weather"
