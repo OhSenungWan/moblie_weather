@@ -64,7 +64,7 @@
             android:layout_marginBottom="10dp"
             android:gravity="center">
             <EditText
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:textSize="12dp"/>
@@ -78,9 +78,10 @@
             android:layout_marginBottom="20dp"
             android:gravity="center">
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
+                android:gravity="center"
                 android:text="확인"
                 android:onClick="ok"
                 android:id="@+id/ok"
