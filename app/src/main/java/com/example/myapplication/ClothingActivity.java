@@ -55,6 +55,7 @@ public class ClothingActivity extends Activity {
     LinearLayout woman;
     TextView pmch, winch, tempch, rainch, tman, twoman;
     String[] temp = new String[2];
+    String[] tempdata;
     double ShareT;
 
 
@@ -71,6 +72,7 @@ public class ClothingActivity extends Activity {
             PreferenceManager.setString(mContext, "CLOTHSET", text);
         }
         String data[] = text.split(" ");
+        tempdata = data;
         tempset = new int[data.length];
         for(int i = 0; i<data.length; i++){
             tempset[i] = Integer.parseInt(data[i]);
@@ -770,6 +772,45 @@ public class ClothingActivity extends Activity {
                             wtlist[8] = wtlist[8] + " " + edtAdd.getText().toString();
                         }
                     }
+                    for(int i = 0; i<tempdata.length; i++){
+                        tempdata[i] = Integer.toString(tempset[i]);
+                    }
+                    String text = "";
+                    for(int i = 0; i<tempdata.length; i++){
+                        if(i == tempdata.length-1){
+                            text += tempdata[i];
+                        }
+                        else{
+                            text += tempdata[i] + " ";
+                        }
+
+                    }
+                    System.out.println(text);
+                    PreferenceManager.setString(mContext, "CLOTHSET", text);
+                    String tlist1 = "";
+                    for(int i =0; i<mtlist.length;i++){
+                        if(i == mtlist.length-1){
+                            tlist1 += mtlist[i];
+                        }
+                        else{
+                            tlist1 += mtlist[i] + "  ";
+                        }
+                    }
+                    System.out.println(tlist1);
+                    PreferenceManager.setString(mContext, "MTLIST", tlist1);
+
+                    String tlist2 = "";
+                    for(int i =0; i<wtlist.length;i++){
+                        if(i == wtlist.length-1){
+                            tlist2 += wtlist[i];
+                        }
+                        else{
+                            tlist2 += wtlist[i] + "  ";
+                        }
+                    }
+                    System.out.println(tlist2);
+                    PreferenceManager.setString(mContext, "WTLIST", tlist2);
+
                     Toast.makeText(getApplicationContext(), "저장되었습니다.", Toast.LENGTH_LONG).show();
                     alertDialog.dismiss();
                 }
@@ -889,6 +930,47 @@ public class ClothingActivity extends Activity {
                             wblist[8] = wblist[8] + " " + edtAdd.getText().toString();
                         }
                     }
+
+                    for(int i = 0; i<tempdata.length; i++){
+                        tempdata[i] = Integer.toString(tempset[i]);
+                    }
+                    String text = "";
+                    for(int i = 0; i<tempdata.length; i++){
+                        if(i == tempdata.length-1){
+                            text += tempdata[i];
+                        }
+                        else{
+                            text += tempdata[i] + " ";
+                        }
+
+                    }
+                    System.out.println(text);
+                    PreferenceManager.setString(mContext, "CLOTHSET", text);
+
+                    String tlist3 = "";
+                    for(int i =0; i<mblist.length;i++){
+                        if(i == mblist.length-1){
+                            tlist3 += mblist[i];
+                        }
+                        else{
+                            tlist3 += mblist[i] + "  ";
+                        }
+                    }
+                    System.out.println(tlist3);
+                    PreferenceManager.setString(mContext, "MBLIST", tlist3);
+
+                    String tlist4 = "";
+                    for(int i =0; i<wblist.length;i++){
+                        if(i == wblist.length-1){
+                            tlist4 += wblist[i];
+                        }
+                        else{
+                            tlist4 += wblist[i] + "  ";
+                        }
+                    }
+                    System.out.println(tlist4);
+                    PreferenceManager.setString(mContext, "WBLIST", tlist4);
+
                     Toast.makeText(getApplicationContext(), "저장되었습니다.", Toast.LENGTH_LONG).show();
                     alertDialog.dismiss();
                 }
