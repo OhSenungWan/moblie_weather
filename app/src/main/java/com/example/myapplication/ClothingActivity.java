@@ -1478,6 +1478,44 @@ public class ClothingActivity extends Activity {
                             }
                         }
 
+                        for(int i = 0; i<tempdata.length; i++){
+                            tempdata[i] = Integer.toString(tempset[i]);
+                        }
+                        String text = "";
+                        for(int i = 0; i<tempdata.length; i++){
+                            if(i == tempdata.length-1){
+                                text += tempdata[i];
+                            }
+                            else{
+                                text += tempdata[i] + " ";
+                            }
+
+                        }
+                        PreferenceManager.setString(mContext, "CLOTHSET", text);
+                        String tlist1 = "";
+                        for(int i =0; i<mtlist.length;i++){
+                            if(i == mtlist.length-1){
+                                tlist1 += mtlist[i];
+                            }
+                            else{
+                                tlist1 += mtlist[i] + "  ";
+                            }
+                            System.out.println(mtlist[i]);
+                        }
+                        PreferenceManager.setString(mContext, "MTLIST", tlist1);
+
+                        String tlist2 = "";
+                        for(int i =0; i<wtlist.length;i++){
+                            if(i == wtlist.length-1){
+                                tlist2 += wtlist[i];
+                            }
+                            else{
+                                tlist2 += wtlist[i] + "  ";
+                            }
+                            System.out.println(wtlist[i]);
+                        }
+                        PreferenceManager.setString(mContext, "WTLIST", tlist2);
+
                         Toast.makeText(getApplicationContext(), "해당 의상의 체감온도를 올렸습니다.", Toast.LENGTH_LONG).show();
                         alertDialog.dismiss();
 
@@ -1723,45 +1761,49 @@ public class ClothingActivity extends Activity {
                             }
                         }
 
+                        for(int i = 0; i<tempdata.length; i++){
+                            tempdata[i] = Integer.toString(tempset[i]);
+                        }
+                        String text = "";
+                        for(int i = 0; i<tempdata.length; i++){
+                            if(i == tempdata.length-1){
+                                text += tempdata[i];
+                            }
+                            else{
+                                text += tempdata[i] + " ";
+                            }
+
+                        }
+                        PreferenceManager.setString(mContext, "CLOTHSET", text);
+                        String tlist1 = "";
+                        for(int i =0; i<mtlist.length;i++){
+                            if(i == mtlist.length-1){
+                                tlist1 += mtlist[i];
+                            }
+                            else{
+                                tlist1 += mtlist[i] + "  ";
+                            }
+                            System.out.println(mtlist[i]);
+                        }
+                        PreferenceManager.setString(mContext, "MTLIST", tlist1);
+
+                        String tlist2 = "";
+                        for(int i =0; i<wtlist.length;i++){
+                            if(i == wtlist.length-1){
+                                tlist2 += wtlist[i];
+                            }
+                            else{
+                                tlist2 += wtlist[i] + "  ";
+                            }
+                            System.out.println(wtlist[i]);
+                        }
+                        PreferenceManager.setString(mContext, "WTLIST", tlist2);
+
                         Toast.makeText(getApplicationContext(), "해당 의상의 체감온도를 내렸습니다.", Toast.LENGTH_LONG).show();
                         alertDialog.dismiss();
+
                     }
                 });
-                for(int i = 0; i<tempdata.length; i++){
-                    tempdata[i] = Integer.toString(tempset[i]);
-                }
-                String text = "";
-                for(int i = 0; i<tempdata.length; i++){
-                    if(i == tempdata.length-1){
-                        text += tempdata[i];
-                    }
-                    else{
-                        text += tempdata[i] + " ";
-                    }
-
-                }
-                PreferenceManager.setString(mContext, "CLOTHSET", text);
-                String tlist1 = "";
-                for(int i =0; i<mtlist.length;i++){
-                    if(i == mtlist.length-1){
-                        tlist1 += mtlist[i];
-                    }
-                    else{
-                        tlist1 += mtlist[i] + "  ";
-                    }
-                }
-                PreferenceManager.setString(mContext, "MTLIST", tlist1);
-
-                String tlist2 = "";
-                for(int i =0; i<wtlist.length;i++){
-                    if(i == wtlist.length-1){
-                        tlist2 += wtlist[i];
-                    }
-                    else{
-                        tlist2 += wtlist[i] + "  ";
-                    }
-                }
-                PreferenceManager.setString(mContext, "WTLIST", tlist2);
                 /*Intent intent = new Intent(this, PopupActivity.class);
                 startActivityForResult(intent, 1);*/
             }
@@ -1933,7 +1975,6 @@ public class ClothingActivity extends Activity {
                 up.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        Toast.makeText(getApplicationContext(), "해당 의상의 체감온도를 올렸습니다.", Toast.LENGTH_LONG).show();
 
                         if (ShareT <= 4) {// 0~8 mantop 9~17 manbot 18~26 womantop 27 ~ 35 womanbot
                             //mtlist[0] += topcloth[0] + " " + topcloth[1] + " " + topcloth[3]; 옷 빼기
@@ -2169,6 +2210,45 @@ public class ClothingActivity extends Activity {
                             }
                         }
 
+                        for(int i = 0; i<tempdata.length; i++){
+                            tempdata[i] = Integer.toString(tempset[i]);
+                        }
+                        String text = "";
+                        for(int i = 0; i<tempdata.length; i++){
+                            if(i == tempdata.length-1){
+                                text += tempdata[i];
+                            }
+                            else{
+                                text += tempdata[i] + " ";
+                            }
+
+                        }
+                        PreferenceManager.setString(mContext, "CLOTHSET", text);
+
+                        String tlist3 = "";
+                        for(int i =0; i<mblist.length;i++){
+                            if(i == mblist.length-1){
+                                tlist3 += mblist[i];
+                            }
+                            else{
+                                tlist3 += mblist[i] + "  ";
+                            }
+                        }
+                        PreferenceManager.setString(mContext, "MBLIST", tlist3);
+
+                        String tlist4 = "";
+                        for(int i =0; i<wblist.length;i++){
+                            if(i == wblist.length-1){
+                                tlist4 += wblist[i];
+                            }
+                            else{
+                                tlist4 += wblist[i] + "  ";
+                            }
+                        }
+                        PreferenceManager.setString(mContext, "WBLIST", tlist4);
+
+                        Toast.makeText(getApplicationContext(), "해당 의상의 체감온도를 올렸습니다.", Toast.LENGTH_LONG).show();
+
                         alertDialog.dismiss();
 
                     }
@@ -2178,7 +2258,6 @@ public class ClothingActivity extends Activity {
                 down.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        Toast.makeText(getApplicationContext(), "해당 의상의 체감온도를 내렸습니다.", Toast.LENGTH_LONG).show();
 
                         if (ShareT <= 4) {// 0~8 mantop 9~17 manbot 18~26 womantop 27 ~ 35 womanbot
                             //mtlist[0] += topcloth[0] + " " + topcloth[1] + " " + topcloth[3]; 옷 빼기
@@ -2414,46 +2493,50 @@ public class ClothingActivity extends Activity {
                             }
                         }
 
+                        for(int i = 0; i<tempdata.length; i++){
+                            tempdata[i] = Integer.toString(tempset[i]);
+                        }
+                        String text = "";
+                        for(int i = 0; i<tempdata.length; i++){
+                            if(i == tempdata.length-1){
+                                text += tempdata[i];
+                            }
+                            else{
+                                text += tempdata[i] + " ";
+                            }
+
+                        }
+                        PreferenceManager.setString(mContext, "CLOTHSET", text);
+
+                        String tlist3 = "";
+                        for(int i =0; i<mblist.length;i++){
+                            if(i == mblist.length-1){
+                                tlist3 += mblist[i];
+                            }
+                            else{
+                                tlist3 += mblist[i] + "  ";
+                            }
+                        }
+                        PreferenceManager.setString(mContext, "MBLIST", tlist3);
+
+                        String tlist4 = "";
+                        for(int i =0; i<wblist.length;i++){
+                            if(i == wblist.length-1){
+                                tlist4 += wblist[i];
+                            }
+                            else{
+                                tlist4 += wblist[i] + "  ";
+                            }
+                        }
+                        PreferenceManager.setString(mContext, "WBLIST", tlist4);
+
+                        Toast.makeText(getApplicationContext(), "해당 의상의 체감온도를 내렸습니다.", Toast.LENGTH_LONG).show();
+
                         alertDialog.dismiss();
                     }
                 });
 
-                for(int i = 0; i<tempdata.length; i++){
-                    tempdata[i] = Integer.toString(tempset[i]);
-                }
-                String text = "";
-                for(int i = 0; i<tempdata.length; i++){
-                    if(i == tempdata.length-1){
-                        text += tempdata[i];
-                    }
-                    else{
-                        text += tempdata[i] + " ";
-                    }
 
-                }
-                PreferenceManager.setString(mContext, "CLOTHSET", text);
-
-                String tlist3 = "";
-                for(int i =0; i<mblist.length;i++){
-                    if(i == mblist.length-1){
-                        tlist3 += mblist[i];
-                    }
-                    else{
-                        tlist3 += mblist[i] + "  ";
-                    }
-                }
-                PreferenceManager.setString(mContext, "MBLIST", tlist3);
-
-                String tlist4 = "";
-                for(int i =0; i<wblist.length;i++){
-                    if(i == wblist.length-1){
-                        tlist4 += wblist[i];
-                    }
-                    else{
-                        tlist4 += wblist[i] + "  ";
-                    }
-                }
-                PreferenceManager.setString(mContext, "WBLIST", tlist4);
                 /*Intent intent = new Intent(this, PopupActivity.class);
                 startActivityForResult(intent, 1);*/
             }
