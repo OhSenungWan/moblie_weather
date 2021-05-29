@@ -627,49 +627,6 @@ public class ClothingActivity extends Activity {
         }).start();
     }
 
-
-    public void cloth(View v) {
-        View dialogView = getLayoutInflater().inflate(R.layout.activity_clothcontrol, null);
-
-        AlertDialog.Builder builder = new AlertDialog.Builder(v.getContext());
-        builder.setView(dialogView);
-
-        final AlertDialog alertDialog = builder.create();
-        alertDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-        alertDialog.show();
-        ImageView cancel = dialogView.findViewById(R.id.cancle);
-        cancel.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                alertDialog.dismiss();
-            }
-        });
-        TextView up = dialogView.findViewById(R.id.up);
-        up.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(getApplicationContext(), "해당 의상의 체감온도를 올렸습니다.", Toast.LENGTH_LONG).show();
-                alertDialog.dismiss();
-
-            }
-        });
-
-        TextView down = dialogView.findViewById(R.id.down);
-        down.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(getApplicationContext(), "해당 의상의 체감온도를 내렸습니다.", Toast.LENGTH_LONG).show();
-                alertDialog.dismiss();
-            }
-        });
-        /*Intent intent = new Intent(this, PopupActivity.class);
-        startActivityForResult(intent, 1);*/
-    }
-
-
-
-
-
     public void addtop(View v){
 
         View dialogView = getLayoutInflater().inflate(R.layout.activity_clothadd, null);
@@ -809,7 +766,10 @@ public class ClothingActivity extends Activity {
                     PreferenceManager.setString(mContext, "WTLIST", tlist2);
 
                     Toast.makeText(getApplicationContext(), "저장되었습니다.", Toast.LENGTH_LONG).show();
+
+                    drawCloth();
                     alertDialog.dismiss();
+
                 }
 
             }
@@ -966,7 +926,10 @@ public class ClothingActivity extends Activity {
                     PreferenceManager.setString(mContext, "WBLIST", tlist4);
 
                     Toast.makeText(getApplicationContext(), "저장되었습니다.", Toast.LENGTH_LONG).show();
+
+                    drawCloth();
                     alertDialog.dismiss();
+
                 }
             }
         });
@@ -1517,6 +1480,8 @@ public class ClothingActivity extends Activity {
                         PreferenceManager.setString(mContext, "WTLIST", tlist2);
 
                         Toast.makeText(getApplicationContext(), "해당 의상의 체감온도를 올렸습니다.", Toast.LENGTH_LONG).show();
+
+                        drawCloth();
                         alertDialog.dismiss();
 
                     }
@@ -1800,6 +1765,8 @@ public class ClothingActivity extends Activity {
                         PreferenceManager.setString(mContext, "WTLIST", tlist2);
 
                         Toast.makeText(getApplicationContext(), "해당 의상의 체감온도를 내렸습니다.", Toast.LENGTH_LONG).show();
+
+                        drawCloth();
                         alertDialog.dismiss();
 
                     }
@@ -2249,6 +2216,7 @@ public class ClothingActivity extends Activity {
 
                         Toast.makeText(getApplicationContext(), "해당 의상의 체감온도를 올렸습니다.", Toast.LENGTH_LONG).show();
 
+                        drawCloth();
                         alertDialog.dismiss();
 
                     }
@@ -2532,6 +2500,7 @@ public class ClothingActivity extends Activity {
 
                         Toast.makeText(getApplicationContext(), "해당 의상의 체감온도를 내렸습니다.", Toast.LENGTH_LONG).show();
 
+                        drawCloth();
                         alertDialog.dismiss();
                     }
                 });
@@ -2555,5 +2524,196 @@ public class ClothingActivity extends Activity {
         lp2.rightMargin = 70;
         linearLayoutBotV[i].setLayoutParams(lp2);
         linearLayoutBottom.addView(linearLayoutBotV[i]);
+    }
+    public void drawCloth(){
+        LinearLayout linearLayoutTop = findViewById(R.id.layout_timeWeatherTop);
+        LinearLayout linearLayoutBottom = findViewById(R.id.layout_timeWeatherBottom);
+        linearLayoutTop.removeAllViews();
+        linearLayoutBottom.removeAllViews();
+        if(sets == 1) {
+            if (ShareT <= 4) {// 0~8 mantop 9~17 manbot 18~26 womantop 27 ~ 35 womanbot
+                topcloth = mtlist[0].split(" ");
+                for (int i = 0; i < tempset[0]; i++) {
+                    setCloth_image_top(tempset[0], i, topcloth[i]);
+                }
+                botcloth = mblist[0].split(" ");
+                for (int i = 0; i < tempset[9]; i++) {
+                    setCloth_image_bot(tempset[9], i, botcloth[i]);
+                }
+            } else if (ShareT <= 8 && ShareT > 4) {
+                topcloth = mtlist[1].split(" ");
+                for (int i = 0; i < tempset[1]; i++) {
+                    setCloth_image_top(tempset[1], i, topcloth[i]);
+                }
+                botcloth = mblist[1].split(" ");
+                for (int i = 0; i < tempset[10]; i++) {
+                    setCloth_image_bot(tempset[10], i, botcloth[i]);
+                }
+            } else if (ShareT <= 12 && ShareT > 8) {
+                topcloth = mtlist[2].split(" ");
+                for (int i = 0; i < tempset[2]; i++) {
+                    setCloth_image_top(tempset[2], i, topcloth[i]);
+                }
+                botcloth = mblist[2].split(" ");
+                for (int i = 0; i < tempset[11]; i++) {
+                    setCloth_image_bot(tempset[11], i, botcloth[i]);
+                }
+            } else if (ShareT <= 16 && ShareT > 12) {
+                topcloth = mtlist[3].split(" ");
+                for (int i = 0; i < tempset[3]; i++) {
+                    setCloth_image_top(tempset[3], i, topcloth[i]);
+                }
+                botcloth = mblist[3].split(" ");
+                for (int i = 0; i < tempset[12]; i++) {
+                    setCloth_image_bot(tempset[12], i, botcloth[i]);
+                }
+            } else if (ShareT <= 19 && ShareT > 16) {
+                topcloth = mtlist[4].split(" ");
+                for (int i = 0; i < tempset[4]; i++) {
+                    setCloth_image_top(tempset[4], i, topcloth[i]);
+                }
+                botcloth = mblist[4].split(" ");
+                for (int i = 0; i < tempset[13]; i++) {
+                    setCloth_image_bot(tempset[13], i, botcloth[i]);
+                }
+            } else if (ShareT <= 22 && ShareT > 19) {
+                topcloth = mtlist[5].split(" ");
+                for (int i = 0; i < tempset[5]; i++) {
+                    setCloth_image_top(tempset[5], i, topcloth[i]);
+                }
+                botcloth = mblist[5].split(" ");
+                for (int i = 0; i < tempset[14]; i++) {
+                    setCloth_image_bot(tempset[14], i, botcloth[i]);
+                }
+            } else if (ShareT <= 24 && ShareT > 22) {
+                topcloth = mtlist[6].split(" ");
+                for (int i = 0; i < tempset[6]; i++) {
+                    setCloth_image_top(tempset[6], i, topcloth[i]);
+                }
+                botcloth = mblist[6].split(" ");
+                for (int i = 0; i < tempset[15]; i++) {
+                    setCloth_image_bot(tempset[15], i, botcloth[i]);
+                }
+            } else if (ShareT <= 29 && ShareT > 24) {
+                topcloth = mtlist[7].split(" ");
+                for (int i = 0; i < tempset[7]; i++) {
+                    setCloth_image_top(tempset[7], i, topcloth[i]);
+                }
+                botcloth = mblist[7].split(" ");
+                for (int i = 0; i < tempset[16]; i++) {
+                    setCloth_image_bot(tempset[16], i, botcloth[i]);
+                }
+            } else {
+                topcloth = mtlist[8].split(" ");
+                for (int i = 0; i < tempset[8]; i++) {
+                    setCloth_image_top(tempset[8], i, topcloth[i]);
+                }
+                botcloth = mblist[8].split(" ");
+                for (int i = 0; i < tempset[17]; i++) {
+                    setCloth_image_bot(tempset[17], i, botcloth[i]);
+                }
+            }
+        }else{
+            if(ShareT <= 4){
+                topcloth = wtlist[0].split(" ");
+                for(int i =0; i<tempset[18]; i++)
+                {
+                    setCloth_image_top(tempset[18], i, topcloth[i]);
+                }
+                botcloth = wblist[0].split(" ");
+                for(int i =0; i<tempset[27]; i++)
+                {
+                    setCloth_image_bot(tempset[27], i, botcloth[i]);
+                }
+            }else if(ShareT<=8 && ShareT > 4){
+                topcloth = wtlist[1].split(" ");
+                for(int i =0; i<tempset[19]; i++)
+                {
+                    setCloth_image_top(tempset[19], i, topcloth[i]);
+                }
+                botcloth = wblist[1].split(" ");
+                for(int i =0; i<tempset[28]; i++)
+                {
+                    setCloth_image_bot(tempset[28], i, botcloth[i]);
+                }
+            }else if(ShareT<=11 && ShareT > 8){
+                topcloth = wtlist[2].split(" ");
+                for(int i =0; i<tempset[20]; i++)
+                {
+                    setCloth_image_top(tempset[20], i, topcloth[i]);
+                }
+                botcloth = wblist[2].split(" ");
+                for(int i =0; i<tempset[29]; i++)
+                {
+                    setCloth_image_bot(tempset[29], i, botcloth[i]);
+                }
+            }else if(ShareT<=16 && ShareT > 11){
+                topcloth = wtlist[3].split(" ");
+                for(int i =0; i<tempset[21]; i++)
+                {
+                    setCloth_image_top(tempset[21], i, topcloth[i]);
+                }
+                botcloth = wblist[3].split(" ");
+                for(int i =0; i<tempset[30]; i++)
+                {
+                    setCloth_image_bot(tempset[30], i, botcloth[i]);
+                }
+            }else if(ShareT<=19 && ShareT > 16){
+                topcloth = wtlist[4].split(" ");
+                for(int i =0; i<tempset[22]; i++)
+                {
+                    setCloth_image_top(tempset[22], i, topcloth[i]);
+                }
+                botcloth = wblist[4].split(" ");
+                for(int i =0; i<tempset[31]; i++)
+                {
+                    setCloth_image_bot(tempset[31], i, botcloth[i]);
+                }
+            }else if(ShareT<=22 && ShareT > 19){
+                topcloth = wtlist[5].split(" ");
+                for(int i =0; i<tempset[23]; i++)
+                {
+                    setCloth_image_top(tempset[23], i, topcloth[i]);
+                }
+                botcloth = wblist[5].split(" ");
+                for(int i =0; i<tempset[32]; i++)
+                {
+                    setCloth_image_bot(tempset[32], i, botcloth[i]);
+                }
+            }else if(ShareT<=24 && ShareT > 22){
+                topcloth = wtlist[6].split(" ");
+                for(int i =0; i<tempset[24]; i++)
+                {
+                    setCloth_image_top(tempset[24], i, topcloth[i]);
+                }
+                botcloth = wblist[6].split(" ");
+                for(int i =0; i<tempset[33]; i++)
+                {
+                    setCloth_image_bot(tempset[33], i, botcloth[i]);
+                }
+            }else if(ShareT<=29 && ShareT > 24){
+                topcloth = wtlist[7].split(" ");
+                for(int i =0; i<tempset[25]; i++)
+                {
+                    setCloth_image_top(tempset[25], i, topcloth[i]);
+                }
+                botcloth = wblist[7].split(" ");
+                for(int i =0; i<tempset[34]; i++)
+                {
+                    setCloth_image_bot(tempset[34], i, botcloth[i]);
+                }
+            }else{
+                topcloth = wtlist[8].split(" ");
+                for(int i =0; i<tempset[26]; i++)
+                {
+                    setCloth_image_top(tempset[26], i, topcloth[i]);
+                }
+                botcloth = wblist[8].split(" ");
+                for(int i =0; i<tempset[35]; i++)
+                {
+                    setCloth_image_bot(tempset[35], i, botcloth[i]);
+                }
+            }
+        }
     }
 }
