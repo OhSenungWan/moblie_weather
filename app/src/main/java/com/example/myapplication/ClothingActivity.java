@@ -785,7 +785,6 @@ public class ClothingActivity extends Activity {
                         }
 
                     }
-                    System.out.println(text);
                     PreferenceManager.setString(mContext, "CLOTHSET", text);
                     String tlist1 = "";
                     for(int i =0; i<mtlist.length;i++){
@@ -796,7 +795,6 @@ public class ClothingActivity extends Activity {
                             tlist1 += mtlist[i] + "  ";
                         }
                     }
-                    System.out.println(tlist1);
                     PreferenceManager.setString(mContext, "MTLIST", tlist1);
 
                     String tlist2 = "";
@@ -808,7 +806,6 @@ public class ClothingActivity extends Activity {
                             tlist2 += wtlist[i] + "  ";
                         }
                     }
-                    System.out.println(tlist2);
                     PreferenceManager.setString(mContext, "WTLIST", tlist2);
 
                     Toast.makeText(getApplicationContext(), "저장되었습니다.", Toast.LENGTH_LONG).show();
@@ -944,7 +941,6 @@ public class ClothingActivity extends Activity {
                         }
 
                     }
-                    System.out.println(text);
                     PreferenceManager.setString(mContext, "CLOTHSET", text);
 
                     String tlist3 = "";
@@ -956,7 +952,6 @@ public class ClothingActivity extends Activity {
                             tlist3 += mblist[i] + "  ";
                         }
                     }
-                    System.out.println(tlist3);
                     PreferenceManager.setString(mContext, "MBLIST", tlist3);
 
                     String tlist4 = "";
@@ -968,7 +963,6 @@ public class ClothingActivity extends Activity {
                             tlist4 += wblist[i] + "  ";
                         }
                     }
-                    System.out.println(tlist4);
                     PreferenceManager.setString(mContext, "WBLIST", tlist4);
 
                     Toast.makeText(getApplicationContext(), "저장되었습니다.", Toast.LENGTH_LONG).show();

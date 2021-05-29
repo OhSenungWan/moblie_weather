@@ -139,7 +139,6 @@ public class MainActivity extends AppCompatActivity {
                 Short_Data = cd.setdata(x_point,y_point);
 
                 DOW = cd.DOW;
-                System.out.println(city[0]);
                 Data_Air = sa.setdata_air(city[0]);
 
                 pm10 = sa.set_pm10();

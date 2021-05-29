@@ -145,13 +145,6 @@ public class setdata_short {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        for(i = 0; i < 3; i++){
-            for(int j = 0; j<8; j++){
-                for(int k = 0; k<14; k++){
-                    System.out.println(wd.savedata[i][j][k]);
-                }
-            }
-        }
 
         return wd.savedata;
     }

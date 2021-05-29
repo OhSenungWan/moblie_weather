@@ -47,8 +47,6 @@ public class setdata_air {
     }
     public String set_pm10(){
         String grade = "";
-        System.out.println(reg[0]);
-        System.out.println(reg[1]);
         int pm10 = Integer.parseInt(reg[0]);
         if(pm10>=0 && pm10<=30) grade = "좋음";
         else if(pm10>=31 && pm10<=80) grade = "보통";
@@ -68,7 +66,6 @@ public class setdata_air {
     }
     public String[] url_pm(){
         String[] pm = new String[3];
-        System.out.println("yes");
         String pm25 = "15";
 
                 if(city.equals("서울특별시")) {
