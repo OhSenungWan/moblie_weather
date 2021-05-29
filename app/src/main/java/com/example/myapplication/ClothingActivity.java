@@ -1243,6 +1243,241 @@ public class ClothingActivity extends Activity {
                 up.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
+
+                        if (ShareT <= 4) {// 0~8 mantop 9~17 manbot 18~26 womantop 27 ~ 35 womanbot
+                            //mtlist[0] += topcloth[0] + " " + topcloth[1] + " " + topcloth[3]; 옷 빼기
+                            // 옷 더하기 mtlist[0] += " 추가할옷";
+                            if (sets == 1) {
+                                tempset[1] += 1;
+                                tempset[0] -= 1;
+                                mtlist[1] = mtlist[1] + " " + cloth;
+                                mtlist[0] = "";
+                                for(int j = 0 ; j< topcloth.length; j++){
+                                    if(j == topcloth.length - 1){
+                                        mtlist[0] += topcloth[j];
+                                    }else if(j != i){
+                                        mtlist[0] += topcloth[j] + " ";
+                                    }
+                                }
+                            } else {
+                                tempset[19] += 1;
+                                tempset[18] -= 1;
+                                wtlist[1] = wtlist[1] + " " + cloth;
+                                wtlist[0] = "";
+                                for(int j = 0 ; j< topcloth.length; j++){
+                                    if(j == topcloth.length - 1){
+                                        wtlist[0] += topcloth[j];
+                                    }else if(j != i){
+                                        wtlist[0] += topcloth[j] + " ";
+                                    }
+                                }
+                            }
+                        } else if (ShareT <= 8 && ShareT > 4) {
+                            if (sets == 1) {
+                                tempset[2] += 1;
+                                tempset[1] -= 1;
+                                mtlist[2] = mtlist[2] + " " + cloth;
+                                mtlist[1] = "";
+                                for(int j = 0 ; j< topcloth.length; j++){
+                                    if(j == topcloth.length - 1){
+                                        mtlist[1] += topcloth[j];
+                                    }else if(j != i){
+                                        mtlist[1] += topcloth[j] + " ";
+                                    }
+                                }
+                            } else {
+                                tempset[20] += 1;
+                                tempset[19] -= 1;
+                                wtlist[2] = wtlist[2] + " " + cloth;
+                                wtlist[1] = "";
+                                for(int j = 0 ; j< topcloth.length; j++){
+                                    if(j == topcloth.length - 1){
+                                        wtlist[1] += topcloth[j];
+                                    }else if(j != i){
+                                        wtlist[1] += topcloth[j] + " ";
+                                    }
+                                }
+                            }
+                        } else if (ShareT <= 12 && ShareT > 8) {
+                            if (sets == 1) {
+                                tempset[3] += 1;
+                                tempset[2] -= 1;
+                                mtlist[3] = mtlist[3] + " " + cloth;
+                                mtlist[2] = "";
+                                for(int j = 0 ; j< topcloth.length; j++){
+                                    if(j == topcloth.length - 1){
+                                        mtlist[2] += topcloth[j];
+                                    }else if(j != i){
+                                        mtlist[2] += topcloth[j] + " ";
+                                    }
+                                }
+                            } else {
+                                tempset[21] += 1;
+                                tempset[20] -= 1;
+                                wtlist[3] = wtlist[3] + " " + cloth;
+                                wtlist[2] = "";
+                                for(int j = 0 ; j< topcloth.length; j++){
+                                    if(j == topcloth.length - 1){
+                                        wtlist[2] += topcloth[j];
+                                    }else if(j != i){
+                                        wtlist[2] += topcloth[j] + " ";
+                                    }
+                                }
+                            }
+                        } else if (ShareT <= 16 && ShareT > 12) {
+                            if (sets == 1) {
+                                tempset[4] += 1;
+                                tempset[3] -= 1;
+                                mtlist[4] = mtlist[4] + " " + cloth;
+                                mtlist[3] = "";
+                                for(int j = 0 ; j< topcloth.length; j++){
+                                    if(j == topcloth.length - 1){
+                                        mtlist[3] += topcloth[j];
+                                    }else if(j != i){
+                                        mtlist[3] += topcloth[j] + " ";
+                                    }
+                                }
+                            } else {
+                                tempset[22] += 1;
+                                tempset[21] -= 1;
+                                wtlist[4] = wtlist[4] + " " + cloth;
+                                wtlist[3] = "";
+                                for(int j = 0 ; j< topcloth.length; j++){
+                                    if(j == topcloth.length - 1){
+                                        wtlist[3] += topcloth[j];
+                                    }else if(j != i){
+                                        wtlist[3] += topcloth[j] + " ";
+                                    }
+                                }
+                            }
+                        } else if (ShareT <= 19 && ShareT > 16) {
+                            if (sets == 1) {
+                                tempset[5] += 1;
+                                tempset[4] -= 1;
+                                mtlist[5] = mtlist[5] + " " + cloth;
+                                mtlist[4] = "";
+                                for(int j = 0 ; j< topcloth.length; j++){
+                                    if(j == topcloth.length - 1){
+                                        mtlist[4] += topcloth[j];
+                                    }else if(j != i){
+                                        mtlist[4] += topcloth[j] + " ";
+                                    }
+                                }
+                            } else {
+                                tempset[23] += 1;
+                                tempset[22] -= 1;
+                                wtlist[5] = wtlist[5] + " " + cloth;
+                                wtlist[4] = "";
+                                for(int j = 0 ; j< topcloth.length; j++){
+                                    if(j == topcloth.length - 1){
+                                        wtlist[4] += topcloth[j];
+                                    }else if(j != i){
+                                        wtlist[4] += topcloth[j] + " ";
+                                    }
+                                }
+                            }
+                        } else if (ShareT <= 22 && ShareT > 19) {
+                            if (sets == 1) {
+                                tempset[6] += 1;
+                                tempset[5] -= 1;
+                                mtlist[6] = mtlist[6] + " " + cloth;
+                                mtlist[5] = "";
+                                for(int j = 0 ; j< topcloth.length; j++){
+                                    if(j == topcloth.length - 1){
+                                        mtlist[5] += topcloth[j];
+                                    }else if(j != i){
+                                        mtlist[5] += topcloth[j] + " ";
+                                    }
+                                }
+                            } else {
+                                tempset[24] += 1;
+                                tempset[23] -= 1;
+                                wtlist[6] = wtlist[6] + " " + cloth;
+                                wtlist[5] = "";
+                                for(int j = 0 ; j< topcloth.length; j++){
+                                    if(j == topcloth.length - 1){
+                                        wtlist[5] += topcloth[j];
+                                    }else if(j != i){
+                                        wtlist[5] += topcloth[j] + " ";
+                                    }
+                                }
+                            }
+                        } else if (ShareT <= 24 && ShareT > 22) {
+                            if (sets == 1) {
+                                tempset[7] += 1;
+                                tempset[6] -= 1;
+                                mtlist[7] = mtlist[7] + " " + cloth;
+                                mtlist[6] = "";
+                                for(int j = 0 ; j< topcloth.length; j++){
+                                    if(j == topcloth.length - 1){
+                                        mtlist[6] += topcloth[j];
+                                    }else if(j != i){
+                                        mtlist[6] += topcloth[j] + " ";
+                                    }
+                                }
+                            } else {
+                                tempset[25] += 1;
+                                tempset[24] -= 1;
+                                wtlist[7] = wtlist[7] + " " + cloth;
+                                wtlist[6] = "";
+                                for(int j = 0 ; j< topcloth.length; j++){
+                                    if(j == topcloth.length - 1){
+                                        wtlist[6] += topcloth[j];
+                                    }else if(j != i){
+                                        wtlist[6] += topcloth[j] + " ";
+                                    }
+                                }
+                            }
+                        } else if (ShareT <= 29 && ShareT > 24) {
+                            if (sets == 1) {
+                                tempset[8] += 1;
+                                tempset[7] -= 1;
+                                mtlist[8] = mtlist[8] + " " + cloth;
+                                mtlist[7] = "";
+                                for(int j = 0 ; j< topcloth.length; j++){
+                                    if(j == topcloth.length - 1){
+                                        mtlist[7] += topcloth[j];
+                                    }else if(j != i){
+                                        mtlist[7] += topcloth[j] + " ";
+                                    }
+                                }
+                            } else {
+                                tempset[26] += 1;
+                                tempset[25] -= 1;
+                                wtlist[8] = wtlist[8] + " " + cloth;
+                                wtlist[7] = "";
+                                for(int j = 0 ; j< topcloth.length; j++){
+                                    if(j == topcloth.length - 1){
+                                        wtlist[7] += topcloth[j];
+                                    }else if(j != i){
+                                        wtlist[7] += topcloth[j] + " ";
+                                    }
+                                }
+                            }
+                        } else {
+                            if (sets == 1) {
+                                tempset[8] -= 1;
+                                mtlist[8] = "";
+                                for(int j = 0 ; j< topcloth.length; j++){
+                                    if(j == topcloth.length - 1){
+                                        mtlist[8] += topcloth[j];
+                                    }else if(j != i){
+                                        mtlist[8] += topcloth[j] + " ";
+                                    }
+                                }
+                            } else {
+                                tempset[26] -= 1;
+                                wtlist[8] = "";
+                                for(int j = 0 ; j< topcloth.length; j++){
+                                    if(j == topcloth.length - 1){
+                                        wtlist[8] += topcloth[j];
+                                    }else if(j != i){
+                                        wtlist[8] += topcloth[j] + " ";
+                                    }
+                                }
+                            }
+                        }
+
                         Toast.makeText(getApplicationContext(), "해당 의상의 체감온도를 올렸습니다.", Toast.LENGTH_LONG).show();
                         alertDialog.dismiss();
 
@@ -1253,10 +1488,280 @@ public class ClothingActivity extends Activity {
                 down.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
+
+                        if (ShareT <= 4) {// 0~8 mantop 9~17 manbot 18~26 womantop 27 ~ 35 womanbot
+                            //mtlist[0] += topcloth[0] + " " + topcloth[1] + " " + topcloth[3]; 옷 빼기
+                            // 옷 더하기 mtlist[0] += " 추가할옷";
+                            if (sets == 1) {
+                                tempset[0] -= 1;
+                                mtlist[0] = "";
+                                for(int j = 0 ; j< topcloth.length; j++){
+                                    if(j == topcloth.length - 1){
+                                        mtlist[0] += topcloth[j];
+                                    }else if(j != i){
+                                        mtlist[0] += topcloth[j] + " ";
+                                    }
+                                }
+                            } else {
+                                tempset[18] -= 1;
+                                wtlist[0] = "";
+                                for(int j = 0 ; j< topcloth.length; j++){
+                                    if(j == topcloth.length - 1){
+                                        wtlist[0] += topcloth[j];
+                                    }else if(j != i){
+                                        wtlist[0] += topcloth[j] + " ";
+                                    }
+                                }
+                            }
+                        } else if (ShareT <= 8 && ShareT > 4) {
+                            if (sets == 1) {
+                                tempset[0] += 1;
+                                tempset[1] -= 1;
+                                mtlist[0] = mtlist[0] + " " + cloth;
+                                mtlist[1] = "";
+                                for(int j = 0 ; j< topcloth.length; j++){
+                                    if(j == topcloth.length - 1){
+                                        mtlist[1] += topcloth[j];
+                                    }else if(j != i){
+                                        mtlist[1] += topcloth[j] + " ";
+                                    }
+                                }
+                            } else {
+                                tempset[18] += 1;
+                                tempset[19] -= 1;
+                                wtlist[0] = wtlist[0] + " " + cloth;
+                                wtlist[1] = "";
+                                for(int j = 0 ; j< topcloth.length; j++){
+                                    if(j == topcloth.length - 1){
+                                        wtlist[1] += topcloth[j];
+                                    }else if(j != i){
+                                        wtlist[1] += topcloth[j] + " ";
+                                    }
+                                }
+                            }
+                        } else if (ShareT <= 12 && ShareT > 8) {
+                            if (sets == 1) {
+                                tempset[1] += 1;
+                                tempset[2] -= 1;
+                                mtlist[1] = mtlist[1] + " " + cloth;
+                                mtlist[2] = "";
+                                for(int j = 0 ; j< topcloth.length; j++){
+                                    if(j == topcloth.length - 1){
+                                        mtlist[2] += topcloth[j];
+                                    }else if(j != i){
+                                        mtlist[2] += topcloth[j] + " ";
+                                    }
+                                }
+                            } else {
+                                tempset[19] += 1;
+                                tempset[20] -= 1;
+                                wtlist[1] = wtlist[1] + " " + cloth;
+                                wtlist[2] = "";
+                                for(int j = 0 ; j< topcloth.length; j++){
+                                    if(j == topcloth.length - 1){
+                                        wtlist[2] += topcloth[j];
+                                    }else if(j != i){
+                                        wtlist[2] += topcloth[j] + " ";
+                                    }
+                                }
+                            }
+                        } else if (ShareT <= 16 && ShareT > 12) {
+                            if (sets == 1) {
+                                tempset[2] += 1;
+                                tempset[3] -= 1;
+                                mtlist[2] = mtlist[2] + " " + cloth;
+                                mtlist[3] = "";
+                                for(int j = 0 ; j< topcloth.length; j++){
+                                    if(j == topcloth.length - 1){
+                                        mtlist[3] += topcloth[j];
+                                    }else if(j != i){
+                                        mtlist[3] += topcloth[j] + " ";
+                                    }
+                                }
+                            } else {
+                                tempset[20] += 1;
+                                tempset[21] -= 1;
+                                wtlist[2] = wtlist[2] + " " + cloth;
+                                wtlist[3] = "";
+                                for(int j = 0 ; j< topcloth.length; j++){
+                                    if(j == topcloth.length - 1){
+                                        wtlist[3] += topcloth[j];
+                                    }else if(j != i){
+                                        wtlist[3] += topcloth[j] + " ";
+                                    }
+                                }
+                            }
+                        } else if (ShareT <= 19 && ShareT > 16) {
+                            if (sets == 1) {
+                                tempset[3] += 1;
+                                tempset[4] -= 1;
+                                mtlist[3] = mtlist[3] + " " + cloth;
+                                mtlist[4] = "";
+                                for(int j = 0 ; j< topcloth.length; j++){
+                                    if(j == topcloth.length - 1){
+                                        mtlist[4] += topcloth[j];
+                                    }else if(j != i){
+                                        mtlist[4] += topcloth[j] + " ";
+                                    }
+                                }
+                            } else {
+                                tempset[21] += 1;
+                                tempset[22] -= 1;
+                                wtlist[3] = wtlist[3] + " " + cloth;
+                                wtlist[4] = "";
+                                for(int j = 0 ; j< topcloth.length; j++){
+                                    if(j == topcloth.length - 1){
+                                        wtlist[4] += topcloth[j];
+                                    }else if(j != i){
+                                        wtlist[4] += topcloth[j] + " ";
+                                    }
+                                }
+                            }
+                        } else if (ShareT <= 22 && ShareT > 19) {
+                            if (sets == 1) {
+                                tempset[4] += 1;
+                                tempset[5] -= 1;
+                                mtlist[4] = mtlist[4] + " " + cloth;
+                                mtlist[5] = "";
+                                for(int j = 0 ; j< topcloth.length; j++){
+                                    if(j == topcloth.length - 1){
+                                        mtlist[5] += topcloth[j];
+                                    }else if(j != i){
+                                        mtlist[5] += topcloth[j] + " ";
+                                    }
+                                }
+                            } else {
+                                tempset[22] += 1;
+                                tempset[23] -= 1;
+                                wtlist[4] = wtlist[4] + " " + cloth;
+                                wtlist[5] = "";
+                                for(int j = 0 ; j< topcloth.length; j++){
+                                    if(j == topcloth.length - 1){
+                                        wtlist[5] += topcloth[j];
+                                    }else if(j != i){
+                                        wtlist[5] += topcloth[j] + " ";
+                                    }
+                                }
+                            }
+                        } else if (ShareT <= 24 && ShareT > 22) {
+                            if (sets == 1) {
+                                tempset[5] += 1;
+                                tempset[6] -= 1;
+                                mtlist[5] = mtlist[5] + " " + cloth;
+                                mtlist[6] = "";
+                                for(int j = 0 ; j< topcloth.length; j++){
+                                    if(j == topcloth.length - 1){
+                                        mtlist[6] += topcloth[j];
+                                    }else if(j != i){
+                                        mtlist[6] += topcloth[j] + " ";
+                                    }
+                                }
+                            } else {
+                                tempset[23] += 1;
+                                tempset[24] -= 1;
+                                wtlist[5] = wtlist[5] + " " + cloth;
+                                wtlist[6] = "";
+                                for(int j = 0 ; j< topcloth.length; j++){
+                                    if(j == topcloth.length - 1){
+                                        wtlist[6] += topcloth[j];
+                                    }else if(j != i){
+                                        wtlist[6] += topcloth[j] + " ";
+                                    }
+                                }
+                            }
+                        } else if (ShareT <= 29 && ShareT > 24) {
+                            if (sets == 1) {
+                                tempset[6] += 1;
+                                tempset[7] -= 1;
+                                mtlist[6] = mtlist[6] + " " + cloth;
+                                mtlist[7] = "";
+                                for(int j = 0 ; j< topcloth.length; j++){
+                                    if(j == topcloth.length - 1){
+                                        mtlist[7] += topcloth[j];
+                                    }else if(j != i){
+                                        mtlist[7] += topcloth[j] + " ";
+                                    }
+                                }
+                            } else {
+                                tempset[24] += 1;
+                                tempset[25] -= 1;
+                                wtlist[6] = wtlist[6] + " " + cloth;
+                                wtlist[7] = "";
+                                for(int j = 0 ; j< topcloth.length; j++){
+                                    if(j == topcloth.length - 1){
+                                        wtlist[7] += topcloth[j];
+                                    }else if(j != i){
+                                        wtlist[7] += topcloth[j] + " ";
+                                    }
+                                }
+                            }
+                        } else {
+                            if (sets == 1) {
+                                tempset[7] += 1;
+                                tempset[8] -= 1;
+                                mtlist[7] = mtlist[7] + " " + cloth;
+                                mtlist[8] = "";
+                                for(int j = 0 ; j< topcloth.length; j++){
+                                    if(j == topcloth.length - 1){
+                                        mtlist[8] += topcloth[j];
+                                    }else if(j != i){
+                                        mtlist[8] += topcloth[j] + " ";
+                                    }
+                                }
+                            } else {
+                                tempset[25] += 1;
+                                tempset[26] -= 1;
+                                wtlist[6] = wtlist[6] + " " + cloth;
+                                wtlist[8] = "";
+                                for(int j = 0 ; j< topcloth.length; j++){
+                                    if(j == topcloth.length - 1){
+                                        wtlist[8] += topcloth[j];
+                                    }else if(j != i){
+                                        wtlist[8] += topcloth[j] + " ";
+                                    }
+                                }
+                            }
+                        }
+
                         Toast.makeText(getApplicationContext(), "해당 의상의 체감온도를 내렸습니다.", Toast.LENGTH_LONG).show();
                         alertDialog.dismiss();
                     }
                 });
+                for(int i = 0; i<tempdata.length; i++){
+                    tempdata[i] = Integer.toString(tempset[i]);
+                }
+                String text = "";
+                for(int i = 0; i<tempdata.length; i++){
+                    if(i == tempdata.length-1){
+                        text += tempdata[i];
+                    }
+                    else{
+                        text += tempdata[i] + " ";
+                    }
+
+                }
+                PreferenceManager.setString(mContext, "CLOTHSET", text);
+                String tlist1 = "";
+                for(int i =0; i<mtlist.length;i++){
+                    if(i == mtlist.length-1){
+                        tlist1 += mtlist[i];
+                    }
+                    else{
+                        tlist1 += mtlist[i] + "  ";
+                    }
+                }
+                PreferenceManager.setString(mContext, "MTLIST", tlist1);
+
+                String tlist2 = "";
+                for(int i =0; i<wtlist.length;i++){
+                    if(i == wtlist.length-1){
+                        tlist2 += wtlist[i];
+                    }
+                    else{
+                        tlist2 += wtlist[i] + "  ";
+                    }
+                }
+                PreferenceManager.setString(mContext, "WTLIST", tlist2);
                 /*Intent intent = new Intent(this, PopupActivity.class);
                 startActivityForResult(intent, 1);*/
             }
@@ -1429,6 +1934,241 @@ public class ClothingActivity extends Activity {
                     @Override
                     public void onClick(View v) {
                         Toast.makeText(getApplicationContext(), "해당 의상의 체감온도를 올렸습니다.", Toast.LENGTH_LONG).show();
+
+                        if (ShareT <= 4) {// 0~8 mantop 9~17 manbot 18~26 womantop 27 ~ 35 womanbot
+                            //mtlist[0] += topcloth[0] + " " + topcloth[1] + " " + topcloth[3]; 옷 빼기
+                            // 옷 더하기 mtlist[0] += " 추가할옷";
+                            if (sets == 1) {
+                                tempset[10] += 1;
+                                tempset[9] -= 1;
+                                mblist[1] = mblist[1] + " " + cloth;
+                                mblist[0] = "";
+                                for(int j = 0 ; j< botcloth.length; j++){
+                                    if(j == botcloth.length - 1){
+                                        mblist[0] += botcloth[j];
+                                    }else if(j != i){
+                                        mblist[0] += botcloth[j] + " ";
+                                    }
+                                }
+                            } else {
+                                tempset[28] += 1;
+                                tempset[27] -= 1;
+                                wblist[1] = wblist[1] + " " + cloth;
+                                wblist[0] = "";
+                                for(int j = 0 ; j< botcloth.length; j++){
+                                    if(j == botcloth.length - 1){
+                                        wblist[0] += botcloth[j];
+                                    }else if(j != i){
+                                        wblist[0] += botcloth[j] + " ";
+                                    }
+                                }
+                            }
+                        } else if (ShareT <= 8 && ShareT > 4) {
+                            if (sets == 1) {
+                                tempset[11] += 1;
+                                tempset[10] -= 1;
+                                mblist[2] = mblist[2] + " " + cloth;
+                                mblist[1] = "";
+                                for(int j = 0 ; j< botcloth.length; j++){
+                                    if(j == botcloth.length - 1){
+                                        mblist[1] += botcloth[j];
+                                    }else if(j != i){
+                                        mblist[1] += botcloth[j] + " ";
+                                    }
+                                }
+                            } else {
+                                tempset[29] += 1;
+                                tempset[28] -= 1;
+                                wblist[2] = wblist[2] + " " + cloth;
+                                wblist[1] = "";
+                                for(int j = 0 ; j< botcloth.length; j++){
+                                    if(j == botcloth.length - 1){
+                                        wblist[1] += botcloth[j];
+                                    }else if(j != i){
+                                        wblist[1] += botcloth[j] + " ";
+                                    }
+                                }
+                            }
+                        } else if (ShareT <= 12 && ShareT > 8) {
+                            if (sets == 1) {
+                                tempset[12] += 1;
+                                tempset[11] -= 1;
+                                mblist[3] = mblist[3] + " " + cloth;
+                                mblist[2] = "";
+                                for(int j = 0 ; j< botcloth.length; j++){
+                                    if(j == botcloth.length - 1){
+                                        mblist[2] += botcloth[j];
+                                    }else if(j != i){
+                                        mblist[2] += botcloth[j] + " ";
+                                    }
+                                }
+                            } else {
+                                tempset[30] += 1;
+                                tempset[29] -= 1;
+                                wblist[3] = wblist[3] + " " + cloth;
+                                wblist[2] = "";
+                                for(int j = 0 ; j< botcloth.length; j++){
+                                    if(j == botcloth.length - 1){
+                                        wblist[2] += botcloth[j];
+                                    }else if(j != i){
+                                        wblist[2] += botcloth[j] + " ";
+                                    }
+                                }
+                            }
+                        } else if (ShareT <= 16 && ShareT > 12) {
+                            if (sets == 1) {
+                                tempset[13] += 1;
+                                tempset[12] -= 1;
+                                mblist[4] = mblist[4] + " " + cloth;
+                                mblist[3] = "";
+                                for(int j = 0 ; j< botcloth.length; j++){
+                                    if(j == botcloth.length - 1){
+                                        mblist[3] += botcloth[j];
+                                    }else if(j != i){
+                                        mblist[3] += botcloth[j] + " ";
+                                    }
+                                }
+                            } else {
+                                tempset[31] += 1;
+                                tempset[30] -= 1;
+                                wblist[4] = wblist[4] + " " + cloth;
+                                wblist[3] = "";
+                                for(int j = 0 ; j< botcloth.length; j++){
+                                    if(j == botcloth.length - 1){
+                                        wblist[3] += botcloth[j];
+                                    }else if(j != i){
+                                        wblist[3] += botcloth[j] + " ";
+                                    }
+                                }
+                            }
+                        } else if (ShareT <= 19 && ShareT > 16) {
+                            if (sets == 1) {
+                                tempset[14] += 1;
+                                tempset[13] -= 1;
+                                mblist[5] = mblist[5] + " " + cloth;
+                                mblist[4] = "";
+                                for(int j = 0 ; j< botcloth.length; j++){
+                                    if(j == botcloth.length - 1){
+                                        mblist[4] += botcloth[j];
+                                    }else if(j != i){
+                                        mblist[4] += botcloth[j] + " ";
+                                    }
+                                }
+                            } else {
+                                tempset[32] += 1;
+                                tempset[31] -= 1;
+                                wblist[5] = wblist[5] + " " + cloth;
+                                wblist[4] = "";
+                                for(int j = 0 ; j< botcloth.length; j++){
+                                    if(j == botcloth.length - 1){
+                                        wblist[4] += botcloth[j];
+                                    }else if(j != i){
+                                        wblist[4] += botcloth[j] + " ";
+                                    }
+                                }
+                            }
+                        } else if (ShareT <= 22 && ShareT > 19) {
+                            if (sets == 1) {
+                                tempset[15] += 1;
+                                tempset[14] -= 1;
+                                mblist[6] = mblist[6] + " " + cloth;
+                                mblist[5] = "";
+                                for(int j = 0 ; j< botcloth.length; j++){
+                                    if(j == botcloth.length - 1){
+                                        mblist[5] += botcloth[j];
+                                    }else if(j != i){
+                                        mblist[5] += botcloth[j] + " ";
+                                    }
+                                }
+                            } else {
+                                tempset[33] += 1;
+                                tempset[32] -= 1;
+                                wblist[6] = wblist[6] + " " + cloth;
+                                wblist[5] = "";
+                                for(int j = 0 ; j< botcloth.length; j++){
+                                    if(j == botcloth.length - 1){
+                                        wblist[5] += botcloth[j];
+                                    }else if(j != i){
+                                        wblist[5] += botcloth[j] + " ";
+                                    }
+                                }
+                            }
+                        } else if (ShareT <= 24 && ShareT > 22) {
+                            if (sets == 1) {
+                                tempset[16] += 1;
+                                tempset[15] -= 1;
+                                mblist[7] = mblist[7] + " " + cloth;
+                                mblist[6] = "";
+                                for(int j = 0 ; j< botcloth.length; j++){
+                                    if(j == botcloth.length - 1){
+                                        mblist[6] += botcloth[j];
+                                    }else if(j != i){
+                                        mblist[6] += botcloth[j] + " ";
+                                    }
+                                }
+                            } else {
+                                tempset[34] += 1;
+                                tempset[33] -= 1;
+                                wblist[7] = wblist[7] + " " + cloth;
+                                wblist[6] = "";
+                                for(int j = 0 ; j< botcloth.length; j++){
+                                    if(j == botcloth.length - 1){
+                                        wblist[6] += botcloth[j];
+                                    }else if(j != i){
+                                        wblist[6] += botcloth[j] + " ";
+                                    }
+                                }
+                            }
+                        } else if (ShareT <= 29 && ShareT > 24) {
+                            if (sets == 1) {
+                                tempset[17] += 1;
+                                tempset[16] -= 1;
+                                mblist[8] = mblist[8] + " " + cloth;
+                                mblist[7] = "";
+                                for(int j = 0 ; j< botcloth.length; j++){
+                                    if(j == botcloth.length - 1){
+                                        mblist[7] += botcloth[j];
+                                    }else if(j != i){
+                                        mblist[7] += botcloth[j] + " ";
+                                    }
+                                }
+                            } else {
+                                tempset[35] += 1;
+                                tempset[34] -= 1;
+                                wblist[8] = wblist[8] + " " + cloth;
+                                wblist[7] = "";
+                                for(int j = 0 ; j< botcloth.length; j++){
+                                    if(j == botcloth.length - 1){
+                                        wblist[7] += botcloth[j];
+                                    }else if(j != i){
+                                        wblist[7] += botcloth[j] + " ";
+                                    }
+                                }
+                            }
+                        } else {
+                            if (sets == 1) {
+                                tempset[17] -= 1;
+                                mblist[8] = "";
+                                for (int j = 0; j < botcloth.length; j++) {
+                                    if (j == botcloth.length - 1) {
+                                        mblist[8] += botcloth[j];
+                                    } else if (j != i) {
+                                        mblist[8] += botcloth[j] + " ";
+                                    }
+                                }
+                            } else {
+                                tempset[35] -= 1;
+                                wblist[8] = "";
+                                for (int j = 0; j < botcloth.length; j++) {
+                                    if (j == botcloth.length - 1) {
+                                        wblist[8] += botcloth[j];
+                                    } else if (j != i) {
+                                        wblist[8] += botcloth[j] + " ";
+                                    }
+                                }
+                            }
+                        }
+
                         alertDialog.dismiss();
 
                     }
@@ -1439,9 +2179,281 @@ public class ClothingActivity extends Activity {
                     @Override
                     public void onClick(View v) {
                         Toast.makeText(getApplicationContext(), "해당 의상의 체감온도를 내렸습니다.", Toast.LENGTH_LONG).show();
+
+                        if (ShareT <= 4) {// 0~8 mantop 9~17 manbot 18~26 womantop 27 ~ 35 womanbot
+                            //mtlist[0] += topcloth[0] + " " + topcloth[1] + " " + topcloth[3]; 옷 빼기
+                            // 옷 더하기 mtlist[0] += " 추가할옷";
+                            if (sets == 1) {
+                                tempset[9] -= 1;
+                                mblist[0] = "";
+                                for(int j = 0 ; j< botcloth.length; j++){
+                                    if(j == botcloth.length - 1){
+                                        mblist[0] += botcloth[j];
+                                    }else if(j != i){
+                                        mblist[0] += botcloth[j] + " ";
+                                    }
+                                }
+                            } else {
+                                tempset[27] -= 1;
+                                wblist[0] = "";
+                                for(int j = 0 ; j< botcloth.length; j++){
+                                    if(j == botcloth.length - 1){
+                                        wblist[0] += botcloth[j];
+                                    }else if(j != i){
+                                        wblist[0] += botcloth[j] + " ";
+                                    }
+                                }
+                            }
+                        } else if (ShareT <= 8 && ShareT > 4) {
+                            if (sets == 1) {
+                                tempset[9] += 1;
+                                tempset[10] -= 1;
+                                mblist[0] = mblist[0] + " " + cloth;
+                                mblist[1] = "";
+                                for(int j = 0 ; j< botcloth.length; j++){
+                                    if(j == botcloth.length - 1){
+                                        mblist[1] += botcloth[j];
+                                    }else if(j != i){
+                                        mblist[1] += botcloth[j] + " ";
+                                    }
+                                }
+                            } else {
+                                tempset[27] += 1;
+                                tempset[28] -= 1;
+                                wblist[0] = wblist[0] + " " + cloth;
+                                wblist[1] = "";
+                                for(int j = 0 ; j< botcloth.length; j++){
+                                    if(j == botcloth.length - 1){
+                                        wblist[1] += botcloth[j];
+                                    }else if(j != i){
+                                        wblist[1] += botcloth[j] + " ";
+                                    }
+                                }
+                            }
+                        } else if (ShareT <= 12 && ShareT > 8) {
+                            if (sets == 1) {
+                                tempset[10] += 1;
+                                tempset[11] -= 1;
+                                mblist[1] = mblist[1] + " " + cloth;
+                                mblist[2] = "";
+                                for(int j = 0 ; j< botcloth.length; j++){
+                                    if(j == botcloth.length - 1){
+                                        mblist[2] += botcloth[j];
+                                    }else if(j != i){
+                                        mblist[2] += botcloth[j] + " ";
+                                    }
+                                }
+                            } else {
+                                tempset[28] += 1;
+                                tempset[29] -= 1;
+                                wblist[1] = wblist[1] + " " + cloth;
+                                wblist[2] = "";
+                                for(int j = 0 ; j< botcloth.length; j++){
+                                    if(j == botcloth.length - 1){
+                                        wblist[2] += botcloth[j];
+                                    }else if(j != i){
+                                        wblist[2] += botcloth[j] + " ";
+                                    }
+                                }
+                            }
+                        } else if (ShareT <= 16 && ShareT > 12) {
+                            if (sets == 1) {
+                                tempset[11] += 1;
+                                tempset[12] -= 1;
+                                mblist[2] = mblist[2] + " " + cloth;
+                                mblist[3] = "";
+                                for(int j = 0 ; j< botcloth.length; j++){
+                                    if(j == botcloth.length - 1){
+                                        mblist[3] += botcloth[j];
+                                    }else if(j != i){
+                                        mblist[3] += botcloth[j] + " ";
+                                    }
+                                }
+                            } else {
+                                tempset[29] += 1;
+                                tempset[30] -= 1;
+                                wblist[2] = wblist[2] + " " + cloth;
+                                wblist[3] = "";
+                                for(int j = 0 ; j< botcloth.length; j++){
+                                    if(j == botcloth.length - 1){
+                                        wblist[3] += botcloth[j];
+                                    }else if(j != i){
+                                        wblist[3] += botcloth[j] + " ";
+                                    }
+                                }
+                            }
+                        } else if (ShareT <= 19 && ShareT > 16) {
+                            if (sets == 1) {
+                                tempset[12] += 1;
+                                tempset[13] -= 1;
+                                mblist[3] = mblist[3] + " " + cloth;
+                                mblist[4] = "";
+                                for(int j = 0 ; j< botcloth.length; j++){
+                                    if(j == botcloth.length - 1){
+                                        mblist[4] += botcloth[j];
+                                    }else if(j != i){
+                                        mblist[4] += botcloth[j] + " ";
+                                    }
+                                }
+                            } else {
+                                tempset[30] += 1;
+                                tempset[31] -= 1;
+                                wblist[3] = wblist[3] + " " + cloth;
+                                wblist[4] = "";
+                                for(int j = 0 ; j< botcloth.length; j++){
+                                    if(j == botcloth.length - 1){
+                                        wblist[4] += botcloth[j];
+                                    }else if(j != i){
+                                        wblist[4] += botcloth[j] + " ";
+                                    }
+                                }
+                            }
+                        } else if (ShareT <= 22 && ShareT > 19) {
+                            if (sets == 1) {
+                                tempset[13] += 1;
+                                tempset[14] -= 1;
+                                mblist[4] = mblist[4] + " " + cloth;
+                                mblist[5] = "";
+                                for(int j = 0 ; j< botcloth.length; j++){
+                                    if(j == botcloth.length - 1){
+                                        mblist[5] += botcloth[j];
+                                    }else if(j != i){
+                                        mblist[5] += botcloth[j] + " ";
+                                    }
+                                }
+                            } else {
+                                tempset[31] += 1;
+                                tempset[32] -= 1;
+                                wblist[4] = wblist[4] + " " + cloth;
+                                wblist[5] = "";
+                                for(int j = 0 ; j< botcloth.length; j++){
+                                    if(j == botcloth.length - 1){
+                                        wblist[5] += botcloth[j];
+                                    }else if(j != i){
+                                        wblist[5] += botcloth[j] + " ";
+                                    }
+                                }
+                            }
+                        } else if (ShareT <= 24 && ShareT > 22) {
+                            if (sets == 1) {
+                                tempset[14] += 1;
+                                tempset[15] -= 1;
+                                mblist[5] = mblist[5] + " " + cloth;
+                                mblist[6] = "";
+                                for(int j = 0 ; j< botcloth.length; j++){
+                                    if(j == botcloth.length - 1){
+                                        mblist[6] += botcloth[j];
+                                    }else if(j != i){
+                                        mblist[6] += botcloth[j] + " ";
+                                    }
+                                }
+                            } else {
+                                tempset[32] += 1;
+                                tempset[33] -= 1;
+                                wblist[5] = wblist[5] + " " + cloth;
+                                wblist[6] = "";
+                                for(int j = 0 ; j< botcloth.length; j++){
+                                    if(j == botcloth.length - 1){
+                                        wblist[6] += botcloth[j];
+                                    }else if(j != i){
+                                        wblist[6] += botcloth[j] + " ";
+                                    }
+                                }
+                            }
+                        } else if (ShareT <= 29 && ShareT > 24) {
+                            if (sets == 1) {
+                                tempset[15] += 1;
+                                tempset[16] -= 1;
+                                mblist[6] = mblist[6] + " " + cloth;
+                                mblist[7] = "";
+                                for(int j = 0 ; j< botcloth.length; j++){
+                                    if(j == botcloth.length - 1){
+                                        mblist[7] += botcloth[j];
+                                    }else if(j != i){
+                                        mblist[7] += botcloth[j] + " ";
+                                    }
+                                }
+                            } else {
+                                tempset[33] += 1;
+                                tempset[34] -= 1;
+                                wblist[6] = wblist[6] + " " + cloth;
+                                wblist[7] = "";
+                                for(int j = 0 ; j< botcloth.length; j++){
+                                    if(j == botcloth.length - 1){
+                                        wblist[7] += botcloth[j];
+                                    }else if(j != i){
+                                        wblist[7] += botcloth[j] + " ";
+                                    }
+                                }
+                            }
+                        } else {
+                            if (sets == 1) {
+                                tempset[16] += 1;
+                                tempset[17] -= 1;
+                                mblist[7] = mblist[7] + " " + cloth;
+                                mblist[8] = "";
+                                for (int j = 0; j < botcloth.length; j++) {
+                                    if (j == botcloth.length - 1) {
+                                        mblist[8] += botcloth[j];
+                                    } else if (j != i) {
+                                        mblist[8] += botcloth[j] + " ";
+                                    }
+                                }
+                            } else {
+                                tempset[34] += 1;
+                                tempset[35] -= 1;
+                                wblist[6] = wblist[6] + " " + cloth;
+                                wblist[8] = "";
+                                for (int j = 0; j < botcloth.length; j++) {
+                                    if (j == botcloth.length - 1) {
+                                        wblist[8] += botcloth[j];
+                                    } else if (j != i) {
+                                        wblist[8] += botcloth[j] + " ";
+                                    }
+                                }
+                            }
+                        }
+
                         alertDialog.dismiss();
                     }
                 });
+
+                for(int i = 0; i<tempdata.length; i++){
+                    tempdata[i] = Integer.toString(tempset[i]);
+                }
+                String text = "";
+                for(int i = 0; i<tempdata.length; i++){
+                    if(i == tempdata.length-1){
+                        text += tempdata[i];
+                    }
+                    else{
+                        text += tempdata[i] + " ";
+                    }
+
+                }
+                PreferenceManager.setString(mContext, "CLOTHSET", text);
+
+                String tlist3 = "";
+                for(int i =0; i<mblist.length;i++){
+                    if(i == mblist.length-1){
+                        tlist3 += mblist[i];
+                    }
+                    else{
+                        tlist3 += mblist[i] + "  ";
+                    }
+                }
+                PreferenceManager.setString(mContext, "MBLIST", tlist3);
+
+                String tlist4 = "";
+                for(int i =0; i<wblist.length;i++){
+                    if(i == wblist.length-1){
+                        tlist4 += wblist[i];
+                    }
+                    else{
+                        tlist4 += wblist[i] + "  ";
+                    }
+                }
+                PreferenceManager.setString(mContext, "WBLIST", tlist4);
                 /*Intent intent = new Intent(this, PopupActivity.class);
                 startActivityForResult(intent, 1);*/
             }
