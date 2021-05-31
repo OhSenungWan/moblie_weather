@@ -8,83 +8,61 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
     <LinearLayout
-        android:layout_width="230dp"
+        android:layout_width="330dp"
         android:layout_height="wrap_content"
         android:background="@drawable/roundconer3"
         android:orientation="vertical">
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:layout_marginTop="10dp">
             <ImageView
-                android:layout_width="18dp"
-                android:layout_height="18dp"
+                android:layout_width="15dp"
+                android:layout_height="15dp"
+                android:layout_gravity="center"
                 android:layout_marginLeft="15dp"
-                android:src="@drawable/add"/>
+                android:src="@drawable/delete"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="커스텀 옷 추가"
+                android:text="현재 체감온도 의상 삭제"
                 android:textStyle="bold"
                 android:textSize="13dp"
                 android:layout_marginLeft="5dp"
                 android:textColor="#FFFFFF"/>
+
             <ImageView
                 android:id="@+id/addcancle"
                 android:layout_width="13dp"
                 android:layout_height="13dp"
-                android:layout_gravity="center"
-                android:layout_marginLeft="86dp"
-                android:src="@drawable/cancle"/>
+                android:layout_marginLeft="135dp"
+                android:src="@drawable/cancle" />
         </LinearLayout>
-        <ImageView
+        <!--<ImageView
             android:id="@+id/Weather"
             android:layout_width="100dp"
             android:layout_height="80dp"
             android:src="@drawable/custom2"
             android:layout_gravity="center"
-            android:layout_marginTop="30dp"/>
+            android:layout_marginTop="30dp"/>-->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="오늘의 날씨에서 입기 좋을 것 같은"
+            android:text="해당 의상을 현재 체감온도에서 제거하시겠습니까?"
             android:layout_marginTop="30dp"
             android:textSize="13dp"
             android:textColor="#FFFFFF"
             android:layout_gravity="center"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="의상을 추가해 보세요."
-            android:textSize="13dp"
-            android:textColor="#FFFFFF"
-            android:layout_gravity="center"/>
-
         <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="35dp"
-            android:background="@drawable/change_background"
-            android:layout_marginTop="15dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:layout_marginBottom="10dp"
-            android:gravity="center">
-            <EditText
-                android:id="@+id/edtadd"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:textSize="12dp"/>
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
+            android:layout_width="60dp"
             android:layout_height="25dp"
             android:background="@drawable/change_background"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
             android:layout_marginBottom="20dp"
-            android:gravity="center">
+            android:layout_marginTop="20dp"
+            android:layout_gravity="center">
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
