@@ -7,6 +7,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
+import android.media.Image;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.View;
@@ -654,11 +655,6 @@ public class ClothingActivity extends Activity {
                     Toast.makeText(getApplicationContext(), "값을 입력하세요.", Toast.LENGTH_SHORT).show();
                 }
                 else {
-                    System.out.println(edtAdd.getText().toString());
-                    for(int i = 0; i<mtlist.length; i++)
-                        System.out.println(mtlist[i]);
-                    for(int i = 0; i<mtlist.length; i++)
-                        System.out.println(mtlist[i]);
                     if (ShareT <= 4) {// 0~8 mantop 9~17 manbot 18~26 womantop 27 ~ 35 womanbot
                         //mtlist[0] += topcloth[0] + " " + topcloth[1] + " " + topcloth[3]; 옷 빼기
                         // 옷 더하기 mtlist[0] += " 추가할옷";
@@ -712,9 +708,7 @@ public class ClothingActivity extends Activity {
                     } else if (ShareT <= 24 && ShareT > 22) {
                         if (sets == 1) {
                             tempset[6] += 1;
-                            System.out.println(mtlist[6]);
                             mtlist[6] = mtlist[6] + " " + edtAdd.getText().toString();
-                            System.out.println(mtlist[6]);
                         } else {
                             tempset[24] += 1;
                             wtlist[6] = wtlist[6] + " " + edtAdd.getText().toString();
@@ -2077,6 +2071,141 @@ public class ClothingActivity extends Activity {
                 startActivityForResult(intent, 1);*/
             }
         });
+
+        topImageView[i].setOnLongClickListener(new View.OnLongClickListener(){
+            @Override
+            public boolean onLongClick(View view) {
+                View dialogView = getLayoutInflater().inflate(R.layout.activity_clothdelete, null);
+
+                AlertDialog.Builder builder = new AlertDialog.Builder(view.getContext());
+                builder.setView(dialogView);
+
+                final AlertDialog alertDialog = builder.create();
+                alertDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+                alertDialog.show();
+                TextView ok = dialogView.findViewById(R.id.ok);
+                ImageView cancel = dialogView.findViewById(R.id.deletecancle);
+
+                cancel.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+
+                        alertDialog.dismiss();
+                    }
+                });
+
+                ok.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+
+                        if (ShareT <= 4) {// 0~8 mantop 9~17 manbot 18~26 womantop 27 ~ 35 womanbot
+                            //mtlist[0] += topcloth[0] + " " + topcloth[1] + " " + topcloth[3]; 옷 빼기
+                            // 옷 더하기 mtlist[0] += " 추가할옷";
+                            if (sets == 1) {
+                                topdelete(i,0,0,topcloth.length);
+                            } else {
+                                topdelete(i,18,0,topcloth.length);
+                            }
+                        } else if (ShareT <= 8 && ShareT > 4) {
+                            if (sets == 1) {
+                                topdelete(i,1,1,topcloth.length);
+                            } else {
+                                topdelete(i,19,1,topcloth.length);
+                            }
+                        } else if (ShareT <= 12 && ShareT > 8) {
+                            if (sets == 1) {
+                                topdelete(i,2,2,topcloth.length);
+                            } else {
+                                topdelete(i,20,2,topcloth.length);
+                            }
+                        } else if (ShareT <= 16 && ShareT > 12) {
+                            if (sets == 1) {
+                                topdelete(i,3,3,topcloth.length);
+                            } else {
+                                topdelete(i,21,3,topcloth.length);
+                            }
+                        } else if (ShareT <= 19 && ShareT > 16) {
+                            if (sets == 1) {
+                                topdelete(i,4,4,topcloth.length);
+                            } else {
+                                topdelete(i,22,4,topcloth.length);
+                            }
+                        } else if (ShareT <= 22 && ShareT > 19) {
+                            if (sets == 1) {
+                                topdelete(i,5,5,topcloth.length);
+                            } else {
+                                topdelete(i,23,5,topcloth.length);
+                            }
+                        } else if (ShareT <= 24 && ShareT > 22) {
+                            if (sets == 1) {
+                                topdelete(i,6,6,topcloth.length);
+                                System.out.println(mtlist[6]);
+                            } else {
+                                topdelete(i,24,6,topcloth.length);
+                            }
+                        } else if (ShareT <= 29 && ShareT > 24) {
+                            if (sets == 1) {
+                                topdelete(i,7,7,topcloth.length);
+                            } else {
+                                topdelete(i,25,7,topcloth.length);
+                            }
+                        } else {
+                            if (sets == 1) {
+                                topdelete(i,8,8,topcloth.length);
+                            } else {
+                                topdelete(i,26,8,topcloth.length);
+                            }
+                        }
+
+                        for(int i = 0; i<tempdata.length; i++){
+                            tempdata[i] = Integer.toString(tempset[i]);
+                        }
+                        String text = "";
+                        for(int i = 0; i<tempdata.length; i++){
+                            if(i == tempdata.length-1){
+                                text += tempdata[i];
+                            }
+                            else{
+                                text += tempdata[i] + " ";
+                            }
+
+                        }
+                        PreferenceManager.setString(mContext, "CLOTHSET", text);
+
+                        String tlist1 = "";
+                        for(int i =0; i<mtlist.length;i++){
+                            if(i == mtlist.length-1){
+                                tlist1 += mtlist[i];
+                            }
+                            else{
+                                tlist1 += mtlist[i] + "  ";
+                            }
+                        }
+                        PreferenceManager.setString(mContext, "MTLIST", tlist1);
+
+                        String tlist2 = "";
+                        for(int i =0; i<wtlist.length;i++){
+                            if(i == wtlist.length-1){
+                                tlist2 += wtlist[i];
+                            }
+                            else{
+                                tlist2 += wtlist[i] + "  ";
+                            }
+                        }
+                        PreferenceManager.setString(mContext, "WTLIST", tlist2);
+
+                        Toast.makeText(getApplicationContext(), "삭제했습니다.", Toast.LENGTH_LONG).show();
+
+                        drawCloth();
+                        alertDialog.dismiss();
+
+                    }
+                });
+
+                return true;
+            }
+        });
+
         topTextView[i].setTextSize(10);
         topTextView[i].setTextColor(Color.WHITE);
         topTextView[i].setText(cloth);
@@ -3100,6 +3229,138 @@ public class ClothingActivity extends Activity {
                 startActivityForResult(intent, 1);*/
             }
         });
+        botImageView[i].setOnLongClickListener(new View.OnLongClickListener(){
+            @Override
+            public boolean onLongClick(View view) {
+                View dialogView = getLayoutInflater().inflate(R.layout.activity_clothdelete, null);
+
+                AlertDialog.Builder builder = new AlertDialog.Builder(view.getContext());
+                builder.setView(dialogView);
+
+                final AlertDialog alertDialog = builder.create();
+                alertDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+                alertDialog.show();
+                TextView ok = dialogView.findViewById(R.id.ok);
+                ImageView cancel = dialogView.findViewById(R.id.deletecancle);
+
+                cancel.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+
+                        alertDialog.dismiss();
+                    }
+                });
+
+                ok.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+
+                        if (ShareT <= 4) {// 0~8 mantop 9~17 manbot 18~26 womantop 27 ~ 35 womanbot
+                            //mtlist[0] += topcloth[0] + " " + topcloth[1] + " " + topcloth[3]; 옷 빼기
+                            // 옷 더하기 mtlist[0] += " 추가할옷";
+                            if (sets == 1) {
+                                botdelete(i,9,0,botcloth.length);
+                            } else {
+                                botdelete(i,27,0,botcloth.length);
+                            }
+                        } else if (ShareT <= 8 && ShareT > 4) {
+                            if (sets == 1) {
+                                botdelete(i,10,1,botcloth.length);
+                            } else {
+                                botdelete(i,28,1,botcloth.length);
+                            }
+                        } else if (ShareT <= 12 && ShareT > 8) {
+                            if (sets == 1) {
+                                botdelete(i,11,2,botcloth.length);
+                            } else {
+                                botdelete(i,29,2,botcloth.length);
+                            }
+                        } else if (ShareT <= 16 && ShareT > 12) {
+                            if (sets == 1) {
+                                botdelete(i,12,3,botcloth.length);
+                            } else {
+                                botdelete(i,30,3,botcloth.length);
+                            }
+                        } else if (ShareT <= 19 && ShareT > 16) {
+                            if (sets == 1) {
+                                botdelete(i,13,4,botcloth.length);
+                            } else {
+                                botdelete(i,31,4,botcloth.length);
+                            }
+                        } else if (ShareT <= 22 && ShareT > 19) {
+                            if (sets == 1) {
+                                botdelete(i,14,5,botcloth.length);
+                            } else {
+                                botdelete(i,32,5,botcloth.length);
+                            }
+                        } else if (ShareT <= 24 && ShareT > 22) {
+                            if (sets == 1) {
+                                botdelete(i,15,6,botcloth.length);
+                            } else {
+                                botdelete(i,33,6,botcloth.length);
+                            }
+                        } else if (ShareT <= 29 && ShareT > 24) {
+                            if (sets == 1) {
+                                botdelete(i,16,7,botcloth.length);
+                            } else {
+                                botdelete(i,34,7,botcloth.length);
+                            }
+                        } else {
+                            if (sets == 1) {
+                                botdelete(i,17,8,botcloth.length);
+                            } else {
+                                botdelete(i,35,8,botcloth.length);
+                            }
+                        }
+
+                        for(int i = 0; i<tempdata.length; i++){
+                            tempdata[i] = Integer.toString(tempset[i]);
+                        }
+                        String text = "";
+                        for(int i = 0; i<tempdata.length; i++){
+                            if(i == tempdata.length-1){
+                                text += tempdata[i];
+                            }
+                            else{
+                                text += tempdata[i] + " ";
+                            }
+
+                        }
+                        PreferenceManager.setString(mContext, "CLOTHSET", text);
+
+                        String tlist3 = "";
+                        for(int i =0; i<mblist.length;i++){
+                            if(i == mblist.length-1){
+                                tlist3 += mblist[i];
+                            }
+                            else{
+                                tlist3 += mblist[i] + "  ";
+                            }
+                        }
+                        PreferenceManager.setString(mContext, "MBLIST", tlist3);
+
+                        String tlist4 = "";
+                        for(int i =0; i<wblist.length;i++){
+                            if(i == wblist.length-1){
+                                tlist4 += wblist[i];
+                            }
+                            else{
+                                tlist4 += wblist[i] + "  ";
+                            }
+                        }
+                        PreferenceManager.setString(mContext, "WBLIST", tlist4);
+
+                        Toast.makeText(getApplicationContext(), "삭제했습니다.", Toast.LENGTH_LONG).show();
+
+                        drawCloth();
+                        alertDialog.dismiss();
+
+                    }
+                });
+
+                return true;
+            }
+        });
         botTextView[i].setTextSize(10);
         botTextView[i].setTextColor(Color.WHITE);
         botTextView[i].setText(cloth);
@@ -3302,6 +3563,84 @@ public class ClothingActivity extends Activity {
                 for(int i =0; i<tempset[35]; i++)
                 {
                     setCloth_image_bot(tempset[35], i, botcloth[i]);
+                }
+            }
+        }
+    }
+    public void botdelete(int i, int temp, int list, int length){
+        if (sets == 1) {
+            tempset[temp] -= 1;
+            mblist[list] = "";
+            for(int j = 0 ; j< length; j++){
+                if(i != length-1) {
+                    if (j == length - 1) {
+                        mblist[list] += botcloth[j];
+                    } else if (j != i) {
+                        mblist[list] += botcloth[j] + " ";
+                    }
+                }else{
+                    if (j < i-1) {
+                        mblist[list] += botcloth[j] + " ";
+                    }else if(j == i-1){
+                        mblist[list] += botcloth[j];
+                    }
+                }
+            }
+        } else {
+            tempset[temp] -= 1;
+            wblist[list] = "";
+            for(int j = 0 ; j< length; j++){
+                if(i != length-1) {
+                    if (j == length - 1) {
+                        wblist[list] += botcloth[j];
+                    } else if (j != i) {
+                        wblist[list] += botcloth[j] + " ";
+                    }
+                }else{
+                    if (j < i-1) {
+                        wblist[list] += botcloth[j] + " ";
+                    }else if(j == i-1){
+                        wblist[list] += botcloth[j];
+                    }
+                }
+            }
+        }
+    }
+    public void topdelete(int i, int temp, int list, int length){
+        if (sets == 1) {
+            tempset[temp] -= 1;
+            mtlist[list] = "";
+            for(int j = 0 ; j< length; j++){
+                if(i != length-1) {
+                    if (j == length - 1) {
+                        mtlist[list] += topcloth[j];
+                    } else if (j != i) {
+                        mtlist[list] += topcloth[j] + " ";
+                    }
+                }else{
+                    if (j < i-1) {
+                        mtlist[list] += topcloth[j] + " ";
+                    }else if(j == i-1){
+                        mtlist[list] += topcloth[j];
+                    }
+                }
+            }
+        } else {
+            tempset[temp] -= 1;
+            wtlist[list] = "";
+            for(int j = 0 ; j< length; j++){
+                if(i != length-1) {
+                    if (j == length - 1) {
+                        wtlist[list] += topcloth[j];
+                    } else if (j != i) {
+                        wtlist[list] += topcloth[j] + " ";
+                    }
+                }else{
+                    if (j < i-1) {
+                        wtlist[list] += topcloth[j] + " ";
+                    }else if(j == i-1){
+                        wtlist[list] += topcloth[j];
+                    }
                 }
             }
         }
