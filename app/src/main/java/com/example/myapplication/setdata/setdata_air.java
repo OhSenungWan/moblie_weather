@@ -25,7 +25,7 @@ public class setdata_air {
                     break;
             }
         }
-        /*try {
+        try {
             String url = this.Link_URL("PM10");                 //미세먼지
             Document document = Jsoup.connect(url).get();
             setdata(document, 0);
@@ -37,11 +37,6 @@ public class setdata_air {
             setdata(document, 2);
         }catch (IOException e) {
             e.printStackTrace();
-        }
-         */
-        if(reg[1].equals("15"))
-        {
-            reg = url_pm();
         }
         return reg;
     }
@@ -64,6 +59,7 @@ public class setdata_air {
         else if(pm25>=76) grade = "매우나쁨";
         return grade;
     }
+    /*
     public String[] url_pm(){
         String[] pm = new String[3];
         String pm25 = "15";
@@ -155,6 +151,8 @@ public class setdata_air {
                 }
         return pm;
     }
+
+     */
     public String Link_URL(String itemCode){
         String apiUrl = "http://apis.data.go.kr/B552584/ArpltnStatsSvc/getCtprvnMesureLIst";
         // 홈페이지에서 받은 키
@@ -162,7 +160,7 @@ public class setdata_air {
         String numOfRows = "1";       //한 페이지 결과 수
         String pageNo = "1";
         String dataGubun = "HOUR";    //데이터 구분
-        String searchCondition = "WEEK";
+        String searchCondition = "MONTH";
         String url = apiUrl + "?" + "servicekey=" + serviceKey
                 + "&" + "numOfRows=" + numOfRows + "&" + "pageNo=" + pageNo
                 + "&" + "itemCode=" + itemCode + "&" + "dataGubun=" + dataGubun
@@ -173,50 +171,50 @@ public class setdata_air {
     public String[] setdata(Document document, int i){
         Elements links;
         if(city.equals("서울특별시")) {
-            links = document.select("body items item daegu");
+            links = document.select("body items item seoul");
             for (Element element : links) {
                 reg[i] = element.text();
             }
         }
 
         else if(city.equals("부산광역시")) {
-            links = document.select("body items item chungnam");
+            links = document.select("body items item busan");
             for (Element element : links) {
                 reg[i] = element.text();
             }
         }
         else if(city.equals("대구광역시")) {
-            links = document.select("body items item incheon");
+            links = document.select("body items item daegu");
             for (Element element : links) {
                 reg[i] = element.text();
             }
         }
         else if(city.equals("인천광역시")) {
-            links = document.select("body items item daejeon");
+            links = document.select("body items item incheon");
             for (Element element : links) {
                 reg[i] = element.text();
             }
         }
         else if(city.equals("광주광역시")) {
-            links = document.select("body items item gyeongbuk");
-            for (Element element : links) {
-                reg[i] = element.text();
-            }
-        }
-        else if(city.equals("대전광역시")) {
-            links = document.select("body items item sejong");
-            for (Element element : links) {
-                reg[i] = element.text();
-            }
-        }
-        else if(city.equals("울산광역시")) {
             links = document.select("body items item gwangju");
             for (Element element : links) {
                 reg[i] = element.text();
             }
         }
+        else if(city.equals("대전광역시")) {
+            links = document.select("body items item daejeon");
+            for (Element element : links) {
+                reg[i] = element.text();
+            }
+        }
+        else if(city.equals("울산광역시")) {
+            links = document.select("body items item ulsan");
+            for (Element element : links) {
+                reg[i] = element.text();
+            }
+        }
         else if(city.equals("경기도")) {
-            links = document.select("body items item jeonbuk");
+            links = document.select("body items item gyeonggi");
             for (Element element : links) {
                 reg[i] = element.text();
             }
@@ -228,55 +226,56 @@ public class setdata_air {
             }
         }
         else if(city.equals("충청북도")) {
-            links = document.select("body items item ulsan");
-            for (Element element : links) {
-                reg[i] = element.text();
-            }
-        }
-        else if(city.equals("충청남도")) {
-            links = document.select("body items item jeonnam");
-            for (Element element : links) {
-                reg[i] = element.text();
-            }
-        }
-        else if(city.equals("전라북도")) {
-            links = document.select("body items item seoul");
-            for (Element element : links) {
-                reg[i] = element.text();
-            }
-        }
-        else if(city.equals("전라남도")) {
-            links = document.select("body items item busan");
-            for (Element element : links) {
-                reg[i] = element.text();
-            }
-        }
-        else if(city.equals("경상북도")) {
-            links = document.select("body items item jeju");
-            for (Element element : links) {
-                reg[i] = element.text();
-            }
-        }
-        else if(city.equals("경상남도")) {
             links = document.select("body items item chungbuk");
             for (Element element : links) {
                 reg[i] = element.text();
             }
         }
-        else if(city.equals("제주특별자치도")) {
+        else if(city.equals("충청남도")) {
+            links = document.select("body items item chungnam");
+            for (Element element : links) {
+                reg[i] = element.text();
+            }
+        }
+        else if(city.equals("전라북도")) {
+            links = document.select("body items item jeonbuk");
+            for (Element element : links) {
+                reg[i] = element.text();
+            }
+        }
+        else if(city.equals("전라남도")) {
+            links = document.select("body items item jeonnam");
+            for (Element element : links) {
+                reg[i] = element.text();
+            }
+        }
+        else if(city.equals("경상북도")) {
+            links = document.select("body items item gyeongbuk");
+            for (Element element : links) {
+                reg[i] = element.text();
+            }
+        }
+        else if(city.equals("경상남도")) {
             links = document.select("body items item gyeongnam");
             for (Element element : links) {
                 reg[i] = element.text();
             }
         }
+        else if(city.equals("제주특별자치도")) {
+            links = document.select("body items item jeju");
+            for (Element element : links) {
+                reg[i] = element.text();
+            }
+        }
         else if(city.equals("세종특별자치시")) {
-            links = document.select("body items item gyeonggi");
+            links = document.select("body items item sejong");
             for (Element element : links) {
                 reg[i] = element.text();
             }
         }
         return reg;
     }
+    /*
     public String set_data_air(String item, String area){
         Calendar cal = Calendar.getInstance();
         Calendar yes = Calendar.getInstance();
@@ -351,4 +350,6 @@ public class setdata_air {
 
         return  air;
     }
+
+     */
 }
