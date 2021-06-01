@@ -329,6 +329,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
         ImageButton btncloth=(ImageButton)findViewById(R.id.btncloth);
+        ImageButton list_item=(ImageButton)findViewById(R.id.list_item);
         btncloth.setOnClickListener(new View.OnClickListener() {
 
             @Override
@@ -342,6 +343,19 @@ public class MainActivity extends AppCompatActivity {
                 intent.putExtra("pm10grade", pm10);
                 intent.putExtra("nx", x_point);
                 intent.putExtra("ny", y_point);
+
+                startActivity(intent);
+
+            }
+        });
+
+
+        list_item.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View view) {
+
+                Intent intent = new Intent(MainActivity.this,SettingActivity.class);
 
                 startActivity(intent);
 
