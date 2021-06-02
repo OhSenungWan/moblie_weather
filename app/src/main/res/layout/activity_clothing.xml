@@ -157,7 +157,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="성별에 맞게 옷을 추천해 드려요"
+                        android:text="현재 체감온도에 맞는 의상들이에요"
                         android:textStyle="bold"
                         android:textSize="13dp"
                         android:layout_marginLeft="5dp"
@@ -228,7 +228,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="오늘의 날씨에는 이런 옷들이 괜찮을 것 같아요!"
+                    android:text="현재 체감온도는 26℃입니다. "
                     android:textColor="#F1F1F1"
                     android:textSize="12dp"
                     android:layout_marginLeft="20dp" />
@@ -283,7 +283,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="오늘의 날씨에는 이런 옷들이 괜찮을 것 같아요!"
+                    android:text="현재 체감온도에 맞는 의상들이에요."
                     android:textColor="#F1F1F1"
                     android:textSize="12dp"
                     android:layout_marginLeft="20dp" />
