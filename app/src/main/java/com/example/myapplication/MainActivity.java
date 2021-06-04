@@ -101,6 +101,9 @@ public class MainActivity extends AppCompatActivity {
         PreferenceManager.setString(mContext, "rebuild", Data);
         String intentdata = temp+"℃ " + pm10 + " "+weather + " " + pm25 + " " + pm10m + "ug/m3 " + pm25m + "ug/m3 " + pop + "%";
         PreferenceManager.setString(mContext, "data", intentdata);
+        String twdata = temp + " " + wsd;
+        PreferenceManager.setString(mContext, "twdata", twdata);
+        System.out.println(twdata);
     }
 
     public void setStart() {
@@ -298,6 +301,9 @@ public class MainActivity extends AppCompatActivity {
                 Data = x_point + " " + y_point + " " + point_temp + " " + point_weather + " " + city_data;
                 PreferenceManager.setString(mContext, "rebuild", Data);
                 String intentdata = temp+"℃ " + pm10 + " "+weather + " " + pm25 + " " + pm10m + "ug/m3 " + pm25m + "ug/m3 " + pop + "%";
+                String twdata = temp + " " + wsd;
+                PreferenceManager.setString(mContext, "twdata", twdata);
+                System.out.println(twdata);
                 PreferenceManager.setString(mContext, "data", intentdata);
             }
         }
@@ -364,7 +370,12 @@ public class MainActivity extends AppCompatActivity {
 
 
         setStart();
-
+        String twdata = PreferenceManager.getString(mContext,"twdata");
+        if(twdata.equals("")) {
+            twdata = temp+" " + wsd;
+            PreferenceManager.setString(mContext, "twdata", twdata);
+            System.out.println(twdata);
+        }
         String intentdata = PreferenceManager.getString(mContext,"data");
         if(intentdata.equals("")) {
             intentdata = temp+"℃ " + pm10 + " "+weather + " " + pm25 + " " + Data_Air[0] + " " + Data_Air[1] + " " + pop;

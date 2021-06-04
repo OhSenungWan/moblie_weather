@@ -29,7 +29,6 @@
             android:screenOrientation="portrait"/>
         <activity android:name=".SettingActivity" android:label="SettingPage"
             android:screenOrientation="portrait"/>
-        <activity android:name=".PopupActivity" android:theme="@android:style/Theme.Dialog" />
         <activity android:name=".PopActivity" android:theme="@android:style/Theme.Dialog" />
 
         <activity android:name=".db.DBInit"

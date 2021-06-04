@@ -27,13 +27,13 @@ public class setdata_air {
         }
         try {
             String url = this.Link_URL("PM10");                 //미세먼지
-            Document document = Jsoup.connect(url).get();
+            Document document = Jsoup.connect(url).timeout(15000).get();
             setdata(document, 0);
             url = this.Link_URL("PM25");
-            document = Jsoup.connect(url).get();
+            document = Jsoup.connect(url).timeout(15000).get();
             setdata(document, 1);
             url = this.Link_URL("O3");
-            document = Jsoup.connect(url).get();
+            document = Jsoup.connect(url).timeout(15000).get();
             setdata(document, 2);
         }catch (IOException e) {
             e.printStackTrace();

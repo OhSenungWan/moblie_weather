@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/background"
+    android:id="@+id/set_bg"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/bg_4night"
@@ -69,7 +69,6 @@
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
         android:padding="5dp"
-        android:id="@+id/todayweather1"
         android:layout_marginTop="50dp"
         android:orientation="vertical"
         android:background="@drawable/roundconer2">
@@ -83,6 +82,7 @@
                 android:layout_marginLeft="15dp"
                 android:src="@drawable/todaywe"/>
             <TextView
+                android:id="@+id/set_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="체감온도 설정"
@@ -100,6 +100,7 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal">
             <LinearLayout
+                android:id="@+id/cmin"
                 android:layout_width="60dp"
                 android:layout_height="60dp"
                 android:orientation="vertical"
@@ -108,14 +109,16 @@
                 android:layout_marginRight="10dp"
                 android:background="@drawable/darkcircle">
                 <TextView
+                    android:id="@+id/tmin"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="20dp"
                     android:layout_gravity="center"
                     android:textColor="#FFFFFF"
-                    android:text="0~4℃"/>
+                    android:text="4-℃"/>
             </LinearLayout>
             <LinearLayout
+                android:id="@+id/c8"
                 android:layout_width="60dp"
                 android:layout_height="60dp"
                 android:orientation="vertical"
@@ -124,6 +127,7 @@
                 android:layout_marginRight="10dp"
                 android:background="@drawable/whitecircle">
                 <TextView
+                    android:id="@+id/t8"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="20dp"
@@ -132,6 +136,7 @@
                     android:text="5~8℃"/>
             </LinearLayout>
             <LinearLayout
+                android:id="@+id/c12"
                 android:layout_width="60dp"
                 android:layout_height="60dp"
                 android:orientation="vertical"
@@ -140,6 +145,7 @@
                 android:layout_marginRight="10dp"
                 android:background="@drawable/darkcircle">
                 <TextView
+                    android:id="@+id/t12"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="20dp"
@@ -148,6 +154,7 @@
                     android:text="9~12℃"/>
             </LinearLayout>
             <LinearLayout
+                android:id="@+id/c16"
                 android:layout_width="60dp"
                 android:layout_height="60dp"
                 android:orientation="vertical"
@@ -156,14 +163,16 @@
                 android:layout_marginRight="10dp"
                 android:background="@drawable/darkcircle">
                 <TextView
+                    android:id="@+id/t16"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="20dp"
                     android:layout_gravity="center"
                     android:textColor="#FFFFFF"
-                    android:text="13~15℃"/>
+                    android:text="13~16℃"/>
             </LinearLayout>
             <LinearLayout
+                android:id="@+id/c19"
                 android:layout_width="60dp"
                 android:layout_height="60dp"
                 android:orientation="vertical"
@@ -171,15 +180,18 @@
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
                 android:background="@drawable/darkcircle">
+
                 <TextView
+                    android:id="@+id/t19"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp"
                     android:layout_gravity="center"
-                    android:textColor="#FFFFFF"
-                    android:text="16~19℃"/>
+                    android:layout_marginTop="20dp"
+                    android:text="17~19℃"
+                    android:textColor="#FFFFFF" />
             </LinearLayout>
             <LinearLayout
+                android:id="@+id/c22"
                 android:layout_width="60dp"
                 android:layout_height="60dp"
                 android:orientation="vertical"
@@ -188,14 +200,16 @@
                 android:layout_marginRight="10dp"
                 android:background="@drawable/darkcircle">
                 <TextView
+                    android:id="@+id/t22"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="20dp"
                     android:layout_gravity="center"
                     android:textColor="#FFFFFF"
-                    android:text="20~23℃"/>
+                    android:text="20~22℃"/>
             </LinearLayout>
             <LinearLayout
+                android:id="@+id/c24"
                 android:layout_width="60dp"
                 android:layout_height="60dp"
                 android:orientation="vertical"
@@ -204,14 +218,16 @@
                 android:layout_marginRight="10dp"
                 android:background="@drawable/darkcircle">
                 <TextView
+                    android:id="@+id/t24"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="20dp"
                     android:layout_gravity="center"
                     android:textColor="#FFFFFF"
-                    android:text="24~27℃"/>
+                    android:text="23~24℃"/>
             </LinearLayout>
             <LinearLayout
+                android:id="@+id/c29"
                 android:layout_width="60dp"
                 android:layout_height="60dp"
                 android:orientation="vertical"
@@ -220,14 +236,16 @@
                 android:layout_marginRight="10dp"
                 android:background="@drawable/darkcircle">
                 <TextView
+                    android:id="@+id/t29"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="20dp"
                     android:layout_gravity="center"
                     android:textColor="#FFFFFF"
-                    android:text="28~31℃"/>
+                    android:text="25~29℃"/>
             </LinearLayout>
             <LinearLayout
+                android:id="@+id/cmax"
                 android:layout_width="60dp"
                 android:layout_height="60dp"
                 android:orientation="vertical"
@@ -236,12 +254,13 @@
                 android:layout_marginRight="10dp"
                 android:background="@drawable/darkcircle">
                 <TextView
+                    android:id="@+id/tmax"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="20dp"
                     android:layout_gravity="center"
                     android:textColor="#FFFFFF"
-                    android:text="31+℃"/>
+                    android:text="29+℃"/>
             </LinearLayout>
 
 
@@ -294,7 +313,7 @@
                 android:layout_marginLeft="5dp"
                 android:gravity="center">
                 <LinearLayout
-                    android:id="@+id/man"
+                    android:id="@+id/set_man"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -302,7 +321,7 @@
                     android:orientation="horizontal"
                     android:gravity="center">
                     <TextView
-                        android:id="@+id/tman"
+                        android:id="@+id/tset_man"
                         android:layout_width="20dp"
                         android:layout_height="20dp"
                         android:textSize="12dp"
@@ -311,14 +330,14 @@
                         android:textColor="#777777"/>
                 </LinearLayout>
                 <LinearLayout
-                    android:id="@+id/woman"
+                    android:id="@+id/set_woman"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:orientation="horizontal"
                     android:gravity="center">
                     <TextView
-                        android:id="@+id/twoman"
+                        android:id="@+id/tset_woman"
                         android:layout_width="20dp"
                         android:layout_height="20dp"
                         android:textSize="12dp"
@@ -364,7 +383,7 @@
                         android:orientation="horizontal"
                         android:padding="20dp">
                         <LinearLayout
-                            android:id="@+id/layout_timeWeatherTop"
+                            android:id="@+id/set_lay_top"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:orientation="horizontal"
@@ -386,7 +405,6 @@
 
             </LinearLayout>
             <LinearLayout
-                android:id="@+id/layout_bottom"
                 android:layout_width="match_parent"
                 android:layout_height="180dp"
                 android:layout_marginLeft="10dp"
@@ -419,7 +437,7 @@
                         android:orientation="horizontal"
                         android:padding="20dp">
                         <LinearLayout
-                            android:id="@+id/layout_timeWeatherBottom"
+                            android:id="@+id/set_lay_tbot"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:orientation="horizontal"
