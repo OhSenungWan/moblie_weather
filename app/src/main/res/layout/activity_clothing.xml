@@ -226,6 +226,7 @@
                     android:layout_marginTop="20dp"
                     android:layout_marginLeft="20dp" />
                 <TextView
+                    android:id="@+id/top_set_text"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="현재 체감온도는 26℃입니다. "

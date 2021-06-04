@@ -54,7 +54,7 @@ public class ClothingActivity extends Activity {
     int Time;
     LinearLayout man;
     LinearLayout woman;
-    TextView pmch, winch, tempch, rainch, tman, twoman;
+    TextView pmch, winch, tempch, rainch, tman, twoman, set_text;
     String[] temp = new String[2];
     String[] tempdata;
     double ShareT;
@@ -80,7 +80,7 @@ public class ClothingActivity extends Activity {
         }
         String tlist1 = PreferenceManager.getString(mContext,"MTLIST");
         if(tlist1.equals("")) {
-            tlist1 = "히트텍 기모후드 롱패딩 기모코트 기모맨투맨 오리털패딩 스웨터" +
+            tlist1 = "히트텍 기모후드 롱패딩 기모코트(남) 기모맨투맨 오리털패딩 스웨터" +
                     "  히트텍 기모후드 모직코트 기모맨투맨 숏패딩 두꺼운니트 가죽자켓" +
                     "  점퍼 후드 맨투맨 니트 가죽자켓 패딩조끼 트렌치코트" +
                     "  점퍼 후드 맨투맨 패딩조끼 청자켓 가죽자켓 가디건" +
@@ -109,7 +109,7 @@ public class ClothingActivity extends Activity {
         mblist = tlist2.split("  ");
         String tlist3 = PreferenceManager.getString(mContext,"WTLIST");
         if(tlist3.equals("")) {
-            tlist3 = "히트텍 기모후드 기모코트 롱패딩 기모맨투맨 오리털패딩 스웨터" +
+            tlist3 = "히트텍 기모후드 기모코트(여) 롱패딩 기모맨투맨 오리털패딩 스웨터" +
                     "  히트텍 기모후드 모직코트 기모맨투맨 숏패딩 두꺼운니트 가죽자켓" +
                     "  점퍼 후드 맨투맨 니트 가죽자켓 패딩조끼 트렌치코트" +
                     "  점퍼 후드 맨투맨 패딩조끼 청자켓 가죽자켓 가디건" +
@@ -173,6 +173,7 @@ public class ClothingActivity extends Activity {
                 woman = (LinearLayout)findViewById(R.id.woman);
                 tman = (TextView)findViewById(R.id.tman);
                 twoman = (TextView)findViewById(R.id.twoman);
+                set_text = (TextView)findViewById(R.id.top_set_text);
                 double Ta = Double.parseDouble(intent.getStringExtra("Temp"));
                 double wsd = Double.parseDouble(intent.getStringExtra("Wsd"));
                 String weather = intent.getStringExtra("Weather");
@@ -292,6 +293,7 @@ public class ClothingActivity extends Activity {
                         LinearLayout linearLayoutBottom = findViewById(R.id.layout_timeWeatherBottom);
                         linearLayoutTop.removeAllViews();
                         linearLayoutBottom.removeAllViews();
+                        set_text.setText("현재 체감온도는" + ShareT +"℃입니다. ");
                         if(finalT <= 4){// 0~8 mantop 9~17 manbot 18~26 womantop 27 ~ 35 womanbot
                             //mtlist[0] += topcloth[0] + " " + topcloth[1] + " " + topcloth[3]; 옷 빼기
                             // 옷 더하기 mtlist[0] += " 추가할옷";
@@ -1060,7 +1062,10 @@ public class ClothingActivity extends Activity {
             case "두꺼운티셔츠":
                 topImageView[i].setImageResource(R.drawable.cloth_tshirts);
                 break;
-            case "기모코트":
+            case "기모코트(남)":
+                topImageView[i].setImageResource(R.drawable.cloth_manlongcoat1);
+                break;
+            case "기모코트(여)":
                 topImageView[i].setImageResource(R.drawable.cloth_womanlongcoat1);
                 break;
             case "모직코트":
@@ -1185,8 +1190,11 @@ public class ClothingActivity extends Activity {
                     case "두꺼운티셔츠":
                         Weather.setImageResource(R.drawable.cloth_tshirts);
                         break;
-                    case "기모코트":
-                        Weather.setImageResource(R.drawable.cloth_womanlongcoat1);
+                    case "기모코트(남)":
+                        topImageView[i].setImageResource(R.drawable.cloth_manlongcoat1);
+                        break;
+                    case "기모코트(여)":
+                        topImageView[i].setImageResource(R.drawable.cloth_womanlongcoat1);
                         break;
                     case "모직코트":
                         Weather.setImageResource(R.drawable.cloth_womanlongcoat2);

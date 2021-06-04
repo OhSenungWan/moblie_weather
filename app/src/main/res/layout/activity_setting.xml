@@ -304,6 +304,7 @@
                     android:src="@drawable/setting"
                     android:layout_gravity="center"/>
                 <TextView
+                    android:id="@+id/temptext"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="체감온도 5℃ ~ 8℃"
@@ -376,6 +377,7 @@
                     android:layout_marginTop="20dp"
                     android:layout_marginLeft="20dp" />
                 <TextView
+                    android:id="@+id/set_top_text"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="체감온도 5~8℃에서의 의상들입니다."
@@ -430,6 +432,7 @@
                     android:layout_marginTop="20dp"
                     android:layout_marginLeft="20dp" />
                 <TextView
+                    android:id="@+id/set_bot_text"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="체감온도 5~8℃에서의 의상들입니다."

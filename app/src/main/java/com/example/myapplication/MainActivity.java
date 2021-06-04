@@ -316,6 +316,12 @@ public class MainActivity extends AppCompatActivity {
             text = "58 125 11B10101 11B00000 서울특별시 구로구 구로제1동";
             PreferenceManager.setString(mContext, "rebuild", text);
         }
+        String twdata = PreferenceManager.getString(mContext,"twdata");
+        if(twdata.equals("")) {
+            twdata = "17.5 " + "5.5";
+            PreferenceManager.setString(mContext, "twdata", twdata);
+            System.out.println(twdata);
+        }
         String[] data = text.split(" ");
         x_point = data[0];
         y_point = data[1];
@@ -370,12 +376,6 @@ public class MainActivity extends AppCompatActivity {
 
 
         setStart();
-        String twdata = PreferenceManager.getString(mContext,"twdata");
-        if(twdata.equals("")) {
-            twdata = temp+" " + wsd;
-            PreferenceManager.setString(mContext, "twdata", twdata);
-            System.out.println(twdata);
-        }
         String intentdata = PreferenceManager.getString(mContext,"data");
         if(intentdata.equals("")) {
             intentdata = temp+"℃ " + pm10 + " "+weather + " " + pm25 + " " + Data_Air[0] + " " + Data_Air[1] + " " + pop;

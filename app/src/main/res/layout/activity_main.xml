@@ -22,7 +22,7 @@
             android:layout_weight="1"
             android:background="@android:color/transparent"
             android:scaleType="fitCenter"
-            android:src="@drawable/list_img" />
+            android:src="@drawable/setting" />
         <ImageButton
             android:id="@+id/btncloth"
             android:layout_width="match_parent"
