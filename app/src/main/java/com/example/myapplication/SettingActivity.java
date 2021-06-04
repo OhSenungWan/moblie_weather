@@ -232,56 +232,56 @@ public class SettingActivity extends Activity {
         if (temp <= 4) {
             cmin.setBackgroundResource(R.drawable.whitecircle);
             tmin.setTextColor(Color.parseColor("#353535"));
-            temptext.setText("~4℃");
+            temptext.setText("체감온도: ~4℃");
             set_top_text.setText("체감온도 4℃미만에서의 의상들입니다.");
             set_bot_text.setText("체감온도 4℃미만에서의 의상들입니다.");
         } else if (temp <= 8 && temp > 4) {
             c8.setBackgroundResource(R.drawable.whitecircle);
             t8.setTextColor(Color.parseColor("#353535"));
-            temptext.setText("5℃~8℃");
+            temptext.setText("체감온도: 5℃~8℃");
             set_top_text.setText("체감온도 5~8℃에서의 의상들입니다.");
             set_bot_text.setText("체감온도 5~8℃에서의 의상들입니다.");
         } else if (temp <= 12 && temp > 8) {
             c12.setBackgroundResource(R.drawable.whitecircle);
             t12.setTextColor(Color.parseColor("#353535"));
-            temptext.setText("9℃~12℃");
+            temptext.setText("체감온도: 9℃~12℃");
             set_top_text.setText("체감온도 9~12℃에서의 의상들입니다.");
             set_bot_text.setText("체감온도 9~12℃에서의 의상들입니다.");
         } else if (temp <= 16 && temp > 12) {
             c16.setBackgroundResource(R.drawable.whitecircle);
             t16.setTextColor(Color.parseColor("#353535"));
-            temptext.setText("13℃~16℃");
+            temptext.setText("체감온도: 13℃~16℃");
             set_top_text.setText("체감온도 13~16℃에서의 의상들입니다.");
             set_bot_text.setText("체감온도 13~16℃에서의 의상들입니다.");
         } else if (temp <= 19 && temp > 16) {
             c19.setBackgroundResource(R.drawable.whitecircle);
             t19.setTextColor(Color.parseColor("#353535"));
-            temptext.setText("17℃~19℃");
+            temptext.setText("체감온도: 17℃~19℃");
             set_top_text.setText("체감온도 17~19℃에서의 의상들입니다.");
             set_bot_text.setText("체감온도 17~19℃에서의 의상들입니다.");
         } else if (temp <= 22 && temp > 19) {
             c22.setBackgroundResource(R.drawable.whitecircle);
             t22.setTextColor(Color.parseColor("#353535"));
-            temptext.setText("20℃~22℃");
+            temptext.setText("체감온도: 20℃~22℃");
             set_top_text.setText("체감온도 20~22℃에서의 의상들입니다.");
             set_bot_text.setText("체감온도 20~22℃에서의 의상들입니다.");
         } else if (temp <= 24 && temp > 22) {
             c24.setBackgroundResource(R.drawable.whitecircle);
             t24.setTextColor(Color.parseColor("#353535"));
-            temptext.setText("23℃~24℃");
+            temptext.setText("체감온도: 23℃~24℃");
             set_top_text.setText("체감온도 23~24℃에서의 의상들입니다.");
             set_bot_text.setText("체감온도 23~24℃에서의 의상들입니다.");
         } else if (temp <= 29 && temp > 24) {
             c29.setBackgroundResource(R.drawable.whitecircle);
             t29.setTextColor(Color.parseColor("#353535"));
-            temptext.setText("25℃~29℃");
+            temptext.setText("체감온도: 25℃~29℃");
             set_top_text.setText("체감온도 25~29℃에서의 의상들입니다.");
             set_bot_text.setText("체감온도 25~29℃에서의 의상들입니다.");
         }
         else {
             cmax.setBackgroundResource(R.drawable.whitecircle);
             tmax.setTextColor(Color.parseColor("#353535"));
-            temptext.setText("29℃~");
+            temptext.setText("체감온도: 29℃~");
             set_top_text.setText("체감온도 29℃이상 에서의 의상들입니다.");
             set_bot_text.setText("체감온도 29℃이상 에서의 의상들입니다.");
         }
