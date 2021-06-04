@@ -32,8 +32,8 @@
                 android:textColor="#FFFFFF"/>
             <ImageView
                 android:id="@+id/addcancle"
-                android:layout_width="13dp"
-                android:layout_height="13dp"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
                 android:layout_gravity="center"
                 android:layout_marginLeft="86dp"
                 android:src="@drawable/cancle"/>

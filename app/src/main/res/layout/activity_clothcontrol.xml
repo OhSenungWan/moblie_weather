@@ -31,8 +31,8 @@
                 android:layout_marginLeft="5dp"
                 android:textColor="#FFFFFF"/>
             <ImageView
-                android:layout_width="13dp"
-                android:layout_height="13dp"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
                 android:layout_gravity="center"
                 android:id="@+id/cancle"
                 android:layout_marginLeft="60dp"
