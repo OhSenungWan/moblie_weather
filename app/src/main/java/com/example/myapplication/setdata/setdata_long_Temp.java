@@ -19,7 +19,7 @@ public class setdata_long_Temp {
             int AMPM = cal.get(Calendar.AM_PM);
             Calendar yesterday = Calendar.getInstance();
             yesterday.add(Calendar.DATE, -1);
-            if (hour < 06 && AMPM == 0){
+            if (hour < 04 && AMPM == 0){
                 year = yesterday.get(yesterday.YEAR);
                 month = yesterday.get(yesterday.MONTH) + 1;
                 date = yesterday.get(yesterday.DATE);

@@ -32,7 +32,7 @@ public class SettingActivity extends Activity {
     LinearLayout linearLayoutTop, linearLayoutBot;
     LinearLayout man, woman;
 
-    TextView winch , temptext;
+    TextView temptext;
     TextView tmin, t8, t12, t16, t19, t22, t24, t29, tmax;
     TextView tman, twoman;
     TextView set_top_text, set_bot_text;
@@ -181,31 +181,7 @@ public class SettingActivity extends Activity {
         double Twc= 13.12+(0.6215*temp)-(11.37*V)+(0.3965*temp*V);
         ShareT = (Math.round(Twc*100)/100.0); //결과 : x.xx
 
-        winch = (TextView) findViewById(R.id.set_text);
         temptext = (TextView) findViewById(R.id.temptext);
-        if (ShareT <= 4) {
-            winch.setText("한파가 지속돼요. \n기모제품과 내복입으시는 걸 추천드려요.");
-        } else if (ShareT >= 4 && ShareT < 8) {
-            winch.setText("차가운 날씨에요. \n두꺼운 아우터안에 여러 옷을 껴 입으시는 걸 추천드려요.");
-        } else if (ShareT >= 8 && ShareT < 12) {
-            winch.setText("아직은 추운 날씨군요. \n두꺼운 아우터에 옷을 한 두겹 껴 입으시는 걸 추천드려요.");
-        } else if (ShareT >= 12 && ShareT < 16) {
-            winch.setText("쌀쌀한 날씨에요. \n일반 아우터안에  여러겹 껴 입으시는 걸 추천드려요.");
-        }else if (ShareT >= 16 && ShareT < 19) {
-            winch.setText("서늘한 날씨군요. \n일반 아우터안에  옷을 한 두겹 껴 입으시는 걸 추천드려요.");
-        }else if (ShareT >= 19 && ShareT < 23) {
-            winch.setText("따듯한 날씨지만, \n가벼운 소재의 아우터나 얇은 옷들로 스타일을 구성하시는 것이 좋겠어요.");
-        }
-        else if (ShareT >= 23 && ShareT < 25) {
-            winch.setText("약간 더울 수 있는 날씨에요. \n가벼운 소재와 얇은 옷들로 스타일을 구성하시는 것이 좋겠어요.");
-        }
-        else if (ShareT >= 25 && ShareT < 29) {
-            winch.setText("더울 수 있는 날씨에요. \n겉 옷은 입지 않고 얇은 상의&하의로 스타일을 구성하시는 것이 좋겠어요.");
-        }
-        else {
-            winch.setText("매우 더울 수 있는 날씨에요. \n반팔 의상 및 칠부 의상으로 스타일을 구성하시는 것이 좋겠어요.");
-        }
-
 
     }  //2-1. 온도설정
 
@@ -449,7 +425,7 @@ public class SettingActivity extends Activity {
         String tlist1 = PreferenceManager.getString(mContext,"MTLIST");
         if(tlist1.equals("")) {
             tlist1 = "히트텍 기모후드 롱패딩 기모코트(남) 기모맨투맨 오리털패딩 스웨터" +
-                    "  히트텍 기모후드 모직코트 기모맨투맨 숏패딩 두꺼운니트 가죽자켓" +
+                    "  히트텍 기모후드 모직코트(남) 기모맨투맨 숏패딩 두꺼운니트 가죽자켓" +
                     "  점퍼 후드 맨투맨 니트 가죽자켓 패딩조끼 트렌치코트" +
                     "  점퍼 후드 맨투맨 패딩조끼 청자켓 가죽자켓 가디건" +
                     "  점퍼 후드 얇은맨투맨 블레이저 얇은가디건 두꺼운티셔츠 셔츠" +
@@ -478,7 +454,7 @@ public class SettingActivity extends Activity {
         String tlist3 = PreferenceManager.getString(mContext,"WTLIST");
         if(tlist3.equals("")) {
             tlist3 = "히트텍 기모후드 기모코트(여) 롱패딩 기모맨투맨 오리털패딩 스웨터" +
-                    "  히트텍 기모후드 모직코트 기모맨투맨 숏패딩 두꺼운니트 가죽자켓" +
+                    "  히트텍 기모후드 모직코트(여) 기모맨투맨 숏패딩 두꺼운니트 가죽자켓" +
                     "  점퍼 후드 맨투맨 니트 가죽자켓 패딩조끼 트렌치코트" +
                     "  점퍼 후드 맨투맨 패딩조끼 청자켓 가죽자켓 가디건" +
                     "  점퍼 후드 얇은맨투맨 얇은가디건 두꺼운티셔츠 셔츠" +
@@ -1355,7 +1331,10 @@ public class SettingActivity extends Activity {
             case "기모코트(여)":
                 topImageView.setImageResource(R.drawable.cloth_womanlongcoat1);
                 break;
-            case "모직코트":
+            case "모직코트(남)":
+                topImageView.setImageResource(R.drawable.cloth_manlongcoat1);
+                break;
+            case "모직코트(여)":
                 topImageView.setImageResource(R.drawable.cloth_womanlongcoat2);
                 break;
             default:
