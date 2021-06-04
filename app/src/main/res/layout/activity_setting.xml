@@ -115,7 +115,12 @@
                     android:layout_marginTop="20dp"
                     android:layout_gravity="center"
                     android:textColor="#FFFFFF"
+<<<<<<< HEAD
                     android:text="4-℃"/>
+=======
+                    android:textSize="12dp"
+                    android:text="0~4℃"/>
+>>>>>>> efeddb99bed2e37525930b8272a70243bee6f560
             </LinearLayout>
             <LinearLayout
                 android:id="@+id/c8"
@@ -151,6 +156,7 @@
                     android:layout_marginTop="20dp"
                     android:layout_gravity="center"
                     android:textColor="#FFFFFF"
+                    android:textSize="12dp"
                     android:text="9~12℃"/>
             </LinearLayout>
             <LinearLayout
@@ -169,7 +175,12 @@
                     android:layout_marginTop="20dp"
                     android:layout_gravity="center"
                     android:textColor="#FFFFFF"
+<<<<<<< HEAD
                     android:text="13~16℃"/>
+=======
+                    android:textSize="12dp"
+                    android:text="13~15℃"/>
+>>>>>>> efeddb99bed2e37525930b8272a70243bee6f560
             </LinearLayout>
             <LinearLayout
                 android:id="@+id/c19"
@@ -186,9 +197,15 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
+<<<<<<< HEAD
                     android:layout_marginTop="20dp"
                     android:text="17~19℃"
                     android:textColor="#FFFFFF" />
+=======
+                    android:textColor="#FFFFFF"
+                    android:textSize="12dp"
+                    android:text="16~19℃"/>
+>>>>>>> efeddb99bed2e37525930b8272a70243bee6f560
             </LinearLayout>
             <LinearLayout
                 android:id="@+id/c22"
@@ -206,7 +223,12 @@
                     android:layout_marginTop="20dp"
                     android:layout_gravity="center"
                     android:textColor="#FFFFFF"
+<<<<<<< HEAD
                     android:text="20~22℃"/>
+=======
+                    android:textSize="12dp"
+                    android:text="20~23℃"/>
+>>>>>>> efeddb99bed2e37525930b8272a70243bee6f560
             </LinearLayout>
             <LinearLayout
                 android:id="@+id/c24"
@@ -224,7 +246,12 @@
                     android:layout_marginTop="20dp"
                     android:layout_gravity="center"
                     android:textColor="#FFFFFF"
+<<<<<<< HEAD
                     android:text="23~24℃"/>
+=======
+                    android:textSize="12dp"
+                    android:text="24~27℃"/>
+>>>>>>> efeddb99bed2e37525930b8272a70243bee6f560
             </LinearLayout>
             <LinearLayout
                 android:id="@+id/c29"
@@ -242,7 +269,12 @@
                     android:layout_marginTop="20dp"
                     android:layout_gravity="center"
                     android:textColor="#FFFFFF"
+<<<<<<< HEAD
                     android:text="25~29℃"/>
+=======
+                    android:textSize="12dp"
+                    android:text="28~31℃"/>
+>>>>>>> efeddb99bed2e37525930b8272a70243bee6f560
             </LinearLayout>
             <LinearLayout
                 android:id="@+id/cmax"
@@ -259,6 +291,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="20dp"
                     android:layout_gravity="center"
+                    android:textSize="12dp"
                     android:textColor="#FFFFFF"
                     android:text="29+℃"/>
             </LinearLayout>
@@ -369,7 +402,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="체감온도 5~8℃에서의 의상들입니다"
+                    android:text="체감온도 5~8℃에서의 의상들입니다."
                     android:textColor="#F1F1F1"
                     android:textSize="12dp"
                     android:layout_marginLeft="20dp" />
@@ -423,7 +456,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="의상 이미지를 길게 클릭하여 의상을 삭제합니다"
+                    android:text="체감온도 5~8℃에서의 의상들입니다."
                     android:textColor="#F1F1F1"
                     android:textSize="12dp"
                     android:layout_marginLeft="20dp" />
