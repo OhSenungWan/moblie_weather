@@ -1,13 +1,10 @@
 package com.example.myapplication;
 
-import android.appwidget.AppWidgetManager;
-import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,7 +15,6 @@ import android.widget.TextView;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.content.ContextCompat;
 
 import com.example.myapplication.db.DBInit;
 import com.example.myapplication.db.ShowListView;
@@ -31,7 +27,6 @@ import com.example.myapplication.setdata.setdata_long_weather;
 import com.example.myapplication.setdata.setdata_short;
 import com.github.mikephil.charting.charts.LineChart;
 import com.github.mikephil.charting.components.Legend;
-import com.github.mikephil.charting.components.XAxis;
 import com.github.mikephil.charting.data.Entry;
 import com.github.mikephil.charting.data.LineData;
 import com.github.mikephil.charting.data.LineDataSet;
@@ -39,7 +34,6 @@ import com.github.mikephil.charting.data.LineDataSet;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.Collections;
 import java.util.List;
 import java.util.Locale;
 
@@ -228,7 +222,7 @@ public class MainActivity extends AppCompatActivity {
                                 Time_comment.setText("지금은 눈이 내려요.");
                                 break;
                             case "Sunny":
-                                Main_img.setImageResource(R.drawable.sunn);
+                                Main_img.setImageResource(R.drawable.sun);
                                 Time_comment.setText("지금은 해가 뜨는 화창한 날씨에요.");
                                 break;
                             case "Cloud":
@@ -237,8 +231,8 @@ public class MainActivity extends AppCompatActivity {
                                 break;
                             case "Blur":
                                 Main_img.setImageResource(R.drawable.cloud2);
-                                Time_comment.setText("지금은 매우 흐린 날씨에요.");
 
+                                Time_comment.setText("지금은 매우 흐린 날씨에요.");
                                 break;
                         }
                         if (PTY.equals("0")) {
