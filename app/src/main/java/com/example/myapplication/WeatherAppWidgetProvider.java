@@ -6,7 +6,11 @@ import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.net.Uri;
+import android.os.Bundle;
 import android.widget.RemoteViews;
+import android.widget.Toast;
+
 import com.example.myapplication.savedata.PreferenceManager;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -16,10 +20,29 @@ import static com.example.myapplication.AppWidgetConfig.KEY_BUTTON_TEXT;
 import static com.example.myapplication.AppWidgetConfig.SHARED_PRES;
 
 public class WeatherAppWidgetProvider extends AppWidgetProvider{
+    public static final String ACTION_TOAST = "actionRefresh";
+    public static final String EXTRA_ITEM_POSITION = "extraItemPosition";
     private Context mcontext;
     @Override
     public void onReceive(Context context, Intent intent){
         //날씨정보 받아오는 기능 실행 됐을 때
+        if(ACTION_TOAST.equals(intent.getAction())){
+            int appWidgetId = intent.getIntExtra(AppWidgetManager.EXTRA_APPWIDGET_ID,
+                    AppWidgetManager.INVALID_APPWIDGET_ID);
+            AppWidgetManager appWidgetManager= AppWidgetManager.getInstance(context);
+            appWidgetManager.notifyAppWidgetViewDataChanged(appWidgetId, R.id.update);
+        }
+        String action = intent.getAction();
+        if(AppWidgetManager.ACTION_APPWIDGET_UPDATE.equals(action)){
+            Bundle extras = intent.getExtras();
+            if(extras != null){
+                int[] appWidgetIds = extras.getIntArray(AppWidgetManager.EXTRA_APPWIDGET_IDS);
+                if(appWidgetIds != null && appWidgetIds.length > 0){
+                    this.onUpdate(context, AppWidgetManager.getInstance(context),appWidgetIds);
+                }
+            }
+        }
+
         super.onReceive(context,intent);
 
     }
@@ -56,6 +79,15 @@ public class WeatherAppWidgetProvider extends AppWidgetProvider{
         RemoteViews update = new RemoteViews(context.getPackageName(), R.layout.activity_widget);
         update.setOnClickPendingIntent(R.id.update,pendingIntent);
         update.setCharSequence(R.id.update,"setText", buttonText);
+
+        Intent clickIntent = new Intent(context, WeatherAppWidgetProvider.class);
+        clickIntent.setAction(ACTION_TOAST);
+        PendingIntent clickPendingIntent = PendingIntent.getBroadcast(context,
+                0,clickIntent, 0);
+
+        Intent serviceIntent = new Intent(context, widgetservice.class);
+        serviceIntent.putExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, appWidgetId);
+        serviceIntent.setData(Uri.parse(serviceIntent.toUri(Intent.URI_INTENT_SCHEME)));
 
         String text = PreferenceManager.getString(context,"rebuild");
         if(text.equals("")) {
@@ -102,7 +134,9 @@ public class WeatherAppWidgetProvider extends AppWidgetProvider{
         Intent intent1 = new Intent(context, WeatherAppWidgetProvider.class).setAction("Button2");
         PendingIntent pendingIntent1 = PendingIntent.getActivity(context,0,intent1,PendingIntent.FLAG_UPDATE_CURRENT);
         updateViews.setOnClickPendingIntent(R.id.update,pendingIntent1);
+        updateViews.setPendingIntentTemplate(R.id.update, clickPendingIntent);
 
         appWidgetManager.updateAppWidget(appWidgetId,updateViews);
+        appWidgetManager.notifyAppWidgetViewDataChanged(appWidgetId, R.id.update);
     }
 }

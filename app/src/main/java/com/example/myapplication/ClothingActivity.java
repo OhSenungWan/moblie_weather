@@ -294,8 +294,8 @@ public class ClothingActivity extends Activity {
                         LinearLayout linearLayoutBottom = findViewById(R.id.layout_timeWeatherBottom);
                         linearLayoutTop.removeAllViews();
                         linearLayoutBottom.removeAllViews();
-                        set_text.setText("현재 체감온도는" + ShareT +"℃입니다. ");
-                        bset_text.setText("현재 체감온도는" + ShareT +"℃입니다. ");
+                        set_text.setText("현재 체감온도는" + ShareT +"℃ 입니다. ");
+                        bset_text.setText("현재 체감온도는" + ShareT +"℃ 입니다. ");
                         if(finalT <= 4){// 0~8 mantop 9~17 manbot 18~26 womantop 27 ~ 35 womanbot
                             //mtlist[0] += topcloth[0] + " " + topcloth[1] + " " + topcloth[3]; 옷 빼기
                             // 옷 더하기 mtlist[0] += " 추가할옷";
@@ -1077,7 +1077,7 @@ public class ClothingActivity extends Activity {
                 topImageView[i].setImageResource(R.drawable.cloth_womanlongcoat2);
                 break;
             default:
-                topImageView[i].setImageResource(R.drawable.cloth);
+                topImageView[i].setImageResource(R.drawable.custom2);
                 break;
 
         }
@@ -1208,7 +1208,7 @@ public class ClothingActivity extends Activity {
                         Weather.setImageResource(R.drawable.cloth_womanlongcoat2);
                         break;
                     default:
-                        Weather.setImageResource(R.drawable.cloth);
+                        Weather.setImageResource(R.drawable.custom2);
                         break;
 
                 }
@@ -2302,7 +2302,7 @@ public class ClothingActivity extends Activity {
                 botImageView[i].setImageResource(R.drawable.cloth_womancotton);
                 break;
             default:
-                botImageView[i].setImageResource(R.drawable.cloth);
+                botImageView[i].setImageResource(R.drawable.custom2);
                 break;
 
         }
@@ -2377,7 +2377,7 @@ public class ClothingActivity extends Activity {
                         Weather.setImageResource(R.drawable.cloth_womancotton);
                         break;
                     default:
-                        Weather.setImageResource(R.drawable.cloth);
+                        Weather.setImageResource(R.drawable.custom2);
                         break;
                 }
                 cancel.setOnClickListener(new View.OnClickListener() {

@@ -1338,7 +1338,7 @@ public class SettingActivity extends Activity {
                 topImageView.setImageResource(R.drawable.cloth_womanlongcoat2);
                 break;
             default:
-                topImageView.setImageResource(R.drawable.cloth);
+                topImageView.setImageResource(R.drawable.custom2);
                 break;
 
         }
@@ -1398,7 +1398,7 @@ public class SettingActivity extends Activity {
                 botImageView.setImageResource(R.drawable.cloth_womancotton);
                 break;
             default:
-                botImageView.setImageResource(R.drawable.cloth);
+                botImageView.setImageResource(R.drawable.custom2);
                 break;
 
         }
