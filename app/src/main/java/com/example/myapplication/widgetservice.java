@@ -1,4 +1,4 @@
-package com.example.myapplication;
+/*package com.example.myapplication;
 
 import android.appwidget.AppWidgetManager;
 import android.content.Context;
@@ -15,6 +15,7 @@ public class widgetservice extends RemoteViewsService{
 
 
     @Override
+    //시도하다 파기
     public RemoteViewsFactory onGetViewFactory(Intent intent) {
         return null;
     }
@@ -85,3 +86,6 @@ public class widgetservice extends RemoteViewsService{
         }
     }
 }
+
+
+ */

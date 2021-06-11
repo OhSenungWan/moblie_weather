@@ -1,4 +1,4 @@
-package com.example.myapplication;
+/*package com.example.myapplication;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.PendingIntent;
@@ -20,6 +20,8 @@ public class AppWidgetConfig extends AppCompatActivity {
 
 
     @Override
+
+    //시도하다 파기
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
@@ -50,3 +52,6 @@ public class AppWidgetConfig extends AppCompatActivity {
         finish();
     }
 }
+
+
+ */

@@ -5,7 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 
-public class SplashActivity  extends Activity{
+public class SplashActivity  extends Activity{ // 어플 시작할 때  로딩 화면
 
     @Override
     protected void onCreate(Bundle savedInstanceStare) {

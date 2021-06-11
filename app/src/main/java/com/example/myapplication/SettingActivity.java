@@ -406,7 +406,7 @@ public class SettingActivity extends Activity {
                 }
             }
         });
-    }
+    } // 온도 버튼 클릭시 아래 디자인 설정
 
     public void setStart(){
         mContext = this;
@@ -480,7 +480,7 @@ public class SettingActivity extends Activity {
         }
         wblist = tlist4.split("  ");
 
-    }
+    } // 처음 실행 시켰을 때
 
     public void setCloth_image_top(int max, int i, String cloth, double temp){
         linearLayoutTop = findViewById(R.id.set_lay_top);
@@ -854,7 +854,7 @@ public class SettingActivity extends Activity {
         linearLayoutTopV[i].setLayoutParams(lp2);
         linearLayoutTop.addView(linearLayoutTopV[i]);
 
-    }
+    } // 위쪽 의상들
     public void setCloth_image_bot(int max, int i, String cloth, double temp){
         linearLayoutBot = findViewById(R.id.set_lay_tbot);
         LinearLayout[] linearLayoutBotV = new LinearLayout[max];
@@ -1225,7 +1225,7 @@ public class SettingActivity extends Activity {
         lp2.rightMargin = 70;
         linearLayoutBotV[i].setLayoutParams(lp2);
         linearLayoutBot.addView(linearLayoutBotV[i]);
-    }
+    } // 아래쪽 의상들
 
     public void top_cloth_matching(ImageView topImageView, String cloth){
         switch (cloth) {
@@ -1543,7 +1543,7 @@ public class SettingActivity extends Activity {
         }
         PreferenceManager.setString(mContext, "WBLIST", tlist4);
 
-    }
+    } //새로운 버튼을 누를 때 원래 있던 이미지들 삭제 및 현 상황에 맞은 화면을 그려줌
 
     public void draw_Cloth(double temp){
         LinearLayout linearLayoutTop = findViewById(R.id.set_lay_top);
@@ -1737,7 +1737,7 @@ public class SettingActivity extends Activity {
                 }
             }
         }
-    }
+    } // 의상을 그려주는 함수
 
     public void addtop(View v){
 
@@ -1861,7 +1861,7 @@ public class SettingActivity extends Activity {
         /*//데이터 담아서 팝업(액티비티) 호출
         Intent intent = new Intent(this, PopActivity.class);
         startActivityForResult(intent, 1);*/
-    }
+    }  // 위쪽 의상 추가시 작업
     public void addbottom(View v){
 
         View dialogView = getLayoutInflater().inflate(R.layout.activity_clothadd, null);
@@ -1985,7 +1985,7 @@ public class SettingActivity extends Activity {
         /*//데이터 담아서 팝업(액티비티) 호출
         Intent intent = new Intent(this, PopActivity.class);
         startActivityForResult(intent, 1);*/
-    }
+    } // 아래쪽 의상 추가시 작업
 
 
 }

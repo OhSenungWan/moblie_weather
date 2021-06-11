@@ -1,4 +1,4 @@
-package com.example.myapplication;
+/*package com.example.myapplication;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -38,7 +38,8 @@ public class PopActivity extends Activity {
     public void onBackPressed() {
         //안드로이드 백버튼 막기
         return;
-    }*/
+    }
 
 
 }
+*/

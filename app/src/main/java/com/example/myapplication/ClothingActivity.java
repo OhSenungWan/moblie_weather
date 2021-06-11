@@ -630,7 +630,7 @@ public class ClothingActivity extends Activity {
                 });
             }
         }).start();
-    }
+    } // 클로싱 액티비티 처음 호출시 호출
 
     public void addtop(View v){
 
@@ -788,7 +788,8 @@ public class ClothingActivity extends Activity {
         /*//데이터 담아서 팝업(액티비티) 호출
         Intent intent = new Intent(this, PopActivity.class);
         startActivityForResult(intent, 1);*/
-    }
+    } // 위쪽 의상 추가시 호출
+
     public void addbottom(View v){
 
         View dialogView = getLayoutInflater().inflate(R.layout.activity_clothadd, null);
@@ -947,14 +948,7 @@ public class ClothingActivity extends Activity {
         /*//데이터 담아서 팝업(액티비티) 호출
         Intent intent = new Intent(this, PopActivity.class);
         startActivityForResult(intent, 1);*/
-    }
-
-
-
-
-
-
-
+    } // 아래쪽 의상 추가시 호출
 
     public void setCloth_image_top(int max, int i, String cloth){
         LinearLayout linearLayoutTop = findViewById(R.id.layout_timeWeatherTop);
@@ -2236,7 +2230,8 @@ public class ClothingActivity extends Activity {
         lp2.rightMargin = 70;
         linearLayoutTopV[i].setLayoutParams(lp2);
         linearLayoutTop.addView(linearLayoutTopV[i]);
-    }
+    } // 위쪽 의상 이미지, 텍스트 그려주는 함수
+
     public void setCloth_image_bot(int max, int i, String cloth){
         LinearLayout linearLayoutBottom = findViewById(R.id.layout_timeWeatherBottom);
 
@@ -3391,7 +3386,8 @@ public class ClothingActivity extends Activity {
         lp2.rightMargin = 70;
         linearLayoutBotV[i].setLayoutParams(lp2);
         linearLayoutBottom.addView(linearLayoutBotV[i]);
-    }
+    } // 아래쪽 의상 이미지, 텍스트 그려주는 함수
+
     public void drawCloth(){
         LinearLayout linearLayoutTop = findViewById(R.id.layout_timeWeatherTop);
         LinearLayout linearLayoutBottom = findViewById(R.id.layout_timeWeatherBottom);
@@ -3582,7 +3578,8 @@ public class ClothingActivity extends Activity {
                 }
             }
         }
-    }
+    }  // 의상을 그려주는 함수 setCloth_image_ 함수들을 호출함
+
     public void botdelete(int i, int temp, int list, int length){
         if (sets == 1) {
             tempset[temp] -= 1;
@@ -3621,7 +3618,8 @@ public class ClothingActivity extends Activity {
                 }
             }
         }
-    }
+    } // 아래 의상 삭제시 호출
+
     public void topdelete(int i, int temp, int list, int length){
         if (sets == 1) {
             tempset[temp] -= 1;
@@ -3660,5 +3658,5 @@ public class ClothingActivity extends Activity {
                 }
             }
         }
-    }
+    } // 위쪽 의상 삭제시 호출
 }

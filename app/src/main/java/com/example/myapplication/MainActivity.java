@@ -93,6 +93,7 @@ public class MainActivity extends AppCompatActivity {
     int back;
     private View view;
 
+    //어플 종료시 호출
     @Override
     protected void onDestroy() {
         super.onDestroy();
@@ -106,6 +107,7 @@ public class MainActivity extends AppCompatActivity {
         System.out.println(twdata);
     }
 
+    // 첫 실행 작업 onCreate에서 호출
     public void setStart() {
         new Thread(new Runnable() {
             @Override
@@ -308,6 +310,8 @@ public class MainActivity extends AppCompatActivity {
             }
         }
     }
+
+    //처음 실행시
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         mContext = this;
@@ -385,7 +389,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-
+    //시간일보 내부 기후들 동적으로 이미지뷰, 텍스트뷰 생성
     public void dynamicTimeWeather(){
         //탑 ,바텀 텍스트뷰 생성
 
@@ -511,6 +515,7 @@ public class MainActivity extends AppCompatActivity {
         makeTimeGraph();
     }
 
+    // 시간일보 그래프를 그려주는 함수
     public void makeTimeGraph(){
 
         LineChart lineChart = (LineChart)findViewById(R.id.lineChart);
@@ -563,6 +568,7 @@ public class MainActivity extends AppCompatActivity {
         lineChart.invalidate();
     }
 
+    // 주간일보 내부 기후들 동적으로 이미지뷰, 텍스트뷰 생성
     public void dynamicDayWeather(){
         //탑 ,바텀 텍스트뷰 생성
         LinearLayout linearLayoutTop = findViewById(R.id.layout_dayWeatherTop);
@@ -662,6 +668,7 @@ public class MainActivity extends AppCompatActivity {
         makeDayGraph();
     }
 
+    // 주간일보 그래프 그려주는 함수
     public void makeDayGraph(){
 
         LineChart lineChart = (LineChart)findViewById(R.id.dayLineChart);
