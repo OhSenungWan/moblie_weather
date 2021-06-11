@@ -47,6 +47,7 @@
         </receiver>
 
         <activity android:name=".AppWidgetConfig"> </activity>
-
+        <service android:name=".widgetservice"
+            android:permission="android.permission.BIND_REMOTEVIEWS"/>
     </application>
 </manifest>

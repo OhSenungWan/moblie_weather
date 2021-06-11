@@ -6,6 +6,7 @@ import android.appwidget.AppWidgetManager;
 import android.content.ComponentName;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
@@ -21,6 +22,19 @@ public class AppWidgetConfig extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+
+        Intent intent = new Intent(this,MainActivity.class);
+        PendingIntent pendingIntent = PendingIntent.getActivity(this,0,intent,0);
+        Intent serviceIntent = new Intent(this, widgetservice.class);
+        serviceIntent.putExtra(AppWidgetManager.EXTRA_APPWIDGET_ID,appWidgetId);
+        serviceIntent.setData(Uri.parse(serviceIntent.toUri(Intent.URI_INTENT_SCHEME)));
+
+
+        Intent clickIntent = new Intent(this, WeatherAppWidgetProvider.class);
+        clickIntent.setAction(WeatherAppWidgetProvider.ACTION_TOAST);
+        PendingIntent clickPendingIntent = PendingIntent.getBroadcast(this,
+                0,clickIntent,0);
 
         AppWidgetManager appWidgetManager = AppWidgetManager.getInstance(this);
         int appWidgetIds[] = appWidgetManager.getAppWidgetIds(
