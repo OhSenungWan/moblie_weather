@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
+import android.media.Image;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.View;
@@ -13,8 +14,14 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import android.graphics.drawable.AnimatedVectorDrawable;
+import android.graphics.drawable.Drawable;
+import android.os.Build;
+
 import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.vectordrawable.graphics.drawable.AnimatedVectorDrawableCompat;
 
 import com.example.myapplication.db.DBInit;
 import com.example.myapplication.db.ShowListView;
@@ -49,35 +56,15 @@ public class MainActivity extends AppCompatActivity {
     String Data_Air[] = new String[3];               //
     String city_data;
     String[] city;
-    String x_point;
-    String y_point;
-    String point_temp;
-    String point_weather;
-    String weather;
-    String temp;
-    String pop;
-    String vec;
-    String wsd;
+    String x_point, y_point, point_temp, point_weather, weather, temp, pop, vec, wsd;
     setdata_air sa;
     set_weather sw;
-    TextView Location;
-    TextView Comment;
-    TextView Temp;
-    TextView Days_of_week;
-    ImageView Main_img;
-    TextView Pop;
-    TextView Wsd;
-    TextView Vec;
-    TextView Pm25;
-    TextView Pm10;
-    String pm10;
-    String pm25;
-    String pm10m;
-    String pm25m;
-    TextView Pm10_grade;
-    TextView Pm25_grade;
-    TextView Time_comment;
-    TextView day_comment;
+    TextView Location, Days_of_week, Comment, Temp;
+    ImageView Main_img, iv1, iv2, iv3, iv4, iv5;
+    Drawable draw;
+    TextView Pop, Wsd, Vec, Pm25, Pm10;
+    String pm10, pm25, pm10m, pm25m;
+    TextView Pm10_grade, Pm25_grade, Time_comment, day_comment;
     LinearLayout Back;
     String Wtype;
     String PTY;
@@ -159,6 +146,11 @@ public class MainActivity extends AppCompatActivity {
                 Temp = (TextView)findViewById(R.id.temp);
                 Days_of_week = (TextView)findViewById(R.id.days_of_week);
                 Main_img = (ImageView)findViewById(R.id.main_img);
+                iv1 = (ImageView)findViewById(R.id.main_iv1);
+                iv2 = (ImageView)findViewById(R.id.main_iv2);
+                iv3 = (ImageView)findViewById(R.id.main_iv3);
+                iv4 = (ImageView)findViewById(R.id.main_iv4);
+                iv5 = (ImageView)findViewById(R.id.main_iv5);
                 Pop = (TextView)findViewById(R.id.pop);
                 Wsd = (TextView)findViewById(R.id.wsd);
                 Vec = (TextView)findViewById(R.id.vec);
@@ -214,24 +206,93 @@ public class MainActivity extends AppCompatActivity {
                         Days_of_week.setText(DOW);
                         switch (weather){
                             case "Rain":
-                                Main_img.setImageResource(R.drawable.rain);
+                                Main_img.setVisibility(View.GONE);
+                                iv1.setVisibility(View.GONE);
+                                iv3.setVisibility(View.GONE);
+                                iv4.setVisibility(View.GONE);
+                                iv5.setVisibility(View.GONE);
+
+                                iv2.setVisibility(View.VISIBLE);
+                                draw = iv2.getDrawable();
+                                if(draw instanceof AnimatedVectorDrawable){
+                                    AnimatedVectorDrawable avd = (AnimatedVectorDrawable) draw;
+                                    avd.start();
+                                }else if(draw instanceof AnimatedVectorDrawableCompat){
+                                    AnimatedVectorDrawableCompat avd = (AnimatedVectorDrawableCompat) draw;
+                                    avd.start();
+                                }
                                 Time_comment.setText("지금은 비가 오는 날씨에요.");
                                 break;
                             case "Snow":
-                                Main_img.setImageResource(R.drawable.snow);
+                                Main_img.setVisibility(View.GONE);
+                                iv1.setVisibility(View.GONE);
+                                iv2.setVisibility(View.GONE);
+                                iv4.setVisibility(View.GONE);
+                                iv5.setVisibility(View.GONE);
+
+                                iv3.setVisibility(View.VISIBLE);
+                                draw = iv3.getDrawable();
+                                if(draw instanceof AnimatedVectorDrawable){
+                                    AnimatedVectorDrawable avd = (AnimatedVectorDrawable) draw;
+                                    avd.start();
+                                }else if(draw instanceof AnimatedVectorDrawableCompat){
+                                    AnimatedVectorDrawableCompat avd = (AnimatedVectorDrawableCompat) draw;
+                                    avd.start();
+                                }
                                 Time_comment.setText("지금은 눈이 내려요.");
                                 break;
                             case "Sunny":
-                                Main_img.setImageResource(R.drawable.sunn);
+                                Main_img.setVisibility(View.GONE);
+                                iv2.setVisibility(View.GONE);
+                                iv3.setVisibility(View.GONE);
+                                iv4.setVisibility(View.GONE);
+                                iv5.setVisibility(View.GONE);
+
+                                iv1.setVisibility(View.VISIBLE);
+                                draw = iv1.getDrawable();
+                                if(draw instanceof AnimatedVectorDrawable){
+                                    AnimatedVectorDrawable avd = (AnimatedVectorDrawable) draw;
+                                    avd.start();
+                                }else if(draw instanceof AnimatedVectorDrawableCompat){
+                                    AnimatedVectorDrawableCompat avd = (AnimatedVectorDrawableCompat) draw;
+                                    avd.start();
+                                }
                                 Time_comment.setText("지금은 해가 뜨는 화창한 날씨에요.");
                                 break;
                             case "Cloud":
-                                Main_img.setImageResource(R.drawable.cloud1);
+                                Main_img.setVisibility(View.GONE);
+                                iv1.setVisibility(View.GONE);
+                                iv2.setVisibility(View.GONE);
+                                iv3.setVisibility(View.GONE);
+                                iv5.setVisibility(View.GONE);
+
+                                iv4.setVisibility(View.VISIBLE);
+                                draw = iv4.getDrawable();
+                                if(draw instanceof AnimatedVectorDrawable){
+                                    AnimatedVectorDrawable avd = (AnimatedVectorDrawable) draw;
+                                    avd.start();
+                                }else if(draw instanceof AnimatedVectorDrawableCompat){
+                                    AnimatedVectorDrawableCompat avd = (AnimatedVectorDrawableCompat) draw;
+                                    avd.start();
+                                }
                                 Time_comment.setText("지금은 구름이 많은 날씨에요.");
                                 break;
                             case "Blur":
-                                Main_img.setImageResource(R.drawable.cloud2);
+                                Main_img.setVisibility(View.GONE);
+                                iv1.setVisibility(View.GONE);
+                                iv2.setVisibility(View.GONE);
+                                iv3.setVisibility(View.GONE);
+                                iv4.setVisibility(View.GONE);
 
+                                iv5.setVisibility(View.VISIBLE);
+                                draw = iv5.getDrawable();
+                                if(draw instanceof AnimatedVectorDrawable){
+                                    AnimatedVectorDrawable avd = (AnimatedVectorDrawable) draw;
+                                    avd.start();
+                                }else if(draw instanceof AnimatedVectorDrawableCompat){
+                                    AnimatedVectorDrawableCompat avd = (AnimatedVectorDrawableCompat) draw;
+                                    avd.start();
+                                }
                                 Time_comment.setText("지금은 매우 흐린 날씨에요.");
                                 break;
                         }
@@ -281,6 +342,8 @@ public class MainActivity extends AppCompatActivity {
             }
         }).start();
     }
+
+    //인텐트 값 받아오기
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -733,6 +796,20 @@ public class MainActivity extends AppCompatActivity {
             prefs.edit().putBoolean("isFirstRun", false).apply();
         }
 
+    }
+
+    @RequiresApi(api =  Build.VERSION_CODES.N_MR1)
+    public void animate(View view){
+        ImageView v  = (ImageView) view;
+        Drawable d  = v.getDrawable();
+
+        if(d instanceof AnimatedVectorDrawable){
+            AnimatedVectorDrawable avd = (AnimatedVectorDrawable) d;
+            avd.start();
+        }else if(d instanceof AnimatedVectorDrawableCompat){
+            AnimatedVectorDrawableCompat avd = (AnimatedVectorDrawableCompat) d;
+            avd.start();
+        }
     }
 
 }
