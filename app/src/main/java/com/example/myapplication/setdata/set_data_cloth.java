@@ -9,8 +9,9 @@ import java.util.Calendar;
 
 public class set_data_cloth {
     data_short wd = new data_short();
+    String[][][] Short_Data = new String[3][8][14];
     public String[] set_data_cloth(String x, String y) {
-        String[][][] Short_Data = new String[3][8][14];
+
         String[] category = new String[250];
         String[] fcstDate = new String[250];
         String[] fcstTime = new String[250];
@@ -130,7 +131,10 @@ public class set_data_cloth {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
+        set();
         return set_temp;
+    }
+    public String[][][] set(){
+        return Short_Data;
     }
 }

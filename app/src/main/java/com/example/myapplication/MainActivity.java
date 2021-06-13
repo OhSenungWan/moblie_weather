@@ -27,6 +27,7 @@ import com.example.myapplication.db.DBInit;
 import com.example.myapplication.db.ShowListView;
 import com.example.myapplication.graph.MyValueFormatter;
 import com.example.myapplication.savedata.PreferenceManager;
+import com.example.myapplication.setdata.set_data_cloth;
 import com.example.myapplication.setdata.set_weather;
 import com.example.myapplication.setdata.setdata_air;
 import com.example.myapplication.setdata.setdata_long_Temp;
@@ -47,18 +48,21 @@ import java.util.Locale;
 public class MainActivity extends AppCompatActivity {
     private Context mContext;
     public static final int timeSet = 15;
-    public static final int daySet = 7;
+    public static final int daySet = 10;
     public SharedPreferences prefs;
     String DOW;
     String Short_Data[][][] = new String[3][8][14];  //날짜(0오늘 1내일 2모래 시간(0이 0시부터 3시단위 데이터
-    String Long_Temp[][] = new String[8][2];         //날짜(3일부터) 기온(최소0 최대가 1)
-    String Long_Weather[][] = new String[8][4];      //날짜(3일부터) 날씨정보(0오전 최소 1최대 2오후 최소 3최대)
+    String Long_Temp[][] = new String[10][2];         //날짜(3일부터) 기온(최소0 최대가 1)
+    String Long_Tempex[][] = new String[8][2];         //날짜(3일부터) 기온(최소0 최대가 1)
+    String Long_Weather[][] = new String[10][4];      //날짜(3일부터) 날씨정보(0오전 최소 1최대 2오후 최소 3최대)
+    String Long_Weatherex[][] = new String[8][4];      //날짜(3일부터) 날씨정보(0오전 최소 1최대 2오후 최소 3최대)
     String Data_Air[] = new String[3];               //
     String city_data;
     String[] city;
     String x_point, y_point, point_temp, point_weather, weather, temp, pop, vec, wsd;
     setdata_air sa;
     set_weather sw;
+    set_data_cloth sdc;
     TextView Location, Days_of_week, Comment, Temp;
     ImageView Main_img, iv1, iv2, iv3, iv4, iv5;
     Drawable draw;
@@ -85,7 +89,6 @@ public class MainActivity extends AppCompatActivity {
         PreferenceManager.setString(mContext, "data", intentdata);
         String twdata = temp + " " + wsd;
         PreferenceManager.setString(mContext, "twdata", twdata);
-        System.out.println(twdata);
     }
 
     // 첫 실행 작업 onCreate에서 호출
@@ -118,6 +121,7 @@ public class MainActivity extends AppCompatActivity {
                 }
                 Back = (LinearLayout)findViewById(R.id.back);
                 setdata_short cd = new setdata_short();
+                sdc = new set_data_cloth();
                 sa = new setdata_air();
                 sw = new set_weather();
                 setdata_long_Temp slt = new setdata_long_Temp();
@@ -129,9 +133,70 @@ public class MainActivity extends AppCompatActivity {
 
                 pm10 = sa.set_pm10();
                 pm25 = sa.set_pm25();
-                Long_Temp = slt.setdata_longtemp(point_temp);
+                Calendar cal = Calendar.getInstance();
+                Long_Tempex = slt.setdata_longtemp(point_temp);
+                Long_Weatherex = slw.setdata_longweather(point_weather);
+                sdc.set_data_cloth(x_point,y_point);
 
-                Long_Weather = slw.setdata_longweather(point_weather);
+                    for(int i = 0; i<3; i++){
+                        String changemin = "";
+                        String changemax = "";
+                        if(i!=2) {
+                            int cmin = (int) Double.parseDouble(sdc.set()[i][2][7]);
+                            changemin = Integer.toString(cmin);
+                            int cmax = (int) Double.parseDouble(sdc.set()[i][5][8]);
+                            changemax = Integer.toString(cmax);
+                        }else{
+                            int cmin = (int) Double.parseDouble(sdc.set()[1][2][7]);
+                            changemin = Integer.toString(cmin);
+                            int cmax = (int) Double.parseDouble(sdc.set()[1][5][8]);
+                            changemax = Integer.toString(cmax);
+                        }
+                        Long_Temp[i][0] = changemin;
+                        Long_Temp[i][1] = changemax;
+                    }
+
+                    for(int i =3; i<daySet; i++) {
+                        Long_Temp[i] = Long_Tempex[i-3];
+                    }
+
+                    for(int i = 0; i<3; i++){
+                        if(i!=2) {
+                            Long_Weather[i][0] = sdc.set()[i][2][0];
+                            if (sdc.set()[i][2][1].equals("0")) {
+                                if (sdc.set()[i][2][5].equals("1")) {
+                                    Long_Weather[i][2] = "맑음";
+                                } else if (sdc.set()[i][2][5].equals("3")) {
+                                    Long_Weather[i][2] = "구름많음";
+                                } else {
+                                    Long_Weather[i][2] = "흐림";
+                                }
+                            } else if (sdc.set()[i][2][1].equals("3") || sdc.set()[i][2][1].equals("7")) {
+                                Long_Weather[i][2] = "눈";
+                            } else {
+                                Long_Weather[i][2] = "흐리고 비";
+                            }
+                        }else{
+                            Long_Weather[i][0] = sdc.set()[1][2][0];
+                            if (sdc.set()[1][2][1].equals("0")) {
+                                if (sdc.set()[1][2][5].equals("1")) {
+                                    Long_Weather[i][2] = "맑음";
+                                } else if (sdc.set()[1][2][5].equals("3")) {
+                                    Long_Weather[i][2] = "구름많음";
+                                } else {
+                                    Long_Weather[i][2] = "흐림";
+                                }
+                            } else if (sdc.set()[1][2][1].equals("3") || sdc.set()[1][2][1].equals("7")) {
+                                Long_Weather[i][2] = "눈";
+                            } else {
+                                Long_Weather[i][2] = "흐리고 비";
+                            }
+                        }
+                    }
+
+                    for(int i =3; i<daySet; i++) {
+                        Long_Weather[i] =  Long_Weatherex[i-3];
+                    }
 
 
                 weather = sw.set_weather(Short_Data);
@@ -362,7 +427,6 @@ public class MainActivity extends AppCompatActivity {
                 String intentdata = temp+"℃ " + pm10 + " "+weather + " " + pm25 + " " + pm10m + "ug/m3 " + pm25m + "ug/m3 " + pop + "%";
                 String twdata = temp + " " + wsd;
                 PreferenceManager.setString(mContext, "twdata", twdata);
-                System.out.println(twdata);
                 PreferenceManager.setString(mContext, "data", intentdata);
             }
         }
@@ -381,7 +445,6 @@ public class MainActivity extends AppCompatActivity {
         if(twdata.equals("")) {
             twdata = "17.5 " + "5.5";
             PreferenceManager.setString(mContext, "twdata", twdata);
-            System.out.println(twdata);
         }
         String[] data = text.split(" ");
         x_point = data[0];
@@ -653,7 +716,7 @@ public class MainActivity extends AppCompatActivity {
             Calendar cal = Calendar.getInstance();
             SimpleDateFormat mFormat = new SimpleDateFormat("MM/dd", Locale.KOREA);
 
-            cal.add(cal.DATE, +i+3);
+            cal.add(cal.DATE, +i);
 
             dayTextView[i].setText(mFormat.format(cal.getTime()));
             dayTextView[i].setTextSize(13);
@@ -730,7 +793,7 @@ public class MainActivity extends AppCompatActivity {
 
         LineChart lineChart = (LineChart)findViewById(R.id.dayLineChart);
         ViewGroup.LayoutParams params = lineChart.getLayoutParams();
-        params.width = 1220;
+        params.width = 1790;
         lineChart.setLayoutParams(params);
         List<Entry> entries = new ArrayList<>();
         List<Entry> entries2 = new ArrayList<>();

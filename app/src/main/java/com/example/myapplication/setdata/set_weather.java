@@ -141,4 +141,8 @@ public class set_weather {
     public int getHour() {
         return Hour;
     }
+
+    public int getTime() {
+        return Time;
+    }
 }
