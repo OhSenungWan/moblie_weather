@@ -407,7 +407,7 @@ public class MainActivity extends AppCompatActivity {
                         } else {
                             day_comment.setText("오늘은 전체적으로 비가 오는 날씨에요.");
                         }
-                        Pop.setText(pop);
+                        Pop.setText(pop + "%");
                         Wsd.setText(wsd+"m/s");
                         Vec.setText(vec);
                         pm10m = Data_Air[0];
