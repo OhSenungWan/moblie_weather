@@ -189,6 +189,12 @@ public class MainActivity extends AppCompatActivity {
                             } else {
                                 Long_Weather[i][2] = "흐리고 비";
                             }
+                            if(sdc.set()[i][2][0].equals("null")){
+                                Long_Weather[i][3] = sdc.set()[i+1][2][0];
+                            }else{
+                                Long_Weather[i][3] = sdc.set()[i][2][0];
+                            }
+
                         }else{
                             Long_Weather[i][0] = sdc.set()[1][2][0];
                             if (sdc.set()[1][2][1].equals("0")) {
@@ -205,6 +211,7 @@ public class MainActivity extends AppCompatActivity {
                             } else {
                                 Long_Weather[i][2] = "흐리고 비";
                             }
+                            Long_Weather[i][3] = sdc.set()[1][2][0];
                         }
                     }
 
@@ -400,7 +407,7 @@ public class MainActivity extends AppCompatActivity {
                         } else {
                             day_comment.setText("오늘은 전체적으로 비가 오는 날씨에요.");
                         }
-                        Pop.setText(pop+"%");
+                        Pop.setText(pop);
                         Wsd.setText(wsd+"m/s");
                         Vec.setText(vec);
                         pm10m = Data_Air[0];
@@ -627,7 +634,7 @@ public class MainActivity extends AppCompatActivity {
             String pop = Short_Data[day][time][0];
             String r06 = Short_Data[day][time][2];
 
-            rainfallProbTextView[i].setText(pop + "%");
+            rainfallProbTextView[i].setText(pop);
             rainfallProbTextView[i].setTextSize(14);
             rainfallProbTextView[i].setTextColor(Color.WHITE);
 
@@ -795,7 +802,10 @@ public class MainActivity extends AppCompatActivity {
 
             String rainfallProbText = Long_Weather[i][0];
 
-            rainfallProbTextView[i].setText(rainfallProbText + "%");
+            rainfallProbTextView[i].setText(rainfallProbText);
+            if(rainfallProbTextView[i].getText().equals("null")){
+                rainfallProbTextView[i].setText("0");
+            }
             rainfallProbTextView[i].setTextSize(14);
             rainfallProbTextView[i].setTextColor(Color.WHITE);
 
