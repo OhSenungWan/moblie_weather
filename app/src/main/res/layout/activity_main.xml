@@ -422,7 +422,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="5dp"
-                        android:text="시간"
+                        android:text="   시간"
                         android:textColor="#FFFFFF"
                         android:textSize="12dp"
                         android:textStyle="bold" />
@@ -431,7 +431,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="30dp"
-                        android:text="날씨"
+                        android:text="   날씨"
                         android:textColor="#FFFFFF"
                         android:textSize="12dp"
                         android:textStyle="bold" />
@@ -441,7 +441,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="50dp"
                         android:layout_marginBottom="30dp"
-                        android:text="온도"
+                        android:text="   온도\n   (℃)"
                         android:textColor="#FFFFFF"
                         android:textSize="12dp"
                         android:textStyle="bold" />
@@ -462,7 +462,7 @@
                         android:layout_marginTop="20dp"
                         android:layout_marginBottom="30dp"
                         android:gravity="center"
-                        android:text="강수량\n(mm)"
+                        android:text="  강수량\n  (mm)"
                         android:textColor="#FFFFFF"
                         android:textSize="12dp"
                         android:textStyle="bold" />
@@ -567,7 +567,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="5dp"
-                        android:text="날짜"
+                        android:text="   날짜"
                         android:textColor="#FFFFFF"
                         android:textSize="12dp"
                         android:textStyle="bold" />
@@ -576,7 +576,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="30dp"
-                        android:text="날씨"
+                        android:text="   날씨"
                         android:textColor="#FFFFFF"
                         android:textSize="12dp"
                         android:textStyle="bold" />
@@ -585,7 +585,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="50dp"
-                        android:text="최고온도"
+                        android:text="최고온도\n    (℃)"
                         android:textColor="#FFFFFF"
                         android:textSize="12dp"
                         android:textStyle="bold" />
@@ -593,7 +593,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="20dp"
-                        android:text="최저온도"
+                        android:text="최저온도\n    (℃)"
                         android:layout_marginBottom="20dp"
                         android:textColor="#FFFFFF"
                         android:textSize="12dp"
