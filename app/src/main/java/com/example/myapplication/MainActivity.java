@@ -649,7 +649,7 @@ public class MainActivity extends AppCompatActivity {
 
             LinearLayout.LayoutParams lp1 = new LinearLayout.LayoutParams
                     (ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-            lp1.bottomMargin = 65;
+            lp1.bottomMargin = 60;
             lp1.gravity = Gravity.CENTER_HORIZONTAL;
             rainfallProbTextView[i].setLayoutParams(lp1);
 

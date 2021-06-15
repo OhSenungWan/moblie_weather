@@ -308,8 +308,8 @@ public class ClothingActivity extends Activity {
                                 (R.id.layout_timeWeatherBottom);
                         linearLayoutTop.removeAllViews();
                         linearLayoutBottom.removeAllViews();
-                        set_text.setText("현재 체감온도는" + ShareT +"℃ 입니다. ");
-                        bset_text.setText("현재 체감온도는" + ShareT +"℃ 입니다. ");
+                        set_text.setText("현재 체감온도는 " + ShareT +"℃ 입니다. ");
+                        bset_text.setText("현재 체감온도는 " + ShareT +"℃ 입니다. ");
                         if(finalT <= 4){// 0~8 mantop 9~17 manbot 18~26 womantop 27 ~ 35 womanbot
                             //mtlist[0] += topcloth[0] + " "+ topcloth[1] + " "+topcloth[3]; 옷 빼기
                             // 옷 더하기 mtlist[0] += " 추가할옷";
