@@ -498,12 +498,14 @@ public class SettingActivity extends Activity {
         topImageView[i].setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                View dialogView = getLayoutInflater().inflate(R.layout.activity_clothcontrol, null);
+                View dialogView = getLayoutInflater().inflate
+                        (R.layout.activity_clothcontrol, null);
                 AlertDialog.Builder builder = new AlertDialog.Builder(view.getContext());
                 builder.setView(dialogView);
 
                 final AlertDialog alertDialog = builder.create();
-                alertDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+                alertDialog.getWindow().setBackgroundDrawable
+                        (new ColorDrawable(Color.TRANSPARENT));
                 alertDialog.show();
                 ImageView cancel = dialogView.findViewById(R.id.cancle);
                 ImageView Weather = dialogView.findViewById(R.id.Weather);
@@ -523,7 +525,7 @@ public class SettingActivity extends Activity {
                     @Override
                     public void onClick(View v) {
                         if (temp <= 4) {// 0~8 mantop 9~17 manbot 18~26 womantop 27 ~ 35 womanbot
-                            //mtlist[0] += topcloth[0] + " " + topcloth[1] + " " + topcloth[3]; 옷 빼기
+                            //mtlist[0] += topcloth[0] + " " + topcloth[1] +" "+topcloth[3]; 옷 빼기
                             // 옷 더하기 mtlist[0] += " 추가할옷";
                             if(sets == 1){
                                 tempset[1] += 1;
@@ -622,7 +624,8 @@ public class SettingActivity extends Activity {
                         }
                         update();
 
-                        Toast.makeText(getApplicationContext(), "해당 의상의 체감온도를 올렸습니다.", Toast.LENGTH_LONG).show();
+                        Toast.makeText(getApplicationContext(),
+                                "해당 의상의 체감온도를 올렸습니다.", Toast.LENGTH_LONG).show();
                         draw_Cloth(temp);
                         alertDialog.dismiss();
                     }
@@ -633,7 +636,7 @@ public class SettingActivity extends Activity {
                     @Override
                     public void onClick(View view) {
                         if (temp <= 4) {// 0~8 mantop 9~17 manbot 18~26 womantop 27 ~ 35 womanbot
-                            //mtlist[0] += topcloth[0] + " " + topcloth[1] + " " + topcloth[3]; 옷 빼기
+                            //mtlist[0] += topcloth[0] + " " + topcloth[1]+" " +topcloth[3]; 옷 빼기
                             // 옷 더하기 mtlist[0] += " 추가할옷";
                             if(sets == 1){
                                 top_delete(i,0,0,topcloth.length);
@@ -732,7 +735,8 @@ public class SettingActivity extends Activity {
                         }
                         update();
 
-                        Toast.makeText(getApplicationContext(), "해당 의상의 체감온도를 내렸습니다.", Toast.LENGTH_LONG).show();
+                        Toast.makeText(getApplicationContext(),
+                                "해당 의상의 체감온도를 내렸습니다.", Toast.LENGTH_LONG).show();
                         draw_Cloth(temp);
                         alertDialog.dismiss();
                     }
@@ -743,7 +747,8 @@ public class SettingActivity extends Activity {
         topImageView[i].setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View view) {
-                View dialogView = getLayoutInflater().inflate(R.layout.activity_clothdelete, null);
+                View dialogView = getLayoutInflater().inflate
+                        (R.layout.activity_clothdelete, null);
 
                 AlertDialog.Builder builder = new AlertDialog.Builder(view.getContext());
                 builder.setView(dialogView);
@@ -767,7 +772,7 @@ public class SettingActivity extends Activity {
                     public void onClick(View view) {
 
                         if (temp <= 4) {// 0~8 mantop 9~17 manbot 18~26 womantop 27 ~ 35 womanbot
-                            //mtlist[0] += topcloth[0] + " " + topcloth[1] + " " + topcloth[3]; 옷 빼기
+                            //mtlist[0] += topcloth[0] + " " + topcloth[1] +" "+topcloth[3]; 옷 빼기
                             // 옷 더하기 mtlist[0] += " 추가할옷";
                             if (sets == 1) {
                                 top_delete(i,0,0,topcloth.length);
@@ -827,7 +832,8 @@ public class SettingActivity extends Activity {
 
                         update();
 
-                        Toast.makeText(getApplicationContext(), "삭제했습니다.", Toast.LENGTH_LONG).show();
+                        Toast.makeText(getApplicationContext(),
+                                "삭제했습니다.", Toast.LENGTH_LONG).show();
 
                         draw_Cloth(temp);
                         alertDialog.dismiss();
@@ -842,14 +848,16 @@ public class SettingActivity extends Activity {
         topTextView[i].setTextSize(10);
         topTextView[i].setTextColor(Color.WHITE);
         topTextView[i].setText(cloth);
-        LinearLayout.LayoutParams lp1 = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+        LinearLayout.LayoutParams lp1 = new LinearLayout.LayoutParams
+                (ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
         lp1.bottomMargin = 10;
         lp1.gravity = Gravity.CENTER_HORIZONTAL;
         topTextView[i].setLayoutParams(lp1);
         linearLayoutTopV[i].addView(topImageView[i],180,180);
         linearLayoutTopV[i].addView(topTextView[i]);
         linearLayoutTopV[i].setMinimumWidth(100);
-        LinearLayout.LayoutParams lp2 = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+        LinearLayout.LayoutParams lp2 = new LinearLayout.LayoutParams
+                (ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
         lp2.rightMargin = 70;
         linearLayoutTopV[i].setLayoutParams(lp2);
         linearLayoutTop.addView(linearLayoutTopV[i]);
@@ -871,7 +879,8 @@ public class SettingActivity extends Activity {
         botImageView[i].setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                View dialogView = getLayoutInflater().inflate(R.layout.activity_clothcontrol, null);
+                View dialogView = getLayoutInflater().inflate(R.layout.activity_clothcontrol,
+                        null);
                 AlertDialog.Builder builder = new AlertDialog.Builder(view.getContext());
                 builder.setView(dialogView);
 
@@ -896,7 +905,7 @@ public class SettingActivity extends Activity {
                     @Override
                     public void onClick(View v) {
                         if (temp <= 4) {// 0~8 mantop 9~17 manbot 18~26 womantop 27 ~ 35 womanbot
-                            //mtlist[0] += topcloth[0] + " " + topcloth[1] + " " + topcloth[3]; 옷 빼기
+                            //mtlist[0] += topcloth[0] + " " + topcloth[1] +" "+topcloth[3]; 옷 빼기
                             // 옷 더하기 mtlist[0] += " 추가할옷";
                             if(sets == 1){
                                 tempset[10] += 1;
@@ -995,7 +1004,8 @@ public class SettingActivity extends Activity {
                         }
                         update();
 
-                        Toast.makeText(getApplicationContext(), "해당 의상의 체감온도를 올렸습니다.", Toast.LENGTH_LONG).show();
+                        Toast.makeText(getApplicationContext(),
+                                "해당 의상의 체감온도를 올렸습니다.", Toast.LENGTH_LONG).show();
                         draw_Cloth(temp);
                         alertDialog.dismiss();
                     }
@@ -1006,7 +1016,7 @@ public class SettingActivity extends Activity {
                     @Override
                     public void onClick(View view) {
                         if (temp <= 4) {// 0~8 mantop 9~17 manbot 18~26 womantop 27 ~ 35 womanbot
-                            //mtlist[0] += topcloth[0] + " " + topcloth[1] + " " + topcloth[3]; 옷 빼기
+                            //mtlist[0] += topcloth[0] + " " + topcloth[1] +" "+topcloth[3]; 옷 빼기
                             // 옷 더하기 mtlist[0] += " 추가할옷";
                             if(sets == 1){
                                 bot_delete(i,9,0,botcloth.length);
@@ -1105,7 +1115,8 @@ public class SettingActivity extends Activity {
                         }
                         update();
 
-                        Toast.makeText(getApplicationContext(), "해당 의상의 체감온도를 내렸습니다.", Toast.LENGTH_LONG).show();
+                        Toast.makeText(getApplicationContext(),
+                                "해당 의상의 체감온도를 내렸습니다.", Toast.LENGTH_LONG).show();
                         draw_Cloth(temp);
                         alertDialog.dismiss();
                     }
@@ -1116,7 +1127,8 @@ public class SettingActivity extends Activity {
         botImageView[i].setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View view) {
-                View dialogView = getLayoutInflater().inflate(R.layout.activity_clothdelete, null);
+                View dialogView = getLayoutInflater().inflate(R.layout.activity_clothdelete,
+                        null);
 
                 AlertDialog.Builder builder = new AlertDialog.Builder(view.getContext());
                 builder.setView(dialogView);
@@ -1140,7 +1152,7 @@ public class SettingActivity extends Activity {
                     public void onClick(View view) {
 
                         if (temp <= 4) {// 0~8 mantop 9~17 manbot 18~26 womantop 27 ~ 35 womanbot
-                            //mtlist[0] += topcloth[0] + " " + topcloth[1] + " " + topcloth[3]; 옷 빼기
+                            //mtlist[0] += topcloth[0] + " " + topcloth[1] +" "+topcloth[3]; 옷 빼기
                             // 옷 더하기 mtlist[0] += " 추가할옷";
                             if (sets == 1) {
                                 bot_delete(i,9,0,botcloth.length);
@@ -1199,7 +1211,8 @@ public class SettingActivity extends Activity {
 
                         update();
 
-                        Toast.makeText(getApplicationContext(), "삭제했습니다.", Toast.LENGTH_LONG).show();
+                        Toast.makeText(getApplicationContext(),
+                                "삭제했습니다.", Toast.LENGTH_LONG).show();
 
                         draw_Cloth(temp);
                         alertDialog.dismiss();
@@ -1214,14 +1227,16 @@ public class SettingActivity extends Activity {
         botTextView[i].setTextSize(10);
         botTextView[i].setTextColor(Color.WHITE);
         botTextView[i].setText(cloth);
-        LinearLayout.LayoutParams lp1 = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+        LinearLayout.LayoutParams lp1 = new LinearLayout.LayoutParams
+                (ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
         lp1.bottomMargin = 10;
         lp1.gravity = Gravity.CENTER_HORIZONTAL;
         botTextView[i].setLayoutParams(lp1);
         linearLayoutBotV[i].addView(botImageView[i],180,180);
         linearLayoutBotV[i].addView(botTextView[i]);
         linearLayoutBotV[i].setMinimumWidth(100);
-        LinearLayout.LayoutParams lp2 = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+        LinearLayout.LayoutParams lp2 = new LinearLayout.LayoutParams
+                (ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
         lp2.rightMargin = 70;
         linearLayoutBotV[i].setLayoutParams(lp2);
         linearLayoutBot.addView(linearLayoutBotV[i]);
@@ -1763,7 +1778,8 @@ public class SettingActivity extends Activity {
             public void onClick(View v) {
                 if(edtAdd.getText().toString().length() <= 0){//빈값이 넘어올때의 처리
 
-                    Toast.makeText(getApplicationContext(), "값을 입력하세요.", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(),
+                            "값을 입력하세요.", Toast.LENGTH_SHORT).show();
                 }
                 else {
                     if (temp <= 4) {// 0~8 mantop 9~17 manbot 18~26 womantop 27 ~ 35 womanbot
@@ -1843,7 +1859,8 @@ public class SettingActivity extends Activity {
                     }
                     update();
 
-                    Toast.makeText(getApplicationContext(), "저장되었습니다.", Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(),
+                            "저장되었습니다.", Toast.LENGTH_LONG).show();
 
                     draw_Cloth(temp);
                     alertDialog.dismiss();
@@ -1886,7 +1903,8 @@ public class SettingActivity extends Activity {
             public void onClick(View v) {
                 if(edtAdd.getText().toString().length() <= 0){//빈값이 넘어올때의 처리
 
-                    Toast.makeText(getApplicationContext(), "값을 입력하세요.", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(),
+                            "값을 입력하세요.", Toast.LENGTH_SHORT).show();
                 }
 
                 else{
@@ -1968,7 +1986,8 @@ public class SettingActivity extends Activity {
 
                     update();
 
-                    Toast.makeText(getApplicationContext(), "저장되었습니다.", Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(),
+                            "저장되었습니다.", Toast.LENGTH_LONG).show();
 
                     draw_Cloth(temp);
                     alertDialog.dismiss();

@@ -8,60 +8,6 @@
     android:orientation="vertical">
 
 
-    <!--<LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:padding="5dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginBottom="5dp"
-        android:orientation="vertical"
-        android:background="@drawable/roundconer2">
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-            <ImageView
-                android:layout_width="15dp"
-                android:layout_height="15dp"
-                android:layout_marginLeft="15dp"
-                android:src="@drawable/setting"
-                android:layout_gravity="center"/>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="온도계를 조절해 체감온도를 설정하세요"
-                android:textStyle="bold"
-                android:textSize="13dp"
-                android:layout_marginLeft="5dp"
-                android:textColor="#FFFFFF"/>
-        </LinearLayout>
-    </LinearLayout>
-    <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:layout_gravity="center"
-        android:background="@drawable/roundconer">
-        <SeekBar
-            android:progress="60"
-            android:max="100"
-            android:progressDrawable="@drawable/seekbar_bar"
-            android:thumb="@drawable/seekbar_thumb"
-            android:layout_marginBottom="5dp"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"/>
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_marginTop="15dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:layout_marginBottom="20dp"
-        android:src="@drawable/thermometer" />
-    </FrameLayout>-->
 
     <LinearLayout
         android:layout_width="match_parent"

@@ -51,15 +51,20 @@ public class WeatherAppWidgetProvider extends AppWidgetProvider{
     public static void updateAppWidget(Context context, AppWidgetManager appWidgetManager, int appWidgetId){
         //SharedPreferences prefs = context.getSharedPreferences(SHARED_PRES, Context.MODE_PRIVATE);
         //String buttonText = prefs.getString(KEY_BUTTON_TEXT+appWidgetId,"Press me");
-        RemoteViews updateViews = new RemoteViews(context.getPackageName(), R.layout.activity_widget);        //액티비티 위젯xml과 연동
+        RemoteViews updateViews = new RemoteViews(context.getPackageName(), R.layout.activity_widget);
+        //액티비티 위젯xml과 연동
         Intent intent = new Intent(context, MainActivity.class).setAction("ButtonClick");
-        PendingIntent pendingIntent = PendingIntent.getActivity(context,0,intent,0);        // 메인으로 이동하는 인텐트
-        updateViews.setOnClickPendingIntent(R.id.Weather,pendingIntent);                                      // 누르면 메인화면 이동
-        RemoteViews update = new RemoteViews(context.getPackageName(), R.layout.activity_widget);             //업데이트 버튼 작동 x
+        PendingIntent pendingIntent = PendingIntent.getActivity(context,0,intent,0);
+        // 메인으로 이동하는 인텐트
+        updateViews.setOnClickPendingIntent(R.id.Weather,pendingIntent);
+        // 누르면 메인화면 이동
+        RemoteViews update = new RemoteViews(context.getPackageName(), R.layout.activity_widget);
+        //업데이트 버튼 작동 x
         update.setOnClickPendingIntent(R.id.update,pendingIntent);
-        //update.setCharSequence(R.id.update,"setText", buttonText); // 업데이트 버튼으로 사용하려 했으나 해결되지 않음
-
-        /*Intent clickIntent = new Intent(context, WeatherAppWidgetProvider.class); // 작동하지 않는 기능
+        //update.setCharSequence(R.id.update,"setText", buttonText);
+        // 업데이트 버튼으로 사용하려 했으나 해결되지 않음
+        // 작동하지 않는 기능
+        /*Intent clickIntent = new Intent(context, WeatherAppWidgetProvider.class);
         clickIntent.setAction(ACTION_TOAST);
         PendingIntent clickPendingIntent = PendingIntent.getBroadcast(context,
                 0,clickIntent, 0);
@@ -106,19 +111,32 @@ public class WeatherAppWidgetProvider extends AppWidgetProvider{
                 break;
         }
         Calendar mCalendar = Calendar.getInstance();
-        SimpleDateFormat mFormat = new SimpleDateFormat("MM/dd HH:mm", Locale.KOREA); //위젯에 나오는 시간 포맷
+        SimpleDateFormat mFormat = new SimpleDateFormat("MM/dd HH:mm", Locale.KOREA);
+        //위젯에 나오는 시간 포맷
 
-        updateViews.setTextViewText(R.id.location, city_data);                                              // 지역
-        updateViews.setTextViewText(R.id.realtime,"Update : " + mFormat.format(mCalendar.getTime()));  // 업데이트 버튼 작동 안함
-        updateViews.setTextViewText(R.id.Temp, idata[0]);                                                   // 온도
-        updateViews.setTextViewText(R.id.pm10grade, idata[1]);                                              // 미세먼지 10 등급 좋음, 보통, 나쁨, 매우나쁨
-        updateViews.setTextViewText(R.id.pm25grade, idata[3]);                                              // 미세먼지 2.5 등급 좋음, 보통, 나쁨, 매우나쁨
-        updateViews.setTextViewText(R.id.pm10, idata[4]);                                                   //직접적인 미세먼지 10의 수치
-        updateViews.setTextViewText(R.id.pm25, idata[5]);                                                   //직접적인 미세먼지 2.5의 수치
-        updateViews.setTextViewText(R.id.pop, idata[6]);                                                    // 강수확률
-        updateViews.setTextViewText(R.id.weatherText, weather);                                             // 날씨 이미지
-        Intent intent1 = new Intent(context, WeatherAppWidgetProvider.class).setAction("Button2");          // 인텐트 값 지정
-        PendingIntent pendingIntent1 = PendingIntent.getActivity(context,0,intent1,PendingIntent.FLAG_UPDATE_CURRENT);
+        updateViews.setTextViewText(R.id.location, city_data);
+        // 지역
+        updateViews.setTextViewText(R.id.realtime,
+                "Update : " + mFormat.format(mCalendar.getTime()));
+        // 업데이트 버튼 작동 안함
+        updateViews.setTextViewText(R.id.Temp, idata[0]);
+        // 온도
+        updateViews.setTextViewText(R.id.pm10grade, idata[1]);
+        // 미세먼지 10 등급 좋음, 보통, 나쁨, 매우나쁨
+        updateViews.setTextViewText(R.id.pm25grade, idata[3]);
+        // 미세먼지 2.5 등급 좋음, 보통, 나쁨, 매우나쁨
+        updateViews.setTextViewText(R.id.pm10, idata[4]);
+        //직접적인 미세먼지 10의 수치
+        updateViews.setTextViewText(R.id.pm25, idata[5]);
+        //직접적인 미세먼지 2.5의 수치
+        updateViews.setTextViewText(R.id.pop, idata[6]);
+        // 강수확률
+        updateViews.setTextViewText(R.id.weatherText, weather);
+        // 날씨 이미지
+        Intent intent1 = new Intent(context, WeatherAppWidgetProvider.class).setAction("Button2");
+        // 인텐트 값 지정
+        PendingIntent pendingIntent1 = PendingIntent.getActivity
+                (context,0,intent1,PendingIntent.FLAG_UPDATE_CURRENT);
         updateViews.setOnClickPendingIntent(R.id.update,pendingIntent1);
         //updateViews.setPendingIntentTemplate(R.id.update, clickPendingIntent);
 

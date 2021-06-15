@@ -32,7 +32,8 @@ public class setdata_long_weather {
 
             String apiUrl = "http://apis.data.go.kr/1360000/MidFcstInfoService/getMidLandFcst";
             // 홈페이지에서 받은 키
-            String serviceKey = "iBjzgZZ3CoomVMGYL8eQNbd7JCaJXC5qhWtN3hV4s3ZMcUMVbskatC7x2ADNcsPP7aZ4bXWd5BKd0ukxLuL25Q%3D%3D";
+            String serviceKey = "iBjzgZZ3CoomVMGYL8eQNbd" +
+                    "7JCaJXC5qhWtN3hV4s3ZMcUMVbskatC7x2ADNcsPP7aZ4bXWd5BKd0ukxLuL25Q%3D%3D";
             String pageNo = "1";
             String numOfRows = "1";       //한 페이지 결과 수
             String dataType = "xml";      //타입 xml, json 등등 .

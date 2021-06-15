@@ -138,7 +138,8 @@ public class ShowListView extends AppCompatActivity {
      **/
     public void listViewUpdate() {
         city.removeIf(n -> n.equals(""));
-        adapter = new ArrayAdapter<String>(getApplicationContext(), android.R.layout.simple_list_item_1, city);
+        adapter = new ArrayAdapter<String>(getApplicationContext(),
+                android.R.layout.simple_list_item_1, city);
         listView.setAdapter(adapter);
         adapter.notifyDataSetChanged();
     }

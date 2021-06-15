@@ -232,13 +232,16 @@ public class ClothingActivity extends Activity {
                         if (rp.equals("0")) {
                             switch (weather) {
                                 case "Sunny":
-                                    rainch.setText("햇빛이 많이 드는 날이에요. 선크림 바르시는 걸 추천할게요.");
+                                    rainch.setText("햇빛이 많이 드는 날이에요. " +
+                                            "선크림 바르시는 걸 추천할게요.");
                                     break;
                                 case "Cloud":
-                                    rainch.setText("날씨가 조금 흐리군요. 습도에 유의하셔야 할 것 같아요.");
+                                    rainch.setText("날씨가 조금 흐리군요. " +
+                                            "습도에 유의하셔야 할 것 같아요.");
                                     break;
                                 case "Blur":
-                                    rainch.setText("날씨가 많이 흐리군요. 습도에 주의하셔야 할 것 같아요.");
+                                    rainch.setText("날씨가 많이 흐리군요. " +
+                                            "습도에 주의하셔야 할 것 같아요.");
                                     break;
                             }
                         } else if (rp.equals("3") || rp.equals("7")) {
@@ -257,47 +260,58 @@ public class ClothingActivity extends Activity {
                                 pmch.setText("많은 미세먼지가 지속적으로 있을 것 같아요.");
                                 break;
                             case "매우나쁨":
-                                pmch.setText("매우 많은 미세먼지가 며칠 간동안 지속적으로 있을 것 같아요.");
+                                pmch.setText("매우 많은 미세먼지가 " +
+                                        "며칠 간동안 지속적으로 있을 것 같아요.");
                                 break;
                         }
                         if (finalT <= 4) {
                             winch.setText("한파가 지속돼요. 기모제품과 내복입으시는 걸 추천드려요.");
                         } else if (finalT >= 4 && finalT < 8) {
-                            winch.setText("차가운 날씨에요. 두꺼운 아우터안에 여러 옷을 껴 입으시는 걸 추천드려요.");
+                            winch.setText("차가운 날씨에요. 두꺼운 아우터안에 " +
+                                    "여러 옷을 껴 입으시는 걸 추천드려요.");
                         } else if (finalT >= 8 && finalT < 12) {
-                            winch.setText("아직은 추운 날씨군요. 두꺼운 아우터에 옷을 한 두겹 껴 입으시는 걸 추천드려요.");
+                            winch.setText("아직은 추운 날씨군요. " +
+                                    "두꺼운 아우터에 옷을 한 두겹 껴 입으시는 걸 추천드려요.");
                         } else if (finalT >= 12 && finalT < 16) {
-                            winch.setText("쌀쌀한 날씨에요. 일반 아우터안에  여러겹 껴 입으시는 걸 추천드려요.");
+                            winch.setText("쌀쌀한 날씨에요. " +
+                                    "일반 아우터안에  여러겹 껴 입으시는 걸 추천드려요.");
                         }else if (finalT >= 16 && finalT < 19) {
-                            winch.setText("서늘한 날씨군요. 일반 아우터안에  옷을 한 두겹 껴 입으시는 걸 추천드려요.");
+                            winch.setText("서늘한 날씨군요. 일반 아우터안에  " +
+                                    "옷을 한 두겹 껴 입으시는 걸 추천드려요.");
                         }else if (finalT >= 19 && finalT < 21) {
                             winch.setText("선선한 날씨군요. 얇은 아우터를 걸치시는 걸 추천드려요.");
 
                         }else if (finalT >= 21 && finalT < 23) {
-                            winch.setText("따듯한 날씨지만, 가벼운 소재의 아우터나 얇은 옷들로 스타일을 구성하시는 것이 좋겠어요.");
+                            winch.setText("따듯한 날씨지만, 가벼운 소재의 " +
+                                    "아우터나 얇은 옷들로 스타일을 구성하시는 것이 좋겠어요.");
                         }
                         else if (finalT >= 23 && finalT < 25) {
-                            winch.setText("약간 더울 수 있는 날씨에요. 가벼운 소재와 얇은 옷들로 스타일을 구성하시는 것이 좋겠어요.");
+                            winch.setText("약간 더울 수 있는 날씨에요. 가벼운 " +
+                                    "소재와 얇은 옷들로 스타일을 구성하시는 것이 좋겠어요.");
                         }
                         else if (finalT >= 25 && finalT < 29) {
-                            winch.setText("더울 수 있는 날씨에요. 겉 옷은 입지 않고 얇은 상의&하의로 스타일을 구성하시는 것이 좋겠어요.");
+                            winch.setText("더울 수 있는 날씨에요. 겉 옷은 입지 " +
+                                    "않고 얇은 상의&하의로 스타일을 구성하시는 것이 좋겠어요.");
                         }
                         else {
-                            winch.setText("매우 더울 수 있는 날씨에요. 반팔 의상 및 칠부 의상으로 스타일을 구성하시는 것이 좋겠어요.");
+                            winch.setText("매우 더울 수 있는 날씨에요. " +
+                                    "반팔 의상 및 칠부 의상으로 스타일을 구성하시는 것이 좋겠어요.");
                         }
                         if(Daily_cross > 10){
-                            tempch.setText("일교차가 큰 날씨에요. 옷을 유동적으로 입으셔야 할 것 같아요.");
+                            tempch.setText("일교차가 큰 날씨에요. " +
+                                    "옷을 유동적으로 입으셔야 할 것 같아요.");
                         }else {
                             tempch.setText("오늘은 일교차가 별로 없는 날이에요.");
                         }
                         LinearLayout linearLayoutTop = findViewById(R.id.layout_timeWeatherTop);
-                        LinearLayout linearLayoutBottom = findViewById(R.id.layout_timeWeatherBottom);
+                        LinearLayout linearLayoutBottom = findViewById
+                                (R.id.layout_timeWeatherBottom);
                         linearLayoutTop.removeAllViews();
                         linearLayoutBottom.removeAllViews();
                         set_text.setText("현재 체감온도는" + ShareT +"℃ 입니다. ");
                         bset_text.setText("현재 체감온도는" + ShareT +"℃ 입니다. ");
                         if(finalT <= 4){// 0~8 mantop 9~17 manbot 18~26 womantop 27 ~ 35 womanbot
-                            //mtlist[0] += topcloth[0] + " " + topcloth[1] + " " + topcloth[3]; 옷 빼기
+                            //mtlist[0] += topcloth[0] + " "+ topcloth[1] + " "+topcloth[3]; 옷 빼기
                             // 옷 더하기 mtlist[0] += " 추가할옷";
                             topcloth = mtlist[0].split(" ");
                             for(int i =0; i<tempset[0]; i++)
@@ -402,15 +416,17 @@ public class ClothingActivity extends Activity {
                             @Override
                             public void onClick(View view) {
                                 sets = 1;
-                                LinearLayout linearLayoutTop = findViewById(R.id.layout_timeWeatherTop);
-                                LinearLayout linearLayoutBottom = findViewById(R.id.layout_timeWeatherBottom);
+                                LinearLayout linearLayoutTop = findViewById
+                                        (R.id.layout_timeWeatherTop);
+                                LinearLayout linearLayoutBottom = findViewById
+                                        (R.id.layout_timeWeatherBottom);
                                 linearLayoutTop.removeAllViews();
                                 linearLayoutBottom.removeAllViews();
                                 man.setBackgroundResource(R.drawable.change_background);
                                 woman.setBackgroundResource(0);
                                 tman.setTextColor(Color.parseColor("#777777"));
                                 twoman.setTextColor(Color.parseColor("#FFFFFF"));
-                                if(finalT <= 4){// 0~8 mantop 9~17 manbot 18~26 womantop 27 ~ 35 womanbot
+                                if(finalT <= 4){// 0~8 mantop9~17manbot 18~26womantop27~35 womanbot
                                     topcloth = mtlist[0].split(" ");
                                     for(int i =0; i<tempset[0]; i++)
                                     {
@@ -516,8 +532,10 @@ public class ClothingActivity extends Activity {
                             @Override
                             public void onClick(View view) {
                                 sets = 0;
-                                LinearLayout linearLayoutTop = findViewById(R.id.layout_timeWeatherTop);
-                                LinearLayout linearLayoutBottom = findViewById(R.id.layout_timeWeatherBottom);
+                                LinearLayout linearLayoutTop = findViewById
+                                        (R.id.layout_timeWeatherTop);
+                                LinearLayout linearLayoutBottom = findViewById
+                                        (R.id.layout_timeWeatherBottom);
                                 linearLayoutTop.removeAllViews();
                                 linearLayoutBottom.removeAllViews();
                                 man.setBackgroundResource(0);
@@ -656,7 +674,8 @@ public class ClothingActivity extends Activity {
             public void onClick(View v) {
                 if(edtAdd.getText().toString().length() <= 0){//빈값이 넘어올때의 처리
 
-                    Toast.makeText(getApplicationContext(), "값을 입력하세요.", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), "값을 입력하세요.",
+                            Toast.LENGTH_SHORT).show();
                 }
                 else {
                     if (ShareT <= 4) {// 0~8 mantop 9~17 manbot 18~26 womantop 27 ~ 35 womanbot
@@ -770,7 +789,8 @@ public class ClothingActivity extends Activity {
                     }
                     PreferenceManager.setString(mContext, "WTLIST", tlist2);
 
-                    Toast.makeText(getApplicationContext(), "저장되었습니다.", Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(), "저장되었습니다.",
+                            Toast.LENGTH_LONG).show();
 
                     drawCloth();
                     alertDialog.dismiss();
@@ -814,7 +834,8 @@ public class ClothingActivity extends Activity {
             public void onClick(View v) {
                 if(edtAdd.getText().toString().length() <= 0){//빈값이 넘어올때의 처리
 
-                    Toast.makeText(getApplicationContext(), "값을 입력하세요.", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), "값을 입력하세요.",
+                            Toast.LENGTH_SHORT).show();
                 }
 
                 else{
@@ -931,7 +952,8 @@ public class ClothingActivity extends Activity {
                     }
                     PreferenceManager.setString(mContext, "WBLIST", tlist4);
 
-                    Toast.makeText(getApplicationContext(), "저장되었습니다.", Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(), "저장되었습니다.",
+                            Toast.LENGTH_LONG).show();
 
                     drawCloth();
                     alertDialog.dismiss();
@@ -1219,7 +1241,7 @@ public class ClothingActivity extends Activity {
                     public void onClick(View v) {
 
                         if (ShareT <= 4) {// 0~8 mantop 9~17 manbot 18~26 womantop 27 ~ 35 womanbot
-                            //mtlist[0] += topcloth[0] + " " + topcloth[1] + " " + topcloth[3]; 옷 빼기
+                            //mtlist[0] += topcloth[0] + " " + topcloth[1] +" "+topcloth[3];옷 빼기
                             // 옷 더하기 mtlist[0] += " 추가할옷";
                             if (sets == 1) {
                                 tempset[1] += 1;
@@ -1635,7 +1657,9 @@ public class ClothingActivity extends Activity {
                         PreferenceManager.setString(mContext, "WTLIST", tlist2);
 
 
-                        Toast.makeText(getApplicationContext(), "해당 의상의 체감온도를 올렸습니다.", Toast.LENGTH_LONG).show();
+                        Toast.makeText(getApplicationContext(), "해당 의상의 " +
+                                        "체감온도를 올렸습니다.",
+                                Toast.LENGTH_LONG).show();
 
                         drawCloth();
                         alertDialog.dismiss();
@@ -1649,7 +1673,7 @@ public class ClothingActivity extends Activity {
                     public void onClick(View v) {
 
                         if (ShareT <= 4) {// 0~8 mantop 9~17 manbot 18~26 womantop 27 ~ 35 womanbot
-                            //mtlist[0] += topcloth[0] + " " + topcloth[1] + " " + topcloth[3]; 옷 빼기
+                            //mtlist[0] += topcloth[0] + " " + topcloth[1] +" "+topcloth[3];옷 빼기
                             // 옷 더하기 mtlist[0] += " 추가할옷";
                             if (sets == 1) {
                                 tempset[0] -= 1;
@@ -2070,7 +2094,8 @@ public class ClothingActivity extends Activity {
                             botcloth = wblist[0].split(" ");
                         }
 
-                        Toast.makeText(getApplicationContext(), "해당 의상의 체감온도를 내렸습니다.", Toast.LENGTH_LONG).show();
+                        Toast.makeText(getApplicationContext(),
+                                "해당 의상의 체감온도를 내렸습니다.", Toast.LENGTH_LONG).show();
 
                         drawCloth();
                         alertDialog.dismiss();
@@ -2085,7 +2110,8 @@ public class ClothingActivity extends Activity {
         topImageView[i].setOnLongClickListener(new View.OnLongClickListener(){
             @Override
             public boolean onLongClick(View view) {
-                View dialogView = getLayoutInflater().inflate(R.layout.activity_clothdelete, null);
+                View dialogView = getLayoutInflater().inflate(R.layout.activity_clothdelete,
+                        null);
 
                 AlertDialog.Builder builder = new AlertDialog.Builder(view.getContext());
                 builder.setView(dialogView);
@@ -2109,7 +2135,7 @@ public class ClothingActivity extends Activity {
                     public void onClick(View view) {
 
                         if (ShareT <= 4) {// 0~8 mantop 9~17 manbot 18~26 womantop 27 ~ 35 womanbot
-                            //mtlist[0] += topcloth[0] + " " + topcloth[1] + " " + topcloth[3]; 옷 빼기
+                            //mtlist[0] += topcloth[0] + " " + topcloth[1] +" "+topcloth[3]; 옷 빼기
                             // 옷 더하기 mtlist[0] += " 추가할옷";
                             if (sets == 1) {
                                 topdelete(i,0,0,topcloth.length);
@@ -2204,7 +2230,8 @@ public class ClothingActivity extends Activity {
                         }
                         PreferenceManager.setString(mContext, "WTLIST", tlist2);
 
-                        Toast.makeText(getApplicationContext(), "삭제했습니다.", Toast.LENGTH_LONG).show();
+                        Toast.makeText(getApplicationContext(), "삭제했습니다.",
+                                Toast.LENGTH_LONG).show();
 
                         drawCloth();
                         alertDialog.dismiss();
@@ -2219,14 +2246,16 @@ public class ClothingActivity extends Activity {
         topTextView[i].setTextSize(10);
         topTextView[i].setTextColor(Color.WHITE);
         topTextView[i].setText(cloth);
-        LinearLayout.LayoutParams lp1 = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+        LinearLayout.LayoutParams lp1 = new LinearLayout.LayoutParams
+                (ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
         lp1.bottomMargin = 10;
         lp1.gravity = Gravity.CENTER_HORIZONTAL;
         topTextView[i].setLayoutParams(lp1);
         linearLayoutTopV[i].addView(topImageView[i],180,180);
         linearLayoutTopV[i].addView(topTextView[i]);
         linearLayoutTopV[i].setMinimumWidth(100);
-        LinearLayout.LayoutParams lp2 = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+        LinearLayout.LayoutParams lp2 = new LinearLayout.LayoutParams
+                (ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
         lp2.rightMargin = 70;
         linearLayoutTopV[i].setLayoutParams(lp2);
         linearLayoutTop.addView(linearLayoutTopV[i]);
@@ -2307,7 +2336,8 @@ public class ClothingActivity extends Activity {
             @Override
             public void onClick(View view) {
 
-                View dialogView = getLayoutInflater().inflate(R.layout.activity_clothcontrol, null);
+                View dialogView = getLayoutInflater().inflate(R.layout.activity_clothcontrol,
+                        null);
 
                 AlertDialog.Builder builder = new AlertDialog.Builder(view.getContext());
                 builder.setView(dialogView);
@@ -2800,7 +2830,8 @@ public class ClothingActivity extends Activity {
                         }
                         PreferenceManager.setString(mContext, "WBLIST", tlist4);
 
-                        Toast.makeText(getApplicationContext(), "해당 의상의 체감온도를 올렸습니다.", Toast.LENGTH_LONG).show();
+                        Toast.makeText(getApplicationContext(),
+                                "해당 의상의 체감온도를 올렸습니다.", Toast.LENGTH_LONG).show();
 
                         drawCloth();
                         alertDialog.dismiss();
@@ -2814,7 +2845,7 @@ public class ClothingActivity extends Activity {
                     public void onClick(View v) {
 
                         if (ShareT <= 4) {// 0~8 mantop 9~17 manbot 18~26 womantop 27 ~ 35 womanbot
-                            //mtlist[0] += topcloth[0] + " " + topcloth[1] + " " + topcloth[3]; 옷 빼기
+                            //mtlist[0] += topcloth[0] + " " + topcloth[1] +" "+topcloth[3];옷 빼기
                             // 옷 더하기 mtlist[0] += " 추가할옷";
                             if (sets == 1) {
                                 tempset[9] -= 1;
@@ -3228,7 +3259,8 @@ public class ClothingActivity extends Activity {
                         }
                         PreferenceManager.setString(mContext, "WBLIST", tlist4);
 
-                        Toast.makeText(getApplicationContext(), "해당 의상의 체감온도를 내렸습니다.", Toast.LENGTH_LONG).show();
+                        Toast.makeText(getApplicationContext(),
+                                "해당 의상의 체감온도를 내렸습니다.", Toast.LENGTH_LONG).show();
 
                         drawCloth();
                         alertDialog.dismiss();
@@ -3243,7 +3275,8 @@ public class ClothingActivity extends Activity {
         botImageView[i].setOnLongClickListener(new View.OnLongClickListener(){
             @Override
             public boolean onLongClick(View view) {
-                View dialogView = getLayoutInflater().inflate(R.layout.activity_clothdelete, null);
+                View dialogView = getLayoutInflater().inflate(R.layout.activity_clothdelete,
+                        null);
 
                 AlertDialog.Builder builder = new AlertDialog.Builder(view.getContext());
                 builder.setView(dialogView);
@@ -3267,7 +3300,7 @@ public class ClothingActivity extends Activity {
                     public void onClick(View view) {
 
                         if (ShareT <= 4) {// 0~8 mantop 9~17 manbot 18~26 womantop 27 ~ 35 womanbot
-                            //mtlist[0] += topcloth[0] + " " + topcloth[1] + " " + topcloth[3]; 옷 빼기
+                            //mtlist[0] += topcloth[0] + " " + topcloth[1] +" " +topcloth[3];옷 빼기
                             // 옷 더하기 mtlist[0] += " 추가할옷";
                             if (sets == 1) {
                                 botdelete(i,9,0,botcloth.length);
@@ -3361,7 +3394,8 @@ public class ClothingActivity extends Activity {
                         }
                         PreferenceManager.setString(mContext, "WBLIST", tlist4);
 
-                        Toast.makeText(getApplicationContext(), "삭제했습니다.", Toast.LENGTH_LONG).show();
+                        Toast.makeText(getApplicationContext(), "삭제했습니다.",
+                                Toast.LENGTH_LONG).show();
 
                         drawCloth();
                         alertDialog.dismiss();
@@ -3375,14 +3409,16 @@ public class ClothingActivity extends Activity {
         botTextView[i].setTextSize(10);
         botTextView[i].setTextColor(Color.WHITE);
         botTextView[i].setText(cloth);
-        LinearLayout.LayoutParams lp1 = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+        LinearLayout.LayoutParams lp1 = new LinearLayout.LayoutParams
+                (ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
         lp1.bottomMargin = 10;
         lp1.gravity = Gravity.CENTER_HORIZONTAL;
         botTextView[i].setLayoutParams(lp1);
         linearLayoutBotV[i].addView(botImageView[i],180,180);
         linearLayoutBotV[i].addView(botTextView[i]);
         linearLayoutBotV[i].setMinimumWidth(100);
-        LinearLayout.LayoutParams lp2 = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+        LinearLayout.LayoutParams lp2 = new LinearLayout.LayoutParams
+                (ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
         lp2.rightMargin = 70;
         linearLayoutBotV[i].setLayoutParams(lp2);
         linearLayoutBottom.addView(linearLayoutBotV[i]);

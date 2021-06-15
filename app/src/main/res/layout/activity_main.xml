@@ -462,7 +462,7 @@
                         android:layout_marginTop="20dp"
                         android:layout_marginBottom="30dp"
                         android:gravity="center"
-                        android:text="강수량"
+                        android:text="강수량\n(mm)"
                         android:textColor="#FFFFFF"
                         android:textSize="12dp"
                         android:textStyle="bold" />

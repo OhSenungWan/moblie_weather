@@ -21,7 +21,6 @@ public class NationalWeatherTable {
         this.x = x;
         this.y = y;
     }
-
     @Override
     public String toString() {
         return "NationalWeatherTable{" +
@@ -33,27 +32,21 @@ public class NationalWeatherTable {
                 ", y=" + y +
                 '}';
     }
-
     public long getCode() {
         return code;
     }
-
     public String getCity1() {
         return city1;
     }
-
     public String getCity2() {
         return city2;
     }
-
     public String getCity3() {
         return city3;
     }
-
     public int getX() {
         return x;
     }
-
     public int getY() {
         return y;
     }

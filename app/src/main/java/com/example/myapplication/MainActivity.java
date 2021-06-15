@@ -51,11 +51,16 @@ public class MainActivity extends AppCompatActivity {
     public static final int daySet = 10;
     public SharedPreferences prefs;
     String DOW;
-    String Short_Data[][][] = new String[3][8][14];  //날짜(0오늘 1내일 2모래 시간(0이 0시부터 3시단위 데이터
-    String Long_Temp[][] = new String[10][2];         //날짜(3일부터) 기온(최소0 최대가 1)
-    String Long_Tempex[][] = new String[8][2];         //날짜(3일부터) 기온(최소0 최대가 1)
-    String Long_Weather[][] = new String[10][4];      //날짜(3일부터) 날씨정보(0오전 최소 1최대 2오후 최소 3최대)
-    String Long_Weatherex[][] = new String[8][4];      //날짜(3일부터) 날씨정보(0오전 최소 1최대 2오후 최소 3최대)
+    String Short_Data[][][] = new String[3][8][14];
+    //날짜(0오늘 1내일 2모래 시간(0이 0시부터 3시단위 데이터
+    String Long_Temp[][] = new String[10][2];
+    //날짜(3일부터) 기온(최소0 최대가 1)
+    String Long_Tempex[][] = new String[8][2];
+    //날짜(3일부터) 기온(최소0 최대가 1)
+    String Long_Weather[][] = new String[10][4];
+    //날짜(3일부터) 날씨정보(0오전 최소 1최대 2오후 최소 3최대)
+    String Long_Weatherex[][] = new String[8][4];
+    //날짜(3일부터) 날씨정보(0오전 최소 1최대 2오후 최소 3최대)
     String Data_Air[] = new String[3];               //
     String city_data;
     String[] city;
@@ -142,10 +147,17 @@ public class MainActivity extends AppCompatActivity {
                         String changemin = "";
                         String changemax = "";
                         if(i!=2) {
-                            int cmin = (int) Double.parseDouble(sdc.set()[i][2][7]);
-                            changemin = Integer.toString(cmin);
-                            int cmax = (int) Double.parseDouble(sdc.set()[i][5][8]);
-                            changemax = Integer.toString(cmax);
+                            if(sdc.set()[i][2][7].equals("null")){
+                                int cmin = (int) Double.parseDouble(sdc.set()[i+1][2][7]);
+                                changemin = Integer.toString(cmin);
+                                int cmax = (int) Double.parseDouble(sdc.set()[i+1][5][8]);
+                                changemax = Integer.toString(cmax);
+                            }else {
+                                int cmin = (int) Double.parseDouble(sdc.set()[i][2][7]);
+                                changemin = Integer.toString(cmin);
+                                int cmax = (int) Double.parseDouble(sdc.set()[i][5][8]);
+                                changemax = Integer.toString(cmax);
+                            }
                         }else{
                             int cmin = (int) Double.parseDouble(sdc.set()[1][2][7]);
                             changemin = Integer.toString(cmin);
@@ -171,7 +183,8 @@ public class MainActivity extends AppCompatActivity {
                                 } else {
                                     Long_Weather[i][2] = "흐림";
                                 }
-                            } else if (sdc.set()[i][2][1].equals("3") || sdc.set()[i][2][1].equals("7")) {
+                            } else if (sdc.set()[i][2][1].equals("3") ||
+                                    sdc.set()[i][2][1].equals("7")) {
                                 Long_Weather[i][2] = "눈";
                             } else {
                                 Long_Weather[i][2] = "흐리고 비";
@@ -186,7 +199,8 @@ public class MainActivity extends AppCompatActivity {
                                 } else {
                                     Long_Weather[i][2] = "흐림";
                                 }
-                            } else if (sdc.set()[1][2][1].equals("3") || sdc.set()[1][2][1].equals("7")) {
+                            } else if (sdc.set()[1][2][1].equals("3") ||
+                                    sdc.set()[1][2][1].equals("7")) {
                                 Long_Weather[i][2] = "눈";
                             } else {
                                 Long_Weather[i][2] = "흐리고 비";
@@ -233,14 +247,16 @@ public class MainActivity extends AppCompatActivity {
                         PTY = Short_Data[sw.getDate()][i][1];
                     }
 
-                    else if(Integer.parseInt(POP) < Integer.parseInt(Short_Data[sw.getDate()][i][0]) ){
+                    else if(Integer.parseInt(POP) < Integer.parseInt
+                            (Short_Data[sw.getDate()][i][0]) ){
                         Wtype = Short_Data[sw.getDate()][i][5];
                     }
                 }
                 if(!Short_Data[sw.getDate()+1][0][1].equals("0")){
                     PTY = Short_Data[sw.getDate()+1][0][1];
                 }
-                else if(Integer.parseInt(POP) < Integer.parseInt(Short_Data[sw.getDate()+1][0][0]) ){
+                else if(Integer.parseInt(POP) < Integer.parseInt
+                        (Short_Data[sw.getDate()+1][0][0]) ){
                     Wtype = Short_Data[sw.getDate()+1][0][5];
                 }
 
@@ -283,7 +299,8 @@ public class MainActivity extends AppCompatActivity {
                                     AnimatedVectorDrawable avd = (AnimatedVectorDrawable) draw;
                                     avd.start();
                                 }else if(draw instanceof AnimatedVectorDrawableCompat){
-                                    AnimatedVectorDrawableCompat avd = (AnimatedVectorDrawableCompat) draw;
+                                    AnimatedVectorDrawableCompat avd =
+                                            (AnimatedVectorDrawableCompat) draw;
                                     avd.start();
                                 }
                                 Time_comment.setText("지금은 비가 오는 날씨에요.");
@@ -301,7 +318,8 @@ public class MainActivity extends AppCompatActivity {
                                     AnimatedVectorDrawable avd = (AnimatedVectorDrawable) draw;
                                     avd.start();
                                 }else if(draw instanceof AnimatedVectorDrawableCompat){
-                                    AnimatedVectorDrawableCompat avd = (AnimatedVectorDrawableCompat) draw;
+                                    AnimatedVectorDrawableCompat avd =
+                                            (AnimatedVectorDrawableCompat) draw;
                                     avd.start();
                                 }
                                 Time_comment.setText("지금은 눈이 내려요.");
@@ -319,7 +337,8 @@ public class MainActivity extends AppCompatActivity {
                                     AnimatedVectorDrawable avd = (AnimatedVectorDrawable) draw;
                                     avd.start();
                                 }else if(draw instanceof AnimatedVectorDrawableCompat){
-                                    AnimatedVectorDrawableCompat avd = (AnimatedVectorDrawableCompat) draw;
+                                    AnimatedVectorDrawableCompat avd =
+                                            (AnimatedVectorDrawableCompat) draw;
                                     avd.start();
                                 }
                                 Time_comment.setText("지금은 해가 뜨는 화창한 날씨에요.");
@@ -337,7 +356,8 @@ public class MainActivity extends AppCompatActivity {
                                     AnimatedVectorDrawable avd = (AnimatedVectorDrawable) draw;
                                     avd.start();
                                 }else if(draw instanceof AnimatedVectorDrawableCompat){
-                                    AnimatedVectorDrawableCompat avd = (AnimatedVectorDrawableCompat) draw;
+                                    AnimatedVectorDrawableCompat avd =
+                                            (AnimatedVectorDrawableCompat) draw;
                                     avd.start();
                                 }
                                 Time_comment.setText("지금은 구름이 많은 날씨에요.");
@@ -355,7 +375,8 @@ public class MainActivity extends AppCompatActivity {
                                     AnimatedVectorDrawable avd = (AnimatedVectorDrawable) draw;
                                     avd.start();
                                 }else if(draw instanceof AnimatedVectorDrawableCompat){
-                                    AnimatedVectorDrawableCompat avd = (AnimatedVectorDrawableCompat) draw;
+                                    AnimatedVectorDrawableCompat avd =
+                                            (AnimatedVectorDrawableCompat) draw;
                                     avd.start();
                                 }
                                 Time_comment.setText("지금은 매우 흐린 날씨에요.");
@@ -364,7 +385,8 @@ public class MainActivity extends AppCompatActivity {
                         if (PTY.equals("0")) {
                             switch (Wtype) {
                                 case "Sunny":
-                                    day_comment.setText("오늘은 전체적으로 해가 뜨는 화창한 날씨에요.");
+                                    day_comment.setText
+                                            ("오늘은 전체적으로 해가 뜨는 화창한 날씨에요.");
                                     break;
                                 case "Cloud":
                                     day_comment.setText("오늘은 전체적으로 매우 흐린 날씨에요.");
@@ -422,9 +444,11 @@ public class MainActivity extends AppCompatActivity {
                 point_weather = data.getStringExtra("code2");
                 setStart();
                 String Data;
-                Data = x_point + " " + y_point + " " + point_temp + " " + point_weather + " " + city_data;
+                Data = x_point + " " + y_point + " " + point_temp + " " +
+                        point_weather + " " + city_data;
                 PreferenceManager.setString(mContext, "rebuild", Data);
-                String intentdata = temp+"℃ " + pm10 + " "+weather + " " + pm25 + " " + pm10m + "ug/m3 " + pm25m + "ug/m3 " + pop + "%";
+                String intentdata = temp+"℃ " + pm10 + " "+weather +
+                        " " + pm25 + " " + pm10m + "ug/m3 " + pm25m + "ug/m3 " + pop + "%";
                 String twdata = temp + " " + wsd;
                 PreferenceManager.setString(mContext, "twdata", twdata);
                 PreferenceManager.setString(mContext, "data", intentdata);
@@ -502,7 +526,8 @@ public class MainActivity extends AppCompatActivity {
         setStart();
         String intentdata = PreferenceManager.getString(mContext,"data");
         if(intentdata.equals("")) {
-            intentdata = temp+"℃ " + pm10 + " "+weather + " " + pm25 + " " + Data_Air[0] + " " + Data_Air[1] + " " + pop;
+            intentdata = temp+"℃ " + pm10 + " "+weather + " " + pm25
+                    + " " + Data_Air[0] + " " + Data_Air[1] + " " + pop;
             PreferenceManager.setString(mContext, "data", intentdata);
 
         }
@@ -564,7 +589,8 @@ public class MainActivity extends AppCompatActivity {
 
             weatherImageView[i].setForegroundGravity(Gravity.CENTER_HORIZONTAL);
 
-            LinearLayout.LayoutParams lp1 = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+            LinearLayout.LayoutParams lp1 = new LinearLayout.LayoutParams
+                    (ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
             lp1.bottomMargin = 40;
             lp1.gravity = Gravity.CENTER_HORIZONTAL;
             timeTextView[i].setLayoutParams(lp1);
@@ -572,7 +598,8 @@ public class MainActivity extends AppCompatActivity {
             linearLayoutTopV[i].addView(weatherImageView[i],100,100);
             linearLayoutTopV[i].setMinimumWidth(100);
 
-            LinearLayout.LayoutParams lp2 = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+            LinearLayout.LayoutParams lp2 = new LinearLayout.LayoutParams
+                    (ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
             lp2.rightMargin = 70;
             linearLayoutTopV[i].setLayoutParams(lp2);
 
@@ -598,13 +625,13 @@ public class MainActivity extends AppCompatActivity {
             }
 
             String pop = Short_Data[day][time][0];
-            String r06 = Short_Data[day][time][2]+"mm";
+            String r06 = Short_Data[day][time][2];
 
             rainfallProbTextView[i].setText(pop + "%");
             rainfallProbTextView[i].setTextSize(14);
             rainfallProbTextView[i].setTextColor(Color.WHITE);
 
-            if(r06.equals("nullmm")){
+            if(r06.equals("null")){
                 r06= "";
             }
 
@@ -613,7 +640,8 @@ public class MainActivity extends AppCompatActivity {
             rainfallTextView[i].setTextSize(14);
             rainfallTextView[i].setTextColor(Color.WHITE);
 
-            LinearLayout.LayoutParams lp1 = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+            LinearLayout.LayoutParams lp1 = new LinearLayout.LayoutParams
+                    (ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
             lp1.bottomMargin = 40;
             lp1.gravity = Gravity.CENTER_HORIZONTAL;
             rainfallProbTextView[i].setLayoutParams(lp1);
@@ -622,7 +650,8 @@ public class MainActivity extends AppCompatActivity {
             linearLayoutBottomV[i].addView(rainfallTextView[i]);
             linearLayoutBottomV[i].setMinimumWidth(100);
 
-            LinearLayout.LayoutParams lp2 = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+            LinearLayout.LayoutParams lp2 = new LinearLayout.LayoutParams
+                    (ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
             lp2.rightMargin = 70;
             lp2.topMargin=20;
 
@@ -737,7 +766,8 @@ public class MainActivity extends AppCompatActivity {
 
             weatherImageView[i].setForegroundGravity(Gravity.CENTER_HORIZONTAL);
 
-            LinearLayout.LayoutParams lp1 = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+            LinearLayout.LayoutParams lp1 = new LinearLayout.LayoutParams
+                    (ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
             lp1.bottomMargin = 60;
             lp1.gravity = Gravity.CENTER_HORIZONTAL;
             dayTextView[i].setLayoutParams(lp1);
@@ -746,7 +776,8 @@ public class MainActivity extends AppCompatActivity {
             linearLayoutTopV[i].addView(weatherImageView[i], 100, 100);
             linearLayoutTopV[i].setMinimumWidth(120);
 
-            LinearLayout.LayoutParams lp2 = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+            LinearLayout.LayoutParams lp2 = new LinearLayout.LayoutParams
+                    (ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
             lp2.rightMargin = 70;
             linearLayoutTopV[i].setLayoutParams(lp2);
 
@@ -768,14 +799,16 @@ public class MainActivity extends AppCompatActivity {
             rainfallProbTextView[i].setTextSize(14);
             rainfallProbTextView[i].setTextColor(Color.WHITE);
 
-            LinearLayout.LayoutParams lp1 = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+            LinearLayout.LayoutParams lp1 = new LinearLayout.LayoutParams
+                    (ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
             lp1.gravity = Gravity.CENTER_HORIZONTAL;
             rainfallProbTextView[i].setLayoutParams(lp1);
 
             linearLayoutBottomV[i].addView(rainfallProbTextView[i]);
             linearLayoutBottomV[i].setMinimumWidth(120);
 
-            LinearLayout.LayoutParams lp2 = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+            LinearLayout.LayoutParams lp2 = new LinearLayout.LayoutParams
+                    (ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
             lp2.rightMargin = 70;
             lp2.topMargin=60;
 

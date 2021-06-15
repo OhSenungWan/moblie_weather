@@ -49,11 +49,15 @@ public class setdata_short {
                 date = yesterday.get(yesterday.DATE);
             }
             int bdate = (year * 10000) + (month * 100) + date;
-            int pdate = (pday.get(cal.YEAR)*10000)+((pday.get(cal.MONTH)+1)*100)+(pday.get(cal.DATE));
-            int ppdate = (ppday.get(cal.YEAR)*10000)+((ppday.get(cal.MONTH)+1)*100)+(ppday.get(cal.DATE));
+            int pdate = (pday.get(cal.YEAR)*10000)+((pday.get(cal.MONTH)+1)*100)
+                    +(pday.get(cal.DATE));
+            int ppdate = (ppday.get(cal.YEAR)*10000)+((ppday.get(cal.MONTH)+1)*100)
+                    +(ppday.get(cal.DATE));
             if (hour < 04 && AMPM == 0){
-                pdate = (cal.get(cal.YEAR)*10000)+((cal.get(cal.MONTH)+1)*100)+(cal.get(cal.DATE));
-                ppdate = (pday.get(cal.YEAR)*10000)+((pday.get(cal.MONTH)+1)*100)+(pday.get(cal.DATE));
+                pdate = (cal.get(cal.YEAR)*10000)+((cal.get(cal.MONTH)+1)*100)
+                        +(cal.get(cal.DATE));
+                ppdate = (pday.get(cal.YEAR)*10000)+((pday.get(cal.MONTH)+1)*100)
+                        +(pday.get(cal.DATE));
             }
             if(AMPM == 1)
             {
@@ -102,7 +106,8 @@ public class setdata_short {
 
             String apiUrl = "http://apis.data.go.kr/1360000/VilageFcstInfoService/getVilageFcst";
             // 홈페이지에서 받은 키
-            String serviceKey = "iBjzgZZ3CoomVMGYL8eQNbd7JCaJXC5qhWtN3hV4s3ZMcUMVbskatC7x2ADNcsPP7aZ4bXWd5BKd0ukxLuL25Q%3D%3D";
+            String serviceKey = "iBjzgZZ3CoomVMGYL8eQNbd" +
+                    "7JCaJXC5qhWtN3hV4s3ZMcUMVbskatC7x2ADNcsPP7aZ4bXWd5BKd0ukxLuL25Q%3D%3D";
             String pageNo = "1";
             String numOfRows = "250";    //한 페이지 결과 수
             String dataType = "xml";    //타입 xml, json 등등 .
